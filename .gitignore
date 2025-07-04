@@ -1,0 +1,41 @@
+# Binaries
+bin/
+build/
+dist/
+
+# If you build your binary in root, ignore it
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go modules cache and vendor (optional)
+vendor/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.tmp
+*.DS_Store
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Ignore your generated static site folder, since it's build output
+dist/
+
+# Optional: Ignore cmd/builder executable if built there
+cmd/builder/*.exe
+cmd/builder/*.out
+cmd/builder/*.log
+
+# Optional: ignore any temporary files
+*.tmp
+*.bak
