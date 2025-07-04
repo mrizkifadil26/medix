@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+export $(cat .env.github | xargs)
+
 # Step 1: Build the static site
 go run cmd/builder/main.go
 
