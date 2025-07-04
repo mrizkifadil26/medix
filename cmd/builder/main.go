@@ -102,7 +102,13 @@ func main() {
 	fIndex := mustCreate(filepath.Join(distDir, "index.html"))
 	defer fIndex.Close()
 
-	err := tmplIndex.ExecuteTemplate(fIndex, "base.tmpl", progress)
+	err := tmplIndex.ExecuteTemplate(fIndex, "base.tmpl", map[string]any{
+		"BaseURL": baseURL,
+		"Genres":  progress.Genres,
+		"Done":    progress.Done,
+		"Total":   progress.Total,
+		"Percent": progress.Percent,
+	})
 	if err != nil {
 		log.Fatalf("Failed to render index.html: %v", err)
 	}
