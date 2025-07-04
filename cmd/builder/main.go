@@ -7,6 +7,8 @@ import (
 	"path/filepath"
 	"sort"
 	"text/template"
+
+	"github.com/joho/godotenv"
 )
 
 type Title struct {
@@ -66,6 +68,13 @@ func loadGenreTitleMap(path string) GenreMap {
 }
 
 func main() {
+	_ = godotenv.Load()
+
+	baseURL := os.Getenv("BASE_URL")
+	if baseURL == "" {
+		baseURL = ""
+	}
+
 	distDir := "dist"
 	moviesDir := filepath.Join(distDir, "movies")
 
@@ -113,6 +122,7 @@ func main() {
 	defer fGenres.Close()
 
 	err = tmplGenres.ExecuteTemplate(fGenres, "base.tmpl", map[string]any{
+		"BaseURL": baseURL,
 		"Type":    "Movies",
 		"TypeURL": "movies",
 		"Genres":  genres,
@@ -141,6 +151,7 @@ func main() {
 		}
 
 		err = tmplTitles.ExecuteTemplate(f, "base.tmpl", map[string]any{
+			"BaseURL": baseURL,
 			"Genre":   genre,
 			"Titles":  formatted,
 			"Type":    "Movies",

@@ -1,7 +1,7 @@
 {{ define "title" }}{{ .Genre }} Titles{{ end }}
 
 {{ define "content" }}
-  <a href="/{{ .TypeURL }}" style="text-decoration:none;">← Back</a>
+  <a href="{{ .BaseURL }}/{{ .TypeURL }}" style="text-decoration:none;">← Back</a>
 
   <h1>{{ .Genre }} - {{ .Type }}</h1>
   <ul>

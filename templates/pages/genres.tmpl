@@ -6,7 +6,7 @@
   <h1>{{ .Type }} Genres</h1>
   <ul>
     {{ range .Genres }}
-      <li><a href="/{{ $.TypeURL }}/{{ . }}">{{ . }}</a></li>
+      <li><a href="{{ .BaseURL }}/{{ $.TypeURL }}/{{ . }}">{{ . }}</a></li>
     {{ end }}
   </ul>
 {{ end }}
