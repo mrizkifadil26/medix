@@ -11,6 +11,7 @@ import (
 
 	"github.com/gin-contrib/multitemplate"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 type MediaMap map[string][]string
@@ -32,6 +33,12 @@ func loadJSON(path string) (map[string][]TitleInfo, error) {
 }
 
 func main() {
+	loadEnv()
+	baseURL := os.Getenv("BASE_URL")
+	if baseURL == "" {
+		log.Println("⚠️  BASE_URL is empty. Assuming local build.")
+	}
+
 	router := gin.Default()
 	router.Static("/static", "./public")
 	// r.Static("/data", "./output")
@@ -68,6 +75,7 @@ func main() {
 		sort.Strings(genres)
 
 		c.HTML(http.StatusOK, "genres", gin.H{
+			"BaseURL": baseURL,
 			"Type":    "Movies",
 			"TypeURL": "movies",
 			"Genres":  genres,
@@ -84,6 +92,7 @@ func main() {
 		sort.Strings(genres)
 
 		c.HTML(http.StatusOK, "genres", gin.H{
+			"BaseURL": baseURL,
 			"Type":    "TV Shows",
 			"TypeURL": "tvshows",
 			"Genres":  genres,
@@ -104,6 +113,7 @@ func main() {
 		}
 
 		c.HTML(http.StatusOK, "titles", gin.H{
+			"BaseURL": baseURL,
 			"Type":    "Movies",
 			"TypeURL": "movies",
 			"Genre":   genre,
@@ -125,6 +135,7 @@ func main() {
 		}
 
 		c.HTML(http.StatusOK, "titles", gin.H{
+			"BaseURL": baseURL,
 			"Type":    "TV Shows",
 			"TypeURL": "tvshows",
 			"Genre":   genre,
@@ -179,4 +190,11 @@ func loadProgress(path string) (*Progress, error) {
 		return nil, err
 	}
 	return &progress, nil
+}
+
+func loadEnv() {
+	// Try .env.github first (for CI/deploy), fallback to .env (local)
+	if err := godotenv.Load(".env.github"); err != nil {
+		_ = godotenv.Load(".env")
+	}
 }
