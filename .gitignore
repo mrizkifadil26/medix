@@ -2,6 +2,7 @@
 bin/
 build/
 dist/
+tmp/
 
 # If you build your binary in root, ignore it
 *.exe
