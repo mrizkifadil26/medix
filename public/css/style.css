@@ -128,8 +128,7 @@ main {
 .progress-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
+  table-layout: auto; /* Allow columns to grow naturally */
   background-color: #fff;
   border-radius: 6px;
   overflow: hidden;
@@ -138,10 +137,11 @@ main {
 
 .progress-table th,
 .progress-table td {
-  border: 1px solid #ddd;
-  padding: 10px 12px;
-  text-align: left;
+  padding: 0.75rem 1rem; /* Breathing space */
+  text-align: center;    /* Center all columns */
   vertical-align: middle;
+  border: 1px solid #e0e0e0;
+  font-size: 0.95rem;
 }
 
 .progress-table th {
@@ -149,6 +149,22 @@ main {
   color: #333;
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+/* Align only Genre column to the left */
+.progress-table th:nth-child(1),
+.progress-table td:nth-child(1) {
+  text-align: left;
+  white-space: nowrap;
+  width: 1%;
+}
+
+/* Status column still compact and centered */
+.progress-table th:nth-child(3),
+.progress-table td:nth-child(3) {
+  text-align: center;
+  white-space: nowrap;
+  width: 1%;
 }
 
 .bar-container {
