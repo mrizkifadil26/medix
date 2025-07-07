@@ -1,6 +1,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  margin: 2em;
+  margin: 0;
+  padding: 1rem;
   background: #f9f9f9;
   color: #333;
 }
@@ -8,6 +9,26 @@ body {
 h1 {
   color: #222;
   margin-bottom: 1em;
+}
+
+header {
+  background-color: #222;
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem;
 }
 
 .progress-container {
@@ -44,42 +65,118 @@ h1 {
   color: #222;
 }
 
-/* ✅ Make the table horizontally scrollable on small screens */
-#progress-table {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-}
-
-#progress-table table {
+progress-table {
   width: 100%;
-  min-width: 600px;
   border-collapse: collapse;
-  background: white;
+  margin-top: 1rem;
 }
 
-#progress-table th,
-#progress-table td {
-  padding: 12px 10px;
+.progress-table th,
+.progress-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+/* Legend */
+.legend {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.legend .box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.bar-ico {
+  background: #4caf50;
+}
+
+.bar-png {
+  background: repeating-linear-gradient(
+    45deg,
+    #2196f3,
+    #2196f3 8px,
+    #1e88e5 8px,
+    #1e88e5 16px
+  );
+}
+
+.bar-raw {
+  background: repeating-linear-gradient(
+    45deg,
+    #e0e0e0,
+    #e0e0e0 8px,
+    #cccccc 8px,
+    #cccccc 16px
+  );
+}
+
+/* Stacked bar container */
+.stacked-bar {
+  margin-bottom: 1.2rem;
+}
+
+.bar-container {
+  position: relative;
+  display: flex;
+  height: 24px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px #ccc;
+  width: 100%;
+  min-width: 180px;
+}
+
+.bar-container > div {
+  height: 100%;
+}
+
+.bar-label {
+  position: absolute;
+  width: 100%;
   text-align: center;
-  border-bottom: 1px solid #eee;
-  font-size: 1rem;
-}
-
-#progress-table th {
-  background-color: #f9f9f9;
+  line-height: 24px;
+  font-size: 0.85rem;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
   font-weight: bold;
 }
 
-#progress-table td:last-child {
-  font-size: 1.2em;
+.bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.bar-info {
+  font-size: 0.85rem;
+  text-align: right;
+  color: #555;
+  margin-top: 2px;
 }
 
 /* ✅ Responsive tweaks for mobile */
 @media (max-width: 600px) {
   body {
     font-size: 16px;
+    padding: 0.75rem 0.5rem;
+  }
+
+  header nav {
+    justify-content: space-around;
+  }
+
+  header a {
+    flex: 1 1 auto;
+    text-align: center;
   }
   
   h1 {
@@ -95,16 +192,28 @@ h1 {
     line-height: 24px;
   }
 
-  #progress-table table {
-    font-size: 0.95em;
+  .bar-label {
+    font-size: 0.8rem;
   }
-  
-  #progress-table::before {
-    content: "⬅️ Swipe to see more";
-    display: block;
-    font-size: 0.8em;
-    color: #666;
-    margin: 6px;
+
+  .legend {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .legend div {
+    justify-content: center;
+  }
+
+  .bar-info {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
+  .bar-wrapper {
+    gap: 2px;
   }
 }
 
@@ -149,4 +258,25 @@ ul {
 
 li {
   padding: 6px 0;
+}
+
+.bar-info {
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.bar-count.ico {
+  color: #4caf50; /* green */
+}
+
+.bar-count.png {
+  color: #2196f3; /* blue */
+}
+
+.bar-count.raw {
+  color: #999; /* gray */
 }
