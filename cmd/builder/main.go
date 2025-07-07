@@ -8,6 +8,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 func must(err error) {
@@ -96,8 +97,11 @@ func main() {
 		var obj any
 		must(json.Unmarshal(raw, &obj))
 
+		typeKey := strings.TrimSuffix(jsonFile, ".json")
+
 		pageData := map[string]any{
 			"Title": title,
+			"Type":  typeKey,                  // Used in JS to fetch the right file
 			"Data":  template.JS(string(raw)), // JS object injection
 		}
 

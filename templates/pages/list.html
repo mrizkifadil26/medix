@@ -1,7 +1,10 @@
-{{ define "title" }}{{ .Type }} by Genre{{ end }}
+{{ define "title" }}{{ .Title }} by Genre{{ end }}
 
 {{ define "content" }}
-  <h1>{{ .Type }} by Genre</h1>
+  <h1>{{ .Title }} by Genre</h1>
   <div id="genre-list" class="genre-list">Loading...</div>
+  <script>
+    window.DATA_TYPE = "{{ .Type }}"; // inject variable like "movies" or "tv_shows"
+  </script>
   <script src="js/list.js"></script>
 {{ end }}

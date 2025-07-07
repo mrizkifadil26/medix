@@ -592,4 +592,5 @@ ul.title-list > li:not(:has(details)):hover {
 summary .count {
   font-size: 0.8rem;
   font-weight: 500;
+  color: #737373;
 }

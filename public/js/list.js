@@ -17,10 +17,12 @@ const GENRE_EMOJIS = {
 };
 
 async function loadGroupedTitles() {
-  const res = await fetch("data/movies.json");
+  const type = window.DATA_TYPE || "movies"; // fallback to movies
+  const res = await fetch(`data/${type}.json`);
   const data = await res.json();
   renderGroupedList(data);
 }
+
 
 function renderGroupedList(genres) {
   const container = document.getElementById("genre-list");
@@ -35,7 +37,7 @@ function renderGroupedList(genres) {
 
     genreSummary.innerHTML = `
       <strong>${icon} ${genre}</strong>
-      <span class="count">(${items.length} items)</span>
+      <span class="count">(${items.length})</span>
       <span class="genre-chevron chevron" style="float:right;">${getChevronDown()}</span>
     `;
     genreDetails.appendChild(genreSummary);
