@@ -66,3 +66,23 @@ th {
 td:last-child {
   font-size: 1.2em;
 }
+
+section {
+  margin-bottom: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+  margin-top: 2em;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  padding: 6px 0;
+}
