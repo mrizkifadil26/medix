@@ -1,174 +1,115 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
+	"fmt"
+	"html/template"
+	"io/fs"
 	"log"
 	"os"
 	"path/filepath"
-	"sort"
-	"text/template"
-
-	"github.com/joho/godotenv"
 )
 
-type Title struct {
-	Name   string `json:"name"`
-	Status string `json:"status"`
-}
-
-type GenreStatus struct {
-	Genre  string
-	Raw    int
-	Png    int
-	Ico    int
-	Status string
-}
-
-type Progress struct {
-	Genres  []GenreStatus
-	Done    int
-	Total   int
-	Percent int
-}
-
-type GenreMap map[string][]Title
-
-func mustCreate(path string) *os.File {
-	f, err := os.Create(path)
+func must(err error) {
 	if err != nil {
-		log.Fatalf("Failed to create %s: %v", path, err)
+		log.Fatal(err)
 	}
-	return f
 }
 
-func loadProgress(path string) Progress {
-	f, err := os.Open(path)
-	if err != nil {
-		log.Fatalf("Failed to read progress JSON: %v", err)
-	}
+func renderPageFiles(files []string, outPath string, data any) {
+	tmpl, err := template.ParseFiles(files...)
+	must(err)
+
+	var buf bytes.Buffer
+	err = tmpl.ExecuteTemplate(&buf, "base", data)
+	must(err)
+
+	// 🔍 Debug: print to console
+	fmt.Println("----- " + outPath + " -----")
+	fmt.Println(buf.String())
+
+	// 💾 Write to output file
+	f, err := os.Create(outPath)
+	must(err)
 	defer f.Close()
-	var progress Progress
-	if err := json.NewDecoder(f).Decode(&progress); err != nil {
-		log.Fatalf("Failed to decode progress JSON: %v", err)
-	}
-	return progress
+
+	_, err = f.Write(buf.Bytes())
+	must(err)
 }
 
-func loadGenreTitleMap(path string) GenreMap {
-	f, err := os.Open(path)
+func copyFile(src, dst string) error {
+	input, err := os.ReadFile(src)
 	if err != nil {
-		log.Fatalf("Failed to open genre/title JSON: %v", err)
+		return err
 	}
-	defer f.Close()
-	var data GenreMap
-	if err := json.NewDecoder(f).Decode(&data); err != nil {
-		log.Fatalf("Failed to decode genre/title JSON: %v", err)
-	}
-	return data
+	return os.WriteFile(dst, input, 0644)
+}
+
+func copyDir(src, dst string) error {
+	return filepath.Walk(src, func(path string, info fs.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		targetPath := filepath.Join(dst, path[len(src):])
+		if info.IsDir() {
+			return os.MkdirAll(targetPath, 0755)
+		}
+		return copyFile(path, targetPath)
+	})
 }
 
 func main() {
-	_ = godotenv.Load()
+	log.Println("🔨 Building static site with templates...")
 
-	baseURL := os.Getenv("BASE_URL")
-	if baseURL == "" {
-		baseURL = ""
-	}
+	// Clean and prepare dist
+	os.RemoveAll("dist")
+	os.MkdirAll("dist/css", 0755)
+	os.MkdirAll("dist/js", 0755)
+	os.MkdirAll("dist/data", 0755)
 
-	distDir := "dist"
-	moviesDir := filepath.Join(distDir, "movies")
+	// Copy static assets
+	copyDir("public/js", "dist/js")
+	copyDir("public/css", "dist/css")
+	copyDir("data", "dist/data")
 
-	// Create output directories
-	if err := os.MkdirAll(moviesDir, 0755); err != nil {
-		log.Fatalf("Failed to create dist directories: %v", err)
-	}
-
-	// Parse templates
-	tmplIndex := template.Must(template.ParseFiles(
-		"templates/layouts/base.tmpl",
-		"templates/pages/index.tmpl",
-	))
-	tmplGenres := template.Must(template.ParseFiles(
-		"templates/layouts/base.tmpl",
-		"templates/pages/genres.tmpl",
-	))
-	tmplTitles := template.Must(template.ParseFiles(
-		"templates/layouts/base.tmpl",
-		"templates/pages/titles.tmpl",
-	))
-
-	// Load and generate progress index.html
-	progress := loadProgress("data/progress.json")
-	fIndex := mustCreate(filepath.Join(distDir, "index.html"))
-	defer fIndex.Close()
-
-	err := tmplIndex.ExecuteTemplate(fIndex, "base.tmpl", map[string]any{
-		"BaseURL": baseURL,
-		"Genres":  progress.Genres,
-		"Done":    progress.Done,
-		"Total":   progress.Total,
-		"Percent": progress.Percent,
+	// Render Home
+	renderPageFiles([]string{
+		"templates/layouts/base.html",
+		"templates/pages/index.html",
+	}, "dist/index.html", map[string]any{
+		"Title": "Media Tracker",
 	})
-	if err != nil {
-		log.Fatalf("Failed to render index.html: %v", err)
-	}
 
-	// Load genre-title map for movies
-	genreMap := loadGenreTitleMap("data/movies.json")
-
-	// Extract sorted genres list
-	var genres []string
-	for g := range genreMap {
-		genres = append(genres, g)
-	}
-	sort.Strings(genres)
-
-	// Generate movies genre index page
-	fGenres := mustCreate(filepath.Join(moviesDir, "index.html"))
-	defer fGenres.Close()
-
-	err = tmplGenres.ExecuteTemplate(fGenres, "base.tmpl", map[string]any{
-		"BaseURL": baseURL,
-		"Type":    "Movies",
-		"TypeURL": "movies",
-		"Genres":  genres,
+	// Render About
+	renderPageFiles([]string{
+		"templates/layouts/base.html",
+		"templates/pages/about.html",
+	}, "dist/about.html", map[string]any{
+		"Title": "About",
 	})
-	if err != nil {
-		log.Fatalf("Failed to render movies genre index: %v", err)
+
+	// Render Movies and TV Shows
+	renderData := func(jsonFile, title, outFile string) {
+		raw, err := os.ReadFile("data/" + jsonFile)
+		must(err)
+
+		var obj any
+		must(json.Unmarshal(raw, &obj))
+
+		pageData := map[string]any{
+			"Title": title,
+			"Data":  template.JS(string(raw)), // JS object injection
+		}
+
+		renderPageFiles([]string{
+			"templates/layouts/base.html",
+			"templates/pages/category.html",
+		}, "dist/"+outFile, pageData)
 	}
 
-	// Generate title pages per genre
-	for _, genre := range genres {
-		titles := genreMap[genre]
-		outPath := filepath.Join(moviesDir, genre+".html")
+	renderData("movies.json", "Movies", "movies.html")
+	renderData("tv_shows.json", "TV Shows", "tvshows.html")
 
-		f, err := os.Create(outPath)
-		if err != nil {
-			log.Printf("Failed to create %s: %v", outPath, err)
-			continue
-		}
-
-		var formatted []map[string]string
-		for _, t := range titles {
-			formatted = append(formatted, map[string]string{
-				"name":   t.Name,
-				"status": t.Status,
-			})
-		}
-
-		err = tmplTitles.ExecuteTemplate(f, "base.tmpl", map[string]any{
-			"BaseURL": baseURL,
-			"Genre":   genre,
-			"Titles":  formatted,
-			"Type":    "Movies",
-			"TypeURL": "movies",
-		})
-		f.Close()
-
-		if err != nil {
-			log.Printf("Failed to render titles page for %s: %v", genre, err)
-		}
-	}
-
-	log.Println("✅ Static site generated in ./dist")
+	log.Println("✅ Static site generated in dist/")
 }
