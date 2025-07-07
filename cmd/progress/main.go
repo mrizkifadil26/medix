@@ -16,6 +16,7 @@ type GenreStatus struct {
 	Png    int    `json:"png"`
 	Ico    int    `json:"ico"`
 	Status string `json:"status"`
+	Icon   string `json:"icon"` // ➕ Add this line
 }
 
 type Progress struct {
@@ -23,6 +24,21 @@ type Progress struct {
 	Done    int           `json:"done"`
 	Total   int           `json:"total"`
 	Percent int           `json:"percent"`
+}
+
+var genreIcons = map[string]string{
+	"Action":    "🔥",
+	"Comedy":    "😂",
+	"Drama":     "🎭",
+	"Horror":    "👻",
+	"Romance":   "💕",
+	"Thriller":  "🔪",
+	"Sci-Fi":    "👽",
+	"Fantasy":   "🧙",
+	"Family":    "🏠",
+	"Animation": "🎨",
+	"Crime":     "🔍",
+	"Mystery":   "🧩",
 }
 
 func main() {
@@ -98,7 +114,9 @@ func main() {
 			progress.Done++
 		}
 
-		fmt.Printf("%-15s%8d%8d%8d%10s\n", genre, raw, png, ico, status)
+		icon := genreIcons[genre]
+		genreDisplay := fmt.Sprintf("%s %s", icon, genre)
+		fmt.Printf("%-15s%8d%8d%8d%10s\n", genreDisplay, raw, png, ico, status)
 
 		progress.Genres = append(progress.Genres, GenreStatus{
 			Genre:  genre,
@@ -106,6 +124,7 @@ func main() {
 			Png:    png,
 			Ico:    ico,
 			Status: status,
+			Icon:   icon,
 		})
 	}
 

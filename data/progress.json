@@ -5,84 +5,96 @@
       "raw": 259,
       "png": 0,
       "ico": 0,
-      "status": "⏳"
+      "status": "⏳",
+      "icon": "👻"
     },
     {
       "genre": "Drama",
       "raw": 250,
       "png": 0,
       "ico": 0,
-      "status": "⏳"
+      "status": "⏳",
+      "icon": "🎭"
     },
     {
       "genre": "Animation",
       "raw": 206,
       "png": 0,
       "ico": 0,
-      "status": "⏳"
+      "status": "⏳",
+      "icon": "🎨"
     },
     {
       "genre": "Comedy",
       "raw": 119,
       "png": 0,
       "ico": 0,
-      "status": "⏳"
+      "status": "⏳",
+      "icon": "😂"
     },
     {
       "genre": "Thriller",
       "raw": 79,
       "png": 0,
       "ico": 0,
-      "status": "⏳"
+      "status": "⏳",
+      "icon": "🔪"
     },
     {
       "genre": "Action",
       "raw": 65,
       "png": 0,
       "ico": 0,
-      "status": "⏳"
+      "status": "⏳",
+      "icon": "🔥"
     },
     {
       "genre": "Romance",
       "raw": 56,
       "png": 0,
       "ico": 0,
-      "status": "⏳"
+      "status": "⏳",
+      "icon": "💕"
     },
     {
       "genre": "Sci-Fi",
       "raw": 41,
       "png": 41,
       "ico": 41,
-      "status": "✅"
+      "status": "✅",
+      "icon": "👽"
     },
     {
       "genre": "Fantasy",
       "raw": 31,
       "png": 31,
       "ico": 31,
-      "status": "✅"
+      "status": "✅",
+      "icon": "🧙"
     },
     {
       "genre": "Family",
       "raw": 20,
       "png": 20,
       "ico": 20,
-      "status": "✅"
+      "status": "✅",
+      "icon": "🏠"
     },
     {
       "genre": "Mystery",
       "raw": 19,
       "png": 19,
       "ico": 19,
-      "status": "✅"
+      "status": "✅",
+      "icon": "🧩"
     },
     {
       "genre": "Crime",
       "raw": 9,
       "png": 9,
       "ico": 9,
-      "status": "✅"
+      "status": "✅",
+      "icon": "🔍"
     }
   ],
   "done": 5,
