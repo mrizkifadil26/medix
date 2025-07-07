@@ -1,14 +1,58 @@
-document.querySelectorAll('.topbar a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const page = e.target.getAttribute('data-page');
+async function loadProgress() {
+  const res = await fetch("data/progress.json");
+  const json = await res.json();
 
-    // Update topbar
-    document.querySelectorAll('.topbar a').forEach(a => a.classList.remove('active'));
-    e.target.classList.add('active');
+  renderProgressBar(json.percent, json.done, json.total);
+  renderProgressTable(json.genres);
+}
 
-    // Toggle page
-    document.querySelectorAll('.page').forEach(section => section.classList.remove('active'));
-    document.getElementById(page)?.classList.add('active');
+function renderProgressBar(percent, done, total) {
+  const container = document.getElementById("progress-bar-container");
+  container.innerHTML = `
+    <div class="progress-container">
+      <strong>Progress:</strong>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: ${percent}%;"></div>
+        <div class="progress-text">${percent}% (${done}/${total})</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderProgressTable(genres) {
+  const container = document.getElementById("progress-table");
+  let html = `
+    <table>
+      <thead>
+        <tr>
+          <th>Genre</th>
+          <th>RAW</th>
+          <th>PNG</th>
+          <th>ICO</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  genres.forEach(genre => {
+    html += `
+      <tr>
+        <td>${genre.genre}</td>
+        <td>${genre.raw}</td>
+        <td>${genre.png}</td>
+        <td>${genre.ico}</td>
+        <td>${genre.status}</td>
+      </tr>
+    `;
   });
-});
+
+  html += `
+      </tbody>
+    </table>
+  `;
+
+  container.innerHTML = html;
+}
+
+window.addEventListener("DOMContentLoaded", loadProgress);
