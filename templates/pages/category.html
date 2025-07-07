@@ -1,0 +1,10 @@
+{{ define "title" }}{{ .Title }} - Media Tracker{{ end }}
+{{ define "header" }}📁 {{ .Title }} by Genre{{ end }}
+
+{{ define "content" }}
+  <div id="category-container"></div>
+  <script>
+    window.__CATEGORY_DATA__ = {{ .Data }};
+  </script>
+  <script src="js/category.js"></script>
+{{ end }}
