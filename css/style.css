@@ -47,26 +47,28 @@ h1 {
 /* ✅ Make the table horizontally scrollable on small screens */
 #progress-table {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
 #progress-table table {
   width: 100%;
-  min-width: 500px;
+  min-width: 600px;
   border-collapse: collapse;
   background: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 #progress-table th,
 #progress-table td {
-  padding: 12px;
+  padding: 12px 10px;
   text-align: center;
   border-bottom: 1px solid #eee;
+  font-size: 1rem;
 }
 
 #progress-table th {
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
   font-weight: bold;
 }
 
@@ -76,8 +78,12 @@ h1 {
 
 /* ✅ Responsive tweaks for mobile */
 @media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+  
   h1 {
-    font-size: 1.2em;
+    font-size: 1.25em;
   }
 
   .progress-bar {
@@ -90,7 +96,15 @@ h1 {
   }
 
   #progress-table table {
-    font-size: 0.9em;
+    font-size: 0.95em;
+  }
+  
+  #progress-table::before {
+    content: "⬅️ Swipe to see more";
+    display: block;
+    font-size: 0.8em;
+    color: #666;
+    margin: 6px;
   }
 }
 
