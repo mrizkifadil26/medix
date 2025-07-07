@@ -3,16 +3,11 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"flag"
-	"fmt"
 	"html/template"
 	"io/fs"
 	"log"
 	"os"
 	"path/filepath"
-	"time"
-
-	"github.com/fsnotify/fsnotify"
 )
 
 func must(err error) {
@@ -30,8 +25,8 @@ func renderPageFiles(files []string, outPath string, data any) {
 	must(err)
 
 	// 🔍 Debug: print to console
-	fmt.Println("----- " + outPath + " -----")
-	fmt.Println(buf.String())
+	// fmt.Println("----- " + outPath + " -----")
+	// fmt.Println(buf.String())
 
 	// 💾 Write to output file
 	f, err := os.Create(outPath)
@@ -64,17 +59,6 @@ func copyDir(src, dst string) error {
 }
 
 func main() {
-	watch := flag.Bool("watch", false, "Watch files and rebuild on changes")
-	flag.Parse()
-
-	if *watch {
-		startWatcher()
-	} else {
-		buildSite()
-	}
-}
-
-func buildSite() {
 	log.Println("🔨 Building static site with templates...")
 
 	// Clean and prepare dist
@@ -127,48 +111,4 @@ func buildSite() {
 	renderData("tv_shows.json", "TV Shows", "tvshows.html")
 
 	log.Println("✅ Static site generated in dist/")
-}
-
-func startWatcher() {
-	watcher, err := fsnotify.NewWatcher()
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer watcher.Close()
-
-	watchDirs := []string{"templates", "data", "public"}
-	for _, dir := range watchDirs {
-		err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
-			if info.IsDir() {
-				return watcher.Add(path)
-			}
-			return nil
-		})
-		if err != nil {
-			log.Fatal(err)
-		}
-	}
-
-	log.Println("👀 Watching for changes...")
-
-	var timer *time.Timer
-
-	for {
-		select {
-		case event := <-watcher.Events:
-			if event.Op&(fsnotify.Write|fsnotify.Create|fsnotify.Remove|fsnotify.Rename) != 0 {
-				log.Printf("🔁 Change detected: %s", event.Name)
-
-				if timer != nil {
-					timer.Stop()
-				}
-				timer = time.AfterFunc(500*time.Millisecond, func() {
-					buildSite()
-				})
-			}
-
-		case err := <-watcher.Errors:
-			log.Println("❌ Watcher error:", err)
-		}
-	}
 }
