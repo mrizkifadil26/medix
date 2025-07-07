@@ -5,6 +5,7 @@ async function loadProgress() {
   renderProgressBar(json.percent, json.done, json.total);
   renderProgressTable(json.genres);
   renderProgressCards(json.genres);
+  renderProgressLegend();
 }
 
 function renderProgressBar(percent, done, total) {
@@ -76,17 +77,6 @@ function renderProgressTable(genres) {
     `;
   });
 
-  html += `
-      </tbody>
-    </table>
-    <div class="legend">
-      <strong>Legend:</strong>
-      <span class="box bar-ico"></span> ICO
-      <span class="box bar-png"></span> PNG
-      <span class="box bar-raw"></span> RAW
-    </div>
-  `;
-
   container.innerHTML = html;
 }
 
@@ -131,5 +121,16 @@ function renderProgressCards(genres) {
   });
 }
 
+function renderProgressLegend() {
+  const legendContainer = document.getElementById("progress-legend");
+  legendContainer.innerHTML = `
+    <div class="legend">
+      <strong>Legend:</strong>
+      <div><span class="box bar-ico"></span> ICO</div>
+      <div><span class="box bar-png"></span> PNG</div>
+      <div><span class="box bar-raw"></span> RAW</div>
+    </div>
+  `;
+}
 
 window.addEventListener("DOMContentLoaded", loadProgress);
