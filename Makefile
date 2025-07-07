@@ -31,26 +31,23 @@ clean:
 progress:
 	go run $(PROGRESS)
 
-.PHONY: build
+.PHONY: build serve watch watch-serve
+
 build:
-	go run $(BUILDER)
+	go run ./cmd/builder
 
-# Serve static site
-.PHONY: serve
 serve:
-	go run $(SERVER)
+	@echo "📡 Serving dist/ at http://localhost:8080"
+	@go run ./cmd/server/main.go
 
-# Watch for changes and rebuild (requires reflex)
-.PHONY: watch
 watch:
-	@which reflex > /dev/null || (echo "reflex not installed. Install with: go install github.com/cespare/reflex@latest" && exit 1)
-	reflex -r '\.go$$|\.tmpl$$|\.json$$|\.css$$|\.js$$' -R '^dist/' -- make build
+	@echo "🔁 Watching files and building with Air..."
+	@air
 
-# Optional: watch and serve (requires entr or fswatch + Make tweaks)
-.PHONY: watch-serve
 watch-serve:
-	@echo "👀 Watching for changes and rebuilding..."
-	reflex -r '\.go$$|\.tmpl$$|\.json$$|\.css$$|\.js$$' -R '^dist/' -- sh -c 'make build && make serve'
+	@echo "🌐 Watching & serving dist/ (in background)..."
+	@make -j2 watch serve
+
 
 # Deploy using shell script
 .PHONY: deploy
