@@ -180,7 +180,6 @@ progress-table {
 @media (max-width: 600px) {
   body {
     font-size: 16px;
-    padding: 0.75rem 0.5rem;
   }
 
   header nav {
