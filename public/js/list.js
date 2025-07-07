@@ -10,7 +10,10 @@ const GENRE_EMOJIS = {
   "Fantasy": "🧙",
   "Family": "🏠",
   "Mystery": "🧩",
-  "Crime": "🔍"
+  "Crime": "🔍",
+  "Documentary": "📽️",
+  "Adventure": "🗺️",
+  "Western": "🤠",
 };
 
 async function loadGroupedTitles() {

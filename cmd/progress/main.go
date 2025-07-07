@@ -27,18 +27,23 @@ type Progress struct {
 }
 
 var genreIcons = map[string]string{
-	"Action":    "🔥",
-	"Comedy":    "😂",
-	"Drama":     "🎭",
-	"Horror":    "👻",
-	"Romance":   "💕",
-	"Thriller":  "🔪",
-	"Sci-Fi":    "👽",
-	"Fantasy":   "🧙",
-	"Family":    "🏠",
-	"Animation": "🎨",
-	"Crime":     "🔍",
-	"Mystery":   "🧩",
+	"Action":      "🔥",
+	"Comedy":      "😂",
+	"Drama":       "🎭",
+	"Horror":      "👻",
+	"Romance":     "💕",
+	"Thriller":    "🔪",
+	"Sci-Fi":      "👽",
+	"Fantasy":     "🧙",
+	"Family":      "🏠",
+	"Animation":   "🎨",
+	"Crime":       "🔍",
+	"Mystery":     "🧩",
+	"Western":     "🤠",
+	"Documentary": "📽️",
+	"Adventure":   "🌍",
+	"Musical":     "🎶",
+	"War":         "⚔️",
 }
 
 func main() {
