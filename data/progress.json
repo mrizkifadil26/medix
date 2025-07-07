@@ -1,0 +1,91 @@
+{
+  "genres": [
+    {
+      "genre": "Horror",
+      "raw": 259,
+      "png": 0,
+      "ico": 0,
+      "status": "⏳"
+    },
+    {
+      "genre": "Drama",
+      "raw": 250,
+      "png": 0,
+      "ico": 0,
+      "status": "⏳"
+    },
+    {
+      "genre": "Animation",
+      "raw": 206,
+      "png": 0,
+      "ico": 0,
+      "status": "⏳"
+    },
+    {
+      "genre": "Comedy",
+      "raw": 119,
+      "png": 0,
+      "ico": 0,
+      "status": "⏳"
+    },
+    {
+      "genre": "Thriller",
+      "raw": 79,
+      "png": 0,
+      "ico": 0,
+      "status": "⏳"
+    },
+    {
+      "genre": "Action",
+      "raw": 65,
+      "png": 0,
+      "ico": 0,
+      "status": "⏳"
+    },
+    {
+      "genre": "Romance",
+      "raw": 56,
+      "png": 0,
+      "ico": 0,
+      "status": "⏳"
+    },
+    {
+      "genre": "Sci-Fi",
+      "raw": 41,
+      "png": 41,
+      "ico": 41,
+      "status": "✅"
+    },
+    {
+      "genre": "Fantasy",
+      "raw": 31,
+      "png": 31,
+      "ico": 31,
+      "status": "✅"
+    },
+    {
+      "genre": "Family",
+      "raw": 20,
+      "png": 20,
+      "ico": 20,
+      "status": "✅"
+    },
+    {
+      "genre": "Mystery",
+      "raw": 19,
+      "png": 19,
+      "ico": 19,
+      "status": "✅"
+    },
+    {
+      "genre": "Crime",
+      "raw": 9,
+      "png": 9,
+      "ico": 9,
+      "status": "✅"
+    }
+  ],
+  "done": 5,
+  "total": 12,
+  "percent": 41
+}
