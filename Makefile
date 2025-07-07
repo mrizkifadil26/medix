@@ -23,16 +23,20 @@ tvshows:
 # Clean output directory
 .PHONY: clean
 clean:
-	rm -f $(OUTPUT_DIR)/movie.json $(OUTPUT_DIR)/tv_shows.json
+	rm -rf $(OUTPUT_DIR)
 
 # Create progress.json report
 .PHONY: progress
 progress:
 	go run $(PROGRESS)
 
-.PHONY: build-static
-build-static:
+.PHONY: build
+build:
 	go run $(BUILDER)
+
+.PHONY: watch
+watch:
+	go run $(BUILDER) --watch
 
 # Deploy using shell script
 .PHONY: deploy
