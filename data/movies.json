@@ -98,7 +98,113 @@
     },
     {
       "name": "Bond Collection (1962-2021)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "A View to a Kill (1985)",
+          "status": "ok"
+        },
+        {
+          "name": "Casino Royale (2006)",
+          "status": "ok"
+        },
+        {
+          "name": "Diamonds Are Forever (1971)",
+          "status": "ok"
+        },
+        {
+          "name": "Die Another Day (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "Dr. No (1962)",
+          "status": "ok"
+        },
+        {
+          "name": "For Your Eyes Only (1981)",
+          "status": "ok"
+        },
+        {
+          "name": "From Russia With Love (1963)",
+          "status": "ok"
+        },
+        {
+          "name": "GoldenEye (1995)",
+          "status": "ok"
+        },
+        {
+          "name": "Goldfinger (1964)",
+          "status": "ok"
+        },
+        {
+          "name": "Licence to Kill (1989)",
+          "status": "ok"
+        },
+        {
+          "name": "Live and Let Die (1973)",
+          "status": "ok"
+        },
+        {
+          "name": "Moonraker (1979)",
+          "status": "ok"
+        },
+        {
+          "name": "Never Say Never Again (1983)",
+          "status": "ok"
+        },
+        {
+          "name": "No Time to Die (2021)",
+          "status": "ok"
+        },
+        {
+          "name": "Octopussy (1983)",
+          "status": "ok"
+        },
+        {
+          "name": "On Her Majesty's Secret Service (1969)",
+          "status": "ok"
+        },
+        {
+          "name": "Quantum of Solace (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "Skyfall (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Spectre (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "The Living Daylights (1987)",
+          "status": "ok"
+        },
+        {
+          "name": "The Man with the Golden Gun (1974)",
+          "status": "ok"
+        },
+        {
+          "name": "The Spy Who Loved Me (1977)",
+          "status": "ok"
+        },
+        {
+          "name": "The World Is Not Enough (1999)",
+          "status": "ok"
+        },
+        {
+          "name": "Thunderball (1965)",
+          "status": "ok"
+        },
+        {
+          "name": "Tomorrow Never Dies (1997)",
+          "status": "ok"
+        },
+        {
+          "name": "You Only Live Twice (1967)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Buffalo Boys (2018)",
@@ -182,7 +288,21 @@
     },
     {
       "name": "Darkman Trilogy (1990-1996)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Darkman (1990)",
+          "status": "missing"
+        },
+        {
+          "name": "Darkman II - The Return of Durant (1995)",
+          "status": "missing"
+        },
+        {
+          "name": "Darkman III - Die Darkman Die (1996)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Deja Vu (2006)",
@@ -198,11 +318,55 @@
     },
     {
       "name": "Die Hard Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "A Good Day to Die Hard (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "Die Hard (1988)",
+          "status": "ok"
+        },
+        {
+          "name": "Die Hard 2 (1990)",
+          "status": "ok"
+        },
+        {
+          "name": "Die Hard with a Vengeance (1995)",
+          "status": "ok"
+        },
+        {
+          "name": "Live Free or Die Hard (2007)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Dirty Harry Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Dirty Harry (1971)",
+          "status": "ok"
+        },
+        {
+          "name": "Magnum Force (1973)",
+          "status": "ok"
+        },
+        {
+          "name": "Sudden Impact (1983)",
+          "status": "ok"
+        },
+        {
+          "name": "The Dead Pool (1988)",
+          "status": "ok"
+        },
+        {
+          "name": "The Enforcer (1976)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "District B13 (2004)",
@@ -262,7 +426,53 @@
     },
     {
       "name": "Fast and Furious Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "2 Fast 2 Furious (2003)",
+          "status": "ok"
+        },
+        {
+          "name": "F9 - The Fast Saga (2021)",
+          "status": "ok"
+        },
+        {
+          "name": "Fast \u0026 Furious 6 (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "Fast And Furious (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "Fast Five (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Fast X (2023)",
+          "status": "missing"
+        },
+        {
+          "name": "Fast and Furious Presents - Hobbs and Shaw (2019)",
+          "status": "ok"
+        },
+        {
+          "name": "Furious 7 (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "The Fast And The Furious - Tokyo Drift (2006)",
+          "status": "ok"
+        },
+        {
+          "name": "The Fast and The Furious (2001)",
+          "status": "ok"
+        },
+        {
+          "name": "The Fate of the Furious (2017)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Faster (2010)",
@@ -330,7 +540,21 @@
     },
     {
       "name": "Has Fallen Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Angel Has Fallen (2019)",
+          "status": "ok"
+        },
+        {
+          "name": "London Has Fallen (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Olympus Has Fallen (2013)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Headshot (2016)",
@@ -362,7 +586,29 @@
     },
     {
       "name": "Indiana Jones Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Indiana Jones and the Dial of Destiny (2023)",
+          "status": "missing"
+        },
+        {
+          "name": "Indiana Jones and the Kingdom of Crystal Skull (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "Indiana Jones and the Last Crusade (1989)",
+          "status": "ok"
+        },
+        {
+          "name": "Indiana Jones and the Raiders of the Lost Ark (1981)",
+          "status": "ok"
+        },
+        {
+          "name": "Indiana Jones and the Temple of Doom (1984)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Infernal Affairs (2002)",
@@ -378,7 +624,29 @@
     },
     {
       "name": "Ip Man Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Ip Man (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "Ip Man - The Legend is Born (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Ip Man 2 (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Ip Man 3 (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Ip Man 4 - The Finale (2019)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Jack Reacher (2012)",
@@ -398,7 +666,25 @@
     },
     {
       "name": "John Wick Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "John Wick (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "John Wick - Chapter 2 (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "John Wick - Chapter 3 - Parabellum (2019)",
+          "status": "ok"
+        },
+        {
+          "name": "John Wick - Chapter 4 (2023)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Jungle Cruise (2021)",
@@ -442,7 +728,25 @@
     },
     {
       "name": "Lethal Weapon Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Lethal Weapon (1987)",
+          "status": "ok"
+        },
+        {
+          "name": "Lethal Weapon 2 (1989)",
+          "status": "ok"
+        },
+        {
+          "name": "Lethal Weapon 3 (1992)",
+          "status": "ok"
+        },
+        {
+          "name": "Lethal Weapon 4 (1998)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Lionheart (1990)",
@@ -470,7 +774,25 @@
     },
     {
       "name": "Mad Max Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Mad Max (1979)",
+          "status": "ok"
+        },
+        {
+          "name": "Mad Max - Fury Road (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Mad Max 2 - The Road Warrior (1981)",
+          "status": "ok"
+        },
+        {
+          "name": "Mad Max 3 - Beyond Thundersome (1985)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Masters of the Universe (1987)",
@@ -502,7 +824,33 @@
     },
     {
       "name": "Mission Impossible Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Mission Impossible (1996)",
+          "status": "ok"
+        },
+        {
+          "name": "Mission Impossible II (2000)",
+          "status": "ok"
+        },
+        {
+          "name": "Mission Impossible III (2006)",
+          "status": "ok"
+        },
+        {
+          "name": "Mission Impossible IV - Ghost Protocol (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Mission Impossible V - Rogue Nation (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Mission Impossible VI - Fallout (2018)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Mortal Kombat (1995)",
@@ -574,7 +922,25 @@
     },
     {
       "name": "Police Story Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Police Story (1985)",
+          "status": "missing"
+        },
+        {
+          "name": "Police Story 2 (1988)",
+          "status": "missing"
+        },
+        {
+          "name": "Police Story III - Supercop (1992)",
+          "status": "missing"
+        },
+        {
+          "name": "Police Story IV - First Strike (1996)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Premium Rush (2012)",
@@ -590,7 +956,29 @@
     },
     {
       "name": "Rambo Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Rambo (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "Rambo - First Blood (1982)",
+          "status": "ok"
+        },
+        {
+          "name": "Rambo - First Blood Part II (1985)",
+          "status": "ok"
+        },
+        {
+          "name": "Rambo - Last Blood (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "Rambo III (1988)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Red Sonja (1985)",
@@ -598,11 +986,67 @@
     },
     {
       "name": "Resident Evil Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Resident Evil (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "Resident Evil - Afterlife (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Resident Evil - Apocalypse (2004)",
+          "status": "ok"
+        },
+        {
+          "name": "Resident Evil - Extinction (2007)",
+          "status": "ok"
+        },
+        {
+          "name": "Resident Evil - Retribution (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Resident Evil - The Final Chapter (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Resident Evil - Welcome to Raccoon City (2021)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Rocky Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Rocky (1976)",
+          "status": "ok"
+        },
+        {
+          "name": "Rocky Balboa (2006)",
+          "status": "ok"
+        },
+        {
+          "name": "Rocky II (1979)",
+          "status": "ok"
+        },
+        {
+          "name": "Rocky III (1982)",
+          "status": "ok"
+        },
+        {
+          "name": "Rocky IV (1985)",
+          "status": "ok"
+        },
+        {
+          "name": "Rocky V (1990)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Rumble in the Bronx (1995)",
@@ -714,7 +1158,21 @@
     },
     {
       "name": "Taken Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Taken (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "Taken 2 (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Taken 3 (2014)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "The 355 (2022)",
@@ -726,7 +1184,29 @@
     },
     {
       "name": "The Bourne Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Jason Bourne (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "The Bourne Identity (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "The Bourne Legacy (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "The Bourne Supremacy (2004)",
+          "status": "ok"
+        },
+        {
+          "name": "The Bourne Ultimatum (2007)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "The Commuter (2018)",
@@ -746,7 +1226,25 @@
     },
     {
       "name": "The Expendables Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Expend4bles (2023)",
+          "status": "ok"
+        },
+        {
+          "name": "The Expendables (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "The Expendables 2 (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "The Expendables 3 (2014)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "The Fearless Hyena (1979)",
@@ -838,7 +1336,25 @@
     },
     {
       "name": "The Matrix Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Matrix (1999)",
+          "status": "ok"
+        },
+        {
+          "name": "The Matrix - Reloaded (2003)",
+          "status": "ok"
+        },
+        {
+          "name": "The Matrix - Revolutions (2003)",
+          "status": "ok"
+        },
+        {
+          "name": "The Matrix Resurrections (2021)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "The Mechanic (2011)",
@@ -942,7 +1458,21 @@
     },
     {
       "name": "Transporter Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Transporter (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "Transporter 2 (2005)",
+          "status": "ok"
+        },
+        {
+          "name": "Transporter 3 (2008)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Triple Frontier (2019)",
@@ -962,7 +1492,29 @@
     },
     {
       "name": "Underworld Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Underworld (2003)",
+          "status": "ok"
+        },
+        {
+          "name": "Underworld - Awakening (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Underworld - Blood Wars (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Underworld - Evolution (2006)",
+          "status": "ok"
+        },
+        {
+          "name": "Underworld - Rise of the Lycans (2009)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Universal Soldier (1992)",
@@ -1002,7 +1554,21 @@
     },
     {
       "name": "xXx Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "xXx (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "xXx - Return of Xander Cage (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "xXx - State of the Union (2005)",
+          "status": "ok"
+        }
+      ]
     }
   ],
   "Animation": [
@@ -1088,7 +1654,21 @@
     },
     {
       "name": "Arthur and the Invisibles Trilogy (2006-2010)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Arthur 3 - The War of the Two Worlds (2010)",
+          "status": "missing"
+        },
+        {
+          "name": "Arthur and the Invisibles (2006)",
+          "status": "missing"
+        },
+        {
+          "name": "Arthur and the Revenge of Maltazard (2009)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Atlantis - The Lost Empire (2001)",
@@ -1108,7 +1688,117 @@
     },
     {
       "name": "Batman Animated Films",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Batman \u0026 Mr. Freeze - SubZero (1998)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman - Assault on Arkham (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman - Bad Blood (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman - Gotham Knight (2008)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman - Gotham by Gaslight (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman - Hush (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman - Mask of the Phantasm (1993)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman - Mystery of the Batwoman (2003)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman - Soul of the Dragon (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman - The Dark Knight Returns (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman - The Doom That Came to Gotham (2023)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman - The Killing Joke (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman - The Long Halloween Part One (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman - The Long Halloween Part Two (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman - Under the Red Hood (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman Beyond - Return of the Joker (2000)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman Beyond - Year One (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman Ninja (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman Ninja vs. Yakuza League (2025)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman and Harley Quinn (2017)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman and Superman - Battle of the Super Sons (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman vs. Robin (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman vs. Teenage Mutant Ninja Turtles (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "Batman vs. Two-Face (2017)",
+          "status": "missing"
+        },
+        {
+          "name": "Catwoman - Hunted (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "Son of Batman (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "The Batman vs. Dracula (2005)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Beauty and the Beast (1991)",
@@ -1124,7 +1814,21 @@
     },
     {
       "name": "Berserk - The Golden Age Trilogy (2012-2013)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Berserk - The Golden Age Arc 1 - The Egg of the King (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Berserk - The Golden Age Arc 2 - The Battle for Doldrey (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Berserk - The Golden Age Arc 3 - The Advent (2013)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Big Hero 6 (2014)",
@@ -1208,7 +1912,41 @@
     },
     {
       "name": "Crayon Shin-chan Movie Collection",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Crayon Shin-chan - Burst Serving! Kung Fu Boys ~Ramen Rebellion~ (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "Crayon Shin-chan - Invasion!! Alien Shiriri (2017)",
+          "status": "missing"
+        },
+        {
+          "name": "Crayon Shin-chan - My Moving Story! Cactus Large Attack! (2015)",
+          "status": "missing"
+        },
+        {
+          "name": "Crayon Shin-chan - Ora's Dinosaur Diary (2024)",
+          "status": "missing"
+        },
+        {
+          "name": "Crayon Shin-chan - Shrouded in Mystery! The Flowers of Tenkazu Academy (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Crayon Shin-chan - The Storm Called! - Me and the Space Princess (2012)",
+          "status": "missing"
+        },
+        {
+          "name": "Crayon Shin-chan - Very Tasty! B-class Gourmet Survival!! (2013)",
+          "status": "missing"
+        },
+        {
+          "name": "New Dimension! Crayon Shin-chan the Movie - Battle of Supernatural Powers ~Flying Sushi~ (2023)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "DC League of Super-Pets (2022)",
@@ -1216,7 +1954,129 @@
     },
     {
       "name": "DC Universe Animated Movies (2007-2024)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Constantine - City of Demons (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "Deathstroke - Knights and Dragons (2020)",
+          "status": "missing"
+        },
+        {
+          "name": "Green Lantern - Beware My Power (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "Green Lantern - Emerald Knights (2011)",
+          "status": "missing"
+        },
+        {
+          "name": "Green Lantern - First Fight (2009)",
+          "status": "missing"
+        },
+        {
+          "name": "Injustice (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Justice League - Crisis on Infinite Earths Part One (2024)",
+          "status": "missing"
+        },
+        {
+          "name": "Justice League - Crisis on Infinite Earths Part Three (2024)",
+          "status": "missing"
+        },
+        {
+          "name": "Justice League - Crisis on Infinite Earths Part Two (2024)",
+          "status": "missing"
+        },
+        {
+          "name": "Justice League - Crisis on Two Earths (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Justice League - Doom (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Justice League - The Flashpoint Paradox (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "Justice League - The New Frontier (2008)",
+          "status": "missing"
+        },
+        {
+          "name": "Justice League - Throne of Atlantis (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Justice League - War (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "Justice League - Warworld (2023)",
+          "status": "missing"
+        },
+        {
+          "name": "Justice League Dark (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "Justice League Dark - Apokolips War (2020)",
+          "status": "missing"
+        },
+        {
+          "name": "Justice League vs Teen Titans (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Justice League vs. the Fatal Five (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "Justice Society - World War II (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Legion of Super-Heroes (2023)",
+          "status": "missing"
+        },
+        {
+          "name": "Suicide Squad - Hell to Pay (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "Superman - Man of Tomorrow (2020)",
+          "status": "missing"
+        },
+        {
+          "name": "Superman - Red Son (2020)",
+          "status": "missing"
+        },
+        {
+          "name": "Teen Titans - The Judas Contract (2017)",
+          "status": "missing"
+        },
+        {
+          "name": "The Death and Return of Superman (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "Watchmen - Chapter I (2024)",
+          "status": "missing"
+        },
+        {
+          "name": "Watchmen - Chapter II (2024)",
+          "status": "missing"
+        },
+        {
+          "name": "Wonder Woman - Bloodlines (2019)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Demon City Shinjuku (1988)",
@@ -1240,7 +2100,29 @@
     },
     {
       "name": "Detective Conan Movie Collection",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "#01 - Detective Conan - The Time Bombed Skyscraper (1997)",
+          "status": "missing"
+        },
+        {
+          "name": "#02 Detective Conan - The Fourteenth Target (1998)",
+          "status": "missing"
+        },
+        {
+          "name": "#22 Detective Conan - Zero the Enforcer (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "#23 Detective Conan - The Fist of Blue Sapphire (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "#25 Detective Conan - The Bride of Halloween (2022)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Diary of a Wimpy Kid (2021)",
@@ -1268,11 +2150,215 @@
     },
     {
       "name": "Doraemon Movie Collection (1980-2024)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "#01 Doraemon - Nobita's Dinosaur (1980)",
+          "status": "missing"
+        },
+        {
+          "name": "#03 Doraemon - Nobita and the Haunts of Evil (1982)",
+          "status": "missing"
+        },
+        {
+          "name": "#04 Doraemon - Nobita and the Castle of the Undersea Devil (1983)",
+          "status": "missing"
+        },
+        {
+          "name": "#06 Doraemon - Nobita's Little Star Wars (1985)",
+          "status": "missing"
+        },
+        {
+          "name": "#07 Doraemon - Nobita and the Steel Troops (1986)",
+          "status": "missing"
+        },
+        {
+          "name": "#08 Doraemon - Nobita and the Knights on Dinosaurs (1987)",
+          "status": "missing"
+        },
+        {
+          "name": "#09 Doraemon - The Record of Nobita's Parallel Visit to the West (1988)",
+          "status": "missing"
+        },
+        {
+          "name": "#10 Doraemon - Nobita and the Birth of Japan (1989)",
+          "status": "missing"
+        },
+        {
+          "name": "#11 Doraemon - Nobita and the Animal Planet (1990)",
+          "status": "missing"
+        },
+        {
+          "name": "#12 Doraemon - Nobita's Dorabian Nights (1991)",
+          "status": "missing"
+        },
+        {
+          "name": "#13 Doraemon - Nobita and the Kingdom of Clouds (1992)",
+          "status": "missing"
+        },
+        {
+          "name": "#14 Doraemon - Nobita and the Tin Labyrinth (1993)",
+          "status": "missing"
+        },
+        {
+          "name": "#15 Doraemon - Nobita's Three Visionary Swordsmen (1994)",
+          "status": "missing"
+        },
+        {
+          "name": "#16 Doraemon - Nobita's Diary of the Creation of the World (1995)",
+          "status": "missing"
+        },
+        {
+          "name": "#17 Doraemon - Nobita and the Galaxy Super-express (1996)",
+          "status": "missing"
+        },
+        {
+          "name": "#18 Doraemon - Nobita and the Spiral City (1997)",
+          "status": "missing"
+        },
+        {
+          "name": "#19 Doraemon - Nobita's Great Adventure in the South Seas (1998)",
+          "status": "missing"
+        },
+        {
+          "name": "#20 Doraemon - Nobita Drifts in the Universe (1999)",
+          "status": "missing"
+        },
+        {
+          "name": "#21 Doraemon - Nobita and the Legend of the Sun King (2000)",
+          "status": "missing"
+        },
+        {
+          "name": "#22 Doraemon - Nobita and the Winged Braves (2001)",
+          "status": "missing"
+        },
+        {
+          "name": "#23 Doraemon - Nobita in the Robot Kingdom (2002)",
+          "status": "missing"
+        },
+        {
+          "name": "#24 Doraemon - Nobita and the Windmasters (2003)",
+          "status": "missing"
+        },
+        {
+          "name": "#24 Doraemon - Nobita in the Wan-Nyan Spacetime Odyssey (2004)",
+          "status": "missing"
+        },
+        {
+          "name": "#26 Doraemon - Nobita's Dinosaur 2006 (2006)",
+          "status": "missing"
+        },
+        {
+          "name": "#27 Doraemon - Nobita's New Great Adventure into the Underworld (2007)",
+          "status": "missing"
+        },
+        {
+          "name": "#28 Doraemon - Nobita and the Green Giant Legend (2008)",
+          "status": "missing"
+        },
+        {
+          "name": "#29 Doraemon - Nobita's Spaceblazer (2009)",
+          "status": "missing"
+        },
+        {
+          "name": "#30 Doraemon - Nobita's Great Battle of the Mermaid King (2010)",
+          "status": "missing"
+        },
+        {
+          "name": "#31 Doraemon - Nobita and the New Steel Troops—Winged Angels (2011)",
+          "status": "missing"
+        },
+        {
+          "name": "#32 Doraemon - Nobita and the Island of Miracles—Animal Adventure (2012)",
+          "status": "missing"
+        },
+        {
+          "name": "#33 Doraemon - Nobita's Secret Gadget Museum (2013)",
+          "status": "missing"
+        },
+        {
+          "name": "#34 Doraemon - New Nobita's Great Demon—Peko and the Exploration Party of Five (2014)",
+          "status": "missing"
+        },
+        {
+          "name": "#35 Doraemon - Nobita's Space Heroes (2015)",
+          "status": "missing"
+        },
+        {
+          "name": "#36 Doraemon - Nobita and the Birth of Japan 2016 (2016)",
+          "status": "missing"
+        },
+        {
+          "name": "#37 Doraemon - Great Adventure in the Antarctic Kachi Kochi (2017)",
+          "status": "missing"
+        },
+        {
+          "name": "#38 Doraemon - Nobita's Treasure Island (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "#39 Doraemon - Nobita's Chronicle of the Moon Exploration (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "#40 Doraemon - Nobita's New Dinosaur (2020)",
+          "status": "missing"
+        },
+        {
+          "name": "#41 Doraemon - Nobita's Little Star Wars 2021 (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "#42 Doraemon - Nobita's Sky Utopia (2023)",
+          "status": "missing"
+        },
+        {
+          "name": "Undone",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Dragon Ball Movies Collection",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Dragon Ball Super - Broly (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "Dragon Ball Super - Super Hero (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "Dragon Ball Z - Battle of Gods (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "Dragon Ball Z - Cooler's Revenge (1991)",
+          "status": "missing"
+        },
+        {
+          "name": "Dragon Ball Z - Fusion Reborn (1995)",
+          "status": "missing"
+        },
+        {
+          "name": "Dragon Ball Z - Resurrection 'F' (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Dragon Ball Z - Super Android 13! (1992)",
+          "status": "missing"
+        },
+        {
+          "name": "Dragon Ball Z - The Return of Cooler (1992)",
+          "status": "missing"
+        },
+        {
+          "name": "Dragon Ball Z Broly - The Legendary Super Saiyan (1993)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Dumbo (1941)",
@@ -1372,7 +2458,21 @@
     },
     {
       "name": "Godzilla Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Godzilla - City on the Edge of Battle (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "Godzilla - Planet of the Monsters (2017)",
+          "status": "missing"
+        },
+        {
+          "name": "Godzilla - The Planet Eater (2018)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Happy Feet (2006)",
@@ -1384,7 +2484,17 @@
     },
     {
       "name": "Hellboy Animated Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Hellboy Animated - Blood and Iron (2007)",
+          "status": "missing"
+        },
+        {
+          "name": "Hellboy Animated - Sword of Storm (2006)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Hercules (1997)",
@@ -1536,7 +2646,13 @@
     },
     {
       "name": "LEGO Animated Movie Collection",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "LEGO Scooby-Doo - Haunted Hollywood (2016)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Legend of the Guardians - The Owl of Ga'Hoole (2010)",
@@ -1572,7 +2688,29 @@
     },
     {
       "name": "Lupin the 3rd Movie Collection",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Lupin the 3rd - Fujiko Mine's Lie (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "Lupin the 3rd - The Castle of Cagliostro (1979)",
+          "status": "missing"
+        },
+        {
+          "name": "Lupin the 3rd - The Gravestone of Daisuke Jigen (2014)",
+          "status": "missing"
+        },
+        {
+          "name": "Lupin the 3rd - Voyage to Danger (1993)",
+          "status": "missing"
+        },
+        {
+          "name": "Lupin the 3rd vs. Detective Conan (2013)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Madagascar (2005)",
@@ -1600,7 +2738,29 @@
     },
     {
       "name": "Marvel Animated Features (2006-2011)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Planet Hulk (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "The Invincible Iron Man (2007)",
+          "status": "missing"
+        },
+        {
+          "name": "Thor - Tales of Asgard (2011)",
+          "status": "missing"
+        },
+        {
+          "name": "Ultimate Avengers (2006)",
+          "status": "missing"
+        },
+        {
+          "name": "Ultimate Avengers II (2006)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Mary and Max (2009)",
@@ -1664,7 +2824,25 @@
     },
     {
       "name": "Mobile Suit Gundam Films",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Mobile Suit Gundam - Char's Counterattack (1988)",
+          "status": "missing"
+        },
+        {
+          "name": "Mobile Suit Gundam I (1981)",
+          "status": "missing"
+        },
+        {
+          "name": "Mobile Suit Gundam II - Soldiers of Sorrow (1981)",
+          "status": "missing"
+        },
+        {
+          "name": "Mobile Suit Gundam III - Encounters in Space (1982)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Monster House (2006)",
@@ -1684,7 +2862,21 @@
     },
     {
       "name": "Mortal Kombat Legends (2020-2022)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Mortal Kombat Legends - Battle of the Realms (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Mortal Kombat Legends - Scorpion's Revenge (2020)",
+          "status": "missing"
+        },
+        {
+          "name": "Mortal Kombat Legends - Snow Blind (2022)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Mr. Peabody \u0026 Sherman (2014)",
@@ -1708,7 +2900,33 @@
     },
     {
       "name": "Neon Genesis Evangelion Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Evangelion - 1.0 You Are Not Alone (2007)",
+          "status": "missing"
+        },
+        {
+          "name": "Evangelion - 2.0 You Can Not Advance (2009)",
+          "status": "missing"
+        },
+        {
+          "name": "Evangelion - 3.0 You Can Not Redo (2012)",
+          "status": "missing"
+        },
+        {
+          "name": "Evangelion - 3.0+1.0 Thrice Upon a Time (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Neon Genesis Evangelion - Death \u0026 Rebirth (1997)",
+          "status": "missing"
+        },
+        {
+          "name": "Neon Genesis Evangelion - The End of Evangelion (1997)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "New Gods - Nezha Reborn (2021)",
@@ -1732,7 +2950,17 @@
     },
     {
       "name": "One Piece Movie Collection",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "One Piece - Red (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "One Piece - Stampede (2019)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Onward (2020)",
@@ -1800,7 +3028,29 @@
     },
     {
       "name": "Pixar Shorts Collection",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Bao (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "Lava (2014)",
+          "status": "missing"
+        },
+        {
+          "name": "Lou (2017)",
+          "status": "missing"
+        },
+        {
+          "name": "Partly Cloudy (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "Piper (2016)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Planes (2013)",
@@ -1848,7 +3098,21 @@
     },
     {
       "name": "Ranma ½ the Movie Collection",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Ranma ½ The Movie - Big Trouble in Nekonron, China (1991)",
+          "status": "missing"
+        },
+        {
+          "name": "Ranma ½ The Movie 2 - Nihao My Concubine (1992)",
+          "status": "missing"
+        },
+        {
+          "name": "Ranma ½ The Movie 3 - Team Ranma vs. The Legendary Phoenix (1994)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Ratatouille (2007)",
@@ -2044,7 +3308,105 @@
     },
     {
       "name": "Studio Ghibli Collection",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Castle in the Sky (1986)",
+          "status": "ok"
+        },
+        {
+          "name": "Earwig and the Witch (2020)",
+          "status": "missing"
+        },
+        {
+          "name": "From Up on Poppy Hill (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Grave of the Fireflies (1988)",
+          "status": "ok"
+        },
+        {
+          "name": "Howl's Moving Castle (2004)",
+          "status": "ok"
+        },
+        {
+          "name": "Kiki's Delivery Service (1989)",
+          "status": "missing"
+        },
+        {
+          "name": "My Neighbor Totoro (1988)",
+          "status": "ok"
+        },
+        {
+          "name": "My Neighbors the Yamadas (1999)",
+          "status": "missing"
+        },
+        {
+          "name": "Nausicaä of the Valley of the Wind (1984)",
+          "status": "ok"
+        },
+        {
+          "name": "Ocean Waves (1993)",
+          "status": "missing"
+        },
+        {
+          "name": "Only Yesterday (1991)",
+          "status": "missing"
+        },
+        {
+          "name": "Pom Poko (1994)",
+          "status": "missing"
+        },
+        {
+          "name": "Ponyo On The Cliff (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "Porco Rosso (1992)",
+          "status": "missing"
+        },
+        {
+          "name": "Princess Mononoke (1997)",
+          "status": "ok"
+        },
+        {
+          "name": "Spirited Away (2001)",
+          "status": "ok"
+        },
+        {
+          "name": "Tales from Earthsea (2006)",
+          "status": "missing"
+        },
+        {
+          "name": "The Boy and the Heron (2023)",
+          "status": "missing"
+        },
+        {
+          "name": "The Cat Returns (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "The Secret World of Arrietty (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "The Tale of the Princess Kaguya (2013)",
+          "status": "missing"
+        },
+        {
+          "name": "The Wind Rises (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "When Marnie Was There (2014)",
+          "status": "missing"
+        },
+        {
+          "name": "Whisper of the Heart (1995)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Summer Wars (2009)",
@@ -2384,7 +3746,29 @@
     },
     {
       "name": "The SpongeBob Movie Collection (2004-2025)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Plankton - The Movie (2025)",
+          "status": "missing"
+        },
+        {
+          "name": "Saving Bikini Bottom - The Sandy Cheeks Movie (2024)",
+          "status": "missing"
+        },
+        {
+          "name": "The SpongeBob Movie - Sponge on the Run (2020)",
+          "status": "missing"
+        },
+        {
+          "name": "The SpongeBob SquarePants Movie (2004)",
+          "status": "missing"
+        },
+        {
+          "name": "The SpongeBob SquarePants Movie - Sponge Out of Water (2015)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "The Super Mario Bros Movie (2023)",
@@ -2492,7 +3876,33 @@
     },
     {
       "name": "Wallace \u0026 Gromit Films",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Wallace \u0026 Gromit - A Close Shave (1995)",
+          "status": "missing"
+        },
+        {
+          "name": "Wallace \u0026 Gromit - A Grand Day Out (1989)",
+          "status": "missing"
+        },
+        {
+          "name": "Wallace \u0026 Gromit - A Matter Of Loaf And Death (2008)",
+          "status": "missing"
+        },
+        {
+          "name": "Wallace \u0026 Gromit - The Curse of the Were-Rabbit (2005)",
+          "status": "missing"
+        },
+        {
+          "name": "Wallace \u0026 Gromit - The Wrong Trousers (1993)",
+          "status": "missing"
+        },
+        {
+          "name": "Wallace \u0026 Gromit - Vengeance Most Fowl (2024)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Watership Down (1978)",
@@ -2536,7 +3946,17 @@
     },
     {
       "name": "Yu-Gi-Oh! the Movie Collection",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Yu-Gi-Oh! - Bonds Beyond Time (2010)",
+          "status": "missing"
+        },
+        {
+          "name": "Yu-Gi-Oh! - The Dark Side of Dimensions (2016)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "ZooTopia (2016)",
@@ -3042,7 +4462,21 @@
     },
     {
       "name": "Harold \u0026 Kumar Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "A Very Harold \u0026 Kumar Christmas (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Harold \u0026 Kumar Escape From Guantanamo Bay (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "Harold \u0026 Kumar Go To White Castle (2004)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Hello Stranger (2010)",
@@ -3762,7 +5196,21 @@
     },
     {
       "name": "The Hangover Trilogy",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Hangover (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "The Hangover Part II (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "The Hangover Part III (2013)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "The Heat (2013)",
@@ -3830,7 +5278,21 @@
     },
     {
       "name": "The Naked Gun Trilogy",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Naked Gun 33 1-3 - The Final Insult (1994)",
+          "status": "ok"
+        },
+        {
+          "name": "The Naked Gun - From the Files of Police Squad! (1988)",
+          "status": "ok"
+        },
+        {
+          "name": "The Naked Gun 2½ - The Smell of Fear (1991)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "The Nice Guys (2016)",
@@ -4054,23 +5516,145 @@
     },
     {
       "name": "[COLLECTION] American Pie (1999-2020)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "American Pie (1999)",
+          "status": "ok"
+        },
+        {
+          "name": "American Pie 2 (2001)",
+          "status": "ok"
+        },
+        {
+          "name": "American Pie Presents - Band Camp (2005)",
+          "status": "ok"
+        },
+        {
+          "name": "American Pie Presents - Beta House (2007)",
+          "status": "ok"
+        },
+        {
+          "name": "American Pie Presents - Girls' Rules (2020)",
+          "status": "missing"
+        },
+        {
+          "name": "American Pie Presents - The Book of Love (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "American Pie Presents - The Naked Mile (2006)",
+          "status": "ok"
+        },
+        {
+          "name": "American Reunion (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "American Wedding (2003)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] God of Gamblers (1989-1994)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "God of Gamblers (1989)",
+          "status": "missing"
+        },
+        {
+          "name": "God of Gamblers II (1990)",
+          "status": "missing"
+        },
+        {
+          "name": "God of Gamblers III - Back to Shanghai (1991)",
+          "status": "missing"
+        },
+        {
+          "name": "God of Gamblers Return (1994)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Happy Ghost (1984-1990)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Happy Ghost (1984)",
+          "status": "missing"
+        },
+        {
+          "name": "Happy Ghost II (1985)",
+          "status": "missing"
+        },
+        {
+          "name": "Happy Ghost IV (1990)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Mr. Vampire (1985-1989)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Mr. Vampire (1985)",
+          "status": "missing"
+        },
+        {
+          "name": "Mr. Vampire II (1986)",
+          "status": "missing"
+        },
+        {
+          "name": "Mr. Vampire III (1987)",
+          "status": "missing"
+        },
+        {
+          "name": "Mr. Vampire IV (1988)",
+          "status": "missing"
+        },
+        {
+          "name": "Vampire Vs. Vampire (1989)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Police Academy (1984-1994)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Police Academy (1984)",
+          "status": "ok"
+        },
+        {
+          "name": "Police Academy 2 - Their First Assignment (1985)",
+          "status": "ok"
+        },
+        {
+          "name": "Police Academy 3 - Back in Training (1986)",
+          "status": "ok"
+        },
+        {
+          "name": "Police Academy 4 - Citizens on Patrol (1987)",
+          "status": "ok"
+        },
+        {
+          "name": "Police Academy 5 - Assignment Miami Beach (1988)",
+          "status": "ok"
+        },
+        {
+          "name": "Police Academy 6 - City Under Siege (1989)",
+          "status": "ok"
+        },
+        {
+          "name": "Police Academy 7 - Mission to Moscow (1994)",
+          "status": "ok"
+        }
+      ]
     }
   ],
   "Crime": [
@@ -4240,7 +5824,21 @@
     },
     {
       "name": "[COLLECTION] The Godfather Trilogy (1972-1990)",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Godfather (1972)",
+          "status": "ok"
+        },
+        {
+          "name": "The Godfather Part II (1974)",
+          "status": "ok"
+        },
+        {
+          "name": "The Godfather Part III (1990)",
+          "status": "ok"
+        }
+      ]
     }
   ],
   "Documentary": [
@@ -5792,7 +7390,21 @@
     },
     {
       "name": "The Disappearance of Eleanor Rigby (2014)",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Disappearance of Eleanor Rigby - Her (2014)",
+          "status": "missing"
+        },
+        {
+          "name": "The Disappearance of Eleanor Rigby - Him (2014)",
+          "status": "missing"
+        },
+        {
+          "name": "The Disappearance of Eleanor Rigby - Them (2014)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "The East (2021)",
@@ -5884,7 +7496,13 @@
     },
     {
       "name": "The Karate Kid Trilogy",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Karate Kid (1984)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "The Kids Are All Right (2010)",
@@ -7008,35 +8626,183 @@
     },
     {
       "name": "[COLLECTION] Fantastic Beasts (2016-2022)",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Fantastic Beasts - The Crime of Grindelwald (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Fantastic Beasts - The Secrets of Dumbledore (2022)",
+          "status": "ok"
+        },
+        {
+          "name": "Fantastic Beasts and Where to Find Them (2016)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Harry Potter (2001-2011)",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Harry Potter I - And The Sorcerer's Stone (2001)",
+          "status": "ok"
+        },
+        {
+          "name": "Harry Potter II - and the Chamber of Secrets (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "Harry Potter III - and the Prisoner of Azkaban (2004)",
+          "status": "ok"
+        },
+        {
+          "name": "Harry Potter IV - and the Goblet of Fire (2005)",
+          "status": "ok"
+        },
+        {
+          "name": "Harry Potter V - and the Order of Phoenix (2007)",
+          "status": "ok"
+        },
+        {
+          "name": "Harry Potter VI - and the Half-Blood Prince (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "Harry Potter VII - and the Deathly Hallows Part. 1 (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Harry Potter VII - and the Deathly Hallows Part. 2 (2011)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Night at the Museum (2006-2014)",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Night At The Museum (2006)",
+          "status": "ok"
+        },
+        {
+          "name": "Night At The Museum - Battle of the Smithsonian (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "Night At The Museum - Secret Of The Tomb (2014)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Pirates of the Caribbean (2001-2017)",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Pirates of the Caribbean I - Curse of the Black Pearl (2001)",
+          "status": "ok"
+        },
+        {
+          "name": "Pirates of the Caribbean II - Dead Man's Chest (2004)",
+          "status": "ok"
+        },
+        {
+          "name": "Pirates of the Caribbean III - At World's End (2007)",
+          "status": "ok"
+        },
+        {
+          "name": "Pirates of the Caribbean IV - On Stranger Tides (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Pirates of the Caribbean V - Dead Men Tell No Tales (2017)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] The Chronicles of Narnia (2005-2010)",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Chronicles of Narnia - The Lion, the Witch and the Wardrobe (2005)",
+          "status": "ok"
+        },
+        {
+          "name": "The Chronicles of Narnia II - The Prince Caspian (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "The Chronicles of Narnia III - The Voyage of the Dawn Treader (2010)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] The Hobbit Trilogy (2012-2014)",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Hobbit I - An Unexpected Jouney (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "The Hobbit II - The Desolation of Smaug (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "The Hobbit III - The Battles of The Five Armies (2014)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] The Lord of the Rings (2001-2003)",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Lord of the Rings I - The Fellowship of the Ring (2001)",
+          "status": "ok"
+        },
+        {
+          "name": "The Lord of the Rings II - The Two Towers (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "The Lord of the Rings III - The Return of the King (2003)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Twilight Saga (2008-2012)",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Twilight Saga I - Twilight (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "The Twilight Saga II - New Moon (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "The Twilight Saga III - Eclipse (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "The Twilight Saga IV - Breaking Dawn Part. 1 (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "The Twilight Saga IV - Breaking Dawn Part. 2 (2012)",
+          "status": "ok"
+        }
+      ]
     }
   ],
   "Horror": [
@@ -7058,7 +8824,45 @@
     },
     {
       "name": "A Nightmare on Elm Street Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "A Nightmare on Elm Street (1984)",
+          "status": "ok"
+        },
+        {
+          "name": "A Nightmare on Elm Street (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "A Nightmare on Elm Street 2 - Freddy's Revenge (1985)",
+          "status": "warn"
+        },
+        {
+          "name": "A Nightmare on Elm Street 3 - Dream Warriors (1987)",
+          "status": "warn"
+        },
+        {
+          "name": "A Nightmare on Elm Street 4 - The Dream Master (1988)",
+          "status": "warn"
+        },
+        {
+          "name": "A Nightmare on Elm Street 5 - The Dream Child (1989)",
+          "status": "warn"
+        },
+        {
+          "name": "Freddy vs. Jason (2003)",
+          "status": "missing"
+        },
+        {
+          "name": "Freddy's Dead - The Final Nightmare (1991)",
+          "status": "warn"
+        },
+        {
+          "name": "Wes Craven's New Nightmare (1994)",
+          "status": "warn"
+        }
+      ]
     },
     {
       "name": "A Quiet Place (2018)",
@@ -7090,7 +8894,21 @@
     },
     {
       "name": "Annabelle Trilogy",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Annabelle (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "Annabelle - Comes Home (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "Annabelle - Creation (2017)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Antichrist (2009)",
@@ -7102,7 +8920,21 @@
     },
     {
       "name": "Apocalypse Trilogy",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "In the Mouth of Madness (1994)",
+          "status": "missing"
+        },
+        {
+          "name": "Prince of Darkness (1987)",
+          "status": "missing"
+        },
+        {
+          "name": "The Thing (1982)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Apollo 18 (2011)",
@@ -7126,7 +8958,21 @@
     },
     {
       "name": "Basket Case Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Basket Case (1982)",
+          "status": "ok"
+        },
+        {
+          "name": "Basket Case 2 (1990)",
+          "status": "ok"
+        },
+        {
+          "name": "Basket Case 3 (1991)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Bats (1999)",
@@ -7154,7 +9000,13 @@
     },
     {
       "name": "Body Snatcher Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Body Snatcher (1945)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Bone Tomahawk (2015)",
@@ -7162,7 +9014,13 @@
     },
     {
       "name": "Boogeyman Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Boogeyman (2005)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Cabin Fever (2002)",
@@ -7194,11 +9052,75 @@
     },
     {
       "name": "Child's Play Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Bride of Chucky (1998)",
+          "status": "ok"
+        },
+        {
+          "name": "Child's Play (1988)",
+          "status": "missing"
+        },
+        {
+          "name": "Child's Play (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "Child's Play 2 (1990)",
+          "status": "missing"
+        },
+        {
+          "name": "Child's Play 3 (1991)",
+          "status": "ok"
+        },
+        {
+          "name": "Cult of Chucky (2017)",
+          "status": "missing"
+        },
+        {
+          "name": "Curse of Chucky (2013)",
+          "status": "missing"
+        },
+        {
+          "name": "Seed of Chucky (2004)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Children of the Corn Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Children of the Corn (1984)",
+          "status": "missing"
+        },
+        {
+          "name": "Children of the Corn (2020)",
+          "status": "missing"
+        },
+        {
+          "name": "Children of the Corn 666 - Isaac's Return (1999)",
+          "status": "missing"
+        },
+        {
+          "name": "Children of the Corn II - The Final Sacrifice (1993)",
+          "status": "missing"
+        },
+        {
+          "name": "Children of the Corn III - Urban Harvest (1995)",
+          "status": "missing"
+        },
+        {
+          "name": "Children of the Corn IV - The Gathering (1996)",
+          "status": "missing"
+        },
+        {
+          "name": "Children of the Corn V - Fields of Terror (1998)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Christine (1983)",
@@ -7222,7 +9144,21 @@
     },
     {
       "name": "Creepshow Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Creepshow (1982)",
+          "status": "ok"
+        },
+        {
+          "name": "Creepshow 2 (1987)",
+          "status": "ok"
+        },
+        {
+          "name": "Creepshow 3 (2006)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Critters (1986)",
@@ -7230,7 +9166,13 @@
     },
     {
       "name": "Cube Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Cube (1997)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Cujo (1983)",
@@ -7266,7 +9208,13 @@
     },
     {
       "name": "Dracula Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Dracula - Prince of Darkness (1966)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Drag Me to Hell (2009)",
@@ -7282,15 +9230,73 @@
     },
     {
       "name": "Evil Dead Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Army of Darkness (1992)",
+          "status": "ok"
+        },
+        {
+          "name": "Evil Dead (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "Evil Dead II (1987)",
+          "status": "missing"
+        },
+        {
+          "name": "Evil Dead Rise (2023)",
+          "status": "missing"
+        },
+        {
+          "name": "The Evil Dead (1981)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Fear Street Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Fear Street Part. 1 - 1994 (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Fear Street Part. 2 - 1978 (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Fear Street Part. 3 - 1666 (2021)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Final Destination Collection (2000-2025)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Final Destination (2000)",
+          "status": "ok"
+        },
+        {
+          "name": "Final Destination 2 (2003)",
+          "status": "ok"
+        },
+        {
+          "name": "Final Destination 3 (2006)",
+          "status": "ok"
+        },
+        {
+          "name": "Final Destination 5 (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "The Final Destination (2009)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Firestarter (2022)",
@@ -7302,15 +9308,85 @@
     },
     {
       "name": "Frankenstein Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Bride of Frankenstein (1935)",
+          "status": "missing"
+        },
+        {
+          "name": "Frankenstein (1931)",
+          "status": "missing"
+        },
+        {
+          "name": "The Curse of Frankenstein (1957)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Friday the 13th Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Friday the 13th (1980)",
+          "status": "missing"
+        },
+        {
+          "name": "Friday the 13th (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "Friday the 13th - A New Beginning (1985)",
+          "status": "missing"
+        },
+        {
+          "name": "Friday the 13th - Part 2 (1981)",
+          "status": "missing"
+        },
+        {
+          "name": "Friday the 13th - The Final Chapter (1984)",
+          "status": "missing"
+        },
+        {
+          "name": "Friday the 13th Part III (1982)",
+          "status": "missing"
+        },
+        {
+          "name": "Friday the 13th Part VI - Jason Lives (1986)",
+          "status": "missing"
+        },
+        {
+          "name": "Friday the 13th Part VII - The New Blood (1988)",
+          "status": "missing"
+        },
+        {
+          "name": "Friday the 13th Part VIII - Jason Takes Manhattan (1989)",
+          "status": "missing"
+        },
+        {
+          "name": "Jason Goes to Hell - The Final Friday (1993)",
+          "status": "missing"
+        },
+        {
+          "name": "Jason X (2001)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Fright Night Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Fright Night (1985)",
+          "status": "missing"
+        },
+        {
+          "name": "Fright Night Part 2 (1988)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Ghost Ship (2002)",
@@ -7322,7 +9398,61 @@
     },
     {
       "name": "Halloween Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Halloween (1978)",
+          "status": "ok"
+        },
+        {
+          "name": "Halloween (2007)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween (2018)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween - Resurrection (2002)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween - The Curse of Michael Myers (1995)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween 4 - The Return of Michael Myers (1988)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween 5 - The Revenge of Michael Myers (1989)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween Ends (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween H20 - 20 Years Later (1998)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween II (1981)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween II (2009)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween III - Season of the Witch (1982)",
+          "status": "missing"
+        },
+        {
+          "name": "Halloween Kills (2021)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Hantu Kak Limah (2018)",
@@ -7330,7 +9460,29 @@
     },
     {
       "name": "Hellraiser Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Hellbound - Hellraiser II (1988)",
+          "status": "missing"
+        },
+        {
+          "name": "Hellraiser (1987)",
+          "status": "missing"
+        },
+        {
+          "name": "Hellraiser (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "Hellraiser III - Hell on Earth (1992)",
+          "status": "missing"
+        },
+        {
+          "name": "Hellraiser IV - Bloodline (1996)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Hereditary (2018)",
@@ -7338,11 +9490,43 @@
     },
     {
       "name": "Hostel Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Hostel (2005)",
+          "status": "ok"
+        },
+        {
+          "name": "Hostel - Part II (2007)",
+          "status": "missing"
+        },
+        {
+          "name": "Hostel - Part III (2011)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "House Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "House (1985)",
+          "status": "missing"
+        },
+        {
+          "name": "House II - The Second Story (1987)",
+          "status": "missing"
+        },
+        {
+          "name": "House III - The Horror Show (1989)",
+          "status": "missing"
+        },
+        {
+          "name": "House IV (1992)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "House of Wax (2005)",
@@ -7378,7 +9562,29 @@
     },
     {
       "name": "Insidious Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Insidious (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Insidious - Chapter 2 (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "Insidious - Chapter 3 (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Insidious - The Last Key (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Insidious - The Red Door (2023)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Interview with the Vampire (1994)",
@@ -7402,7 +9608,21 @@
     },
     {
       "name": "It's Alive Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "It Lives Again (1978)",
+          "status": "missing"
+        },
+        {
+          "name": "It's Alive (1974)",
+          "status": "missing"
+        },
+        {
+          "name": "It's Alive III - Island of the Alive (1987)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Ivanna (2022)",
@@ -7410,11 +9630,47 @@
     },
     {
       "name": "Jaws Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Jaws (1975)",
+          "status": "ok"
+        },
+        {
+          "name": "Jaws - The Revenge",
+          "status": "ok"
+        },
+        {
+          "name": "Jaws 2 (1978)",
+          "status": "ok"
+        },
+        {
+          "name": "Jaws 3 (1983)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Jeepers Creepers Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Jeepers Creepers (2001)",
+          "status": "missing"
+        },
+        {
+          "name": "Jeepers Creepers - Reborn (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "Jeepers Creepers 2 (2003)",
+          "status": "missing"
+        },
+        {
+          "name": "Jeepers Creepers 3 (2017)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Jennifer's Body (2009)",
@@ -7478,7 +9734,21 @@
     },
     {
       "name": "Leprechaun Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Leprechaun (1993)",
+          "status": "missing"
+        },
+        {
+          "name": "Leprechaun 2 (1994)",
+          "status": "missing"
+        },
+        {
+          "name": "Leprechaun 3 (1995)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Let the Right One In (2008)",
@@ -7486,7 +9756,21 @@
     },
     {
       "name": "Living Dead Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Return of the Living Dead II (1988)",
+          "status": "missing"
+        },
+        {
+          "name": "Return of the Living Dead III (1993)",
+          "status": "missing"
+        },
+        {
+          "name": "The Return of the Living Dead (1985)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "M3GAN (2023)",
@@ -7562,7 +9846,17 @@
     },
     {
       "name": "Orphan Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Orphan (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "Orphan - First Kill (2022)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Ouija (2014)",
@@ -7578,7 +9872,37 @@
     },
     {
       "name": "Paranormal Activity Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Paranormal Activity (2007)",
+          "status": "ok"
+        },
+        {
+          "name": "Paranormal Activity - Next of Kin (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Paranormal Activity - The Ghost Dimensions (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Paranormal Activity - The Marked Ones (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "Paranormal Activity 2 (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Paranormal Activity 3 (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Paranormal Activity 4 (2012)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Pearl (2022)",
@@ -7602,7 +9926,21 @@
     },
     {
       "name": "Pet Sematary Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Pet Sematary (1989)",
+          "status": "missing"
+        },
+        {
+          "name": "Pet Sematary (2019)",
+          "status": "missing"
+        },
+        {
+          "name": "Pet Sematary Two (1992)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Phenomena (1985)",
@@ -7618,11 +9956,39 @@
     },
     {
       "name": "Piranha Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Piranha (1978)",
+          "status": "missing"
+        },
+        {
+          "name": "Piranha (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Piranha 3DD (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Piranha II - The Spawning (1982)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Poltergeist Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Poltergeist (1982)",
+          "status": "missing"
+        },
+        {
+          "name": "Poltergeist (2015)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "Possessor (2020)",
@@ -7634,7 +10000,25 @@
     },
     {
       "name": "Psycho Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Psycho (1960)",
+          "status": "ok"
+        },
+        {
+          "name": "Psycho II (1983)",
+          "status": "missing"
+        },
+        {
+          "name": "Psycho III (1986)",
+          "status": "missing"
+        },
+        {
+          "name": "Psycho IV - The Beginning (1990)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Puisi Cinta yang Membunuh (2022)",
@@ -7670,7 +10054,21 @@
     },
     {
       "name": "Re-Animator Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Beyond Re-Animator (2003)",
+          "status": "missing"
+        },
+        {
+          "name": "Bride of Re-Animator (1990)",
+          "status": "missing"
+        },
+        {
+          "name": "Re-Animator (1985)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Relic (2020)",
@@ -7694,7 +10092,45 @@
     },
     {
       "name": "Saw Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Jigsaw (2017)",
+          "status": "missing"
+        },
+        {
+          "name": "Saw (2004)",
+          "status": "ok"
+        },
+        {
+          "name": "Saw II (2005)",
+          "status": "ok"
+        },
+        {
+          "name": "Saw III (2006)",
+          "status": "ok"
+        },
+        {
+          "name": "Saw IV (2007)",
+          "status": "ok"
+        },
+        {
+          "name": "Saw V (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "Saw VI (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "Saw VII (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Spiral (2021)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Scanners (1981)",
@@ -7706,7 +10142,33 @@
     },
     {
       "name": "Scream Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Scream (1996)",
+          "status": "ok"
+        },
+        {
+          "name": "Scream (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "Scream 2 (1997)",
+          "status": "ok"
+        },
+        {
+          "name": "Scream 3 (2000)",
+          "status": "missing"
+        },
+        {
+          "name": "Scream 4 (2011)",
+          "status": "missing"
+        },
+        {
+          "name": "Scream VI (2023)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Sebelum Iblis Menjemput (2018)",
@@ -7730,7 +10192,17 @@
     },
     {
       "name": "Silent Night Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Silent Night, Deadly Night (1984)",
+          "status": "missing"
+        },
+        {
+          "name": "Silent Night, Deadly Night 5 - The Toy Maker (1991)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Silver Bullet (1985)",
@@ -7750,7 +10222,21 @@
     },
     {
       "name": "Sleepaway Camp Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Sleepaway Camp (1983)",
+          "status": "missing"
+        },
+        {
+          "name": "Sleepaway Camp II - Unhappy Campers (1988)",
+          "status": "missing"
+        },
+        {
+          "name": "Sleepaway Camp III - Teenage Wasteland (1989)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Slither (2006)",
@@ -7758,7 +10244,21 @@
     },
     {
       "name": "Slumber Party Massacre Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Slumber Party Massacre II (1987)",
+          "status": "missing"
+        },
+        {
+          "name": "Slumber Party Massacre III (1990)",
+          "status": "missing"
+        },
+        {
+          "name": "The Slumber Party Massacre (1982)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Smile (2022)",
@@ -7798,7 +10298,45 @@
     },
     {
       "name": "Texas Chainsaw Massacre Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Leatherface (2017)",
+          "status": "missing"
+        },
+        {
+          "name": "Leatherface - Texas Chainsaw Massacre III (1990)",
+          "status": "missing"
+        },
+        {
+          "name": "Texas Chainsaw 3D (2013)",
+          "status": "missing"
+        },
+        {
+          "name": "Texas Chainsaw Massacre (2022)",
+          "status": "missing"
+        },
+        {
+          "name": "The Return of the Texas Chainsaw Massacre (1995)",
+          "status": "missing"
+        },
+        {
+          "name": "The Texas Chainsaw Massacre (1974)",
+          "status": "ok"
+        },
+        {
+          "name": "The Texas Chainsaw Massacre (2003)",
+          "status": "missing"
+        },
+        {
+          "name": "The Texas Chainsaw Massacre - The Beginning (2006)",
+          "status": "missing"
+        },
+        {
+          "name": "The Texas Chainsaw Massacre 2 (1986)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "The Amityville Horror (1979)",
@@ -7842,7 +10380,21 @@
     },
     {
       "name": "The Conjuring Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Conjuring (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "The Conjuring - The Devil Made Me Do It (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "The Conjuring 2 (2016)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "The Curse of La Llorona (2019)",
@@ -7866,7 +10418,21 @@
     },
     {
       "name": "The Exorcist Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Exorcist II - The Heretic (1977)",
+          "status": "ok"
+        },
+        {
+          "name": "The Exorcist (1973)",
+          "status": "ok"
+        },
+        {
+          "name": "The Exorcist III (1990)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "The Eye (2002)",
@@ -7906,7 +10472,21 @@
     },
     {
       "name": "The Human Centipede Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Human Centipede (2009)",
+          "status": "missing"
+        },
+        {
+          "name": "The Human Centipede II (2011)",
+          "status": "missing"
+        },
+        {
+          "name": "The Human Centipede III (2015)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "The Inugami Family (1976)",
@@ -8050,7 +10630,17 @@
     },
     {
       "name": "Unfriended Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Unfriended (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "Unfriended - Dark Web (2018)",
+          "status": "missing"
+        }
+      ]
     },
     {
       "name": "Us (2019)",
@@ -8090,7 +10680,37 @@
     },
     {
       "name": "Wrong Turn Series",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Wrong Turn (2003)",
+          "status": "ok"
+        },
+        {
+          "name": "Wrong Turn (2021)",
+          "status": "missing"
+        },
+        {
+          "name": "Wrong Turn 2 - Dead End (2007)",
+          "status": "ok"
+        },
+        {
+          "name": "Wrong Turn 3 - Left for Dead",
+          "status": "ok"
+        },
+        {
+          "name": "Wrong Turn 4 - Bloody Beginnings (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Wrong Turn 5 - Bloodlines (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Wrong Turn 6 - Last Resort (2014)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "X (2022)",
@@ -8348,7 +10968,25 @@
     },
     {
       "name": "[COLLECTION] Kingsman",
-      "status": "ok"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Argylle (2024)",
+          "status": "ok"
+        },
+        {
+          "name": "Kingsman - The Golden Circle (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "Kingsman - The Secret Service (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "The King's Man (2021)",
+          "status": "ok"
+        }
+      ]
     }
   ],
   "Romance": [
@@ -9852,111 +12490,837 @@
     },
     {
       "name": "[COLLECTION] Alien Anthology (1979-2024)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Alien (1979)",
+          "status": "ok"
+        },
+        {
+          "name": "Alien - Covenant (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "Alien - Resurrection (1997)",
+          "status": "ok"
+        },
+        {
+          "name": "Alien - Romulus (2024)",
+          "status": "ok"
+        },
+        {
+          "name": "Aliens (1986)",
+          "status": "ok"
+        },
+        {
+          "name": "Alien³ (1992)",
+          "status": "ok"
+        },
+        {
+          "name": "Prometheus (2012)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Back to the Future (1985-1990)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Back To The Future Part III (1990)",
+          "status": "ok"
+        },
+        {
+          "name": "Back to the Future (1985)",
+          "status": "ok"
+        },
+        {
+          "name": "Back to the Future Part II (1989)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Batman - Legacy Collection (1989-1997)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Batman (1989)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman Forever (1995)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman Returns (1992)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman and Robin (1997)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Batman - The Dark Knight Trilogy (2005-2012)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Batman - The Dark Knight (2007)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman - The Dark Knight Rises (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman Begins (2005)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] DC Extended Universe (2013-2023)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Aquaman (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Aquaman and the Lost Kingdom (2023)",
+          "status": "ok"
+        },
+        {
+          "name": "Batman v Superman - Dawn of Justice (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Birds of Prey (2020)",
+          "status": "ok"
+        },
+        {
+          "name": "Black Adam (2022)",
+          "status": "ok"
+        },
+        {
+          "name": "Blue Beetle (2023)",
+          "status": "ok"
+        },
+        {
+          "name": "Justice League (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "Man of Steel (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "Shazam! (2019)",
+          "status": "ok"
+        },
+        {
+          "name": "Shazam! - Fury of the Gods (2023)",
+          "status": "ok"
+        },
+        {
+          "name": "Suicide Squad (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "The Flash (2023)",
+          "status": "ok"
+        },
+        {
+          "name": "The Suicide Squad (2021)",
+          "status": "ok"
+        },
+        {
+          "name": "Wonder Woman (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "Wonder Woman - 1984 (2020)",
+          "status": "ok"
+        },
+        {
+          "name": "Zack Snyder's Justice League (2021)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Deadpool (2016-2024)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Deadpool \u0026 Wolverine (2024)",
+          "status": "ok"
+        },
+        {
+          "name": "Deadpool (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Deadpool 2 (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Deadpool 2 - Once Upon a Deadpool (2018)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Jurassic Park Universe (1993-2022)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Jurassic Park (1993)",
+          "status": "ok"
+        },
+        {
+          "name": "Jurassic Park III (2001)",
+          "status": "ok"
+        },
+        {
+          "name": "Jurassic World (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Jurassic World - Fallen Kingdom (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Jurassic World Dominion (2022)",
+          "status": "ok"
+        },
+        {
+          "name": "The Lost World - Jurassic Park (1997)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Marvel Cinematic Universe (2008-2025)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Ant-Man (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Ant-Man and the Wasp (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Ant-Man and the Wasp - Quantumania (2023)",
+          "status": "ok"
+        },
+        {
+          "name": "Avengers - Age Of Ultron (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Avengers - Endgame (2019)",
+          "status": "ok"
+        },
+        {
+          "name": "Avengers - Infinity War (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Black Panther (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Black Panther - Wakanda Forever (2022)",
+          "status": "ok"
+        },
+        {
+          "name": "Black Widow (2021)",
+          "status": "ok"
+        },
+        {
+          "name": "Captain America - Brave New World (2025)",
+          "status": "ok"
+        },
+        {
+          "name": "Captain America - Civil War (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Captain America - The First Avenger (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Captain America - The Winter Soldier  (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "Captain Marvel (2019)",
+          "status": "ok"
+        },
+        {
+          "name": "Doctor Strange (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Doctor Strange in the Multiverse of Madness (2022)",
+          "status": "ok"
+        },
+        {
+          "name": "Eternals (2021)",
+          "status": "ok"
+        },
+        {
+          "name": "Guardians of the Galaxy (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "Guardians of the Galaxy Vol. 2 (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "Guardians of the Galaxy Vol. 3 (2023)",
+          "status": "ok"
+        },
+        {
+          "name": "Iron Man (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "Iron Man 2 (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Iron Man 3 (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "Shang-Chi and the Legend of the Ten Rings (2021)",
+          "status": "ok"
+        },
+        {
+          "name": "The Avengers (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "The Guardians of the Galaxy Holiday Special (2022)",
+          "status": "ok"
+        },
+        {
+          "name": "The Incredible Hulk (2008)",
+          "status": "ok"
+        },
+        {
+          "name": "The Marvels (2023)",
+          "status": "ok"
+        },
+        {
+          "name": "Thor (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Thor - Love and Thunder (2022)",
+          "status": "ok"
+        },
+        {
+          "name": "Thor - Ragnarok (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "Thor - The Dark World (2013)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Maze Runner Trilogy (2014-2018)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Maze Runner - The Death Cure (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Maze Runner - The Scorch Trials (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "The Maze Runner (2014)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Men in Black (1997-2019)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Men In Black I (1997)",
+          "status": "ok"
+        },
+        {
+          "name": "Men In Black II (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "Men In Black III (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "Men in Black - International (2019)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Planet of the Apes - Original Timeline (1968-1973)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Battle for the Planet of the Apes (1973)",
+          "status": "ok"
+        },
+        {
+          "name": "Beneath the Planet of the Apes (1970)",
+          "status": "ok"
+        },
+        {
+          "name": "Conquest of the Planet of the Apes (1972)",
+          "status": "ok"
+        },
+        {
+          "name": "Escape from the Planet of the Apes (1971)",
+          "status": "ok"
+        },
+        {
+          "name": "Planet of the Apes (1968)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Planet of the Apes - Reboot Timeline (2011-2024)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Dawn of the Planet of the Apes (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "Kingdom of the Planet of the Apes (2024)",
+          "status": "ok"
+        },
+        {
+          "name": "Rise of the Planet of the Apes (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "War of the Planet of the Apes (2017)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Predator (1987-2022)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Predator (1987)",
+          "status": "ok"
+        },
+        {
+          "name": "Predator 2 (1990)",
+          "status": "ok"
+        },
+        {
+          "name": "Predators (2010)",
+          "status": "ok"
+        },
+        {
+          "name": "Prey (2022)",
+          "status": "ok"
+        },
+        {
+          "name": "The Predator (2018)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Spider-Man - Classic Trilogy (2002-2017)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Spider-Man (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "Spider-Man 2 (2004)",
+          "status": "ok"
+        },
+        {
+          "name": "Spider-Man 3 (2007)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Spider-Man - MCU Trilogy (2017-2021)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Spider-Man - Far From Home (2019)",
+          "status": "ok"
+        },
+        {
+          "name": "Spider-Man - Homecoming (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "Spider-Man - No Way Home (2021)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Star Trek - Kelvin Timeline (2009-2016)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Star Trek (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Trek Beyond (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Trek Into Darkness (2013)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Star Trek - The Next Generation (1994-2002)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Star Trek - First Contact (1996)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Trek - Insurrection (1998)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Trek - Nemesis (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Trek Generations (1994)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Star Trek - The Original Series (1979-1991)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Star Trek - The Motion Picture (1979)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Trek II - The Wrath of Khan (1982)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Trek III - The Search of Spock (1984)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Trek IV - The Voyage Home (1986)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Trek V - The Final Frontier (1989)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Trek VI - The Undiscovered Country (1991)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Star Wars Saga (1977-2019)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Rogue One - A Star Wars Story (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "Solo - A Star Wars Story (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Wars Eps. I - The Phantom Menace (1999)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Wars Eps. II - Attack of the Clones (2002)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Wars Eps. III - Revenge of the Sith (2005)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Wars Eps. IV - A New Hope (1977)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Wars Eps. IX - The Rise of Skywalker (2019)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Wars Eps. V - The Empire Strikes Back (1980)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Wars Eps. VI - Return of the Jedi (1983)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Wars Eps. VII - The Force Awakens (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Star Wars Eps. VIII - The Last Jedi (2017)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Superman (1978-2006)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Superman (1978)",
+          "status": "ok"
+        },
+        {
+          "name": "Superman II (1980)",
+          "status": "ok"
+        },
+        {
+          "name": "Superman III (1983)",
+          "status": "ok"
+        },
+        {
+          "name": "Superman IV - The Quest for Peace (1987)",
+          "status": "ok"
+        },
+        {
+          "name": "Superman Returns (2006)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] The Amazing Spider-Man (2012-2014)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Amazing Spider-Man (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "The Amazing Spider-Man 2 (2014)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] The Chronicles of Riddick (2000-2013)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Pitch Black (2000)",
+          "status": "ok"
+        },
+        {
+          "name": "Riddick (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "The Chronicles of Riddick (2004)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] The Hunger Games (2012-2023)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "The Hunger Games (2012)",
+          "status": "ok"
+        },
+        {
+          "name": "The Hunger Games - Catching Fire (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "The Hunger Games - Mockingjay Part. 1 (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "The Hunger Games - Mockingjay Part. 2 (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "The Hunger Games - The Ballad of Songbirds and Snakes (2023)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] The Terminator (1984-2019)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Terminator - Dark Fate (2019)",
+          "status": "ok"
+        },
+        {
+          "name": "Terminator 2 - Judgement Day (1991)",
+          "status": "ok"
+        },
+        {
+          "name": "Terminator 3 - Rise of the Machines (2003)",
+          "status": "ok"
+        },
+        {
+          "name": "Terminator Genisys (2015)",
+          "status": "ok"
+        },
+        {
+          "name": "Terminator Salvation (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "The Terminator (1984)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Transformers (2007-2023)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Bumblebee (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Transformers (2007)",
+          "status": "ok"
+        },
+        {
+          "name": "Transformers - Age of Extinction (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "Transformers - Dark of the Moon (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "Transformers - Revenge of the Fallen (2009)",
+          "status": "ok"
+        },
+        {
+          "name": "Transformers - Rise of the Beasts (2023)",
+          "status": "ok"
+        },
+        {
+          "name": "Transformers - The Last Knight (2017)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] Venom (2018-2024)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Venom (2018)",
+          "status": "ok"
+        },
+        {
+          "name": "Venom - Let There Be Carnage (2021)",
+          "status": "ok"
+        },
+        {
+          "name": "Venom - The Last Dance (2024)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "[COLLECTION] X-Men Saga (2000-2020)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "Logan (2017)",
+          "status": "ok"
+        },
+        {
+          "name": "The New Mutants (2020)",
+          "status": "ok"
+        },
+        {
+          "name": "The Wolverine (2013)",
+          "status": "ok"
+        },
+        {
+          "name": "X-Men (2000)",
+          "status": "ok"
+        },
+        {
+          "name": "X-Men - Apocalypse (2016)",
+          "status": "ok"
+        },
+        {
+          "name": "X-Men - Dark Phoenix (2019)",
+          "status": "ok"
+        },
+        {
+          "name": "X-Men - Days of Future Past (2014)",
+          "status": "ok"
+        },
+        {
+          "name": "X-Men - First Class (2011)",
+          "status": "ok"
+        },
+        {
+          "name": "X-Men 2 - United (2004)",
+          "status": "ok"
+        },
+        {
+          "name": "X-Men 3 - The Last Stand (2006)",
+          "status": "ok"
+        },
+        {
+          "name": "X-Men Origins - Wolverine (2009)",
+          "status": "ok"
+        }
+      ]
     }
   ],
   "Thriller": [
@@ -10608,7 +13972,21 @@
   "Western": [
     {
       "name": "Dollars Trilogy (1964-1966)",
-      "status": "missing"
+      "status": "ok",
+      "group": [
+        {
+          "name": "A Fistful of Dollars (1964)",
+          "status": "ok"
+        },
+        {
+          "name": "For a Few Dollars More (1965)",
+          "status": "ok"
+        },
+        {
+          "name": "The Good, the Bad and the Ugly (1966)",
+          "status": "ok"
+        }
+      ]
     },
     {
       "name": "High Noon (1952)",

@@ -9,8 +9,9 @@ import (
 )
 
 type TitleInfo struct {
-	Name   string `json:"name"`
-	Status string `json:"status"` // "ok", "warn", or "missing"
+	Name   string      `json:"name"`
+	Status string      `json:"status"`
+	Group  []TitleInfo `json:"group,omitempty"`
 }
 
 func main() {
@@ -44,50 +45,85 @@ func scanAndSave(label, dir, out string) {
 func scanSection(root string) map[string][]TitleInfo {
 	result := make(map[string][]TitleInfo)
 
-	entries, err := os.ReadDir(root)
+	genres, err := os.ReadDir(root)
 	if err != nil {
 		log.Printf("⚠️ Failed to read: %s\n", root)
 		return result
 	}
 
-	for _, genreDir := range entries {
+	for _, genreDir := range genres {
 		if !genreDir.IsDir() {
 			continue
 		}
 
-		genrePath := filepath.Join(root, genreDir.Name())
-		titleDirs, _ := os.ReadDir(genrePath)
+		genreName := genreDir.Name()
+		genrePath := filepath.Join(root, genreName)
 
+		entries, _ := os.ReadDir(genrePath)
 		var titles []TitleInfo
-		for _, titleDir := range titleDirs {
-			if !titleDir.IsDir() {
+
+		for _, entry := range entries {
+			if !entry.IsDir() {
 				continue
 			}
 
-			titlePath := filepath.Join(genrePath, titleDir.Name())
+			entryPath := filepath.Join(genrePath, entry.Name())
+			subEntries, _ := os.ReadDir(entryPath)
 
-			icoExists := hasIcoFile(titlePath)
-			iniExists := fileExists(filepath.Join(titlePath, "desktop.ini"))
-
-			status := "missing"
-			if icoExists && iniExists {
-				status = "ok"
-			} else if icoExists {
-				status = "warn"
+			// Check if it's a collection (has subfolders)
+			hasSubfolders := false
+			for _, sub := range subEntries {
+				if sub.IsDir() {
+					hasSubfolders = true
+					break
+				}
 			}
 
-			titles = append(titles, TitleInfo{
-				Name:   titleDir.Name(),
-				Status: status,
-			})
+			if hasSubfolders {
+				// Collection: group of titles
+				var grouped []TitleInfo
+				for _, sub := range subEntries {
+					if !sub.IsDir() {
+						continue
+					}
+					titlePath := filepath.Join(entryPath, sub.Name())
+					grouped = append(grouped, TitleInfo{
+						Name:   sub.Name(),
+						Status: resolveStatus(titlePath),
+					})
+				}
+				titles = append(titles, TitleInfo{
+					Name:   entry.Name(), // e.g. "John Wick Collection"
+					Status: "ok",         // or calculate from group if needed
+					Group:  grouped,
+				})
+			} else {
+				// Single title folder
+				titles = append(titles, TitleInfo{
+					Name:   entry.Name(),
+					Status: resolveStatus(entryPath),
+				})
+			}
 		}
 
 		if len(titles) > 0 {
-			result[genreDir.Name()] = titles
+			result[genreName] = titles
 		}
 	}
 
 	return result
+}
+
+func resolveStatus(path string) string {
+	ico := hasIcoFile(path)
+	ini := fileExists(filepath.Join(path, "desktop.ini"))
+
+	if ico && ini {
+		return "ok"
+	} else if ico {
+		return "warn"
+	}
+	return "missing"
 }
 
 func fileExists(path string) bool {
