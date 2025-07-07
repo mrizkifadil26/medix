@@ -1,6 +1,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  margin: 2em;
+  margin: 0;
+  padding: 1rem;
   background: #f9f9f9;
   color: #333;
 }
@@ -8,6 +9,26 @@ body {
 h1 {
   color: #222;
   margin-bottom: 1em;
+}
+
+header {
+  background-color: #222;
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem;
 }
 
 .progress-container {
@@ -80,6 +101,16 @@ h1 {
 @media (max-width: 600px) {
   body {
     font-size: 16px;
+    padding: 0.75rem 0.5rem;
+  }
+
+  header nav {
+    justify-content: space-around;
+  }
+
+  header a {
+    flex: 1 1 auto;
+    text-align: center;
   }
   
   h1 {
