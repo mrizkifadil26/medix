@@ -4,6 +4,7 @@ async function loadProgress() {
 
   renderProgressBar(json.percent, json.done, json.total);
   renderProgressTable(json.genres);
+  renderProgressCards(json.genres);
 }
 
 function renderProgressBar(percent, done, total) {
@@ -49,8 +50,13 @@ function renderProgressTable(genres) {
 
     html += `
       <tr>
-        <td>${g.genre}</td>
-        <td>
+        <td data-label="Genre">
+          <span class="genre-label">
+            ${g.icon || "🎬"} ${g.genre}
+          </span>
+        </td>
+
+        <td data-label="Progress">
           <div class="bar-wrapper">
             <div class="bar-container">
               <div class="bar-ico" style="width: ${icoWidth}%"></div>
@@ -65,7 +71,7 @@ function renderProgressTable(genres) {
             </div>
           </div>
         </td>
-        <td>${g.status}</td>
+        <td data-label="Status">${g.status}</td>
       </tr>
     `;
   });
@@ -83,5 +89,47 @@ function renderProgressTable(genres) {
 
   container.innerHTML = html;
 }
+
+function renderProgressCards(genres) {
+  const container = document.getElementById("progress-cards");
+  container.innerHTML = "";
+
+  genres.forEach(g => {
+    const raw = g.raw || 1;
+    const ico = g.ico || 0;
+    const png = g.png || 0;
+    const pngOnly = png - ico;
+    const rawOnly = raw - png;
+
+    const icoWidth = (ico / raw) * 100;
+    const pngWidth = (pngOnly / raw) * 100;
+    const rawWidth = (rawOnly / raw) * 100;
+
+    const percent = Math.round((ico / raw) * 100);
+
+    const card = document.createElement("div");
+    card.className = "genre-card";
+    card.innerHTML = `
+      <div class="genre-header">
+        <div class="genre-name">${g.icon || "🎬"} ${g.genre}</div>
+        <div class="genre-status">${g.status}</div>
+      </div>
+      <div class="bar-container">
+        <div class="bar-ico" style="width: ${icoWidth}%;"></div>
+        <div class="bar-png" style="width: ${pngWidth}%;"></div>
+        <div class="bar-raw" style="width: ${rawWidth}%;"></div>
+        <div class="bar-label">${Math.round(percent)}%</div>
+      </div>
+
+      <div class="bar-info">
+        <span class="bar-count ico">${ico}</span> /
+        <span class="bar-count png">${png}</span> /
+        <span class="bar-count raw">${raw}</span>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
 
 window.addEventListener("DOMContentLoaded", loadProgress);

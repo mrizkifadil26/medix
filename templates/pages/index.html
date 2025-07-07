@@ -3,6 +3,10 @@
 {{ define "content" }}
   <h1>📊 Thumbnailing Progress</h1>
   <div id="progress-bar-container"></div>
-  <div id="progress-table"></div>
+  <!-- Table layout for desktop -->
+  <div id="progress-table" class="desktop-only"></div>
+
+  <!-- Card layout for mobile -->
+  <div id="progress-cards" class="mobile-only"></div>
   <script src="js/script.js"></script>
 {{ end }}
