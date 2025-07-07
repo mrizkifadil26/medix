@@ -47,7 +47,27 @@ function renderProgressTable(genres) {
     const pngWidth = (pngOnly / raw) * 100;
     const rawWidth = (rawOnly / raw) * 100;
 
-    const percent = Math.round((ico / raw) * 100);
+    // ✅ Correct percentage is based on combined contribution
+    const pngPercent = (png / raw) * 100;
+    const percent = Math.min(Math.round((ico / raw) * 100), 100);
+    console.log(`📂 Genre: ${g.genre || "Unknown"}
+      Raw Total     : ${raw}
+      ICO Count     : ${ico}
+      PNG Count     : ${png}
+      PNG Only      : ${pngOnly}
+      Raw Only      : ${rawOnly}
+      ICO Width     : ${icoWidth.toFixed(2)}%
+      PNG Width     : ${pngWidth.toFixed(2)}%
+      Raw Width     : ${rawWidth.toFixed(2)}%
+      Progress      : ${percent}%
+    `);
+
+    let labelClass = "bar-label";
+    if (percent < 20 && pngPercent < 40) {
+      labelClass += " label-light label-right";
+    } else if (percent < 40 && pngPercent < 40) {
+      labelClass += " label-light";
+    }
 
     html += `
       <tr>
@@ -63,7 +83,7 @@ function renderProgressTable(genres) {
               <div class="bar-ico" style="width: ${icoWidth}%"></div>
               <div class="bar-png" style="width: ${pngWidth}%"></div>
               <div class="bar-raw" style="width: ${rawWidth}%"></div>
-              <div class="bar-label">${percent}%</div>
+              <div class="${labelClass}">${percent}%</div>
             </div>
             <div class="bar-info">
               <span class="bar-count ico">${ico}</span> /
@@ -77,6 +97,7 @@ function renderProgressTable(genres) {
     `;
   });
 
+  html += `</tbody></table>`;
   container.innerHTML = html;
 }
 
@@ -131,6 +152,20 @@ function renderProgressLegend() {
       <div><span class="box bar-raw"></span> RAW</div>
     </div>
   `;
+}
+
+function createLabel(percentage, text) {
+  const label = document.createElement("div");
+  label.classList.add("bar-label");
+
+  if (percentage < 20) {
+    label.classList.add("label-light", "label-right");
+  } else if (percentage < 40) {
+    label.classList.add("label-light");
+  }
+
+  label.textContent = text;
+  return label;
 }
 
 window.addEventListener("DOMContentLoaded", loadProgress);
