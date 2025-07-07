@@ -45,6 +45,12 @@ header a {
   padding: 0.5rem;
 }
 
+.nav-emoji {
+  font-size: 1.1em;
+  line-height: 1;
+  display: inline-block;
+}
+
 main {
   padding: 1rem;
   max-width: 1200px;
