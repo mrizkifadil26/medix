@@ -103,7 +103,7 @@ func main() {
 
 		renderPageFiles([]string{
 			"templates/layouts/base.html",
-			"templates/pages/category.html",
+			"templates/pages/list.html",
 		}, "dist/"+outFile, pageData)
 	}
 
