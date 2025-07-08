@@ -10,31 +10,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/mrizkifadil26/medix/model"
 	"github.com/mrizkifadil26/medix/util"
 )
-
-type IconIndex struct {
-	Type        string      `json:"type"` // "genre"
-	GeneratedAt time.Time   `json:"generated_at"`
-	Groups      []IconGroup `json:"groups"`
-}
-
-type IconGroup struct {
-	ID    string      `json:"id,omitempty"` // e.g. "sci-fi"
-	Name  string      `json:"name"`         // genre name like "Sci-Fi"
-	Items []IconEntry `json:"items"`
-}
-
-type IconEntry struct {
-	ID        string      `json:"id,omitempty"`
-	Name      string      `json:"name"`
-	Extension string      `json:"extension,omitempty"`
-	Size      int64       `json:"size,omitempty"`
-	Source    string      `json:"source,omitempty"`
-	FullPath  string      `json:"full_path,omitempty"`
-	Type      string      `json:"type"` // "icon" or "collection"
-	Items     []IconEntry `json:"items,omitempty"`
-}
 
 const (
 	PersonalDir   = "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Personal Icon Pack/Movies/ICO"
@@ -43,7 +21,7 @@ const (
 	ExcludeDir    = "Collection"
 )
 
-func BuildIconIndex() (IconIndex, error) {
+func BuildIconIndex() (model.IconIndex, error) {
 	// Index personal icons first (higher priority)
 	// if err := scanIcoDir(PersonalDir, "personal", index, true); err != nil {
 	// 	return nil, err
@@ -55,18 +33,18 @@ func BuildIconIndex() (IconIndex, error) {
 	// }
 
 	// return index, nil
-	index := IconIndex{
+	index := model.IconIndex{
 		Type:        "genre",
 		GeneratedAt: time.Now(),
 	}
 
 	fmt.Println("🔍 Indexing icons...")
-	dirMap := make(map[string][]IconEntry)
+	dirMap := make(map[string][]model.IconEntry)
 	collectIcons(PersonalDir, "personal", dirMap)
 	collectIcons(DownloadedDir, "downloaded", dirMap)
 
 	// Convert map to sorted slice
-	tree := make(map[string][]IconEntry)
+	tree := make(map[string][]model.IconEntry)
 	for dir, icons := range dirMap {
 		parts := strings.SplitN(dir, string(os.PathSeparator), 2)
 		root := parts[0]
@@ -81,7 +59,7 @@ func BuildIconIndex() (IconIndex, error) {
 			for i := range icons {
 				icons[i].Type = "icon"
 			}
-			collectionEntry := IconEntry{
+			collectionEntry := model.IconEntry{
 				Name:  collectionName,
 				Type:  "collection",
 				Items: icons,
@@ -106,7 +84,7 @@ func BuildIconIndex() (IconIndex, error) {
 		sort.Slice(entries, func(i, j int) bool {
 			return entries[i].Name < entries[j].Name
 		})
-		index.Groups = append(index.Groups, IconGroup{
+		index.Groups = append(index.Groups, model.IconGroup{
 			ID:    util.Slugify(root),
 			Name:  root,
 			Items: entries,
@@ -154,7 +132,7 @@ func BuildIconIndex() (IconIndex, error) {
 // 	return nil
 // }
 
-func collectIcons(baseDir, source string, dirMap map[string][]IconEntry) {
+func collectIcons(baseDir, source string, dirMap map[string][]model.IconEntry) {
 	err := filepath.WalkDir(baseDir, func(path string, d os.DirEntry, err error) error {
 		if err != nil {
 			log.Printf("⚠️ Walk error in %s: %v", path, err)
@@ -188,7 +166,7 @@ func collectIcons(baseDir, source string, dirMap map[string][]IconEntry) {
 			return nil
 		}
 
-		dirMap[relDir] = append(dirMap[relDir], IconEntry{
+		dirMap[relDir] = append(dirMap[relDir], model.IconEntry{
 			ID:        util.Slugify(d.Name()),
 			Name:      d.Name(),
 			Size:      info.Size(),
@@ -206,7 +184,7 @@ func collectIcons(baseDir, source string, dirMap map[string][]IconEntry) {
 	}
 }
 
-func SaveIconIndex(index IconIndex) error {
+func SaveIconIndex(index model.IconIndex) error {
 	_ = os.MkdirAll(filepath.Dir(OutputPath), 0755)
 	file, err := os.Create(OutputPath)
 	if err != nil {
