@@ -39,7 +39,7 @@ index-icons:
 # Run unit tests (only in util/)
 .PHONY: test
 test:
-	go test -v ./...
+	go test -v ./util
 
 .PHONY: build serve watch watch-serve
 
