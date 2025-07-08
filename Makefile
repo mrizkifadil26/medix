@@ -31,6 +31,11 @@ clean:
 progress:
 	go run $(PROGRESS)
 
+# Run unit tests (only in util/)
+.PHONY: test
+test:
+	go test -v ./...
+
 .PHONY: build serve watch watch-serve
 
 build:
