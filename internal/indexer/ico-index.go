@@ -225,17 +225,33 @@ func slugify(name string) string {
 	// Replace Unicode \u0026 with actual character
 	name = strings.ReplaceAll(name, `\u0026`, "&")
 
+	name = strings.NewReplacer(
+		"’", "'", // smart apostrophe
+		"‘", "'",
+		"“", `"`,
+		"”", `"`,
+		"³", "3",
+		"½", "1-2",
+	).Replace(name)
+
 	// Replace " - " with "-"
 	name = strings.ReplaceAll(name, " - ", "-")
 
-	// Replace symbols with cleaner alternatives
+	// Clean up special characters
 	replacer := strings.NewReplacer(
 		"&", "and",
+		"+", "",
+		"'", "",
 		",", "",
 		"_", "-",
 		"(", "",
 		")", "",
 		".", "",
+		"!", "",
+		"?", "",
+		`"`, "",
+		"/", "-",
+		"\\", "-",
 	)
 	name = replacer.Replace(name)
 
