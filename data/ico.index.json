@@ -1,6 +1,6 @@
 {
  "type": "genre",
- "generated_at": "2025-07-08T22:39:31.851375925+07:00",
+ "generated_at": "2025-07-08T23:02:27.529577124+07:00",
  "groups": [
   {
    "id": "action",
@@ -133,7 +133,7 @@
      "type": "icon"
     },
     {
-     "id": "assassin's-creed",
+     "id": "assassins-creed",
      "name": "Assassin's Creed.ico",
      "extension": ".ico",
      "size": 84845,
@@ -322,7 +322,7 @@
      "type": "icon"
     },
     {
-     "id": "charlie's-angels-full-throttle-alt",
+     "id": "charlies-angels-full-throttle-alt",
      "name": "Charlie's Angels - Full Throttle (alt).ico",
      "extension": ".ico",
      "size": 88080,
@@ -331,7 +331,7 @@
      "type": "icon"
     },
     {
-     "id": "charlie's-angels-full-throttle",
+     "id": "charlies-angels-full-throttle",
      "name": "Charlie's Angels - Full Throttle.ico",
      "extension": ".ico",
      "size": 270398,
@@ -340,7 +340,7 @@
      "type": "icon"
     },
     {
-     "id": "charlie's-angels",
+     "id": "charlies-angels",
      "name": "Charlie's Angels.ico",
      "extension": ".ico",
      "size": 270398,
@@ -1231,7 +1231,7 @@
      "type": "icon"
     },
     {
-     "id": "léon-the-professional",
+     "id": "leon-the-professional",
      "name": "Léon - The Professional.ico",
      "extension": ".ico",
      "size": 270398,
@@ -1519,7 +1519,7 @@
      "type": "icon"
     },
     {
-     "id": "on-her-majesty's-secret-service",
+     "id": "on-her-majestys-secret-service",
      "name": "On Her Majesty's Secret Service.ico",
      "extension": ".ico",
      "size": 270398,
@@ -1888,7 +1888,7 @@
      "type": "icon"
     },
     {
-     "id": "shoot-'em-up",
+     "id": "shoot-em-up",
      "name": "Shoot 'Em Up.ico",
      "extension": ".ico",
      "size": 270398,
@@ -3001,7 +3001,7 @@
      "type": "icon"
     },
     {
-     "id": "a-bug's-life-alt",
+     "id": "a-bugs-life-alt",
      "name": "A Bug's Life (alt).ico",
      "extension": ".ico",
      "size": 99673,
@@ -3010,7 +3010,7 @@
      "type": "icon"
     },
     {
-     "id": "a-bug's-life",
+     "id": "a-bugs-life",
      "name": "A Bug's Life.ico",
      "extension": ".ico",
      "size": 270398,
@@ -3496,7 +3496,7 @@
      "type": "icon"
     },
     {
-     "id": "dragon-ball-z-resurrection-'f'",
+     "id": "dragon-ball-z-resurrection-f",
      "name": "Dragon Ball Z - Resurrection 'F'.ico",
      "extension": ".ico",
      "size": 109983,
@@ -3658,7 +3658,7 @@
      "type": "icon"
     },
     {
-     "id": "horton-hears-a-who!",
+     "id": "horton-hears-a-who",
      "name": "Horton Hears a Who!.ico",
      "extension": ".ico",
      "size": 270398,
@@ -3721,7 +3721,7 @@
      "type": "icon"
     },
     {
-     "id": "howl's-moving-castle",
+     "id": "howls-moving-castle",
      "name": "Howl's Moving Castle.ico",
      "extension": ".ico",
      "size": 270398,
@@ -3982,7 +3982,7 @@
      "type": "icon"
     },
     {
-     "id": "madagascar-3-europe's-most-wanted",
+     "id": "madagascar-3-europes-most-wanted",
      "name": "Madagascar 3 - Europe's Most Wanted.ico",
      "extension": ".ico",
      "size": 270398,
@@ -4162,7 +4162,7 @@
      "type": "icon"
     },
     {
-     "id": "nausicaä-of-the-valley-of-the-wind",
+     "id": "nausicaa-of-the-valley-of-the-wind",
      "name": "Nausicaä of the Valley of the Wind.ico",
      "extension": ".ico",
      "size": 270398,
@@ -4405,7 +4405,7 @@
      "type": "icon"
     },
     {
-     "id": "scoob!",
+     "id": "scoob",
      "name": "Scoob!.ico",
      "extension": ".ico",
      "size": 99418,
@@ -4549,7 +4549,7 @@
      "type": "icon"
     },
     {
-     "id": "surf's-up",
+     "id": "surfs-up",
      "name": "Surf's Up.ico",
      "extension": ".ico",
      "size": 270398,
@@ -4702,7 +4702,7 @@
      "type": "icon"
     },
     {
-     "id": "the-emperor's-new-groove",
+     "id": "the-emperors-new-groove",
      "name": "The Emperor's New Groove.ico",
      "extension": ".ico",
      "size": 270398,
@@ -4918,7 +4918,7 @@
      "type": "icon"
     },
     {
-     "id": "the-pirates!-band-of-misfits",
+     "id": "the-pirates-band-of-misfits",
      "name": "The Pirates! Band of Misfits.ico",
      "extension": ".ico",
      "size": 270398,
@@ -5347,7 +5347,7 @@
      "type": "icon"
     },
     {
-     "id": "airplane!",
+     "id": "airplane",
      "name": "Airplane!.ico",
      "extension": ".ico",
      "size": 270398,
@@ -5617,7 +5617,7 @@
      "type": "icon"
     },
     {
-     "id": "bill-and-ted's-excellent-adventure",
+     "id": "bill-and-teds-excellent-adventure",
      "name": "Bill \u0026 Ted's Excellent Adventure.ico",
      "extension": ".ico",
      "size": 98910,
@@ -5815,7 +5815,7 @@
      "type": "icon"
     },
     {
-     "id": "don't-look-up",
+     "id": "dont-look-up",
      "name": "Don't Look Up.ico",
      "extension": ".ico",
      "size": 75677,
@@ -5851,7 +5851,7 @@
      "type": "icon"
     },
     {
-     "id": "dude-where's-my-car-alt",
+     "id": "dude-wheres-my-car-alt",
      "name": "Dude, Where's My Car (alt).ico",
      "extension": ".ico",
      "size": 119773,
@@ -5860,7 +5860,7 @@
      "type": "icon"
     },
     {
-     "id": "dude-where's-my-car",
+     "id": "dude-wheres-my-car",
      "name": "Dude, Where's My Car.ico",
      "extension": ".ico",
      "size": 270398,
@@ -5986,7 +5986,7 @@
      "type": "icon"
     },
     {
-     "id": "ferris-bueller's-day-off",
+     "id": "ferris-buellers-day-off",
      "name": "Ferris Bueller's Day Off.ico",
      "extension": ".ico",
      "size": 83053,
@@ -6166,7 +6166,7 @@
      "type": "icon"
     },
     {
-     "id": "grandma's-boy",
+     "id": "grandmas-boy",
      "name": "Grandma's Boy.ico",
      "extension": ".ico",
      "size": 270398,
@@ -6229,7 +6229,7 @@
      "type": "icon"
     },
     {
-     "id": "gulliver's-travels",
+     "id": "gullivers-travels",
      "name": "Gulliver's Travels.ico",
      "extension": ".ico",
      "size": 97641,
@@ -6391,7 +6391,7 @@
      "type": "icon"
     },
     {
-     "id": "it's-kind-of-a-funny-story",
+     "id": "its-kind-of-a-funny-story",
      "name": "It's Kind of a Funny Story.ico",
      "extension": ".ico",
      "size": 270398,
@@ -6823,7 +6823,7 @@
      "type": "icon"
     },
     {
-     "id": "ocean's-eight",
+     "id": "oceans-eight",
      "name": "Ocean's Eight.ico",
      "extension": ".ico",
      "size": 83210,
@@ -7102,7 +7102,7 @@
      "type": "icon"
     },
     {
-     "id": "she's-the-man",
+     "id": "shes-the-man",
      "name": "She's the Man.ico",
      "extension": ".ico",
      "size": 270398,
@@ -7444,7 +7444,7 @@
      "type": "icon"
     },
     {
-     "id": "the-hitman's-bodyguard",
+     "id": "the-hitmans-bodyguard",
      "name": "The Hitman's Bodyguard.ico",
      "extension": ".ico",
      "size": 88753,
@@ -7552,7 +7552,7 @@
      "type": "icon"
     },
     {
-     "id": "the-naked-gun-from-the-files-of-police-squad!",
+     "id": "the-naked-gun-from-the-files-of-police-squad",
      "name": "The Naked Gun - From the Files of Police Squad!.ico",
      "extension": ".ico",
      "size": 270398,
@@ -7705,7 +7705,7 @@
      "type": "icon"
     },
     {
-     "id": "the-world's-end",
+     "id": "the-worlds-end",
      "name": "The World's End.ico",
      "extension": ".ico",
      "size": 270398,
@@ -7813,7 +7813,7 @@
      "type": "icon"
     },
     {
-     "id": "wayne's-world-2",
+     "id": "waynes-world-2",
      "name": "Wayne's World 2.ico",
      "extension": ".ico",
      "size": 88720,
@@ -7822,7 +7822,7 @@
      "type": "icon"
     },
     {
-     "id": "wayne's-world",
+     "id": "waynes-world",
      "name": "Wayne's World.ico",
      "extension": ".ico",
      "size": 92277,
@@ -7831,7 +7831,7 @@
      "type": "icon"
     },
     {
-     "id": "we're-the-millers",
+     "id": "were-the-millers",
      "name": "We're the Millers.ico",
      "extension": ".ico",
      "size": 270398,
@@ -7894,7 +7894,7 @@
      "type": "icon"
     },
     {
-     "id": "you-don't-mess-with-the-zohan-alt",
+     "id": "you-dont-mess-with-the-zohan-alt",
      "name": "You Don't Mess with the Zohan (alt).ico",
      "extension": ".ico",
      "size": 270398,
@@ -7903,7 +7903,7 @@
      "type": "icon"
     },
     {
-     "id": "you-don't-mess-with-the-zohan",
+     "id": "you-dont-mess-with-the-zohan",
      "name": "You Don't Mess with the Zohan.ico",
      "extension": ".ico",
      "size": 270398,
@@ -7999,7 +7999,7 @@
      "type": "icon"
     },
     {
-     "id": "carlito's-way",
+     "id": "carlitos-way",
      "name": "Carlito's Way.ico",
      "extension": ".ico",
      "size": 270398,
@@ -8197,7 +8197,7 @@
      "type": "icon"
     },
     {
-     "id": "ocean's-eleven-alt",
+     "id": "oceans-eleven-alt",
      "name": "Ocean's Eleven (alt).ico",
      "extension": ".ico",
      "size": 83263,
@@ -8206,7 +8206,7 @@
      "type": "icon"
     },
     {
-     "id": "ocean's-eleven",
+     "id": "oceans-eleven",
      "name": "Ocean's Eleven.ico",
      "extension": ".ico",
      "size": 270398,
@@ -8215,7 +8215,7 @@
      "type": "icon"
     },
     {
-     "id": "ocean's-thirteen-alt",
+     "id": "oceans-thirteen-alt",
      "name": "Ocean's Thirteen (alt).ico",
      "extension": ".ico",
      "size": 96149,
@@ -8224,7 +8224,7 @@
      "type": "icon"
     },
     {
-     "id": "ocean's-thirteen",
+     "id": "oceans-thirteen",
      "name": "Ocean's Thirteen.ico",
      "extension": ".ico",
      "size": 270398,
@@ -8233,7 +8233,7 @@
      "type": "icon"
     },
     {
-     "id": "ocean's-twelve-alt",
+     "id": "oceans-twelve-alt",
      "name": "Ocean's Twelve (alt).ico",
      "extension": ".ico",
      "size": 80580,
@@ -8242,7 +8242,7 @@
      "type": "icon"
     },
     {
-     "id": "ocean's-twelve",
+     "id": "oceans-twelve",
      "name": "Ocean's Twelve.ico",
      "extension": ".ico",
      "size": 270398,
@@ -8797,7 +8797,7 @@
      "type": "icon"
     },
     {
-     "id": "brad's-status",
+     "id": "brads-status",
      "name": "Brad's Status.ico",
      "extension": ".ico",
      "size": 100142,
@@ -9013,7 +9013,7 @@
      "type": "icon"
     },
     {
-     "id": "dante's-peak",
+     "id": "dantes-peak",
      "name": "Dante's Peak.ico",
      "extension": ".ico",
      "size": 97322,
@@ -9310,7 +9310,7 @@
      "type": "icon"
     },
     {
-     "id": "hachi-a-dog's-tale",
+     "id": "hachi-a-dogs-tale",
      "name": "Hachi - A Dog's Tale.ico",
      "extension": ".ico",
      "size": 270398,
@@ -9391,7 +9391,7 @@
      "type": "icon"
     },
     {
-     "id": "it's-a-wonderful-life",
+     "id": "its-a-wonderful-life",
      "name": "It's a Wonderful Life.ico",
      "extension": ".ico",
      "size": 270398,
@@ -9463,7 +9463,7 @@
      "type": "icon"
     },
     {
-     "id": "les-misérables-alt",
+     "id": "les-miserables-alt",
      "name": "Les Misérables (alt).ico",
      "extension": ".ico",
      "size": 270398,
@@ -9472,7 +9472,7 @@
      "type": "icon"
     },
     {
-     "id": "les-misérables",
+     "id": "les-miserables",
      "name": "Les Misérables.ico",
      "extension": ".ico",
      "size": 97211,
@@ -9553,7 +9553,7 @@
      "type": "icon"
     },
     {
-     "id": "malèna",
+     "id": "malena",
      "name": "Malèna.ico",
      "extension": ".ico",
      "size": 270398,
@@ -9616,7 +9616,7 @@
      "type": "icon"
     },
     {
-     "id": "molly's-game",
+     "id": "mollys-game",
      "name": "Molly's Game.ico",
      "extension": ".ico",
      "size": 78591,
@@ -9706,7 +9706,7 @@
      "type": "icon"
     },
     {
-     "id": "one-flew-over-the-cuckoo's-nest",
+     "id": "one-flew-over-the-cuckoos-nest",
      "name": "One Flew Over the Cuckoo's Nest.ico",
      "extension": ".ico",
      "size": 270398,
@@ -9832,7 +9832,7 @@
      "type": "icon"
     },
     {
-     "id": "schindler's-list",
+     "id": "schindlers-list",
      "name": "Schindler's List.ico",
      "extension": ".ico",
      "size": 270398,
@@ -9868,7 +9868,7 @@
      "type": "icon"
     },
     {
-     "id": "singin'-in-the-rain",
+     "id": "singin-in-the-rain",
      "name": "Singin' in the Rain.ico",
      "extension": ".ico",
      "size": 270398,
@@ -10300,7 +10300,7 @@
      "type": "icon"
     },
     {
-     "id": "the-king's-speech",
+     "id": "the-kings-speech",
      "name": "The King's Speech.ico",
      "extension": ".ico",
      "size": 270398,
@@ -10795,7 +10795,7 @@
      "type": "icon"
     },
     {
-     "id": "winter's-bone",
+     "id": "winters-bone",
      "name": "Winter's Bone.ico",
      "extension": ".ico",
      "size": 270398,
@@ -10831,7 +10831,7 @@
      "type": "icon"
     },
     {
-     "id": "y-tu-mamá-también",
+     "id": "y-tu-mama-tambien",
      "name": "Y tu mamá también.ico",
      "extension": ".ico",
      "size": 270398,
@@ -10891,7 +10891,7 @@
      "type": "icon"
     },
     {
-     "id": "a-dog's-journey",
+     "id": "a-dogs-journey",
      "name": "A Dog's Journey.ico",
      "extension": ".ico",
      "size": 85871,
@@ -10900,7 +10900,7 @@
      "type": "icon"
     },
     {
-     "id": "a-dog's-purpose",
+     "id": "a-dogs-purpose",
      "name": "A Dog's Purpose.ico",
      "extension": ".ico",
      "size": 108169,
@@ -10954,7 +10954,7 @@
      "type": "icon"
     },
     {
-     "id": "baby's-day-out",
+     "id": "babys-day-out",
      "name": "Baby's Day Out.ico",
      "extension": ".ico",
      "size": 88310,
@@ -11527,7 +11527,7 @@
      "type": "icon"
     },
     {
-     "id": "blue's-big-city-adventure-2022",
+     "id": "blues-big-city-adventure-2022",
      "name": "Blue's Big City Adventure (2022).ico",
      "extension": ".ico",
      "size": 100725,
@@ -11716,7 +11716,7 @@
      "type": "icon"
     },
     {
-     "id": "guillermo-del-toro's-pinocchio-2022",
+     "id": "guillermo-del-toros-pinocchio-2022",
      "name": "Guillermo del Toro's Pinocchio (2022).ico",
      "extension": ".ico",
      "size": 60369,
@@ -11788,7 +11788,7 @@
      "type": "icon"
     },
     {
-     "id": "harry-potter-and-the-sorcerer's-stone",
+     "id": "harry-potter-and-the-sorcerers-stone",
      "name": "Harry Potter and the Sorcerer's Stone.ico",
      "extension": ".ico",
      "size": 270398,
@@ -12004,7 +12004,7 @@
      "type": "icon"
     },
     {
-     "id": "lemony-snicket's-a-series-of-unfortunate-events",
+     "id": "lemony-snickets-a-series-of-unfortunate-events",
      "name": "Lemony Snicket's A Series of Unfortunate Events.ico",
      "extension": ".ico",
      "size": 270398,
@@ -12040,7 +12040,7 @@
      "type": "icon"
     },
     {
-     "id": "miss-peregrine's-home-for-peculiar-children",
+     "id": "miss-peregrines-home-for-peculiar-children",
      "name": "Miss Peregrine's Home for Peculiar Children.ico",
      "extension": ".ico",
      "size": 104576,
@@ -12121,7 +12121,7 @@
      "type": "icon"
     },
     {
-     "id": "pan's-labyrinth",
+     "id": "pans-labyrinth",
      "name": "Pan's Labyrinth.ico",
      "extension": ".ico",
      "size": 270398,
@@ -12157,7 +12157,7 @@
      "type": "icon"
     },
     {
-     "id": "pete's-dragon",
+     "id": "petes-dragon",
      "name": "Pete's Dragon.ico",
      "extension": ".ico",
      "size": 105174,
@@ -12184,7 +12184,7 @@
      "type": "icon"
     },
     {
-     "id": "pirates-of-the-caribbean-at-world's-end-alt",
+     "id": "pirates-of-the-caribbean-at-worlds-end-alt",
      "name": "Pirates of the Caribbean - At World's End (alt).ico",
      "extension": ".ico",
      "size": 104552,
@@ -12193,7 +12193,7 @@
      "type": "icon"
     },
     {
-     "id": "pirates-of-the-caribbean-at-world's-end",
+     "id": "pirates-of-the-caribbean-at-worlds-end",
      "name": "Pirates of the Caribbean - At World's End.ico",
      "extension": ".ico",
      "size": 270398,
@@ -12220,7 +12220,7 @@
      "type": "icon"
     },
     {
-     "id": "pirates-of-the-caribbean-dead-man's-chest-alt",
+     "id": "pirates-of-the-caribbean-dead-mans-chest-alt",
      "name": "Pirates of the Caribbean - Dead Man's Chest (alt).ico",
      "extension": ".ico",
      "size": 101458,
@@ -12229,7 +12229,7 @@
      "type": "icon"
     },
     {
-     "id": "pirates-of-the-caribbean-dead-man's-chest",
+     "id": "pirates-of-the-caribbean-dead-mans-chest",
      "name": "Pirates of the Caribbean - Dead Man's Chest.ico",
      "extension": ".ico",
      "size": 270398,
@@ -12508,7 +12508,7 @@
      "type": "icon"
     },
     {
-     "id": "the-huntsman-winter's-war",
+     "id": "the-huntsman-winters-war",
      "name": "The Huntsman - Winter's War.ico",
      "extension": ".ico",
      "size": 109119,
@@ -12811,7 +12811,7 @@
      "type": "icon"
     },
     {
-     "id": "a-nightmare-on-elm-street-2-freddy's-revenge",
+     "id": "a-nightmare-on-elm-street-2-freddys-revenge",
      "name": "A Nightmare on Elm Street 2 - Freddy's Revenge.ico",
      "extension": ".ico",
      "size": 270398,
@@ -12991,7 +12991,7 @@
      "type": "icon"
     },
     {
-     "id": "cat's-eye",
+     "id": "cats-eye",
      "name": "Cat's Eye.ico",
      "extension": ".ico",
      "size": 270398,
@@ -13000,7 +13000,7 @@
      "type": "icon"
     },
     {
-     "id": "child's-play-3",
+     "id": "childs-play-3",
      "name": "Child's Play 3.ico",
      "extension": ".ico",
      "size": 270398,
@@ -13189,7 +13189,7 @@
      "type": "icon"
     },
     {
-     "id": "freddy's-dead-the-final-nightmare",
+     "id": "freddys-dead-the-final-nightmare",
      "name": "Freddy's Dead - The Final Nightmare.ico",
      "extension": ".ico",
      "size": 73727,
@@ -13369,7 +13369,7 @@
      "type": "icon"
     },
     {
-     "id": "jennifer's-body",
+     "id": "jennifers-body",
      "name": "Jennifer's Body.ico",
      "extension": ".ico",
      "size": 270398,
@@ -13558,7 +13558,7 @@
      "type": "icon"
     },
     {
-     "id": "rosemary's-baby",
+     "id": "rosemarys-baby",
      "name": "Rosemary's Baby.ico",
      "extension": ".ico",
      "size": 270398,
@@ -13783,7 +13783,7 @@
      "type": "icon"
     },
     {
-     "id": "the-devil's-advocate",
+     "id": "the-devils-advocate",
      "name": "The Devil's Advocate.ico",
      "extension": ".ico",
      "size": 270398,
@@ -14410,7 +14410,7 @@
      "type": "icon"
     },
     {
-     "id": "mother!",
+     "id": "mother",
      "name": "Mother!.ico",
      "extension": ".ico",
      "size": 97072,
@@ -14689,7 +14689,7 @@
      "type": "icon"
     },
     {
-     "id": "the-king's-man",
+     "id": "the-kings-man",
      "name": "The King's Man.ico",
      "extension": ".ico",
      "size": 85426,
@@ -14893,7 +14893,7 @@
      "type": "icon"
     },
     {
-     "id": "9½-weeks",
+     "id": "91-2-weeks",
      "name": "9½ Weeks.ico",
      "extension": ".ico",
      "size": 88574,
@@ -15001,7 +15001,7 @@
      "type": "icon"
     },
     {
-     "id": "amélie",
+     "id": "amelie",
      "name": "Amélie.ico",
      "extension": ".ico",
      "size": 270398,
@@ -15109,7 +15109,7 @@
      "type": "icon"
     },
     {
-     "id": "bridget-jones's-diary",
+     "id": "bridget-joness-diary",
      "name": "Bridget Jones's Diary.ico",
      "extension": ".ico",
      "size": 270398,
@@ -15127,7 +15127,7 @@
      "type": "icon"
     },
     {
-     "id": "café-society",
+     "id": "cafe-society",
      "name": "Café Society.ico",
      "extension": ".ico",
      "size": 62365,
@@ -15802,7 +15802,7 @@
      "type": "icon"
     },
     {
-     "id": "my-best-friend's-wedding",
+     "id": "my-best-friends-wedding",
      "name": "My Best Friend's Wedding.ico",
      "extension": ".ico",
      "size": 77615,
@@ -15856,7 +15856,7 @@
      "type": "icon"
     },
     {
-     "id": "nick-and-norah's-infinite-playlist",
+     "id": "nick-and-norahs-infinite-playlist",
      "name": "Nick and Norah's Infinite Playlist.ico",
      "extension": ".ico",
      "size": 270398,
@@ -15910,7 +15910,7 @@
      "type": "icon"
     },
     {
-     "id": "paris-je-t'aime",
+     "id": "paris-je-taime",
      "name": "Paris, je t'aime.ico",
      "extension": ".ico",
      "size": 59780,
@@ -15991,7 +15991,7 @@
      "type": "icon"
     },
     {
-     "id": "romeo-+-juliet",
+     "id": "romeo-juliet",
      "name": "Romeo + Juliet.ico",
      "extension": ".ico",
      "size": 270398,
@@ -16072,7 +16072,7 @@
      "type": "icon"
     },
     {
-     "id": "she's-out-of-my-league-alt",
+     "id": "shes-out-of-my-league-alt",
      "name": "She's Out of My League (alt).ico",
      "extension": ".ico",
      "size": 270398,
@@ -16081,7 +16081,7 @@
      "type": "icon"
     },
     {
-     "id": "she's-out-of-my-league",
+     "id": "shes-out-of-my-league",
      "name": "She's Out of My League.ico",
      "extension": ".ico",
      "size": 270398,
@@ -16369,7 +16369,7 @@
      "type": "icon"
     },
     {
-     "id": "the-time-traveler's-wife",
+     "id": "the-time-travelers-wife",
      "name": "The Time Traveler's Wife.ico",
      "extension": ".ico",
      "size": 270398,
@@ -16414,7 +16414,7 @@
      "type": "icon"
     },
     {
-     "id": "there's-something-about-mary",
+     "id": "theres-something-about-mary",
      "name": "There's Something About Mary.ico",
      "extension": ".ico",
      "size": 270398,
@@ -16540,7 +16540,7 @@
      "type": "icon"
     },
     {
-     "id": "while-we're-young",
+     "id": "while-were-young",
      "name": "While We're Young.ico",
      "extension": ".ico",
      "size": 270398,
@@ -16576,7 +16576,7 @@
      "type": "icon"
     },
     {
-     "id": "you've-got-mail",
+     "id": "youve-got-mail",
      "name": "You've Got Mail.ico",
      "extension": ".ico",
      "size": 270398,
@@ -16717,7 +16717,7 @@
      "type": "icon"
     },
     {
-     "id": "alien³",
+     "id": "alien3",
      "name": "Alien³.ico",
      "extension": ".ico",
      "size": 270398,
@@ -17833,7 +17833,7 @@
      "type": "icon"
     },
     {
-     "id": "mars-attacks!",
+     "id": "mars-attacks",
      "name": "Mars Attacks!.ico",
      "extension": ".ico",
      "size": 270398,
@@ -18256,7 +18256,7 @@
      "type": "icon"
     },
     {
-     "id": "shazam!-fury-of-gods",
+     "id": "shazam-fury-of-gods",
      "name": "Shazam! - Fury of Gods.ico",
      "extension": ".ico",
      "size": 109470,
@@ -18265,7 +18265,7 @@
      "type": "icon"
     },
     {
-     "id": "shazam!",
+     "id": "shazam",
      "name": "Shazam!.ico",
      "extension": ".ico",
      "size": 68590,
@@ -19435,7 +19435,7 @@
      "type": "icon"
     },
     {
-     "id": "zack-snyder’s-justice-league",
+     "id": "zack-snyders-justice-league",
      "name": "Zack Snyder’s Justice League.ico",
      "extension": ".ico",
      "size": 72687,
@@ -19786,7 +19786,7 @@
      "type": "icon"
     },
     {
-     "id": "don't-breathe",
+     "id": "dont-breathe",
      "name": "Don't Breathe.ico",
      "extension": ".ico",
      "size": 80819,
@@ -20182,7 +20182,7 @@
      "type": "icon"
     },
     {
-     "id": "the-girl-in-the-spider's-web",
+     "id": "the-girl-in-the-spiders-web",
      "name": "The Girl in the Spider's Web.ico",
      "extension": ".ico",
      "size": 84115,
@@ -20416,7 +20416,7 @@
      "type": "icon"
     },
     {
-     "id": "you're-next",
+     "id": "youre-next",
      "name": "You're Next.ico",
      "extension": ".ico",
      "size": 270398,
