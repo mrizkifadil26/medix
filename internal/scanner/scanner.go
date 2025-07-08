@@ -5,7 +5,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"mrizkifadil26.github.io/medix/model"
+	"github.com/schollz/progressbar/v3"
+
+	"github.com/mrizkifadil26/medix/model"
 )
 
 func ScanDirectory(contentType, root string) model.RawOutput {
@@ -14,15 +16,26 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 		GeneratedAt: time.Now(),
 	}
 
-	genres, err := os.ReadDir(root)
+	entries, err := os.ReadDir(root)
 	if err != nil {
 		return result
 	}
 
-	for _, genre := range genres {
-		if !genre.IsDir() {
-			continue
+	var genres []os.DirEntry
+	for _, g := range entries {
+		if g.IsDir() {
+			genres = append(genres, g)
 		}
+	}
+
+	bar := progressbar.NewOptions(len(genres),
+		progressbar.OptionSetDescription("Scanning genres"),
+		progressbar.OptionSetWidth(30),
+		progressbar.OptionShowCount(),
+		progressbar.OptionSetTheme(progressbar.Theme{Saucer: "#", SaucerPadding: " ", BarStart: "[", BarEnd: "]"}),
+	)
+
+	for _, genre := range genres {
 		genrePath := filepath.Join(root, genre.Name())
 		items := scanGenre(genrePath)
 		if len(items) > 0 {
@@ -31,6 +44,8 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 				Items: items,
 			})
 		}
+
+		bar.Add(1)
 	}
 
 	return result

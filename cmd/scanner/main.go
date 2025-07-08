@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"mrizkifadil26.github.io/medix/internal/scanner"
-	"mrizkifadil26.github.io/medix/util"
+	"github.com/mrizkifadil26/medix/internal/scanner"
+	"github.com/mrizkifadil26/medix/util"
 )
 
 func main() {
