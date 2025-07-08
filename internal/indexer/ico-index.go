@@ -6,10 +6,11 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"regexp"
 	"sort"
 	"strings"
 	"time"
+
+	"github.com/mrizkifadil26/medix/util"
 )
 
 type IconIndex struct {
@@ -106,7 +107,7 @@ func BuildIconIndex() (IconIndex, error) {
 			return entries[i].Name < entries[j].Name
 		})
 		index.Groups = append(index.Groups, IconGroup{
-			ID:    slugify(root),
+			ID:    util.Slugify(root),
 			Name:  root,
 			Items: entries,
 		})
@@ -188,7 +189,7 @@ func collectIcons(baseDir, source string, dirMap map[string][]IconEntry) {
 		}
 
 		dirMap[relDir] = append(dirMap[relDir], IconEntry{
-			ID:        slugify(d.Name()),
+			ID:        util.Slugify(d.Name()),
 			Name:      d.Name(),
 			Size:      info.Size(),
 			Source:    source,
@@ -216,53 +217,4 @@ func SaveIconIndex(index IconIndex) error {
 	enc := json.NewEncoder(file)
 	enc.SetIndent("", " ")
 	return enc.Encode(index)
-}
-
-func slugify(name string) string {
-	name = strings.TrimSuffix(name, filepath.Ext(name))
-	name = strings.ToLower(name)
-
-	// Replace Unicode \u0026 with actual character
-	name = strings.ReplaceAll(name, `\u0026`, "&")
-
-	name = strings.NewReplacer(
-		"’", "'", // smart apostrophe
-		"‘", "'",
-		"“", `"`,
-		"”", `"`,
-		"³", "3",
-		"½", "1-2",
-	).Replace(name)
-
-	// Replace " - " with "-"
-	name = strings.ReplaceAll(name, " - ", "-")
-
-	// Clean up special characters
-	replacer := strings.NewReplacer(
-		"&", "and",
-		"+", "",
-		"'", "",
-		",", "",
-		"_", "-",
-		"(", "",
-		")", "",
-		".", "",
-		"!", "",
-		"?", "",
-		`"`, "",
-		"/", "-",
-		"\\", "-",
-	)
-	name = replacer.Replace(name)
-
-	// Replace all whitespace with "-"
-	name = strings.ReplaceAll(name, " ", "-")
-
-	// Collapse multiple dashes
-	name = regexp.MustCompile(`-+`).ReplaceAllString(name, "-")
-
-	// Trim leading/trailing dashes
-	name = strings.Trim(name, "-")
-
-	return name
 }
