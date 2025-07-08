@@ -5,6 +5,7 @@ SCANNER = ./cmd/scanner
 PROGRESS = ./cmd/progress
 BUILDER := ./cmd/builder
 SERVER := ./cmd/server
+ICON_INDEXER := ./cmd/indexer
 DEPLOY_SCRIPT := ./scripts/deploy.sh
 
 # Default target
@@ -30,6 +31,10 @@ clean:
 .PHONY: progress
 progress:
 	go run $(PROGRESS)
+
+.PHONY: index-icons
+index-icons:
+	go run $(ICON_INDEXER)
 
 # Run unit tests (only in util/)
 .PHONY: test
