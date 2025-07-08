@@ -119,17 +119,19 @@ func scanGenre(genrePath string, cache *dirCache, contentType string) []model.Ra
 			continue
 		}
 
-		var children []model.RawChild
+		var children any
 		switch contentType {
 		case "movies":
 			children = extractChildren(titlePath, subEntries, cache, contentType)
 		case "tvshows":
-			children = listSeasons(titlePath, subEntries)
+			children = extractSeasonNames(subEntries)
 		}
 
 		itemType := "single"
-		if contentType == "movies" && len(children) > 0 {
-			itemType = "collection"
+		if contentType == "movies" {
+			if list, ok := children.([]model.RawChild); ok && len(list) > 0 {
+				itemType = "collection"
+			}
 		}
 
 		status := resolveStatus(subEntries)
@@ -187,25 +189,15 @@ func extractChildren(parent string, entries []os.DirEntry, cache *dirCache, cont
 	return children
 }
 
-func listSeasons(parent string, entries []os.DirEntry) []model.RawChild {
-	sort.Slice(entries, func(i, j int) bool {
-		return entries[i].Name() < entries[j].Name()
-	})
-
-	var children []model.RawChild
+func extractSeasonNames(entries []os.DirEntry) []string {
+	var names []string
 	for _, e := range entries {
-		if !e.IsDir() {
-			continue
+		if e.IsDir() {
+			names = append(names, e.Name())
 		}
-		childPath := filepath.Join(parent, e.Name())
-		children = append(children, model.RawChild{
-			Name:   e.Name(),
-			Path:   childPath,
-			Status: "unknown",
-		})
 	}
-
-	return children
+	sort.Strings(names)
+	return names
 }
 
 func resolveStatus(entries []os.DirEntry) string {

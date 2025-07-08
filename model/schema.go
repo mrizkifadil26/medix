@@ -14,12 +14,12 @@ type GenreBlock struct {
 }
 
 type RawItem struct {
-	Type     string     `json:"type"` // "single" or "collection"
-	Name     string     `json:"name"`
-	Path     string     `json:"path"`
-	Status   string     `json:"status"`
-	Children []RawChild `json:"items,omitempty"` // Only for collections
-	Icon     *IconMeta  `json:"icon,omitempty"`  // ⬅️ new field
+	Type     string    `json:"type"` // "single" or "collection"
+	Name     string    `json:"name"`
+	Path     string    `json:"path"`
+	Status   string    `json:"status"`
+	Children any       `json:"items,omitempty"` // Only for collections
+	Icon     *IconMeta `json:"icon,omitempty"`  // ⬅️ new field
 }
 
 type RawChild struct {
