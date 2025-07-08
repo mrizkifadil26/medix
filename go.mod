@@ -1,4 +1,4 @@
-module mrizkifadil26.github.io/personal-media-tracker
+module mrizkifadil26.github.io/medix
 
 go 1.23.0
 
