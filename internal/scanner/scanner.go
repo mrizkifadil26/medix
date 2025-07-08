@@ -122,7 +122,7 @@ func scanGenre(genrePath string, cache *dirCache, contentType string) []model.Ra
 		var children []model.RawChild
 		switch contentType {
 		case "movies":
-			children = extractChildren(titlePath, subEntries, cache)
+			children = extractChildren(titlePath, subEntries, cache, contentType)
 		case "tvshows":
 			children = listSeasons(titlePath, subEntries)
 		}
@@ -147,7 +147,7 @@ func scanGenre(genrePath string, cache *dirCache, contentType string) []model.Ra
 	return items
 }
 
-func extractChildren(parent string, entries []os.DirEntry, cache *dirCache) []model.RawChild {
+func extractChildren(parent string, entries []os.DirEntry, cache *dirCache, contentType string) []model.RawChild {
 	// Sort child directories
 	sort.Slice(entries, func(i, j int) bool {
 		return entries[i].Name() < entries[j].Name()
@@ -165,11 +165,22 @@ func extractChildren(parent string, entries []os.DirEntry, cache *dirCache) []mo
 			continue
 		}
 
+		childType := "single"
+		for _, sub := range subEntries {
+			if sub.IsDir() {
+				childType = "collection"
+				break
+			}
+		}
+
 		status := resolveStatus(subEntries)
+		ico := findIcon(childPath, subEntries)
 		children = append(children, model.RawChild{
+			Type:   childType,
 			Name:   e.Name(),
 			Path:   childPath,
 			Status: status,
+			Icon:   ico,
 		})
 	}
 

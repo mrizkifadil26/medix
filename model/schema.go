@@ -23,9 +23,11 @@ type RawItem struct {
 }
 
 type RawChild struct {
-	Name   string `json:"name"`
-	Path   string `json:"path"`
-	Status string `json:"status"`
+	Type   string    `json:"type"` // "single" or "collection"
+	Name   string    `json:"name"`
+	Path   string    `json:"path"`
+	Status string    `json:"status"`
+	Icon   *IconMeta `json:"icon,omitempty"` // ⬅️ new field
 }
 
 type IconMeta struct {
