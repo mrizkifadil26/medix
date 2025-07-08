@@ -63,3 +63,21 @@ watch-serve:
 .PHONY: deploy
 deploy:
 	bash $(DEPLOY_SCRIPT)
+
+.PHONY: help
+help:
+	@echo ""
+	@echo "🎬 Media Build Commands:"
+	@echo "  make movies          Generate movies_sidebar.json"
+	@echo "  make tvshows         Generate tvshows_sidebar.json"
+	@echo "  make icons           Generate icon index JSON"
+	@echo "  make progress        Create progress.json"
+	@echo "  make build           Run builder"
+	@echo "  make serve           Run local web server"
+	@echo "  make watch           Watch & rebuild with Air"
+	@echo "  make watch-serve     Watch and serve concurrently"
+	@echo "  make test            Run all unit tests"
+	@echo "  make test-slugify    Test slugify only"
+	@echo "  make deploy          Deploy using deploy.sh"
+	@echo "  make clean           Remove output/"
+	@echo ""
