@@ -21,59 +21,57 @@ This tool is built for **personal development and usage**, focusing on:
 - Offers responsive layout: card-based on mobile, table-based on desktop
 
 ## 🏗️ Project Structure
-```
-medix/
-├── cmd/ # CLI tools: scanner, builder
-├── data/ # Generated JSON files
-├── dist/ # Final static site (HTML, CSS, JS)
-├── public/ # Assets (style.css, script.js)
-├── templates/ # HTML templates (Go templating)
-├── Makefile # Build automation commands
-├── deploy.sh # Deployment script for GitHub Pages
-├── .air.toml # Air live-reload config
-└── README.md
-```
 
----
+<details>
+<summary>Click to expand</summary>
 
-## 🗂️ Project Modules
+    medix/
+    ├── cmd/             # CLI tools: scanner, builder, watcher, etc.
+    ├── data/            # Generated JSON files
+    ├── dist/            # Final static site
+    ├── public/          # Static assets
+    ├── templates/       # Go HTML templates
+    ├── scripts/         # Deploy scripts
+    ├── Makefile         # Build automation
+    ├── .air.toml        # Air config
+    └── README.md        # Documentation
 
+</details>
+
+### 🗂️ Project Modules
 | Module Name         | Description |
-| ------------------- | ----------- |
-| `scan-local`        | Scans `Media/Movies` to detect existing `.ico`, `desktop.ini`, and folder structure |
-| `enrich-remote`     | *(Optional)* Adds metadata using TMDb or other sources |
-| `generate-progress` | Generates `progress.json` summary from `movies.json` |
+|---------------------|-------------|
+| `scan-local`        | Scans `Media/Movies` to detect `.ico`, `desktop.ini`, and folder structure |
+| `enrich-remote`     | *(Optional)* Enriches media with metadata (e.g. from TMDb) |
+| `generate-progress` | Generates `progress.json` based on thumbnail status |
 | `sync-icons`        | Syncs icons from `icons/personal` and `icons/downloaded` into movie folders |
-| `index-icons`       | Indexes `.ico` files into `icons.index.json` for fast access |
+| `index-icons`       | Indexes all `.ico` files into `icons.index.json` for fast lookup |
 | `scan-todo`         | Parses and normalizes unprocessed files in `TODO/` |
-| `validate-todo`     | Flags files missing icon, year, or genre |
+| `validate-todo`     | Flags files missing icons, genres, or release years |
 | `promote-todo`      | Moves validated items to `Media/Movies/<Genre>/Movie Name (Year)/` |
-| `build-dashboard`   | Builds static site from `movies.json`, `progress.json`, and templates |
+| `build-dashboard`   | Renders the static site from JSON data and templates |
 
 ### 📁 Key Directories
 
 | Path                | Purpose |
-| ------------------- | ------- |
-| `Media/Movies/`     | Final organized movies by genre |
-| `TODO/`             | Temporary holding area for unprocessed media |
+|---------------------|---------|
+| `Media/Movies/`     | Final organized movie folders by genre |
+| `TODO/`             | Temporary storage for unprocessed media |
 | `icons/personal/`   | Handcrafted `.ico` files |
 | `icons/downloaded/` | Scraped or bulk `.ico` files |
-| `data/`             | Generated JSON files (`movies.json`, etc.) |
-| `templates/`        | Go templates for static HTML dashboard |
-| `dist/`             | Final static site HTML output |
-
+| `data/`             | JSON output files (`movies.json`, etc.) |
+| `templates/`        | Go HTML templates |
+| `dist/`             | Final static site output |
 
 ### 🧱 JSON File Outputs
 
 | File               | Source              | Description |
-| ------------------ | ------------------- | ----------- |
-| `movies.raw.json`  | `scan-local`        | Base info from file system only |
+|--------------------|---------------------|-------------|
+| `movies.raw.json`  | `scan-local`        | Basic info from folder structure |
 | `movies.json`      | `enrich-remote`     | Enriched with external metadata |
-| `progress.json`    | `generate-progress` | Thumbnail and status breakdown |
-| `icons.index.json` | `index-icons`       | Fast reference of `.ico` locations |
-| `todo.json`        | `scan-todo`         | Unprocessed media + metadata |
-
----
+| `progress.json`    | `generate-progress` | Tracks thumbnail status |
+| `icons.index.json` | `index-icons`       | Index of all available `.ico` files |
+| `todo.json`        | `scan-todo`         | Normalized data for unprocessed media |
 
 ## 🔄 Data Flow
 
@@ -85,30 +83,29 @@ graph LR
     index-icons --> sync-icons --> A
 ```
 
-### ✅ TODO Workflow Stages
-`scan-todo` → Parse all files/folders in TODO/
+## ✅ TODO Workflow Stages
 
-`validate-todo` → Check for icon, genre, year, and valid folder naming
-
-`promote-todo` → Move valid items to Media/Movies/<Genre>/<Movie (Year)>
-
----
+1. `scan-todo` → Parse all media files/folders in `TODO/`
+2. `validate-todo` → Check for icon, genre, year, and proper folder naming
+3. `promote-todo` → Move valid entries to `Media/Movies/<Genre>/<Movie (Year)>`
 
 ## 📦 Setup
-#### 🛠 Requirements
+### 🛠 Requirements
+
 - Go 1.21+
-- Air for live-reloading (go install github.com/cosmtrek/air@latest)
-- Bash + Git (for deployment)
+- [Air](https://github.com/cosmtrek/air) for live-reloading  
+  `go install github.com/cosmtrek/air@latest`
+- Bash and Git (for deployment script)
 
 ### 🚀 Commands
-```
-make build         # Run Go builder to generate HTML and JSON data
-make serve         # Serve /dist locally for preview
-make watch         # Watch builder changes using Air
-./deploy.sh        # Deploy to GitHub Pages (gh-pages branch)
+```bash
+make build         # Build JSON and HTML output
+make serve         # Serve /dist locally
+make watch         # Auto-rebuild on changes with Air
+./deploy.sh        # Deploy static site to gh-pages
 ```
 
-### 📸 Features
+## 📸 Features
 - ✅ Visual progress bars for thumbnailing status
 - 🎬 Genre and collection grouping with collapsible views
 - 📱 Responsive UI: card view (mobile), table view (desktop)
