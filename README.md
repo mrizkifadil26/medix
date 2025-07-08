@@ -4,10 +4,7 @@
 
 It helps manage `.ico` files, `desktop.ini`, and genre-based folder organization for movie and TV show collections.
 
----
-
 ## 🎯 Purpose
-
 This tool is built for **personal development and usage**, focusing on:
 
 - Tracking folders with assigned `.ico` and `desktop.ini`
@@ -16,19 +13,15 @@ This tool is built for **personal development and usage**, focusing on:
 - Generating a clean static HTML dashboard for quick review
 - Automating deployment to GitHub Pages (for private access)
 
----
-
 ## ⚙️ How It Works
-
 - Scans directories like `Media/Movies/<Genre>/<Title>` to detect `.ico` and `desktop.ini` presence
 - Outputs data into JSON files (`progress.json`, `movies.json`)
 - Builds a static dashboard using Go templates and JavaScript
 - Supports collapsible genre and collection views
 - Offers responsive layout: card-based on mobile, table-based on desktop
 
----
-
 ## 🏗️ Project Structure
+```
 medix/
 ├── cmd/ # CLI tools: scanner, builder
 ├── data/ # Generated JSON files
@@ -39,16 +32,11 @@ medix/
 ├── deploy.sh # Deployment script for GitHub Pages
 ├── .air.toml # Air live-reload config
 └── README.md
+```
 
 ---
 
-## 🧰 Medix – Project Board
-
-A structured board overview of the project to manage movies and TV shows via static HTML and `.ico` thumbnailing.
-
----
-
-### 🗂️ Project Modules
+## 🗂️ Project Modules
 
 | Module Name         | Description |
 | ------------------- | ----------- |
@@ -62,8 +50,6 @@ A structured board overview of the project to manage movies and TV shows via sta
 | `promote-todo`      | Moves validated items to `Media/Movies/<Genre>/Movie Name (Year)/` |
 | `build-dashboard`   | Builds static site from `movies.json`, `progress.json`, and templates |
 
----
-
 ### 📁 Key Directories
 
 | Path                | Purpose |
@@ -76,7 +62,6 @@ A structured board overview of the project to manage movies and TV shows via sta
 | `templates/`        | Go templates for static HTML dashboard |
 | `dist/`             | Final static site HTML output |
 
----
 
 ### 🧱 JSON File Outputs
 
@@ -90,7 +75,7 @@ A structured board overview of the project to manage movies and TV shows via sta
 
 ---
 
-### 🔄 Data Flow
+## 🔄 Data Flow
 
 ```mermaid
 graph LR
@@ -100,7 +85,7 @@ graph LR
     index-icons --> sync-icons --> A
 ```
 
-## ✅ TODO Workflow Stages
+### ✅ TODO Workflow Stages
 `scan-todo` → Parse all files/folders in TODO/
 
 `validate-todo` → Check for icon, genre, year, and valid folder naming
