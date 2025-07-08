@@ -12,4 +12,5 @@ require (
 	github.com/schollz/progressbar/v3 v3.18.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/term v0.28.0 // indirect
+	golang.org/x/text v0.26.0 // indirect
 )
