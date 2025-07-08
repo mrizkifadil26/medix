@@ -11,6 +11,7 @@ import (
 	"github.com/schollz/progressbar/v3"
 
 	"github.com/mrizkifadil26/medix/model"
+	"github.com/mrizkifadil26/medix/util"
 )
 
 const maxConcurrency = 8
@@ -257,6 +258,7 @@ func findIcon(dir string, entries []os.DirEntry) *model.IconMeta {
 		}
 
 		return &model.IconMeta{
+			ID:       util.Slugify(f.Name()), // Use the file name as ID
 			Name:     f.Name(),
 			FullPath: filepath.Join(dir, f.Name()),
 			Size:     info.Size(),
