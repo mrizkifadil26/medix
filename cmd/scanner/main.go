@@ -1,6 +1,10 @@
 package main
 
 import (
+	"net/http"
+	_ "net/http/pprof" // Enable pprof
+	"time"
+
 	"fmt"
 	"log"
 	"os"
@@ -10,6 +14,14 @@ import (
 )
 
 func main() {
+	go func() {
+		log.Println("📊 pprof running at http://localhost:6060/debug/pprof/")
+		log.Println(http.ListenAndServe("localhost:6060", nil))
+
+		fmt.Println("⏳ Waiting 30 seconds for pprof inspection...")
+		time.Sleep(30 * time.Second)
+	}()
+
 	if len(os.Args) < 2 {
 		log.Fatalf("Usage: go run scanner.go <movies|tvshows>")
 	}
