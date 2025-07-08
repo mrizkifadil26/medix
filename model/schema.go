@@ -19,10 +19,17 @@ type RawItem struct {
 	Path     string     `json:"path"`
 	Status   string     `json:"status"`
 	Children []RawChild `json:"items,omitempty"` // Only for collections
+	Icon     *IconMeta  `json:"icon,omitempty"`  // ⬅️ new field
 }
 
 type RawChild struct {
 	Name   string `json:"name"`
 	Path   string `json:"path"`
 	Status string `json:"status"`
+}
+
+type IconMeta struct {
+	Name     string `json:"name"`
+	FullPath string `json:"full_path"`
+	Size     int64  `json:"size"`
 }

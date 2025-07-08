@@ -133,12 +133,14 @@ func scanGenre(genrePath string, cache *dirCache, contentType string) []model.Ra
 		}
 
 		status := resolveStatus(subEntries)
+		ico := findIcon(titlePath, subEntries)
 		items = append(items, model.RawItem{
 			Type:     itemType,
 			Name:     entry.Name(),
 			Path:     titlePath,
 			Status:   status,
 			Children: children,
+			Icon:     ico,
 		})
 	}
 
@@ -238,4 +240,24 @@ func (dc *dirCache) Read(path string) []os.DirEntry {
 
 	dc.m.Store(path, entries)
 	return entries
+}
+
+func findIcon(dir string, entries []os.DirEntry) *model.IconMeta {
+	for _, f := range entries {
+		if f.IsDir() || filepath.Ext(f.Name()) != ".ico" {
+			continue
+		}
+
+		info, err := os.Stat(filepath.Join(dir, f.Name()))
+		if err != nil {
+			continue
+		}
+
+		return &model.IconMeta{
+			Name:     f.Name(),
+			FullPath: filepath.Join(dir, f.Name()),
+			Size:     info.Size(),
+		}
+	}
+	return nil
 }
