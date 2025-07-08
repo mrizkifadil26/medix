@@ -51,7 +51,8 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 	var mu sync.Mutex
 	var wg sync.WaitGroup
 	sem := make(chan struct{}, maxConcurrency)
-	genreMap := make(map[string][]model.RawItem)
+	genreMap := make(map[string]model.GenreBlock)
+
 	cache := &dirCache{}
 
 	for _, genre := range genres {
@@ -61,17 +62,22 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 		go func(genre os.DirEntry) {
 			defer wg.Done()
 			defer func() { <-sem }()
+			defer bar.Add(1)
 
-			genrePath := filepath.Join(root, genre.Name())
-			items := scanGenre(genrePath, cache)
+			genreName := genre.Name()
+			genrePath := filepath.Join(root, genreName)
 
-			if len(items) > 0 {
-				mu.Lock()
-				genreMap[genre.Name()] = items
-				mu.Unlock()
+			items := scanGenre(genrePath, cache, contentType)
+			if len(items) == 0 {
+				return
 			}
 
-			bar.Add(1)
+			mu.Lock()
+			genreMap[genreName] = model.GenreBlock{
+				Genre: genreName,
+				Items: items,
+			}
+			mu.Unlock()
 		}(genre)
 	}
 
@@ -79,11 +85,8 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 
 	// Reconstruct result.Data in sorted order
 	for _, genre := range genres {
-		if items, ok := genreMap[genre.Name()]; ok && len(items) > 0 {
-			result.Data = append(result.Data, model.GenreBlock{
-				Genre: genre.Name(),
-				Items: items,
-			})
+		if block, ok := genreMap[genre.Name()]; ok {
+			result.Data = append(result.Data, block)
 		}
 	}
 
@@ -92,7 +95,7 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 	return result
 }
 
-func scanGenre(genrePath string, cache *dirCache) []model.RawItem {
+func scanGenre(genrePath string, cache *dirCache, contentType string) []model.RawItem {
 	entries := cache.Read(genrePath)
 	if entries == nil {
 		return nil
@@ -116,9 +119,16 @@ func scanGenre(genrePath string, cache *dirCache) []model.RawItem {
 			continue
 		}
 
-		children := extractChildren(titlePath, subEntries, cache)
+		var children []model.RawChild
+		switch contentType {
+		case "movies":
+			children = extractChildren(titlePath, subEntries, cache)
+		case "tvshows":
+			children = listSeasons(titlePath, subEntries)
+		}
+
 		itemType := "single"
-		if len(children) > 0 {
+		if contentType == "movies" && len(children) > 0 {
 			itemType = "collection"
 		}
 
@@ -158,6 +168,27 @@ func extractChildren(parent string, entries []os.DirEntry, cache *dirCache) []mo
 			Name:   e.Name(),
 			Path:   childPath,
 			Status: status,
+		})
+	}
+
+	return children
+}
+
+func listSeasons(parent string, entries []os.DirEntry) []model.RawChild {
+	sort.Slice(entries, func(i, j int) bool {
+		return entries[i].Name() < entries[j].Name()
+	})
+
+	var children []model.RawChild
+	for _, e := range entries {
+		if !e.IsDir() {
+			continue
+		}
+		childPath := filepath.Join(parent, e.Name())
+		children = append(children, model.RawChild{
+			Name:   e.Name(),
+			Path:   childPath,
+			Status: "unknown",
 		})
 	}
 
