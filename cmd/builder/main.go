@@ -17,25 +17,10 @@ func must(err error) {
 	}
 }
 
-func renderPageFiles(files []string, outPath string, data any) {
-	tmpl, err := template.ParseFiles(files...)
-	must(err)
-
-	var buf bytes.Buffer
-	err = tmpl.ExecuteTemplate(&buf, "base", data)
-	must(err)
-
-	// 🔍 Debug: print to console
-	// fmt.Println("----- " + outPath + " -----")
-	// fmt.Println(buf.String())
-
-	// 💾 Write to output file
-	f, err := os.Create(outPath)
-	must(err)
-	defer f.Close()
-
-	_, err = f.Write(buf.Bytes())
-	must(err)
+func ensureDirs(paths ...string) {
+	for _, path := range paths {
+		must(os.MkdirAll(path, 0755))
+	}
 }
 
 func copyFile(src, dst string) error {
@@ -51,68 +36,92 @@ func copyDir(src, dst string) error {
 		if err != nil {
 			return err
 		}
-		targetPath := filepath.Join(dst, path[len(src):])
+
+		relPath := strings.TrimPrefix(path, src)
+		targetPath := filepath.Join(dst, relPath)
 		if info.IsDir() {
 			return os.MkdirAll(targetPath, 0755)
 		}
+
 		return copyFile(path, targetPath)
 	})
+}
+
+func renderTemplate(files []string, outPath string, data any) {
+	tmpl, err := template.ParseFiles(files...)
+	must(err)
+
+	var buf bytes.Buffer
+	must(tmpl.ExecuteTemplate(&buf, "base", data))
+
+	f, err := os.Create(outPath)
+	must(err)
+	defer f.Close()
+
+	_, err = f.Write(buf.Bytes())
+	must(err)
+}
+
+func renderStaticPages() {
+	pages := []struct {
+		Files   []string
+		OutPath string
+		Data    map[string]any
+	}{
+		{
+			Files:   []string{"templates/layouts/base.html", "templates/pages/index.html"},
+			OutPath: "dist/index.html",
+			Data:    nil,
+		},
+		{
+			Files:   []string{"templates/layouts/base.html", "templates/pages/about.html"},
+			OutPath: "dist/about.html",
+			Data:    nil,
+		},
+	}
+
+	for _, page := range pages {
+		renderTemplate(page.Files, page.OutPath, page.Data)
+	}
+}
+
+func renderDataPage(jsonFile, title, outFile string) {
+	raw, err := os.ReadFile("data/" + jsonFile)
+	must(err)
+
+	var parsed any
+	must(json.Unmarshal(raw, &parsed))
+
+	data := map[string]any{
+		"Title": title,
+		"Type":  strings.TrimSuffix(jsonFile, ".json"),
+		"Data":  template.JS(string(raw)),
+	}
+
+	renderTemplate(
+		[]string{"templates/layouts/base.html", "templates/pages/list.html"},
+		"dist/"+outFile,
+		data,
+	)
 }
 
 func main() {
 	log.Println("🔨 Building static site with templates...")
 
 	// Clean and prepare dist
-	os.RemoveAll("dist")
-	os.MkdirAll("dist/css", 0755)
-	os.MkdirAll("dist/js", 0755)
-	os.MkdirAll("dist/data", 0755)
+	must(os.RemoveAll("dist"))
+	ensureDirs("dist/css", "dist/js", "dist/data")
 
 	// Copy static assets
-	copyDir("public/js", "dist/js")
-	copyDir("public/css", "dist/css")
-	copyDir("data", "dist/data")
+	must(copyDir("public/js", "dist/js"))
+	must(copyDir("public/css", "dist/css"))
+	must(copyDir("data", "dist/data"))
 
 	// Render Home
-	renderPageFiles([]string{
-		"templates/layouts/base.html",
-		"templates/pages/index.html",
-	}, "dist/index.html", map[string]any{
-		"Title": "Media Tracker",
-	})
-
-	// Render About
-	renderPageFiles([]string{
-		"templates/layouts/base.html",
-		"templates/pages/about.html",
-	}, "dist/about.html", map[string]any{
-		"Title": "About",
-	})
-
-	// Render Movies and TV Shows
-	renderData := func(jsonFile, title, outFile string) {
-		raw, err := os.ReadFile("data/" + jsonFile)
-		must(err)
-
-		var obj any
-		must(json.Unmarshal(raw, &obj))
-
-		typeKey := strings.TrimSuffix(jsonFile, ".json")
-
-		pageData := map[string]any{
-			"Title": title,
-			"Type":  typeKey,                  // Used in JS to fetch the right file
-			"Data":  template.JS(string(raw)), // JS object injection
-		}
-
-		renderPageFiles([]string{
-			"templates/layouts/base.html",
-			"templates/pages/list.html",
-		}, "dist/"+outFile, pageData)
-	}
-
-	renderData("movies.json", "Movies", "movies.html")
-	renderData("tv_shows.json", "TV Shows", "tvshows.html")
+	// Render static and data-driven pages
+	renderStaticPages()
+	renderDataPage("movies.json", "Movies", "movies.html")
+	renderDataPage("tv_shows.json", "TV Shows", "tvshows.html")
 
 	log.Println("✅ Static site generated in dist/")
 }
