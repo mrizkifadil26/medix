@@ -1,5 +1,10 @@
 {{ define "title" }}{{ .Title }} - Medix{{ end }}
 
+{{ define "styles" }}
+  <link rel="stylesheet" href="css/list.css">
+  <link rel="stylesheet" href="css/responsive.css">
+{{ end }}
+
 {{ define "content" }}
   <h1>{{ .Title }} by Genre</h1>
   <div id="genre-list" class="genre-list">Loading...</div>

@@ -1,0 +1,148 @@
+.genre-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.genre-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.genre-name {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.genre-status {
+  font-size: 1.2em;
+}
+
+.genre-label {
+  font-weight: 600;
+  font-size: 1.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: #222;
+}
+
+.genre-label:hover {
+  color: #0077cc;
+}
+
+.collapsible,
+.nested-collapsible {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background: #fdfdfd;
+}
+
+.collapsible summary {
+  padding: 0.3rem 0;
+}
+
+.collapsible summary,
+.nested-collapsible summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.collapsible summary::-webkit-details-marker,
+.nested-collapsible summary::-webkit-details-marker {
+  display: none;
+}
+
+.collapsible[open] > summary > .arrow,
+.nested-collapsible[open] > summary > .arrow {
+  transform: rotate(90deg);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.title-list {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.title-list li {
+  padding-left: 0.5rem;
+}
+
+.summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Chevron alignment */
+.chevron {
+  margin-left: auto;
+  display: inline-flex;
+}
+
+/* Inner list wrapper */
+.collapsible-body {
+  padding: 0.75rem 1rem;
+}
+
+/* Unordered list of titles */
+ul.title-list {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+/* Each list item (title or collection) */
+ul.title-list > li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+ul.title-list > li:last-child {
+  border-bottom: none;
+}
+
+/* Collection summary (sub-details) */
+details summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Sub-collection list */
+details ul.title-list {
+  padding-left: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+/* Hover effect on leaf titles */
+ul.title-list > li:not(:has(details)):hover {
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  padding-left: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+summary .count {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #737373;
+}
