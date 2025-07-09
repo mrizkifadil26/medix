@@ -116,6 +116,10 @@ func main() {
 	must(copyDir("public/js", "dist/js"))
 	must(copyDir("public/css", "dist/css"))
 	must(copyDir("data", "dist/data"))
+	must(copyFile("public/favicon.ico", "dist/favicon.ico"))
+	must(copyFile("public/apple-touch-icon.png", "dist/apple-touch-icon.png"))
+	must(copyFile("public/android-chrome-192x192.png", "dist/android-chrome-192x192.png"))
+	must(copyFile("public/android-chrome-512x512.png", "dist/android-chrome-512x512.png"))
 
 	// Render Home
 	// Render static and data-driven pages
