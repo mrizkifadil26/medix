@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"path/filepath"
 	"time"
 
 	"github.com/mrizkifadil26/medix/model"
+	"github.com/mrizkifadil26/medix/util"
 )
 
 const (
@@ -25,17 +25,27 @@ func main() {
 
 	iconIndex := loadIconIndex()
 	iconMap := mapIconsBySlug(iconIndex)
-	syncAndWrite("movies", moviesPath, outMoviesSynced, iconMap)
-	// syncAndWrite("tvshows", tvshowsPath, outTVSynced, iconMap)
+	// syncAndWrite("movies", moviesPath, outMoviesSynced, iconMap)
+	movies := syncMedia("movies", moviesPath, iconMap)
+	err := util.WriteJSON(outMoviesSynced, movies)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "❌ Failed to write synced output: %v\n", err)
+		os.Exit(1)
+	}
+	// syncAndWrite("tvshows", tvshowsPath, outTVSloadIconIndexynced, iconMap)
 
-	writeIconIndex(iconIndex, "data/ico-index.synced.json")
+	err = util.WriteJSON(outIconSynced, iconIndex)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "❌ Failed to write icon index: %v\n", err)
+		os.Exit(1)
+	}
 
 	printUnusedIcons(iconIndex)
 
 	fmt.Println("✅ Sync complete.")
 }
 
-func syncAndWrite(contentType, inputPath, outputPath string, iconMap map[string]*model.SyncedIconEntry) {
+func syncMedia(contentType, inputPath string, iconMap map[string]*model.SyncedIconEntry) model.SyncedOutput {
 	raw := model.RawOutput{}
 	mustLoadJSON(inputPath, &raw)
 
@@ -87,7 +97,7 @@ func syncAndWrite(contentType, inputPath, outputPath string, iconMap map[string]
 		out.Data = append(out.Data, genre)
 	}
 
-	mustWriteJSON(outputPath, out)
+	return out
 }
 
 func convertChildren(input []model.RawEntry) []model.SyncedChildItem {
@@ -162,43 +172,6 @@ func mustLoadJSON(path string, v any) {
 	if err := json.NewDecoder(f).Decode(v); err != nil {
 		panic(err)
 	}
-}
-
-func mustWriteJSON(path string, v any) {
-	os.MkdirAll(filepath.Dir(path), 0755)
-	f, err := os.Create(path)
-	if err != nil {
-		panic(err)
-	}
-	defer f.Close()
-	enc := json.NewEncoder(f)
-	enc.SetIndent("", "  ")
-	if err := enc.Encode(v); err != nil {
-		panic(err)
-	}
-}
-
-func writeIconIndex(index *model.SyncedIconIndex, path string) error {
-	// Ensure the output directory exists
-	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
-		return fmt.Errorf("failed to create output directory: %w", err)
-	}
-
-	// Create (or overwrite) the file
-	f, err := os.Create(path)
-	if err != nil {
-		return fmt.Errorf("failed to create file %s: %w", path, err)
-	}
-	defer f.Close()
-
-	// Write JSON with indentation
-	enc := json.NewEncoder(f)
-	enc.SetIndent("", "  ")
-	if err := enc.Encode(index); err != nil {
-		return fmt.Errorf("failed to encode JSON: %w", err)
-	}
-
-	return nil
 }
 
 // TODO: Implement a more sophisticated unused icon detection
