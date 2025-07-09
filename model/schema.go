@@ -9,25 +9,17 @@ type RawOutput struct {
 }
 
 type GenreBlock struct {
-	Genre string    `json:"genre"`
-	Items []RawItem `json:"items"`
+	Genre string     `json:"genre"`
+	Items []RawEntry `json:"items"`
 }
 
-type RawItem struct {
-	Type     string    `json:"type"` // "single" or "collection"
-	Name     string    `json:"name"`
-	Path     string    `json:"path"`
-	Status   string    `json:"status"`
-	Children any       `json:"items,omitempty"` // Only for collections
-	Icon     *IconMeta `json:"icon,omitempty"`  // ⬅️ new field
-}
-
-type RawChild struct {
+type RawEntry struct {
 	Type   string    `json:"type"` // "single" or "collection"
 	Name   string    `json:"name"`
 	Path   string    `json:"path"`
 	Status string    `json:"status"`
-	Icon   *IconMeta `json:"icon,omitempty"` // ⬅️ new field
+	Icon   *IconMeta `json:"icon,omitempty"`  // ⬅️ new field
+	Items  any       `json:"items,omitempty"` // Only for collections
 }
 
 type IconMeta struct {

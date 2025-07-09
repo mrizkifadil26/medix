@@ -96,7 +96,7 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 	return result
 }
 
-func scanGenre(genrePath string, cache *dirCache, contentType string) []model.RawItem {
+func scanGenre(genrePath string, cache *dirCache, contentType string) []model.RawEntry {
 	entries := cache.Read(genrePath)
 	if entries == nil {
 		return nil
@@ -107,7 +107,7 @@ func scanGenre(genrePath string, cache *dirCache, contentType string) []model.Ra
 		return entries[i].Name() < entries[j].Name()
 	})
 
-	var items []model.RawItem
+	var items []model.RawEntry
 
 	for _, entry := range entries {
 		if !entry.IsDir() {
@@ -123,40 +123,43 @@ func scanGenre(genrePath string, cache *dirCache, contentType string) []model.Ra
 		var children any
 		switch contentType {
 		case "movies":
-			children = extractChildren(titlePath, subEntries, cache, contentType)
+			list := extractChildren(titlePath, subEntries, cache, contentType)
+			if len(list) > 0 {
+				children = list
+			}
 		case "tvshows":
 			children = extractSeasonNames(subEntries)
 		}
 
 		itemType := "single"
 		if contentType == "movies" {
-			if list, ok := children.([]model.RawChild); ok && len(list) > 0 {
+			if list, ok := children.([]model.RawEntry); ok && len(list) > 0 {
 				itemType = "collection"
 			}
 		}
 
 		status := resolveStatus(subEntries)
 		ico := findIcon(titlePath, subEntries)
-		items = append(items, model.RawItem{
-			Type:     itemType,
-			Name:     entry.Name(),
-			Path:     titlePath,
-			Status:   status,
-			Children: children,
-			Icon:     ico,
+		items = append(items, model.RawEntry{
+			Type:   itemType,
+			Name:   entry.Name(),
+			Path:   titlePath,
+			Status: status,
+			Items:  children,
+			Icon:   ico,
 		})
 	}
 
 	return items
 }
 
-func extractChildren(parent string, entries []os.DirEntry, cache *dirCache, contentType string) []model.RawChild {
+func extractChildren(parent string, entries []os.DirEntry, cache *dirCache, contentType string) []model.RawEntry {
 	// Sort child directories
 	sort.Slice(entries, func(i, j int) bool {
 		return entries[i].Name() < entries[j].Name()
 	})
 
-	var children []model.RawChild
+	var children []model.RawEntry
 	for _, e := range entries {
 		if !e.IsDir() {
 			continue
@@ -178,7 +181,7 @@ func extractChildren(parent string, entries []os.DirEntry, cache *dirCache, cont
 
 		status := resolveStatus(subEntries)
 		ico := findIcon(childPath, subEntries)
-		children = append(children, model.RawChild{
+		children = append(children, model.RawEntry{
 			Type:   childType,
 			Name:   e.Name(),
 			Path:   childPath,
