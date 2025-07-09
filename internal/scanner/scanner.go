@@ -23,7 +23,7 @@ type dirCache struct {
 func ScanDirectory(contentType, root string) model.RawOutput {
 	fmt.Printf("Starting scan for type: %s in root: %s\n", contentType, root)
 	result := model.RawOutput{
-		Type:        contentType,
+		Type:        "raw",
 		GeneratedAt: time.Now(),
 	}
 

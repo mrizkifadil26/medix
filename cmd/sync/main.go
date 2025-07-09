@@ -40,7 +40,7 @@ func syncAndWrite(contentType, inputPath, outputPath string, iconMap map[string]
 	mustLoadJSON(inputPath, &raw)
 
 	out := model.SyncedOutput{
-		Type:        contentType,
+		Type:        "synced",
 		GeneratedAt: time.Now(),
 	}
 
@@ -147,6 +147,9 @@ func mapIconsBySlug(index *model.SyncedIconIndex) map[string]*model.SyncedIconEn
 func loadIconIndex() *model.SyncedIconIndex {
 	var out model.SyncedIconIndex
 	mustLoadJSON(iconsPath, &out)
+	out.Type = "synced-index"
+	out.GeneratedAt = time.Now()
+
 	return &out
 }
 

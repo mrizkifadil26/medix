@@ -24,7 +24,7 @@ func BuildIconIndex(cfg IconIndexerConfig) (model.IconIndex, error) {
 	}
 	// return index, nil
 	index := model.IconIndex{
-		Type:        "genre",
+		Type:        "index",
 		GeneratedAt: time.Now(),
 	}
 
