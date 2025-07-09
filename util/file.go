@@ -6,6 +6,15 @@ import (
 	"path/filepath"
 )
 
+func LoadJSON(path string, v any) error {
+	f, err := os.Open(path)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	return json.NewDecoder(f).Decode(v)
+}
+
 func WriteJSON(path string, data any) error {
 	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
 		return err
