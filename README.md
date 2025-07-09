@@ -1,4 +1,4 @@
-# 🧰 Medix – Personal Media Tracker
+# 🗂️ Medix – Personal Media Tracker
 
 **Medix** is a personal static-site generator and thumbnailing tracker designed to assist with **custom `.ico` icon management** for folders in **Windows Explorer**.
 
