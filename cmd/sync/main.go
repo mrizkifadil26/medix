@@ -5,14 +5,13 @@ import (
 	"os"
 
 	"github.com/mrizkifadil26/medix/internal/sync"
-	"github.com/mrizkifadil26/medix/model"
 	"github.com/mrizkifadil26/medix/util"
 )
 
 const (
 	moviesPath  = "data/movies.raw.json"
 	tvshowsPath = "data/tvshows.raw.json"
-	iconsPath   = "data/ico.index.json"
+	iconsPath   = "data/movies.ico.index.json"
 
 	outMoviesSynced = "data/movies.synced.json"
 	outTVSynced     = "data/tvshows.synced.json"
@@ -22,7 +21,7 @@ const (
 func main() {
 	fmt.Println("🔄 Syncing icon index with media entries...")
 
-	iconIndex := sync.LoadIconIndex("data/ico.index.json")
+	iconIndex := sync.LoadIconIndex(iconsPath)
 	iconMap := sync.MapIconsByID(iconIndex)
 
 	// syncAndWrite("movies", moviesPath, outMoviesSynced, iconMap)
@@ -40,26 +39,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	printUnusedIcons(iconIndex)
-
+	if err := sync.GenerateUnusedIconsReport(iconIndex); err != nil {
+		fmt.Fprintf(os.Stderr, "❌ Failed to write unused icons report: %v\n", err)
+	}
 	fmt.Println("✅ Sync complete.")
-}
-
-// TODO: Implement a more sophisticated unused icon detection
-func printUnusedIcons(index *model.SyncedIconIndex) {
-	fmt.Println("\n🧹 Unused icons:")
-	count := 0
-	for _, group := range index.Data {
-		for _, entry := range group.Items {
-			if entry.UsedBy == nil {
-				fmt.Printf("⚠️  %s (%s)\n", entry.Name, entry.FullPath)
-				count++
-			}
-		}
-	}
-	if count == 0 {
-		fmt.Println("✅ All icons are in use.")
-	} else {
-		fmt.Printf("🔎 Total unused: %d\n", count)
-	}
 }
