@@ -1,12 +1,12 @@
 # Makefile to generate sidebar JSON files and run project tools
 
-OUTPUT_DIR     = output
-SCANNER        = ./cmd/scanner
-PROGRESS       = ./cmd/progress
-BUILDER        = ./cmd/builder
-SERVER         = ./cmd/server
-ICON_INDEXER   = ./cmd/indexer
-DEPLOY_SCRIPT  = ./scripts/deploy.sh
+OUTPUT_DIR     		= output
+SCANNER_CMD        	= ./cmd/scan
+PROGRESS_CMD       	= ./cmd/progress
+BUILDER_CMD        	= ./cmd/builder
+SERVER_CMD         	= ./cmd/server
+ICON_INDEXER_CMD   	= ./cmd/index
+DEPLOY_SCRIPT  		= ./scripts/deploy.sh
 
 .PHONY: all movies tvshows index-icons progress build serve watch watch-serve test test-slugify deploy clean help
 
@@ -15,22 +15,22 @@ all: movies tvshows
 
 # --- Media source generation ---
 movies:
-	go run $(SCANNER) movies
+	go run $(SCANNER_CMD) movies
 
 tvshows:
-	go run $(SCANNER) tvshows
+	go run $(SCANNER_CMD) tvshows
 
 # --- Icon indexing ---
 index-icons:
-	go run $(ICON_INDEXER)
+	go run $(ICON_INDEXER_CMD)
 
 # --- Progress report ---
 progress:
-	go run $(PROGRESS)
+	go run $(PROGRESS_CMD)
 
 # --- Build and serve ---
 build:
-	go run $(BUILDER)
+	go run $(BUILDER_CMD)
 
 serve:
 	@echo "📡 Serving dist/ at http://localhost:8080"
@@ -46,7 +46,7 @@ watch-serve:
 
 # --- Testing ---
 test:
-	go test -v ./util
+	go test -v ./...
 
 test-slugify:
 	go test -v ./util
