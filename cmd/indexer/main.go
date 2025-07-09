@@ -8,9 +8,22 @@ import (
 )
 
 func main() {
-	fmt.Println("🔍 Building .ico index from personal/ and downloaded/ icons...")
+	cfg := indexer.IconIndexerConfig{
+		Sources: []indexer.IconSource{
+			{
+				Path:   "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Personal Icon Pack/Movies/ICO",
+				Source: "personal",
+			},
+			{
+				Path:   "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/downloaded",
+				Source: "downloaded",
+			},
+		},
+		OutputPath:  "data/ico.index.json",
+		ExcludeDirs: []string{"Collection"},
+	}
 
-	index, err := indexer.BuildIconIndex()
+	index, err := indexer.BuildIconIndex(cfg)
 	if err != nil {
 		log.Fatalf("❌ Failed to build icon index: %v", err)
 	}
