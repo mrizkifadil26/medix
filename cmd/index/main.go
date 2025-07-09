@@ -8,31 +8,34 @@ import (
 	"github.com/mrizkifadil26/medix/util"
 )
 
+const configPath = "config/ico-indexer.json"
+
 func main() {
-	cfg := index.IconIndexerConfig{
-		Sources: []index.IconSource{
-			{
-				Path:   "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Personal Icon Pack/Movies/ICO",
-				Source: "personal",
-			},
-			{
-				Path:   "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/downloaded",
-				Source: "downloaded",
-			},
-		},
-		OutputPath:  "data/ico.index.json",
-		ExcludeDirs: []string{"Collection"},
-	}
-
-	index, err := index.BuildIconIndex(cfg)
+	var cfg index.IconIndexerUnifiedConfig
+	err := util.LoadJSON(configPath, &cfg)
 	if err != nil {
-		log.Fatalf("❌ Failed to build icon index: %v", err)
+		log.Fatalf("❌ Failed to load config: %v", err)
 	}
 
-	err = util.WriteJSON(cfg.OutputPath, index)
-	if err != nil {
-		log.Fatalf("❌ Failed to save icon index: %v", err)
-	}
+	for category, target := range cfg.Outputs {
+		log.Printf("📦 Indexing category: %s", category)
 
-	fmt.Printf("✅ ICO index written to %s (%d entries)\n", cfg.OutputPath, len(index.Data))
+		indexed, err := index.BuildIconIndex(index.IconIndexerConfig{
+			Sources:     target.Sources,
+			OutputPath:  target.OutputPath,
+			ExcludeDirs: cfg.ExcludeDirs,
+		})
+		if err != nil {
+			log.Printf("⚠️  Failed to index %s: %v", category, err)
+			continue
+		}
+
+		err = util.WriteJSON(target.OutputPath, indexed)
+		if err != nil {
+			log.Printf("❌ Failed to write %s index: %v", category, err)
+			continue
+		}
+
+		fmt.Printf("✅ %s index written to %s\n", category, target.OutputPath)
+	}
 }

@@ -12,6 +12,7 @@ func LoadJSON(path string, v any) error {
 		return err
 	}
 	defer f.Close()
+
 	return json.NewDecoder(f).Decode(v)
 }
 
