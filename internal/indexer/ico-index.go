@@ -1,7 +1,6 @@
 package indexer
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -12,13 +11,6 @@ import (
 
 	"github.com/mrizkifadil26/medix/model"
 	"github.com/mrizkifadil26/medix/util"
-)
-
-const (
-	PersonalDir   = "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Personal Icon Pack/Movies/ICO"
-	DownloadedDir = "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/downloaded"
-	OutputPath    = "data/ico.index.json"
-	ExcludeDir    = "Collection"
 )
 
 func BuildIconIndex(cfg IconIndexerConfig) (model.IconIndex, error) {
@@ -139,19 +131,6 @@ func groupIcons(dirMap map[string][]model.IconEntry, excludeDirs []string) map[s
 	}
 
 	return tree
-}
-
-func SaveIconIndex(index model.IconIndex) error {
-	_ = os.MkdirAll(filepath.Dir(OutputPath), 0755)
-	file, err := os.Create(OutputPath)
-	if err != nil {
-		return err
-	}
-	defer file.Close()
-
-	enc := json.NewEncoder(file)
-	enc.SetIndent("", " ")
-	return enc.Encode(index)
 }
 
 func isExcluded(name string, excludeDirs []string) bool {
