@@ -1,0 +1,215 @@
+.progress-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto; /* Allow columns to grow naturally */
+  background-color: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.progress-table th,
+.progress-table td {
+  padding: 0.75rem 1rem; /* Breathing space */
+  text-align: center;    /* Center all columns */
+  vertical-align: middle;
+  border: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+}
+
+.progress-table th {
+  background-color: #f9f9f9;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Align only Genre column to the left */
+.progress-table th:nth-child(1),
+.progress-table td:nth-child(1) {
+  text-align: left;
+  white-space: nowrap;
+  width: 1%;
+}
+
+/* Status column still compact and centered */
+.progress-table th:nth-child(3),
+.progress-table td:nth-child(3) {
+  text-align: center;
+  white-space: nowrap;
+  width: 1%;
+}
+
+.bar-container {
+  position: relative;
+  display: flex;
+  height: 26px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  box-shadow: inset 0 0 0 1px #ccc;
+}
+
+.bar-container > div {
+  height: 100%;
+}
+
+/* Green (ICO) striped fill */
+/* ICO - green stripes */
+.bar-ico {
+  background: repeating-linear-gradient(
+    45deg,
+    #4caf50,
+    #4caf50 10px,
+    #43a047 10px,
+    #43a047 20px
+  );
+}
+
+/* PNG - blue stripes */
+.bar-png {
+  background: repeating-linear-gradient(
+    45deg,
+    #1976d2,
+    #1976d2 10px,
+    #1565c0 10px,
+    #1565c0 20px
+  );
+}
+
+/* RAW - subtle gray (not striped) */
+.bar-raw {
+  background-color: #dcdcdc;
+}
+
+.bar-label {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  padding: 0 6px;
+  border-radius: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.label-light {
+  color: #222;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Right-align if not enough room to center */
+.label-right {
+  right: 4px;
+  justify-content: flex-end;
+  transform: none;
+  left: auto;
+}
+
+/* Default centered alignment */
+.bar-label:not(.label-right) {
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+}
+
+/* Stacked bar container */
+.stacked-bar {
+  margin-bottom: 1.5rem;
+}
+
+.bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.bar-info {
+  font-size: 0.85rem;
+  text-align: right;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* Legend section */
+.legend {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.legend .box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.bar-info {
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.bar-count.ico {
+  color: #4caf50; /* green */
+}
+
+.bar-count.png {
+  color: #2196f3; /* blue */
+}
+
+.bar-count.raw {
+  color: #999; /* gray */
+}
+
+@media (max-width: 600px) {
+    .progress-bar {
+    height: 24px;
+  }
+
+  .progress-text {
+    font-size: 0.9em;
+    line-height: 24px;
+  }
+
+  .bar-label {
+    font-size: 0.8rem;
+  }
+
+  .legend {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .legend div {
+    justify-content: center;
+  }
+
+  .bar-info {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
+  .bar-wrapper {
+    gap: 2px;
+  }
+}

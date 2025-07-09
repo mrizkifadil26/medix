@@ -1,0 +1,3552 @@
+{
+  "type": "tvshows",
+  "generated_at": "2025-07-08T23:22:30.913212897+07:00",
+  "data": [
+    {
+      "genre": "Action",
+      "items": [
+        {
+          "type": "single",
+          "name": "Batman",
+          "path": "/mnt/e/Media/TV Shows/Action/Batman",
+          "status": "ok",
+          "items": [
+            "Batman - Season 1 (1966)",
+            "Batman - Season 2 (1966-1967)",
+            "Batman - Season 3 (1967-1968)"
+          ],
+          "icon": {
+            "name": "Batman.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Action/Batman/Batman.ico",
+            "size": 97648
+          }
+        },
+        {
+          "type": "single",
+          "name": "Gotham",
+          "path": "/mnt/e/Media/TV Shows/Action/Gotham",
+          "status": "ok",
+          "items": [
+            "Gotham - Season 1 (2014-2015)",
+            "Gotham - Season 2 (2015-2016)",
+            "Gotham - Season 3 (2016-2017)",
+            "Gotham - Season 4 (2017-2018)",
+            "Gotham - Season 5 (2019)"
+          ],
+          "icon": {
+            "name": "Gotham.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Action/Gotham/Gotham.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Gotham Knights",
+          "path": "/mnt/e/Media/TV Shows/Action/Gotham Knights",
+          "status": "missing",
+          "items": [
+            "Gotham Knights - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Mr. and Mrs. Smith",
+          "path": "/mnt/e/Media/TV Shows/Action/Mr. and Mrs. Smith",
+          "status": "missing",
+          "items": [
+            "Mr. and Mrs. Smith - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Reacher",
+          "path": "/mnt/e/Media/TV Shows/Action/Reacher",
+          "status": "missing",
+          "items": [
+            "Reacher - Season 1 (2022)",
+            "Reacher - Season 2 (2023-2024)",
+            "Reacher - Season 3 (2025)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Continental - From the World of John Wick",
+          "path": "/mnt/e/Media/TV Shows/Action/The Continental - From the World of John Wick",
+          "status": "ok",
+          "items": [
+            "The Continental - From the World of John Wick - Season 1 (2023)"
+          ],
+          "icon": {
+            "name": "The Continental.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Action/The Continental - From the World of John Wick/The Continental.ico",
+            "size": 91194
+          }
+        },
+        {
+          "type": "single",
+          "name": "Tom Clancy's Jack Ryan",
+          "path": "/mnt/e/Media/TV Shows/Action/Tom Clancy's Jack Ryan",
+          "status": "missing",
+          "items": [
+            "Tom Clancy's Jack Ryan - Season 1 (2018)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "True Lies",
+          "path": "/mnt/e/Media/TV Shows/Action/True Lies",
+          "status": "missing",
+          "items": [
+            "True Lies - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Twisted Metal",
+          "path": "/mnt/e/Media/TV Shows/Action/Twisted Metal",
+          "status": "missing",
+          "items": [
+            "Twisted Metal - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Vikings",
+          "path": "/mnt/e/Media/TV Shows/Action/Vikings",
+          "status": "ok",
+          "items": [
+            "Vikings - Season 1 (2013)",
+            "Vikings - Season 2 (2014)",
+            "Vikings - Season 3 (2015)",
+            "Vikings - Season 4 (2016-2017)",
+            "Vikings - Season 5 (2017-2019)",
+            "Vikings - Season 6 (2019-2020)"
+          ],
+          "icon": {
+            "name": "Vikings.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Action/Vikings/Vikings.ico",
+            "size": 103878
+          }
+        },
+        {
+          "type": "single",
+          "name": "Vikings - Valhalla",
+          "path": "/mnt/e/Media/TV Shows/Action/Vikings - Valhalla",
+          "status": "missing",
+          "items": [
+            "Vikings - Valhalla - Season 1 (2022)",
+            "Vikings - Valhalla - Season 2 (2023)",
+            "Vikings - Valhalla - Season 3 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Warrior",
+          "path": "/mnt/e/Media/TV Shows/Action/Warrior",
+          "status": "missing",
+          "items": [
+            "Warrior - Season 1 (2019)",
+            "Warrior - Season 2 (2020)",
+            "Warrior - Season 3 (2023)"
+          ]
+        }
+      ]
+    },
+    {
+      "genre": "Animation",
+      "items": [
+        {
+          "type": "single",
+          "name": "Adventure Time",
+          "path": "/mnt/e/Media/TV Shows/Animation/Adventure Time",
+          "status": "ok",
+          "items": [
+            "Adventure Time - Season 1 (2010)"
+          ],
+          "icon": {
+            "name": "Adventure Time with Finn \u0026 Jake.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Adventure Time/Adventure Time with Finn \u0026 Jake.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Arcane",
+          "path": "/mnt/e/Media/TV Shows/Animation/Arcane",
+          "status": "missing",
+          "items": [
+            "Arcane - Season 1 (2021)",
+            "Arcane - Season 2 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Avatar - The Last AirBender",
+          "path": "/mnt/e/Media/TV Shows/Animation/Avatar - The Last AirBender",
+          "status": "ok",
+          "items": [
+            "Avatar - The Last Airbender - Season 1 (2005)",
+            "Avatar - The Last Airbender - Season 2 (2006)",
+            "Avatar - The Last Airbender - Season 3 (2007 - 2008)"
+          ],
+          "icon": {
+            "name": "Avatar - The Last Airbender.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Avatar - The Last AirBender/Avatar - The Last Airbender.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Avatar - The Legend of Korra",
+          "path": "/mnt/e/Media/TV Shows/Animation/Avatar - The Legend of Korra",
+          "status": "ok",
+          "items": [
+            "The Legend of Korra - Season 1 (2012)",
+            "The Legend of Korra - Season 2 (2013)",
+            "The Legend of Korra - Season 3 (2014)",
+            "The Legend of Korra - Season 4 (2014)"
+          ],
+          "icon": {
+            "name": "The Legend of Korra.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Avatar - The Legend of Korra/The Legend of Korra.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "BoJack Horseman",
+          "path": "/mnt/e/Media/TV Shows/Animation/BoJack Horseman",
+          "status": "ok",
+          "items": [
+            "BoJack Horseman - Season 1 (2014)"
+          ],
+          "icon": {
+            "name": "BoJack Horseman.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/BoJack Horseman/BoJack Horseman.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Cars on the Road",
+          "path": "/mnt/e/Media/TV Shows/Animation/Cars on the Road",
+          "status": "missing",
+          "items": [
+            "Cars on the Road - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Disenchantment",
+          "path": "/mnt/e/Media/TV Shows/Animation/Disenchantment",
+          "status": "missing",
+          "items": [
+            "Disenchantment - Season 1 (2018-2019)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Family Guy",
+          "path": "/mnt/e/Media/TV Shows/Animation/Family Guy",
+          "status": "ok",
+          "items": [
+            "Family Guy - Season 1 (1999)",
+            "Family Guy - Season 2 (2000)"
+          ],
+          "icon": {
+            "name": "Family Guy.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Family Guy/Family Guy.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Green Lantern - The Animated Series",
+          "path": "/mnt/e/Media/TV Shows/Animation/Green Lantern - The Animated Series",
+          "status": "missing",
+          "items": [
+            "Green Lantern - The Animated Series - Season 1 (2012)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Gudetama - An Egcellent Adventure",
+          "path": "/mnt/e/Media/TV Shows/Animation/Gudetama - An Egcellent Adventure",
+          "status": "missing",
+          "items": [
+            "Gudetama - An Egcellent Adventure - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Inside Job",
+          "path": "/mnt/e/Media/TV Shows/Animation/Inside Job",
+          "status": "missing",
+          "items": [
+            "Inside Job - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Invincible",
+          "path": "/mnt/e/Media/TV Shows/Animation/Invincible",
+          "status": "missing",
+          "items": [
+            "Invincible - Season 1 (2021)",
+            "Invincible - Season 2 (2023-2024)",
+            "Invincible - Season 3 (2025)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Lost Ollie",
+          "path": "/mnt/e/Media/TV Shows/Animation/Lost Ollie",
+          "status": "missing",
+          "items": [
+            "Lost Ollie - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Marvel's Hit-Monkey",
+          "path": "/mnt/e/Media/TV Shows/Animation/Marvel's Hit-Monkey",
+          "status": "missing",
+          "items": [
+            "Hit-Monkey - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Marvel's MODOK",
+          "path": "/mnt/e/Media/TV Shows/Animation/Marvel's MODOK",
+          "status": "missing",
+          "items": [
+            "MODOK - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Monsters at Work",
+          "path": "/mnt/e/Media/TV Shows/Animation/Monsters at Work",
+          "status": "missing",
+          "items": [
+            "Monsters at Work - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Oni - Thunder God's Tale",
+          "path": "/mnt/e/Media/TV Shows/Animation/Oni - Thunder God's Tale",
+          "status": "missing",
+          "items": [
+            "Oni - Thunder God's Tale - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Over the Garden Wall",
+          "path": "/mnt/e/Media/TV Shows/Animation/Over the Garden Wall",
+          "status": "ok",
+          "items": [
+            "Over the Garden Wall - Season 1 (2014)"
+          ],
+          "icon": {
+            "name": "Over the Garden Wall.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Over the Garden Wall/Over the Garden Wall.ico",
+            "size": 93898
+          }
+        },
+        {
+          "type": "single",
+          "name": "Regular Show",
+          "path": "/mnt/e/Media/TV Shows/Animation/Regular Show",
+          "status": "ok",
+          "items": [
+            "Regular Show - Season 1 (2010)",
+            "Regular Show - Season 2 (2010-2011)",
+            "Regular Show - Season 3 (2011-2012)"
+          ],
+          "icon": {
+            "name": "Regular Show.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Regular Show/Regular Show.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Rick and Morty",
+          "path": "/mnt/e/Media/TV Shows/Animation/Rick and Morty",
+          "status": "ok",
+          "items": [
+            "Rick and Morty - Season 1 (2013-2014)",
+            "Rick and Morty - Season 2 (2015)",
+            "Rick and Morty - Season 3 (2017)",
+            "Rick and Morty - Season 4 (2019-2020)",
+            "Rick and Morty - Season 5 (2021)",
+            "Rick and Morty - Season 6 (2022)",
+            "Rick and Morty Season 7 720p x264 [Pahe.in]"
+          ],
+          "icon": {
+            "name": "Rick and Morty.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Rick and Morty/Rick and Morty.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Rugrats",
+          "path": "/mnt/e/Media/TV Shows/Animation/Rugrats",
+          "status": "missing",
+          "items": [
+            "Rugrats - Season 0 (1990)",
+            "Rugrats - Season 1 (1991)",
+            "Rugrats - Season 2 (1992-1993)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Sausage Party - Foodtopia",
+          "path": "/mnt/e/Media/TV Shows/Animation/Sausage Party - Foodtopia",
+          "status": "missing",
+          "items": [
+            "Sausage Party - Foodtopia - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Scooby-Doo, Where Are You!",
+          "path": "/mnt/e/Media/TV Shows/Animation/Scooby-Doo, Where Are You!",
+          "status": "ok",
+          "items": [
+            "Scooby-Doo, Where Are You! - Season 1 (1969-1970)",
+            "Scooby-Doo, Where Are You! - Season 2 (1970)"
+          ],
+          "icon": {
+            "name": "Scooby Doo, Where Are You!.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Scooby-Doo, Where Are You!/Scooby Doo, Where Are You!.ico",
+            "size": 108813
+          }
+        },
+        {
+          "type": "single",
+          "name": "Scott Pilgrim Takes Off",
+          "path": "/mnt/e/Media/TV Shows/Animation/Scott Pilgrim Takes Off",
+          "status": "missing",
+          "items": [
+            "Scott Pilgrim Takes Off - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Secret Level",
+          "path": "/mnt/e/Media/TV Shows/Animation/Secret Level",
+          "status": "missing",
+          "items": [
+            "Secret Level - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Spongebob Squarepants",
+          "path": "/mnt/e/Media/TV Shows/Animation/Spongebob Squarepants",
+          "status": "ok",
+          "items": [
+            "SpongeBob SquarePants - Season 12 (2018-2022)",
+            "SpongeBob SquarePants - Season 13 (2020-2023)",
+            "SpongeBob SquarePants - Season 8 (2011-2012)",
+            "SpongeBob SquarePants - Season 9 (2012-2017)",
+            "Spongebob Squarepants - Season 1 (1999-2001)",
+            "Spongebob Squarepants - Season 2 (2000-2003)",
+            "Spongebob Squarepants - Season 3 (2001-2004)",
+            "Spongebob Squarepants - Season 4 (2005-2007)",
+            "Spongebob Squarepants - Season 5 (2007-2009)",
+            "Spongebob Squarepants - Season 6 (2008-2010)",
+            "Spongebob Squarepants - Season 7 (2009-2011)"
+          ],
+          "icon": {
+            "name": "SpongeBob SquarePants.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Spongebob Squarepants/SpongeBob SquarePants.ico",
+            "size": 104678
+          }
+        },
+        {
+          "type": "single",
+          "name": "The 13 Ghosts of Scooby-Doo",
+          "path": "/mnt/e/Media/TV Shows/Animation/The 13 Ghosts of Scooby-Doo",
+          "status": "missing",
+          "items": [
+            "The 13 Ghosts of Scooby-Doo - Season 1 (1985)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Boys Presents - Diabolical",
+          "path": "/mnt/e/Media/TV Shows/Animation/The Boys Presents - Diabolical",
+          "status": "missing",
+          "items": [
+            "The Boys Presents - Diabolical - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Cuphead Show",
+          "path": "/mnt/e/Media/TV Shows/Animation/The Cuphead Show",
+          "status": "missing",
+          "items": [
+            "The Cuphead Show - Season 1 (2022)",
+            "The Cuphead Show - Season 2 (2022)",
+            "The Cuphead Show - Season 3 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Flintstones",
+          "path": "/mnt/e/Media/TV Shows/Animation/The Flintstones",
+          "status": "missing",
+          "items": [
+            "The Flintstones - Season 1 (1960)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Scooby-Doo Show",
+          "path": "/mnt/e/Media/TV Shows/Animation/The Scooby-Doo Show",
+          "status": "missing",
+          "items": [
+            "The Scooby-Doo Show - Season 1 (1976)",
+            "The Scooby-Doo Show - Season 2 (1977)",
+            "The Scooby-Doo Show - Season 3 (1978)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Simpsons",
+          "path": "/mnt/e/Media/TV Shows/Animation/The Simpsons",
+          "status": "ok",
+          "items": [
+            "The Simpsons - Season 1 (1989-1990)",
+            "The Simpsons - Season 10 (1998-1999)",
+            "The Simpsons - Season 11 (1999-2000)",
+            "The Simpsons - Season 15 (2003-2004)",
+            "The Simpsons - Season 16 (2004-2005)",
+            "The Simpsons - Season 2 (1990-1991)",
+            "The Simpsons - Season 20 (2008-2009)",
+            "The Simpsons - Season 21 (2009-2010)",
+            "The Simpsons - Season 25 (2013-2014)",
+            "The Simpsons - Season 31 (2019-2020)",
+            "The Simpsons - Season 32 (2020-2021)",
+            "The Simpsons - Season 33 (2021-2022)",
+            "The Simpsons - Season 5 (1993-1994)",
+            "The Simpsons - Season 6 (1994-1995)"
+          ],
+          "icon": {
+            "name": "The Simpsons.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/The Simpsons/The Simpsons.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Tom and Jerry",
+          "path": "/mnt/e/Media/TV Shows/Animation/Tom and Jerry",
+          "status": "ok",
+          "items": [
+            "Tom and Jerry I - Hanna-Barbera (1940-1958)",
+            "Tom and Jerry II - Gene Deitch (1960-1962)",
+            "Tom and Jerry III - Chuck Jones (1963-1967)"
+          ],
+          "icon": {
+            "name": "Tom and Jerry.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Tom and Jerry/Tom and Jerry.ico",
+            "size": 76165
+          }
+        },
+        {
+          "type": "single",
+          "name": "Ultimate Spider-Man",
+          "path": "/mnt/e/Media/TV Shows/Animation/Ultimate Spider-Man",
+          "status": "ok",
+          "items": [
+            "Ultimate Spider-Man - Season 1 (2012)",
+            "Ultimate Spider-Man - Season 2 (2013)",
+            "Ultimate Spider-Man - Season 3 (2014-2015)",
+            "Ultimate Spider-Man - Season 4 (2016-2017)"
+          ],
+          "icon": {
+            "name": "Ultimate Spider-Man.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/Ultimate Spider-Man/Ultimate Spider-Man.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "What If",
+          "path": "/mnt/e/Media/TV Shows/Animation/What If",
+          "status": "ok",
+          "items": [
+            "What If - Season 1 (2021)",
+            "What If - Season 2 (2023)",
+            "What If - Season 3 (2024)"
+          ],
+          "icon": {
+            "name": "What If.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Animation/What If/What If.ico",
+            "size": 106865
+          }
+        },
+        {
+          "type": "single",
+          "name": "X-Men '97",
+          "path": "/mnt/e/Media/TV Shows/Animation/X-Men '97",
+          "status": "missing",
+          "items": [
+            "X-Men '97 - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "X-Men - The Animated Series",
+          "path": "/mnt/e/Media/TV Shows/Animation/X-Men - The Animated Series",
+          "status": "missing",
+          "items": [
+            "X-Men - The Animated Series - Season 1 (1992-1993)",
+            "X-Men - The Animated Series - Season 2 (1993-1994)",
+            "X-Men - The Animated Series - Season 3 (1994-1996)",
+            "X-Men - The Animated Series - Season 4 (1995-1996)",
+            "X-Men - The Animated Series S05 (1996-1997)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Your Friendly Neighborhood Spider-Man",
+          "path": "/mnt/e/Media/TV Shows/Animation/Your Friendly Neighborhood Spider-Man",
+          "status": "missing",
+          "items": [
+            "Your Friendly Neighborhood Spider-Man - Season 1 (2025)"
+          ]
+        }
+      ]
+    },
+    {
+      "genre": "Comedy",
+      "items": [
+        {
+          "type": "single",
+          "name": "2 Broke Girls",
+          "path": "/mnt/e/Media/TV Shows/Comedy/2 Broke Girls",
+          "status": "ok",
+          "items": [
+            "2 Broke Girls - Season 1 (2011-2012)"
+          ],
+          "icon": {
+            "name": "2 Broke Girls.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/2 Broke Girls/2 Broke Girls.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Abbott Elementary",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Abbott Elementary",
+          "status": "missing",
+          "items": [
+            "Abbott Elementary - Season (2022)",
+            "Abbott Elementary - Season 2 (2022-2023)",
+            "Abbott Elementary - Season 3 (2024)",
+            "Abbott Elementary - Season 4 (2024-2025)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Ash vs Evil Dead",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Ash vs Evil Dead",
+          "status": "ok",
+          "items": [
+            "Ash vs Evil Dead - Season 1 (2015)"
+          ],
+          "icon": {
+            "name": "Ash vs Evil Dead.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/Ash vs Evil Dead/Ash vs Evil Dead.ico",
+            "size": 92513
+          }
+        },
+        {
+          "type": "single",
+          "name": "Atlanta",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Atlanta",
+          "status": "ok",
+          "items": [
+            "Atlanta - Season 1 (2016)"
+          ],
+          "icon": {
+            "name": "Atlanta.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/Atlanta/Atlanta.ico",
+            "size": 80518
+          }
+        },
+        {
+          "type": "single",
+          "name": "Barry",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Barry",
+          "status": "ok",
+          "items": [
+            "Barry - Season 1 (2018)",
+            "Barry - Season 2 (2019)"
+          ],
+          "icon": {
+            "name": "Barry.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/Barry/Barry.ico",
+            "size": 80909
+          }
+        },
+        {
+          "type": "single",
+          "name": "Beef",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Beef",
+          "status": "missing",
+          "items": [
+            "Beef - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Daybreak",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Daybreak",
+          "status": "ok",
+          "items": [
+            "Daybreak - Season 1 (2019)"
+          ],
+          "icon": {
+            "name": "Daybreak.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/Daybreak/Daybreak.ico",
+            "size": 106753
+          }
+        },
+        {
+          "type": "single",
+          "name": "Ghosts",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Ghosts",
+          "status": "missing",
+          "items": [
+            "Ghosts - Season 1 (2021)",
+            "Ghosts - Season 2 (2022)",
+            "Ghosts - Season 3 (2024)",
+            "Ghosts - Season 4 (2024-2025)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "I Am Not Okay With This",
+          "path": "/mnt/e/Media/TV Shows/Comedy/I Am Not Okay With This",
+          "status": "ok",
+          "items": [
+            "I Am Not Okay With This - Season 1 (2020)"
+          ],
+          "icon": {
+            "name": "I Am Not Okay with This.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/I Am Not Okay With This/I Am Not Okay with This.ico",
+            "size": 98295
+          }
+        },
+        {
+          "type": "single",
+          "name": "Man Vs Bee",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Man Vs Bee",
+          "status": "ok",
+          "items": [
+            "Man Vs Bee - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "Man vs Bee.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/Man Vs Bee/Man vs Bee.ico",
+            "size": 90421
+          }
+        },
+        {
+          "type": "single",
+          "name": "Miracle Workers",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Miracle Workers",
+          "status": "missing",
+          "items": [
+            "Miracle Workers - Season 1 (2019)",
+            "Miracle Workers - Season 2 (2020)",
+            "Miracle Workers - Season 3 (2021)",
+            "Miracle Workers - Season 4 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Mr. Bean",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Mr. Bean",
+          "status": "ok",
+          "items": [
+            "Mr. Bean Show (1994)"
+          ],
+          "icon": {
+            "name": "Mr Bean.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/Mr. Bean/Mr Bean.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Mr. Corman",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Mr. Corman",
+          "status": "missing",
+          "items": [
+            "Mr. Corman - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Mrs. Fletcher",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Mrs. Fletcher",
+          "status": "missing",
+          "items": [
+            "Mrs. Fletcher - Season 1 (2019)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Ramy",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Ramy",
+          "status": "missing",
+          "items": [
+            "Ramy - Season 1 (2019)",
+            "Ramy - Season 2 (2020)",
+            "Ramy - Season 3 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Resident Alien",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Resident Alien",
+          "status": "ok",
+          "items": [
+            "Resident Alien - Season 1 (2021)",
+            "Resident Alien - Season 2 (2022)",
+            "Resident Alien - Season 3 (2024)"
+          ],
+          "icon": {
+            "name": "Resident Alien.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/Resident Alien/Resident Alien.ico",
+            "size": 87173
+          }
+        },
+        {
+          "type": "single",
+          "name": "Sex Education",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Sex Education",
+          "status": "missing",
+          "items": [
+            "Sex Education - Season 1 (2019)",
+            "Sex Education - Season 2 (2020)",
+            "Sex Education - Season 3 (2021)",
+            "Sex Education - Season 4 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Silicon Valley",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Silicon Valley",
+          "status": "ok",
+          "items": [
+            "Silicon Valley - Season 1 (2014)",
+            "Silicon Valley - Season 2 (2015)",
+            "Silicon Valley - Season 3 (2016)",
+            "Silicon Valley - Season 4 (2017)",
+            "Silicon Valley - Season 5 (2018)",
+            "Silicon Valley - Season 6 (2019)"
+          ],
+          "icon": {
+            "name": "Silicon Valley.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/Silicon Valley/Silicon Valley.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Sweetpea",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Sweetpea",
+          "status": "missing",
+          "items": [
+            "Sweetpea - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Ted",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Ted",
+          "status": "ok",
+          "items": [
+            "Ted - Season 1 (2024)"
+          ],
+          "icon": {
+            "name": "Ted.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/Ted/Ted.ico",
+            "size": 97339
+          }
+        },
+        {
+          "type": "single",
+          "name": "Ted Lasso",
+          "path": "/mnt/e/Media/TV Shows/Comedy/Ted Lasso",
+          "status": "ok",
+          "items": [
+            "Ted Lasso - Season 1 (2020)",
+            "Ted Lasso - Season 2 (2021)",
+            "Ted Lasso - Season 3 (2023)"
+          ],
+          "icon": {
+            "name": "Ted Lasso.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/Ted Lasso/Ted Lasso.ico",
+            "size": 101885
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Bear",
+          "path": "/mnt/e/Media/TV Shows/Comedy/The Bear",
+          "status": "missing",
+          "items": [
+            "The Bear - Season 1 (2022)",
+            "The Bear - Season 2 (2023)",
+            "The Bear - Season 3 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Big Bang Theory",
+          "path": "/mnt/e/Media/TV Shows/Comedy/The Big Bang Theory",
+          "status": "ok",
+          "items": [
+            "The Big Bang Theory - Season 1 (2007-2008)"
+          ],
+          "icon": {
+            "name": "The Big Bang Theory.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/The Big Bang Theory/The Big Bang Theory.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "The End of the Fucking World",
+          "path": "/mnt/e/Media/TV Shows/Comedy/The End of the Fucking World",
+          "status": "ok",
+          "items": [
+            "The End of the Fucking World - Season 1 (2017)",
+            "The End of the Fucking World - Season 2 (2019)"
+          ],
+          "icon": {
+            "name": "The End of the F---ing World.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/The End of the Fucking World/The End of the F---ing World.ico",
+            "size": 97660
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Office",
+          "path": "/mnt/e/Media/TV Shows/Comedy/The Office",
+          "status": "ok",
+          "items": [
+            "The Office - Season 1 (2005)",
+            "The Office - Season 2 (2005-2006)",
+            "The Office - Season 3 (2006-2007)",
+            "The Office - Season 4 (2007-2008)",
+            "The Office - Season 5 (2008-2009)"
+          ],
+          "icon": {
+            "name": "The Office.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/The Office/The Office.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Office (UK)",
+          "path": "/mnt/e/Media/TV Shows/Comedy/The Office (UK)",
+          "status": "missing",
+          "items": [
+            "The Office (UK) - Season 1 (2001)",
+            "The Office (UK) - Season 2 (2002)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Rehearsal",
+          "path": "/mnt/e/Media/TV Shows/Comedy/The Rehearsal",
+          "status": "ok",
+          "items": [
+            "The Rehearsal - Season 1 (2022)",
+            "The Rehearsal - Season 2 (2025)"
+          ],
+          "icon": {
+            "name": "The Rehearsal.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/The Rehearsal/The Rehearsal.ico",
+            "size": 94593
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Tick",
+          "path": "/mnt/e/Media/TV Shows/Comedy/The Tick",
+          "status": "ok",
+          "items": [
+            "The Tick - Season 1 (2016-2018)",
+            "The Tick - Season 2 (2019)"
+          ],
+          "icon": {
+            "name": "The Tick.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/The Tick/The Tick.ico",
+            "size": 98397
+          }
+        },
+        {
+          "type": "single",
+          "name": "The White Lotus",
+          "path": "/mnt/e/Media/TV Shows/Comedy/The White Lotus",
+          "status": "ok",
+          "items": [
+            "The White Lotus - Season 1 (2021)",
+            "The White Lotus - Season 2 (2022)",
+            "The White Lotus - Season 3 (2025)"
+          ],
+          "icon": {
+            "name": "The White Lotus.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Comedy/The White Lotus/The White Lotus.ico",
+            "size": 100760
+          }
+        }
+      ]
+    },
+    {
+      "genre": "Crime",
+      "items": [
+        {
+          "type": "single",
+          "name": "Berlin",
+          "path": "/mnt/e/Media/TV Shows/Crime/Berlin",
+          "status": "missing",
+          "items": [
+            "Berlin - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Better Call Saul",
+          "path": "/mnt/e/Media/TV Shows/Crime/Better Call Saul",
+          "status": "ok",
+          "items": [
+            "Better Call Saul - Season 1 (2015)",
+            "Better Call Saul - Season 2 (2016)",
+            "Better Call Saul - Season 3 (2017)"
+          ],
+          "icon": {
+            "name": "Better Call Saul.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/Better Call Saul/Better Call Saul.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Breaking Bad",
+          "path": "/mnt/e/Media/TV Shows/Crime/Breaking Bad",
+          "status": "ok",
+          "items": [
+            "Breaking Bad - Season 1 (2008)",
+            "Breaking Bad - Season 2 (2009)",
+            "Breaking Bad - Season 3 (2010)",
+            "Breaking Bad - Season 4 (2011)",
+            "Breaking Bad - Season 5 (2012-2013)"
+          ],
+          "icon": {
+            "name": "Breaking Bad.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/Breaking Bad/Breaking Bad.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Godfather of Harlem",
+          "path": "/mnt/e/Media/TV Shows/Crime/Godfather of Harlem",
+          "status": "missing",
+          "items": [
+            "Godfather of Harlem - Season 1 (2019)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Hannibal",
+          "path": "/mnt/e/Media/TV Shows/Crime/Hannibal",
+          "status": "ok",
+          "items": [
+            "Hannibal - Season 1 (2013)"
+          ],
+          "icon": {
+            "name": "Hannibal.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/Hannibal/Hannibal.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "How to Sell Drugs Online (Fast)",
+          "path": "/mnt/e/Media/TV Shows/Crime/How to Sell Drugs Online (Fast)",
+          "status": "missing",
+          "items": [
+            "How to Sell Drugs Online (Fast) - Season 1 (2019)",
+            "How to Sell Drugs Online (Fast) - Season 2 (2020)",
+            "How to Sell Drugs Online (Fast) - Season 3 (2021)",
+            "How to Sell Drugs Online (Fast) - Season 4 (2025)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Mare of Easttown",
+          "path": "/mnt/e/Media/TV Shows/Crime/Mare of Easttown",
+          "status": "missing",
+          "items": [
+            "Mare of Easttown - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Mayor of Kingstown",
+          "path": "/mnt/e/Media/TV Shows/Crime/Mayor of Kingstown",
+          "status": "missing",
+          "items": [
+            "Mayor of Kingstown - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Money Heist",
+          "path": "/mnt/e/Media/TV Shows/Crime/Money Heist",
+          "status": "ok",
+          "items": [
+            "Money Heist - Season 1 (2017)",
+            "Money Heist - Season 2 (2017)",
+            "Money Heist - Season 3 (2019)",
+            "Money Heist - Season 4 (2020)",
+            "Money Heist - Season 5 Part 1 (2021)",
+            "Money Heist - Season 5 Part 2 (2021)"
+          ],
+          "icon": {
+            "name": "Money Heist.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/Money Heist/Money Heist.ico",
+            "size": 85845
+          }
+        },
+        {
+          "type": "single",
+          "name": "Money Heist Korea - Joint Economic Area",
+          "path": "/mnt/e/Media/TV Shows/Crime/Money Heist Korea - Joint Economic Area",
+          "status": "missing",
+          "items": [
+            "Money Heist Korea - Joint Economic Area - Season 1 Pt. 1 (2022)",
+            "Money Heist Korea - Joint Economic Area - Season 1 Pt. 2 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Monster",
+          "path": "/mnt/e/Media/TV Shows/Crime/Monster",
+          "status": "missing",
+          "items": [
+            "DAHMER – Monster - The Jeffrey Dahmer Story (2022)",
+            "Monsters - The Lyle and Erik Menendez Story (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Mr. Robot",
+          "path": "/mnt/e/Media/TV Shows/Crime/Mr. Robot",
+          "status": "ok",
+          "items": [
+            "Mr. Robot - Season 1 (2015)",
+            "Mr. Robot - Season 2 (2016)",
+            "Mr. Robot - Season 3 (2017)",
+            "Mr. Robot - Season 4 (2019)"
+          ],
+          "icon": {
+            "name": "Mr Robot.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/Mr. Robot/Mr Robot.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Narcos",
+          "path": "/mnt/e/Media/TV Shows/Crime/Narcos",
+          "status": "ok",
+          "items": [
+            "Narcos - Season 1 (2015)",
+            "Narcos - Season 2 (2016)",
+            "Narcos - Season 3 (2017)"
+          ],
+          "icon": {
+            "name": "Narcos.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/Narcos/Narcos.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Narcos - Mexico",
+          "path": "/mnt/e/Media/TV Shows/Crime/Narcos - Mexico",
+          "status": "missing",
+          "items": [
+            "Narcos Mexico - Season 1 (2018)",
+            "Narcos Mexico - Season 2 (2020)",
+            "Narcos Mexico - Season 3 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Peaky Blinders",
+          "path": "/mnt/e/Media/TV Shows/Crime/Peaky Blinders",
+          "status": "ok",
+          "items": [
+            "Peaky Blinders - Season 1 (2013)",
+            "Peaky Blinders - Season 2 (2013)",
+            "Peaky Blinders - Season 3 (2016)",
+            "Peaky Blinders - Season 4 (2017)",
+            "Peaky Blinders - Season 5 (2019)",
+            "Peaky Blinders - Season 6 (2022)"
+          ],
+          "icon": {
+            "name": "Peaky Blinders.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/Peaky Blinders/Peaky Blinders.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Pennyworth",
+          "path": "/mnt/e/Media/TV Shows/Crime/Pennyworth",
+          "status": "missing",
+          "items": [
+            "Pennyworth - Season 1 (2019)",
+            "Pennyworth - Season 2 (2020-2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Sacred Games",
+          "path": "/mnt/e/Media/TV Shows/Crime/Sacred Games",
+          "status": "ok",
+          "items": [
+            "Sacred Games - Season 1 (2018)",
+            "Sacred Games - Season 2 (2019)"
+          ],
+          "icon": {
+            "name": "Sacred Games.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/Sacred Games/Sacred Games.ico",
+            "size": 91845
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Penguin",
+          "path": "/mnt/e/Media/TV Shows/Crime/The Penguin",
+          "status": "ok",
+          "items": [
+            "The Penguin - Season 1 (2024)"
+          ],
+          "icon": {
+            "name": "The Penguin.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/The Penguin/The Penguin.ico",
+            "size": 104770
+          }
+        },
+        {
+          "type": "single",
+          "name": "True Detective",
+          "path": "/mnt/e/Media/TV Shows/Crime/True Detective",
+          "status": "ok",
+          "items": [
+            "True Detective - Season 1 (2014)",
+            "True Detective - Season 2 (2015)",
+            "True Detective - Season 3 (2019)",
+            "True Detective - Season 4 (2024)"
+          ],
+          "icon": {
+            "name": "True Detective.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/True Detective/True Detective.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Watchmen",
+          "path": "/mnt/e/Media/TV Shows/Crime/Watchmen",
+          "status": "ok",
+          "items": [
+            "Watchmen - Season 1 (2019)"
+          ],
+          "icon": {
+            "name": "Watchmen.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Crime/Watchmen/Watchmen.ico",
+            "size": 83390
+          }
+        }
+      ]
+    },
+    {
+      "genre": "Drama",
+      "items": [
+        {
+          "type": "single",
+          "name": "A Teacher",
+          "path": "/mnt/e/Media/TV Shows/Drama/A Teacher",
+          "status": "missing",
+          "items": [
+            "A Teacher - Season 1 (2020)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Adolescence",
+          "path": "/mnt/e/Media/TV Shows/Drama/Adolescence",
+          "status": "missing",
+          "items": [
+            "Adolescence - Season 1 (2025)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Animal Kingdom",
+          "path": "/mnt/e/Media/TV Shows/Drama/Animal Kingdom",
+          "status": "ok",
+          "items": [
+            "Animal Kingdom - Season 1 (2016)"
+          ],
+          "icon": {
+            "name": "Animal Kingdom.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Animal Kingdom/Animal Kingdom.ico",
+            "size": 88138
+          }
+        },
+        {
+          "type": "single",
+          "name": "Around the World in 80 Days",
+          "path": "/mnt/e/Media/TV Shows/Drama/Around the World in 80 Days",
+          "status": "missing",
+          "items": [
+            "Around the World in 80 Days - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Band of Brothers",
+          "path": "/mnt/e/Media/TV Shows/Drama/Band of Brothers",
+          "status": "ok",
+          "items": [
+            "Band of Brothers - Season 1 (2001)"
+          ],
+          "icon": {
+            "name": "Band of Brothers.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Band of Brothers/Band of Brothers.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Chernobyl",
+          "path": "/mnt/e/Media/TV Shows/Drama/Chernobyl",
+          "status": "missing",
+          "items": [
+            "Chernobyl - Season 1 (2019)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Cobra Kai",
+          "path": "/mnt/e/Media/TV Shows/Drama/Cobra Kai",
+          "status": "ok",
+          "items": [
+            "Cobra Kai - Season 1 (2018)",
+            "Cobra Kai - Season 2 (2019)",
+            "Cobra Kai - Season 3 (2021)",
+            "Cobra Kai - Season 4 (2021)",
+            "Cobra Kai - Season 5 (2022)",
+            "Cobra Kai - Season 6 Part 1 (2024)",
+            "Cobra Kai - Season 6 Part 2 (2024)",
+            "Cobra Kai - Season 6 Part 3 (2025)"
+          ],
+          "icon": {
+            "name": "Cobra Kai.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Cobra Kai/Cobra Kai.ico",
+            "size": 68492
+          }
+        },
+        {
+          "type": "single",
+          "name": "Daisy Jones \u0026 the Six",
+          "path": "/mnt/e/Media/TV Shows/Drama/Daisy Jones \u0026 the Six",
+          "status": "missing",
+          "items": [
+            "Daisy Jones \u0026 The Six - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Defending Jacob",
+          "path": "/mnt/e/Media/TV Shows/Drama/Defending Jacob",
+          "status": "ok",
+          "items": [
+            "Defending Jacob - Season 1 (2020)"
+          ],
+          "icon": {
+            "name": "Defending Jacob.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Defending Jacob/Defending Jacob.ico",
+            "size": 101051
+          }
+        },
+        {
+          "type": "single",
+          "name": "Extrapolations",
+          "path": "/mnt/e/Media/TV Shows/Drama/Extrapolations",
+          "status": "missing",
+          "items": [
+            "Extrapolations - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Five Days at Memorial",
+          "path": "/mnt/e/Media/TV Shows/Drama/Five Days at Memorial",
+          "status": "ok",
+          "items": [
+            "Five Days at Memorial - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "Five Days at Memorial.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Five Days at Memorial/Five Days at Memorial.ico",
+            "size": 101271
+          }
+        },
+        {
+          "type": "single",
+          "name": "Fleishman is in Trouble",
+          "path": "/mnt/e/Media/TV Shows/Drama/Fleishman is in Trouble",
+          "status": "missing",
+          "items": [
+            "Fleishman Is In Trouble - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Gadis Kretek",
+          "path": "/mnt/e/Media/TV Shows/Drama/Gadis Kretek",
+          "status": "missing",
+          "items": [
+            "Gadis Kretek - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "George \u0026 Tammy",
+          "path": "/mnt/e/Media/TV Shows/Drama/George \u0026 Tammy",
+          "status": "ok",
+          "items": [
+            "George \u0026 Tammy - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "George and Tammy.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/George \u0026 Tammy/George and Tammy.ico",
+            "size": 93846
+          }
+        },
+        {
+          "type": "single",
+          "name": "House of Cards",
+          "path": "/mnt/e/Media/TV Shows/Drama/House of Cards",
+          "status": "ok",
+          "items": [
+            "House of Cards - Season 1 (2013)"
+          ],
+          "icon": {
+            "name": "House of Cards.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/House of Cards/House of Cards.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "House of Ninjas",
+          "path": "/mnt/e/Media/TV Shows/Drama/House of Ninjas",
+          "status": "missing",
+          "items": [
+            "House of Ninjas - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Lessons in Chemistry",
+          "path": "/mnt/e/Media/TV Shows/Drama/Lessons in Chemistry",
+          "status": "missing",
+          "items": [
+            "Lessons in Chemistry - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Maid",
+          "path": "/mnt/e/Media/TV Shows/Drama/Maid",
+          "status": "missing",
+          "items": [
+            "Maid - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Masters of the Air",
+          "path": "/mnt/e/Media/TV Shows/Drama/Masters of the Air",
+          "status": "ok",
+          "items": [
+            "Masters of the Air - Season 1 (2024)"
+          ],
+          "icon": {
+            "name": "Masters of the Air.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Masters of the Air/Masters of the Air.ico",
+            "size": 92597
+          }
+        },
+        {
+          "type": "single",
+          "name": "Medici - Masters of Florence",
+          "path": "/mnt/e/Media/TV Shows/Drama/Medici - Masters of Florence",
+          "status": "ok",
+          "items": [
+            "Medici - Masters of Florence - Season 1 (2016)"
+          ],
+          "icon": {
+            "name": "Medici.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Medici - Masters of Florence/Medici.ico",
+            "size": 94644
+          }
+        },
+        {
+          "type": "single",
+          "name": "Messiah",
+          "path": "/mnt/e/Media/TV Shows/Drama/Messiah",
+          "status": "missing",
+          "items": [
+            "Messiah - Season 1 (2020)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Outlander",
+          "path": "/mnt/e/Media/TV Shows/Drama/Outlander",
+          "status": "ok",
+          "items": [
+            "Outlander - Season 1 (2014)"
+          ],
+          "icon": {
+            "name": "Outlander.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Outlander/Outlander.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Pam \u0026 Tommy",
+          "path": "/mnt/e/Media/TV Shows/Drama/Pam \u0026 Tommy",
+          "status": "missing",
+          "items": [
+            "Pam \u0026 Tommy - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Poker Face",
+          "path": "/mnt/e/Media/TV Shows/Drama/Poker Face",
+          "status": "ok",
+          "items": [
+            "Poker Face - Season 1 (2023)"
+          ],
+          "icon": {
+            "name": "Poker Face.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Poker Face/Poker Face.ico",
+            "size": 102881
+          }
+        },
+        {
+          "type": "single",
+          "name": "Ratched",
+          "path": "/mnt/e/Media/TV Shows/Drama/Ratched",
+          "status": "missing",
+          "items": [
+            "Ratched - Season 1 (2020)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Scenes from a Marriage",
+          "path": "/mnt/e/Media/TV Shows/Drama/Scenes from a Marriage",
+          "status": "missing",
+          "items": [
+            "Scenes from a Marriage - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Senna",
+          "path": "/mnt/e/Media/TV Shows/Drama/Senna",
+          "status": "missing",
+          "items": [
+            "Senna - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Servant",
+          "path": "/mnt/e/Media/TV Shows/Drama/Servant",
+          "status": "ok",
+          "items": [
+            "Servant - Season 1 (2019)",
+            "Servant - Season 2 (2021)"
+          ],
+          "icon": {
+            "name": "Servant.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Servant/Servant.ico",
+            "size": 82439
+          }
+        },
+        {
+          "type": "single",
+          "name": "Shogun",
+          "path": "/mnt/e/Media/TV Shows/Drama/Shogun",
+          "status": "ok",
+          "items": [
+            "Shogun - Season 1 (2024)"
+          ],
+          "icon": {
+            "name": "Shogun.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/Shogun/Shogun.ico",
+            "size": 98986
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Crown",
+          "path": "/mnt/e/Media/TV Shows/Drama/The Crown",
+          "status": "ok",
+          "items": [
+            "The Crown - Season 1 (2016)",
+            "The Crown - Season 2 (2017)",
+            "The Crown - Season 3 (2019)",
+            "The Crown - Season 4 (2020)",
+            "The Crown - Season 5 (2022)",
+            "The Crown - Season 6 (2023)"
+          ],
+          "icon": {
+            "name": "The Crown.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/The Crown/The Crown.ico",
+            "size": 47892
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Deuce",
+          "path": "/mnt/e/Media/TV Shows/Drama/The Deuce",
+          "status": "ok",
+          "items": [
+            "The Deuce - Season 1 (2017)"
+          ],
+          "icon": {
+            "name": "The Deuce.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/The Deuce/The Deuce.ico",
+            "size": 91803
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Dropout",
+          "path": "/mnt/e/Media/TV Shows/Drama/The Dropout",
+          "status": "missing",
+          "items": [
+            "The Dropout - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Girlfriend Experience",
+          "path": "/mnt/e/Media/TV Shows/Drama/The Girlfriend Experience",
+          "status": "missing",
+          "items": [
+            "The Girlfriend Experience - Season 1 (2016)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Last of Us",
+          "path": "/mnt/e/Media/TV Shows/Drama/The Last of Us",
+          "status": "ok",
+          "items": [
+            "The Last of Us - Season 1 (2023)",
+            "The Last of Us - Season 2 (2025)"
+          ],
+          "icon": {
+            "name": "The Last of Us.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/The Last of Us/The Last of Us.ico",
+            "size": 80237
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Miniaturist",
+          "path": "/mnt/e/Media/TV Shows/Drama/The Miniaturist",
+          "status": "missing",
+          "items": [
+            "The Miniaturist - Season 1 (2017)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Naked Director",
+          "path": "/mnt/e/Media/TV Shows/Drama/The Naked Director",
+          "status": "missing",
+          "items": [
+            "The Naked Director - Season 1 (2019)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The North Water",
+          "path": "/mnt/e/Media/TV Shows/Drama/The North Water",
+          "status": "missing",
+          "items": [
+            "The North Water - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Queen's Gambit",
+          "path": "/mnt/e/Media/TV Shows/Drama/The Queen's Gambit",
+          "status": "ok",
+          "items": [
+            "The Queen's Gambit - Season 1 (2020)"
+          ],
+          "icon": {
+            "name": "The Queen's Gambit.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Drama/The Queen's Gambit/The Queen's Gambit.ico",
+            "size": 85108
+          }
+        },
+        {
+          "type": "single",
+          "name": "Tokyo Vice",
+          "path": "/mnt/e/Media/TV Shows/Drama/Tokyo Vice",
+          "status": "missing",
+          "items": [
+            "Tokyo Vice - Season 1 (2022)",
+            "Tokyo Vice - Season 2 (2024)"
+          ]
+        }
+      ]
+    },
+    {
+      "genre": "Fantasy",
+      "items": [
+        {
+          "type": "single",
+          "name": "American Gods",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/American Gods",
+          "status": "missing",
+          "items": [
+            "American Gods - Season 1 (2017)",
+            "American Gods - Season 2 (2019)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Avatar - The Last Airbender",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Avatar - The Last Airbender",
+          "status": "missing",
+          "items": [
+            "Avatar - The Last Airbender - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Game of Thrones",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Game of Thrones",
+          "status": "ok",
+          "items": [
+            "Game of Thrones - Season 1 (2011)",
+            "Game of Thrones - Season 2 (2012)",
+            "Game of Thrones - Season 3 (2013)",
+            "Game of Thrones - Season 4 (2014)",
+            "Game of Thrones - Season 5 (2015)",
+            "Game of Thrones - Season 6 (2016)",
+            "Game of Thrones - Season 7 (2017)",
+            "Game of Thrones - Season 8 (2019)"
+          ],
+          "icon": {
+            "name": "Game of Thrones.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/Game of Thrones/Game of Thrones.ico",
+            "size": 92871
+          }
+        },
+        {
+          "type": "single",
+          "name": "Good Omens",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Good Omens",
+          "status": "ok",
+          "items": [
+            "Good Omens - Season 1 (2020)",
+            "Good Omens - Season 2 (2023)"
+          ],
+          "icon": {
+            "name": "Good Omens.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/Good Omens/Good Omens.ico",
+            "size": 96895
+          }
+        },
+        {
+          "type": "single",
+          "name": "His Dark Materials",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/His Dark Materials",
+          "status": "missing",
+          "items": [
+            "His Dark Materials - Season 1 (2019)",
+            "His Dark Materials - Season 2 (2020)",
+            "His Dark Materials - Season 3 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "House of the Dragon",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/House of the Dragon",
+          "status": "ok",
+          "items": [
+            "House of the Dragon - Season 1 (2022)",
+            "House of the Dragon - Season 2 (2024)"
+          ],
+          "icon": {
+            "name": "House of the Dragon.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/House of the Dragon/House of the Dragon.ico",
+            "size": 70880
+          }
+        },
+        {
+          "type": "single",
+          "name": "Lucifer",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Lucifer",
+          "status": "ok",
+          "items": [
+            "Lucifer - Season 1 (2016)",
+            "Lucifer - Season 2 (2016-2017)",
+            "Lucifer - Season 3 (2017-2018)",
+            "Lucifer - Season 4 (2019)",
+            "Lucifer - Season 5 (2020-2021)",
+            "Lucifer - Season 6 (2021)"
+          ],
+          "icon": {
+            "name": "Lucifer.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/Lucifer/Lucifer.ico",
+            "size": 82065
+          }
+        },
+        {
+          "type": "single",
+          "name": "Mayfair Witches",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Mayfair Witches",
+          "status": "missing",
+          "items": [
+            "Mayfair Witches - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "One Piece",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/One Piece",
+          "status": "ok",
+          "items": [
+            "One Piece - Season 1 (2023)"
+          ],
+          "icon": {
+            "name": "One Piece (Live Action).ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/One Piece/One Piece (Live Action).ico",
+            "size": 97108
+          }
+        },
+        {
+          "type": "single",
+          "name": "Penny Dreadful",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Penny Dreadful",
+          "status": "missing",
+          "items": [
+            "Penny Dreadful - Season 1 (2014)",
+            "Penny Dreadful - Season 2 (2015)",
+            "Penny Dreadful - Season 3 (2016)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Percy Jackson and the Olympians",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Percy Jackson and the Olympians",
+          "status": "missing",
+          "items": [
+            "Percy Jackson and the Olympians - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Preacher",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Preacher",
+          "status": "ok",
+          "items": [
+            "Preacher - Season 1 (2016)"
+          ],
+          "icon": {
+            "name": "Preacher.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/Preacher/Preacher.ico",
+            "size": 82709
+          }
+        },
+        {
+          "type": "single",
+          "name": "Ragnarok",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Ragnarok",
+          "status": "ok",
+          "items": [
+            "Ragnarok - Season 1 (2020)",
+            "Ragnarok - Season 2 (2021)",
+            "Ragnarok - Season 3 (2023)"
+          ],
+          "icon": {
+            "name": "Ragnarok.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/Ragnarok/Ragnarok.ico",
+            "size": 97223
+          }
+        },
+        {
+          "type": "single",
+          "name": "Siren",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Siren",
+          "status": "ok",
+          "items": [
+            "Siren - Season 1 (2018)"
+          ],
+          "icon": {
+            "name": "Siren.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/Siren/Siren.ico",
+            "size": 81945
+          }
+        },
+        {
+          "type": "single",
+          "name": "Sweet Tooth",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Sweet Tooth",
+          "status": "missing",
+          "items": [
+            "Sweet Tooth - Season 1 (2021)",
+            "Sweet Tooth - Season 2 (2023)",
+            "Sweet Tooth - Season 3 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Dark Crystal - Age of Resistance",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/The Dark Crystal - Age of Resistance",
+          "status": "missing",
+          "items": [
+            "The Dark Crystal - Age of Resistance - Season 1 (2019)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Lord of the Rings - The Rings of Power",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/The Lord of the Rings - The Rings of Power",
+          "status": "missing",
+          "items": [
+            "The Lord of the Rings - The Rings of Power - Season 1 (2022)",
+            "The Lord of the Rings - The Rings of Power - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Sandman",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/The Sandman",
+          "status": "missing",
+          "items": [
+            "The Sandman - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Stand",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/The Stand",
+          "status": "ok",
+          "items": [
+            "The Stand - Season 1 (2020)"
+          ],
+          "icon": {
+            "name": "The Stand.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/The Stand/The Stand.ico",
+            "size": 80988
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Witcher",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/The Witcher",
+          "status": "ok",
+          "items": [
+            "The Witcher - Season 1 (2019)",
+            "The Witcher - Season 2 (2021)",
+            "The Witcher - Season 3 Part 1 (2023)",
+            "The Witcher - Season 3 Part 2 (2023)"
+          ],
+          "icon": {
+            "name": "The Witcher.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/The Witcher/The Witcher.ico",
+            "size": 108724
+          }
+        },
+        {
+          "type": "single",
+          "name": "Warrior Nun",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Warrior Nun",
+          "status": "ok",
+          "items": [
+            "Warrior Nun - Season 1 (2020)",
+            "Warrior Nun - Season 2 (2022)"
+          ],
+          "icon": {
+            "name": "Warrior Nun.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/Warrior Nun/Warrior Nun.ico",
+            "size": 111982
+          }
+        },
+        {
+          "type": "single",
+          "name": "Wednesday",
+          "path": "/mnt/e/Media/TV Shows/Fantasy/Wednesday",
+          "status": "ok",
+          "items": [
+            "Wednesday - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "Wednesday.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Fantasy/Wednesday/Wednesday.ico",
+            "size": 99440
+          }
+        }
+      ]
+    },
+    {
+      "genre": "Horror",
+      "items": [
+        {
+          "type": "single",
+          "name": "American Horror Stories",
+          "path": "/mnt/e/Media/TV Shows/Horror/American Horror Stories",
+          "status": "missing",
+          "items": [
+            "American Horror Stories - Season 1 (2021)",
+            "American Horror Stories - Season 2 (2022)",
+            "American Horror Stories - Season 3 (2023-2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "American Horror Story",
+          "path": "/mnt/e/Media/TV Shows/Horror/American Horror Story",
+          "status": "ok",
+          "items": [
+            "American Horror Story - Season 1 (2011)",
+            "American Horror Story - Season 10 (2021)",
+            "American Horror Story - Season 11 (2022)",
+            "American Horror Story - Season 2 (2012-2013)",
+            "American Horror Story - Season 3 (2013-2014)",
+            "American Horror Story - Season 4 (2014-2015)",
+            "American Horror Story - Season 5 (2015-2016)",
+            "American Horror Story - Season 6 (2016)",
+            "American Horror Story - Season 7 (2017)",
+            "American Horror Story - Season 8 (2018)",
+            "American Horror Story - Season 9 (2019)"
+          ],
+          "icon": {
+            "name": "American Horror Story.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Horror/American Horror Story/American Horror Story.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Bates Motel",
+          "path": "/mnt/e/Media/TV Shows/Horror/Bates Motel",
+          "status": "ok",
+          "items": [
+            "Bates Motel - Season 1 (2013)",
+            "Bates Motel - Season 2 (2014)",
+            "Bates Motel - Season 3 (2015)",
+            "Bates Motel - Season 4 (2016)",
+            "Bates Motel - Season 5 (2017)"
+          ],
+          "icon": {
+            "name": "Bates Motel.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Horror/Bates Motel/Bates Motel.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Blood Curse",
+          "path": "/mnt/e/Media/TV Shows/Horror/Blood Curse",
+          "status": "missing",
+          "items": [
+            "Blood Curse - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Castle Rock",
+          "path": "/mnt/e/Media/TV Shows/Horror/Castle Rock",
+          "status": "missing",
+          "items": [
+            "Castle Rock - Season 1 (2018)",
+            "Castle Rock - Season 2 (2019)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Channel Zero",
+          "path": "/mnt/e/Media/TV Shows/Horror/Channel Zero",
+          "status": "ok",
+          "items": [
+            "Channel Zero - Season 1 (2016)",
+            "Channel Zero - Season 2 (2017)",
+            "Channel Zero - Season 3 (2018)",
+            "Channel Zero - Season 4 (2018)"
+          ],
+          "icon": {
+            "name": "Channel Zero.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Horror/Channel Zero/Channel Zero.ico",
+            "size": 88140
+          }
+        },
+        {
+          "type": "single",
+          "name": "Folklore",
+          "path": "/mnt/e/Media/TV Shows/Horror/Folklore",
+          "status": "missing",
+          "items": [
+            "Folklore - Season 1 (2018)",
+            "Folklore - Season 2 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "From",
+          "path": "/mnt/e/Media/TV Shows/Horror/From",
+          "status": "missing",
+          "items": [
+            "From - Season 1 (2022)",
+            "From - Season 2 (2023)",
+            "From - Season 3 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Goosebumps",
+          "path": "/mnt/e/Media/TV Shows/Horror/Goosebumps",
+          "status": "missing",
+          "items": [
+            "Goosebumps - Season 1 (2023)",
+            "Goosebumps - Season 2 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Guillermo del Toro's Cabinet of Curiosities",
+          "path": "/mnt/e/Media/TV Shows/Horror/Guillermo del Toro's Cabinet of Curiosities",
+          "status": "missing",
+          "items": [
+            "Guillermo del Toro's Cabinet of Curiosities - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Midnight Mass",
+          "path": "/mnt/e/Media/TV Shows/Horror/Midnight Mass",
+          "status": "ok",
+          "items": [
+            "Midnight Mass - Season 1 (2021)"
+          ],
+          "icon": {
+            "name": "Midnight Mass.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Horror/Midnight Mass/Midnight Mass.ico",
+            "size": 107122
+          }
+        },
+        {
+          "type": "single",
+          "name": "Nightmares and Daydreams",
+          "path": "/mnt/e/Media/TV Shows/Horror/Nightmares and Daydreams",
+          "status": "missing",
+          "items": [
+            "Nightmares and Daydreams - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Teacup",
+          "path": "/mnt/e/Media/TV Shows/Horror/Teacup",
+          "status": "missing",
+          "items": [
+            "Teacup - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Changeling",
+          "path": "/mnt/e/Media/TV Shows/Horror/The Changeling",
+          "status": "missing",
+          "items": [
+            "The Changeling - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Fall of the House of Usher",
+          "path": "/mnt/e/Media/TV Shows/Horror/The Fall of the House of Usher",
+          "status": "missing",
+          "items": [
+            "The Fall of the House of Usher - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Haunting of Bly Manor",
+          "path": "/mnt/e/Media/TV Shows/Horror/The Haunting of Bly Manor",
+          "status": "missing",
+          "items": [
+            "The Haunting of Bly Manor - Season 1 (2020)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Haunting of Hill House",
+          "path": "/mnt/e/Media/TV Shows/Horror/The Haunting of Hill House",
+          "status": "ok",
+          "items": [
+            "The Haunting of Hill House - Season 1 (2018)"
+          ],
+          "icon": {
+            "name": "The Haunting of Hill House.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Horror/The Haunting of Hill House/The Haunting of Hill House.ico",
+            "size": 85453
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Watcher",
+          "path": "/mnt/e/Media/TV Shows/Horror/The Watcher",
+          "status": "missing",
+          "items": [
+            "The Watcher - Season 1 (2022)"
+          ]
+        }
+      ]
+    },
+    {
+      "genre": "Mystery",
+      "items": [
+        {
+          "type": "single",
+          "name": "13 Reasons Why",
+          "path": "/mnt/e/Media/TV Shows/Mystery/13 Reasons Why",
+          "status": "ok",
+          "items": [
+            "13 Reasons Why - Season 1 (2017)",
+            "13 Reasons Why - Season 2 (2018)",
+            "13 Reasons Why - Season 3 (2019)",
+            "13 Reasons Why - Season 4 (2020)"
+          ],
+          "icon": {
+            "name": "13 Reasons Why.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Mystery/13 Reasons Why/13 Reasons Why.ico",
+            "size": 69948
+          }
+        },
+        {
+          "type": "single",
+          "name": "1899",
+          "path": "/mnt/e/Media/TV Shows/Mystery/1899",
+          "status": "ok",
+          "items": [
+            "1889 - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "1899.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Mystery/1899/1899.ico",
+            "size": 86348
+          }
+        },
+        {
+          "type": "single",
+          "name": "A Good Girl's Guide to Murder",
+          "path": "/mnt/e/Media/TV Shows/Mystery/A Good Girl's Guide to Murder",
+          "status": "missing",
+          "items": [
+            "A Good Girl's Guide to Murder - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "A Murder at the End of the World",
+          "path": "/mnt/e/Media/TV Shows/Mystery/A Murder at the End of the World",
+          "status": "missing",
+          "items": [
+            "A Murder at the End of the World - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Black Mirror",
+          "path": "/mnt/e/Media/TV Shows/Mystery/Black Mirror",
+          "status": "ok",
+          "items": [
+            "Black Mirror - Season 1 (2011)",
+            "Black Mirror - Season 2 (2013)",
+            "Black Mirror - Season 3 (2016)",
+            "Black Mirror - Season 4 (2017)",
+            "Black Mirror - Season 5 (2019)",
+            "Black Mirror - Season 6 (2023)",
+            "Black Mirror - Season 7 (2025)"
+          ],
+          "icon": {
+            "name": "Black Mirror.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Mystery/Black Mirror/Black Mirror.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Dan Brown's The Lost Symbol",
+          "path": "/mnt/e/Media/TV Shows/Mystery/Dan Brown's The Lost Symbol",
+          "status": "missing",
+          "items": [
+            "Dan Brown's The Lost Symbol - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Dark",
+          "path": "/mnt/e/Media/TV Shows/Mystery/Dark",
+          "status": "ok",
+          "items": [
+            "Dark - Season 1 (2017)",
+            "Dark - Season 2 (2019)",
+            "Dark - Season 3 (2020)"
+          ],
+          "icon": {
+            "name": "Dark.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Mystery/Dark/Dark.ico",
+            "size": 117417
+          }
+        },
+        {
+          "type": "single",
+          "name": "Only Murders in the Building",
+          "path": "/mnt/e/Media/TV Shows/Mystery/Only Murders in the Building",
+          "status": "missing",
+          "items": [
+            "Only Murders in the Building - Season 1 (2021)",
+            "Only Murders in the Building - Season 2 (2022)",
+            "Only Murders in the Building - Season 3 (2023)",
+            "Only Murders in the Building - Season 4 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Pagan Peak",
+          "path": "/mnt/e/Media/TV Shows/Mystery/Pagan Peak",
+          "status": "missing",
+          "items": [
+            "Pagan Peak - Season 1 (2019)",
+            "Pagan Peak - Season 2 (2022)",
+            "Pagan Peak - Season 3 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Sherlock",
+          "path": "/mnt/e/Media/TV Shows/Mystery/Sherlock",
+          "status": "ok",
+          "items": [
+            "Sherlock - Season 1 (2010)",
+            "Sherlock - Season 2 (2012)",
+            "Sherlock - Season 3 (2014)",
+            "Sherlock - Season 4 (2017)",
+            "Sherlock - The Abominable Bride (2016)"
+          ],
+          "icon": {
+            "name": "Sherlock.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Mystery/Sherlock/Sherlock.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Stranger Things",
+          "path": "/mnt/e/Media/TV Shows/Mystery/Stranger Things",
+          "status": "ok",
+          "items": [
+            "Stranger Things - Season 1 (2016)",
+            "Stranger Things - Season 2 (2017)",
+            "Stranger Things - Season 3 (2019)",
+            "Stranger Things - Season 4 (2022)"
+          ],
+          "icon": {
+            "name": "Stranger Things.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Mystery/Stranger Things/Stranger Things.ico",
+            "size": 85304
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Twilight Zone",
+          "path": "/mnt/e/Media/TV Shows/Mystery/The Twilight Zone",
+          "status": "missing",
+          "items": [
+            "The Twilight Zone - Season 1 (2019)",
+            "The Twilight Zone - Season 2 (2020)"
+          ]
+        }
+      ]
+    },
+    {
+      "genre": "Sci-Fi",
+      "items": [
+        {
+          "type": "single",
+          "name": "Agatha All Along",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Agatha All Along",
+          "status": "missing",
+          "items": [
+            "Agatha All Along - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Ahsoka",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Ahsoka",
+          "status": "missing",
+          "items": [
+            "Ahsoka - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Altered Carbon",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Altered Carbon",
+          "status": "ok",
+          "items": [
+            "Altered Carbon - Season 1 (2018)",
+            "Altered Carbon - Season 2 (2020)"
+          ],
+          "icon": {
+            "name": "Altered Carbon.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Altered Carbon/Altered Carbon.ico",
+            "size": 86243
+          }
+        },
+        {
+          "type": "single",
+          "name": "Andor",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Andor",
+          "status": "ok",
+          "items": [
+            "Andor - Season 1 (2022)",
+            "Andor - Season 2 (2025)"
+          ],
+          "icon": {
+            "name": "Andor.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Andor/Andor.ico",
+            "size": 117527
+          }
+        },
+        {
+          "type": "single",
+          "name": "Arrow",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Arrow",
+          "status": "ok",
+          "items": [
+            "Arrow - Season 1 (2012-2013)"
+          ],
+          "icon": {
+            "name": "Arrow.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Arrow/Arrow.ico",
+            "size": 84304
+          }
+        },
+        {
+          "type": "single",
+          "name": "Batwoman",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Batwoman",
+          "status": "missing",
+          "items": [
+            "Batwoman - Season 1 (2020)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Black Lightning",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Black Lightning",
+          "status": "ok",
+          "items": [
+            "Black Lightning - Season 1 (2018)"
+          ],
+          "icon": {
+            "name": "Black Lightning.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Black Lightning/Black Lightning.ico",
+            "size": 100783
+          }
+        },
+        {
+          "type": "single",
+          "name": "Constellation",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Constellation",
+          "status": "missing",
+          "items": [
+            "Constellation - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Cowboy Bebop",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Cowboy Bebop",
+          "status": "missing",
+          "items": [
+            "Cowboy Bebop - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "DC's Legends of Tomorrow",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/DC's Legends of Tomorrow",
+          "status": "ok",
+          "items": [
+            "Legends of Tomorrow - Season 1 (2016)"
+          ],
+          "icon": {
+            "name": "Legends of Tomorrow.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/DC's Legends of Tomorrow/Legends of Tomorrow.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Daredevil - Born Again",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Daredevil - Born Again",
+          "status": "missing",
+          "items": [
+            "Daredevil - Born Again - Season 1 (2025)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Dark Matter",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Dark Matter",
+          "status": "ok",
+          "items": [
+            "Dark Matter - Season 1 (2024)"
+          ],
+          "icon": {
+            "name": "Dark Matter (2024).ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Dark Matter/Dark Matter (2024).ico",
+            "size": 81100
+          }
+        },
+        {
+          "type": "single",
+          "name": "Doom Patrol",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Doom Patrol",
+          "status": "ok",
+          "items": [
+            "Doom Patrol - Season 1 (2019)",
+            "Doom Patrol - Season 2 (2020)",
+            "Doom Patrol - Season 3 (2021)",
+            "Doom Patrol - Season 4 (2023)"
+          ],
+          "icon": {
+            "name": "Doom Patrol.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Doom Patrol/Doom Patrol.ico",
+            "size": 98699
+          }
+        },
+        {
+          "type": "single",
+          "name": "Dune - Prophecy",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Dune - Prophecy",
+          "status": "missing",
+          "items": [
+            "Dune - Prophecy - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Echo",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Echo",
+          "status": "missing",
+          "items": [
+            "Echo - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Fallout",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Fallout",
+          "status": "ok",
+          "items": [
+            "Fallout - Season 1 (2024)"
+          ],
+          "icon": {
+            "name": "Fallout.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Fallout/Fallout.ico",
+            "size": 107374
+          }
+        },
+        {
+          "type": "single",
+          "name": "For All Mankind",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/For All Mankind",
+          "status": "ok",
+          "items": [
+            "For All Mankind - Season 1 (2019)",
+            "For All Mankind - Season 2 (2021)",
+            "For All Mankind - Season 3 (2022)",
+            "For All Mankind - Season 4 (2023)"
+          ],
+          "icon": {
+            "name": "For All Mankind.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/For All Mankind/For All Mankind.ico",
+            "size": 86487
+          }
+        },
+        {
+          "type": "single",
+          "name": "Foundation",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Foundation",
+          "status": "ok",
+          "items": [
+            "Foundation - Season 1 (2021)"
+          ],
+          "icon": {
+            "name": "Foundation.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Foundation/Foundation.ico",
+            "size": 79770
+          }
+        },
+        {
+          "type": "single",
+          "name": "Gen V",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Gen V",
+          "status": "missing",
+          "items": [
+            "Gen V - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Halo",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Halo",
+          "status": "missing",
+          "items": [
+            "Halo - Season 1 (2022)",
+            "Halo - Season 2 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Hawkeye",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Hawkeye",
+          "status": "ok",
+          "items": [
+            "Hawkeye - Season 1 (2021)"
+          ],
+          "icon": {
+            "name": "Hawkeye.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Hawkeye/Hawkeye.ico",
+            "size": 76170
+          }
+        },
+        {
+          "type": "single",
+          "name": "I Am Groot",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/I Am Groot",
+          "status": "ok",
+          "items": [
+            "I Am Groot - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "I Am Groot.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/I Am Groot/I Am Groot.ico",
+            "size": 96129
+          }
+        },
+        {
+          "type": "single",
+          "name": "Jupiter's Legacy",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Jupiter's Legacy",
+          "status": "missing",
+          "items": [
+            "Jupiter's Legacy - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Knuckles",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Knuckles",
+          "status": "missing",
+          "items": [
+            "Knuckles - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Krypton",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Krypton",
+          "status": "missing",
+          "items": [
+            "Krypton - Season 1 (2018)",
+            "Krypton - Season 2 (2019)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Loki",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Loki",
+          "status": "ok",
+          "items": [
+            "Loki - Season 1 (2021)",
+            "Loki - Season 2 (2023)"
+          ],
+          "icon": {
+            "name": "Loki.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Loki/Loki.ico",
+            "size": 102277
+          }
+        },
+        {
+          "type": "single",
+          "name": "Lost in Space",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Lost in Space",
+          "status": "ok",
+          "items": [
+            "Lost in Space - Season 1 (2018)"
+          ],
+          "icon": {
+            "name": "Lost in Space.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Lost in Space/Lost in Space.ico",
+            "size": 82669
+          }
+        },
+        {
+          "type": "single",
+          "name": "Love, Death \u0026 Robots",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Love, Death \u0026 Robots",
+          "status": "missing",
+          "items": [
+            "Love, Death \u0026 Robots - Season 1 (2019)",
+            "Love, Death \u0026 Robots - Season 2 (2021)",
+            "Love, Death \u0026 Robots - Season 3 (2022)",
+            "Love, Death \u0026 Robots - Season 4 (2025)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Mars",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Mars",
+          "status": "ok",
+          "items": [
+            "Mars - Season 1 (2016)"
+          ],
+          "icon": {
+            "name": "Mars.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Mars/Mars.ico",
+            "size": 86327
+          }
+        },
+        {
+          "type": "single",
+          "name": "Marvel's Agent of SHIELD",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Agent of SHIELD",
+          "status": "warn",
+          "items": [
+            "Agent of SHIELD - Season 1 (2013-2014)"
+          ],
+          "icon": {
+            "name": "Agents of SHIELD.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Agent of SHIELD/Agents of SHIELD.ico",
+            "size": 98316
+          }
+        },
+        {
+          "type": "single",
+          "name": "Marvel's Cloak \u0026 Dagger",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Cloak \u0026 Dagger",
+          "status": "ok",
+          "items": [
+            "Cloak \u0026 Dagger - Season 1 (2018)",
+            "Cloak \u0026 Dagger - Season 2 (2019)"
+          ],
+          "icon": {
+            "name": "Cloak \u0026 Dagger.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Cloak \u0026 Dagger/Cloak \u0026 Dagger.ico",
+            "size": 66020
+          }
+        },
+        {
+          "type": "single",
+          "name": "Marvel's Daredevil",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Daredevil",
+          "status": "ok",
+          "items": [
+            "Daredevil - Season 1 (2015)",
+            "Daredevil - Season 2 (2016)",
+            "Daredevil - Season 3 (2018)"
+          ],
+          "icon": {
+            "name": "Daredevil.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Daredevil/Daredevil.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Marvel's Inhumans",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Inhumans",
+          "status": "ok",
+          "items": [
+            "Inhumans - Season 1 (2017)"
+          ],
+          "icon": {
+            "name": "Inhumans.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Inhumans/Inhumans.ico",
+            "size": 97669
+          }
+        },
+        {
+          "type": "single",
+          "name": "Marvel's Iron Fist",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Iron Fist",
+          "status": "ok",
+          "items": [
+            "Iron Fist - Season 1 (2017)",
+            "Iron Fist - Season 2 (2018)"
+          ],
+          "icon": {
+            "name": "Iron Fist.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Iron Fist/Iron Fist.ico",
+            "size": 86091
+          }
+        },
+        {
+          "type": "single",
+          "name": "Marvel's Jessica Jones",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Jessica Jones",
+          "status": "ok",
+          "items": [
+            "Jessica Jones - Season 1 (2015)",
+            "Jessica Jones - Season 2 (2018)",
+            "Jessica Jones - Season 3 (2019)"
+          ],
+          "icon": {
+            "name": "Jessica Jones.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Jessica Jones/Jessica Jones.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Marvel's Luke Cage",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Luke Cage",
+          "status": "ok",
+          "items": [
+            "Luke Cage - Season 1 (2016)",
+            "Luke Cage - Season 2 (2018)"
+          ],
+          "icon": {
+            "name": "Luke Cage.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Luke Cage/Luke Cage.ico",
+            "size": 85916
+          }
+        },
+        {
+          "type": "single",
+          "name": "Marvel's Runaways",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Runaways",
+          "status": "ok",
+          "items": [
+            "Runaways - Season 1 (2018)",
+            "Runaways - Season 2 (2018)",
+            "Runaways - Season 3 (2019)"
+          ],
+          "icon": {
+            "name": "Runaways.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's Runaways/Runaways.ico",
+            "size": 84574
+          }
+        },
+        {
+          "type": "single",
+          "name": "Marvel's The Defenders",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's The Defenders",
+          "status": "ok",
+          "items": [
+            "The Defenders - Season 1 (2017)"
+          ],
+          "icon": {
+            "name": "The Defenders.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's The Defenders/The Defenders.ico",
+            "size": 94567
+          }
+        },
+        {
+          "type": "single",
+          "name": "Marvel's The Punisher",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's The Punisher",
+          "status": "ok",
+          "items": [
+            "The Punisher - Season 1 (2017)",
+            "The Punisher - Season 2 (2019)"
+          ],
+          "icon": {
+            "name": "The Punisher.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Marvel's The Punisher/The Punisher.ico",
+            "size": 68268
+          }
+        },
+        {
+          "type": "single",
+          "name": "Monarch - Legacy of Monsters",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Monarch - Legacy of Monsters",
+          "status": "missing",
+          "items": [
+            "Monarch - Legacy of Monsters - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Moon Knight",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Moon Knight",
+          "status": "ok",
+          "items": [
+            "Moon Knight - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "Moon Knight.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Moon Knight/Moon Knight.ico",
+            "size": 108054
+          }
+        },
+        {
+          "type": "single",
+          "name": "Ms. Marvel",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Ms. Marvel",
+          "status": "ok",
+          "items": [
+            "Ms. Marvel - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "Ms. Marvel.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Ms. Marvel/Ms. Marvel.ico",
+            "size": 119680
+          }
+        },
+        {
+          "type": "single",
+          "name": "Obi-Wan Kenobi",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Obi-Wan Kenobi",
+          "status": "ok",
+          "items": [
+            "Obi-Wan Kenobi - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "Obi-Wan Kenobi.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Obi-Wan Kenobi/Obi-Wan Kenobi.ico",
+            "size": 82917
+          }
+        },
+        {
+          "type": "single",
+          "name": "Peacemaker",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Peacemaker",
+          "status": "ok",
+          "items": [
+            "Peacemaker - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "Peacemaker.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Peacemaker/Peacemaker.ico",
+            "size": 110251
+          }
+        },
+        {
+          "type": "single",
+          "name": "Secret Invasion",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Secret Invasion",
+          "status": "missing",
+          "items": [
+            "Secret Invasion - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "She-Hulk - Attorney at Law",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/She-Hulk - Attorney at Law",
+          "status": "missing",
+          "items": [
+            "She-Hulk - Attorney at Law - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Silo",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Silo",
+          "status": "ok",
+          "items": [
+            "Silo - Season 1 (2023)",
+            "Silo - Season 2 (2024)"
+          ],
+          "icon": {
+            "name": "Silo.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Silo/Silo.ico",
+            "size": 97438
+          }
+        },
+        {
+          "type": "single",
+          "name": "Snowpiercer",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Snowpiercer",
+          "status": "ok",
+          "items": [
+            "Snowpiercer - Season 1 (2020)",
+            "Snowpiercer - Season 2 (2021)",
+            "Snowpiercer - Season 3 (2022)",
+            "Snowpiercer - Season 4 (2024)"
+          ],
+          "icon": {
+            "name": "Snowpiercer.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Snowpiercer/Snowpiercer.ico",
+            "size": 98106
+          }
+        },
+        {
+          "type": "single",
+          "name": "Star Trek - Discovery",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Star Trek - Discovery",
+          "status": "ok",
+          "items": [
+            "Star Trek - Discovery - Season 1 (2017-2018)",
+            "Star Trek - Discovery - Season 2 (2019)",
+            "Star Trek - Discovery - Season 3 (2020-2021)",
+            "Star Trek - Discovery - Season 4 (2021-2022)",
+            "Star Trek - Discovery - Season 5 (2024)"
+          ],
+          "icon": {
+            "name": "Star Trek - Discovery.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Star Trek - Discovery/Star Trek - Discovery.ico",
+            "size": 93217
+          }
+        },
+        {
+          "type": "single",
+          "name": "Star Trek - Picard",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Star Trek - Picard",
+          "status": "ok",
+          "items": [
+            "Star Trek - Picard - Season 1 (2020)",
+            "Star Trek - Picard - Season 2 (2022)",
+            "Star Trek - Picard - Season 3 (2023)"
+          ],
+          "icon": {
+            "name": "Star Trek - Picard.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Star Trek - Picard/Star Trek - Picard.ico",
+            "size": 91601
+          }
+        },
+        {
+          "type": "single",
+          "name": "Star Trek - Strange New Worlds",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Star Trek - Strange New Worlds",
+          "status": "ok",
+          "items": [
+            "Star Trek - Strange New Worlds - Season 1 (2022)",
+            "Star Trek - Strange New Worlds - Season 2 (2023)"
+          ],
+          "icon": {
+            "name": "Star Trek - Strange New Worlds.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Star Trek - Strange New Worlds/Star Trek - Strange New Worlds.ico",
+            "size": 94099
+          }
+        },
+        {
+          "type": "single",
+          "name": "Stargirl",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Stargirl",
+          "status": "ok",
+          "items": [
+            "Stargirl - Season 1 (2020)"
+          ],
+          "icon": {
+            "name": "Stargirl.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Stargirl/Stargirl.ico",
+            "size": 115069
+          }
+        },
+        {
+          "type": "single",
+          "name": "Supergirl",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Supergirl",
+          "status": "ok",
+          "items": [
+            "Supergirl - Season 1 (2015-2016)"
+          ],
+          "icon": {
+            "name": "Supergirl.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Supergirl/Supergirl.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "Superman \u0026 Lois",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Superman \u0026 Lois",
+          "status": "ok",
+          "items": [
+            "Superman and Lois - Season 1 (2021)"
+          ],
+          "icon": {
+            "name": "Superman and Lois.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Superman \u0026 Lois/Superman and Lois.ico",
+            "size": 100962
+          }
+        },
+        {
+          "type": "single",
+          "name": "Swamp Thing",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Swamp Thing",
+          "status": "ok",
+          "items": [
+            "Swamp Thing - Season 1 (2019)"
+          ],
+          "icon": {
+            "name": "Swamp Thing.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Swamp Thing/Swamp Thing.ico",
+            "size": 100058
+          }
+        },
+        {
+          "type": "single",
+          "name": "The 100",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The 100",
+          "status": "ok",
+          "items": [
+            "The 100 - Season 1 (2014)"
+          ],
+          "icon": {
+            "name": "The 100.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/The 100/The 100.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Acolyte",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The Acolyte",
+          "status": "missing",
+          "items": [
+            "The Acolyte - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Book of Boba Fett",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The Book of Boba Fett",
+          "status": "missing",
+          "items": [
+            "The Book of Boba Fett - Season 1 (2021)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Boys",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The Boys",
+          "status": "ok",
+          "items": [
+            "The Boys - Season 1 (2019)",
+            "The Boys - Season 2 (2020)",
+            "The Boys - Season 3 (2022)",
+            "The Boys - Season 4 (2024)"
+          ],
+          "icon": {
+            "name": "The Boys.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/The Boys/The Boys.ico",
+            "size": 86544
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Expanse",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The Expanse",
+          "status": "ok",
+          "items": [
+            "The Expanse - Season 1 (2015-2016)"
+          ],
+          "icon": {
+            "name": "The Expanse.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/The Expanse/The Expanse.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Falcon and the Winter Soldier",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The Falcon and the Winter Soldier",
+          "status": "ok",
+          "items": [
+            "The Falcon and the Winter Soldier - Season 1 (2021)"
+          ],
+          "icon": {
+            "name": "The Falcon and the Winter Soldier.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/The Falcon and the Winter Soldier/The Falcon and the Winter Soldier.ico",
+            "size": 92145
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Flash",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The Flash",
+          "status": "ok",
+          "items": [
+            "The Flash - Season 1 (2014-2015)",
+            "The Flash - Season 2 (2015-2016)",
+            "The Flash - Season 3 (2016-2017)",
+            "The Flash - Season 4 (2017-2018)",
+            "The Flash - Season 5 (2018-2019)",
+            "The Flash - Season 6 (2019-2020)",
+            "The Flash - Season 7 (2021)",
+            "The Flash - Season 8 (2021-2022)",
+            "The Flash - Season 9 (2023)"
+          ],
+          "icon": {
+            "name": "The Flash.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/The Flash/The Flash.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Handmaid's Tale",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The Handmaid's Tale",
+          "status": "ok",
+          "items": [
+            "The Handmaid's Tale - Season 1 (2017)",
+            "The Handmaid's Tale - Season 2 (2018)",
+            "The Handmaid's Tale - Season 3 (2019)",
+            "The Handmaid's Tale - Season 4 (2021)",
+            "The Handmaid's Tale - Season 5 (2022)"
+          ],
+          "icon": {
+            "name": "The Handmaid's Tale.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/The Handmaid's Tale/The Handmaid's Tale.ico",
+            "size": 80965
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Mandalorian",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The Mandalorian",
+          "status": "ok",
+          "items": [
+            "The Mandalorian - Season 1 (2019)",
+            "The Mandalorian - Season 2 (2020)",
+            "The Mandalorian - Season 3 (2023)"
+          ],
+          "icon": {
+            "name": "The Mandalorian.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/The Mandalorian/The Mandalorian.ico",
+            "size": 79305
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Peripheral",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The Peripheral",
+          "status": "ok",
+          "items": [
+            "The Peripheral - Season 1 (2022)"
+          ],
+          "icon": {
+            "name": "The Peripheral.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/The Peripheral/The Peripheral.ico",
+            "size": 95045
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Umbrella Academy",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/The Umbrella Academy",
+          "status": "ok",
+          "items": [
+            "The Umbrella Academy - Season 1 (2019)",
+            "The Umbrella Academy - Season 2 (2020)",
+            "The Umbrella Academy - Season 3 (2022)",
+            "The Umbrella Academy - Season 4 (2024)"
+          ],
+          "icon": {
+            "name": "The Umbrella Academy.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/The Umbrella Academy/The Umbrella Academy.ico",
+            "size": 68037
+          }
+        },
+        {
+          "type": "single",
+          "name": "Titans",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Titans",
+          "status": "ok",
+          "items": [
+            "Titans - Season 1 (2018)",
+            "Titans - Season 2 (2019)",
+            "Titans - Season 3 (2021)",
+            "Titans - Season 4 (2023)"
+          ],
+          "icon": {
+            "name": "Titans.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Titans/Titans.ico",
+            "size": 107373
+          }
+        },
+        {
+          "type": "single",
+          "name": "WandaVision",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/WandaVision",
+          "status": "ok",
+          "items": [
+            "WandaVision - Season 1 (2021)"
+          ],
+          "icon": {
+            "name": "WandaVision.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/WandaVision/WandaVision.ico",
+            "size": 106337
+          }
+        },
+        {
+          "type": "single",
+          "name": "Westworld",
+          "path": "/mnt/e/Media/TV Shows/Sci-Fi/Westworld",
+          "status": "ok",
+          "items": [
+            "Westworld - Season 1 (2016)",
+            "Westworld - Season 2 (2018)",
+            "Westworld - Season 3 (2020)",
+            "Westworld - Season 4 (2022)"
+          ],
+          "icon": {
+            "name": "Westworld.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Sci-Fi/Westworld/Westworld.ico",
+            "size": 72521
+          }
+        }
+      ]
+    },
+    {
+      "genre": "Thriller",
+      "items": [
+        {
+          "type": "single",
+          "name": "Alice in Borderland",
+          "path": "/mnt/e/Media/TV Shows/Thriller/Alice in Borderland",
+          "status": "missing",
+          "items": [
+            "Alice in Borderland - Season 1 (2020)",
+            "Alice in Borderland - Season 2 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Severance",
+          "path": "/mnt/e/Media/TV Shows/Thriller/Severance",
+          "status": "missing",
+          "items": [
+            "Severance - Season 1 (2022)",
+            "Severance - Season 2 (2025)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Mess You Leave Behind",
+          "path": "/mnt/e/Media/TV Shows/Thriller/The Mess You Leave Behind",
+          "status": "missing",
+          "items": [
+            "The Mess You Leave Behind - Season 1 (2020)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Midnight Club",
+          "path": "/mnt/e/Media/TV Shows/Thriller/The Midnight Club",
+          "status": "missing",
+          "items": [
+            "The Midnight Club - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Purge",
+          "path": "/mnt/e/Media/TV Shows/Thriller/The Purge",
+          "status": "missing",
+          "items": [
+            "The Purge - Season 1 (2018)",
+            "The Purge - Season 2 (2019)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Walking Dead",
+          "path": "/mnt/e/Media/TV Shows/Thriller/The Walking Dead",
+          "status": "ok",
+          "items": [
+            "The Walking Dead - Season 1 (2010)",
+            "The Walking Dead - Season 10 (2019-2021)",
+            "The Walking Dead - Season 11 (2021-2022)",
+            "The Walking Dead - Season 2 (2011-2012)",
+            "The Walking Dead - Season 3 (2012-2013)",
+            "The Walking Dead - Season 4 (2013-2014)",
+            "The Walking Dead - Season 5 (2014-2015)",
+            "The Walking Dead - Season 6 (2015-2016)",
+            "The Walking Dead - Season 7 (2016-2017)",
+            "The Walking Dead - Season 8 (2017-2018)",
+            "The Walking Dead - Season 9 (2018-2019)"
+          ],
+          "icon": {
+            "name": "The Walking Dead.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Thriller/The Walking Dead/The Walking Dead.ico",
+            "size": 270398
+          }
+        },
+        {
+          "type": "single",
+          "name": "The Walking Dead - Daryl Dixon",
+          "path": "/mnt/e/Media/TV Shows/Thriller/The Walking Dead - Daryl Dixon",
+          "status": "missing",
+          "items": [
+            "The Walking Dead - Daryl Dixon - Season 1 (2023)",
+            "The Walking Dead - Daryl Dixon - Season 2 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Walking Dead - Dead City",
+          "path": "/mnt/e/Media/TV Shows/Thriller/The Walking Dead - Dead City",
+          "status": "missing",
+          "items": [
+            "The Walking Dead - Dead City - Season 1 (2023)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Walking Dead - The Ones Who Live",
+          "path": "/mnt/e/Media/TV Shows/Thriller/The Walking Dead - The Ones Who Live",
+          "status": "missing",
+          "items": [
+            "The Walking Dead - The Ones Who Live - Season 1 (2024)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "The Woman in the House Across the Street from the Girl in the Window",
+          "path": "/mnt/e/Media/TV Shows/Thriller/The Woman in the House Across the Street from the Girl in the Window",
+          "status": "missing",
+          "items": [
+            "The Woman in the House Across the Street from the Girl in the Window - Season 1 (2022)"
+          ]
+        },
+        {
+          "type": "single",
+          "name": "Yellowjackets",
+          "path": "/mnt/e/Media/TV Shows/Thriller/Yellowjackets",
+          "status": "ok",
+          "items": [
+            "Yellowjackets - Season 1 (2021)",
+            "Yellowjackets - Season 2 (2022)",
+            "Yellowjackets - Season 3 (2025)"
+          ],
+          "icon": {
+            "name": "Yellowjackets.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Thriller/Yellowjackets/Yellowjackets.ico",
+            "size": 103119
+          }
+        },
+        {
+          "type": "single",
+          "name": "You",
+          "path": "/mnt/e/Media/TV Shows/Thriller/You",
+          "status": "missing",
+          "items": [
+            "You - Season 1 (2018)",
+            "You - Season 2 (2019)",
+            "You - Season 3 (2021)",
+            "You - Season 4 (2023)",
+            "You - Season 5 (2025)"
+          ]
+        }
+      ]
+    },
+    {
+      "genre": "Western",
+      "items": [
+        {
+          "type": "single",
+          "name": "1883",
+          "path": "/mnt/e/Media/TV Shows/Western/1883",
+          "status": "ok",
+          "items": [
+            "1883 - Season 1 (2021)"
+          ],
+          "icon": {
+            "name": "1883.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Western/1883/1883.ico",
+            "size": 101289
+          }
+        },
+        {
+          "type": "single",
+          "name": "1923",
+          "path": "/mnt/e/Media/TV Shows/Western/1923",
+          "status": "ok",
+          "items": [
+            "1923 - Season 1 (2022)",
+            "1923 - Season 2 (2025)"
+          ],
+          "icon": {
+            "name": "1923.ico",
+            "full_path": "/mnt/e/Media/TV Shows/Western/1923/1923.ico",
+            "size": 89486
+          }
+        },
+        {
+          "type": "single",
+          "name": "Yellowstone",
+          "path": "/mnt/e/Media/TV Shows/Western/Yellowstone",
+          "status": "missing",
+          "items": [
+            "Yellowstone - Season 1 (2018)",
+            "Yellowstone - Season 2 (2019)",
+            "Yellowstone - Season 3 (2020)",
+            "Yellowstone - Season 4 (2021)"
+          ]
+        }
+      ]
+    }
+  ]
+}
