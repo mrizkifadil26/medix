@@ -34,5 +34,5 @@ func main() {
 		log.Fatalf("❌ Failed to save icon index: %v", err)
 	}
 
-	fmt.Printf("✅ ICO index written to %s (%d entries)\n", cfg.OutputPath, len(index.Groups))
+	fmt.Printf("✅ ICO index written to %s (%d entries)\n", cfg.OutputPath, len(index.Data))
 }

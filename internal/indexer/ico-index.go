@@ -41,15 +41,14 @@ func BuildIconIndex(cfg IconIndexerConfig) (model.IconIndex, error) {
 		sort.Slice(entries, func(i, j int) bool {
 			return entries[i].Name < entries[j].Name
 		})
-		index.Groups = append(index.Groups, model.IconGroup{
-			ID:    util.Slugify(root),
+		index.Data = append(index.Data, model.IconGroup{
 			Name:  root,
 			Items: entries,
 		})
 	}
 
 	total := 0
-	for _, g := range index.Groups {
+	for _, g := range index.Data {
 		total += len(g.Items)
 	}
 	fmt.Printf("✅ Indexed %d icons\n", total)
@@ -88,13 +87,12 @@ func collectIcons(baseDir, source string, excludeDirs []string, dirMap map[strin
 		}
 
 		dirMap[relDir] = append(dirMap[relDir], model.IconEntry{
-			ID:        util.Slugify(d.Name()),
-			Name:      d.Name(),
-			Size:      info.Size(),
-			Source:    source,
-			FullPath:  path,
-			Type:      "icon",
-			Extension: filepath.Ext(d.Name()),
+			ID:       util.Slugify(d.Name()),
+			Name:     d.Name(),
+			Size:     info.Size(),
+			Source:   source,
+			FullPath: path,
+			Type:     "icon",
 		})
 
 		return nil

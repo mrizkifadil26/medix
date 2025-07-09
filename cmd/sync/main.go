@@ -46,7 +46,7 @@ func syncAndWrite(contentType, inputPath, outputPath string, iconMap map[string]
 
 	for _, block := range raw.Data {
 		genre := model.SyncedGenre{
-			Genre: block.Genre,
+			Name: block.Name,
 		}
 
 		for _, item := range block.Items {
@@ -69,18 +69,18 @@ func syncAndWrite(contentType, inputPath, outputPath string, iconMap map[string]
 			}
 
 			var children []model.SyncedChildItem
-			if rawChildren, ok := item.Children.([]model.RawChild); ok {
+			if rawChildren, ok := item.Items.([]model.RawEntry); ok {
 				children = convertChildren(rawChildren)
 			}
 
 			genre.Items = append(genre.Items, model.SyncedItem{
-				Type:     item.Type,
-				Name:     item.Name,
-				Path:     item.Path,
-				Status:   item.Status,
-				Icon:     icon,
-				Source:   iconMetaFromSynced(linked),
-				Children: children,
+				Type:   item.Type,
+				Name:   item.Name,
+				Path:   item.Path,
+				Status: item.Status,
+				Icon:   icon,
+				Source: iconMetaFromSynced(linked),
+				Items:  children,
 			})
 		}
 
@@ -90,7 +90,7 @@ func syncAndWrite(contentType, inputPath, outputPath string, iconMap map[string]
 	mustWriteJSON(outputPath, out)
 }
 
-func convertChildren(input []model.RawChild) []model.SyncedChildItem {
+func convertChildren(input []model.RawEntry) []model.SyncedChildItem {
 	var out []model.SyncedChildItem
 	for _, c := range input {
 		out = append(out, model.SyncedChildItem{
@@ -104,7 +104,7 @@ func convertChildren(input []model.RawChild) []model.SyncedChildItem {
 	return out
 }
 
-func iconMetaFromLocal(item model.RawItem) *model.SyncedIconMeta {
+func iconMetaFromLocal(item model.RawEntry) *model.SyncedIconMeta {
 	if item.Icon == nil {
 		return nil
 	}
@@ -122,19 +122,18 @@ func iconMetaFromSynced(entry *model.SyncedIconEntry) *model.SyncedIconMeta {
 		return nil
 	}
 	return &model.SyncedIconMeta{
-		ID:        entry.ID,
-		Name:      entry.Name,
-		Extension: entry.Extension,
-		Size:      entry.Size,
-		Source:    entry.Source,
-		FullPath:  entry.FullPath,
-		Type:      entry.Type,
+		ID:       entry.ID,
+		Name:     entry.Name,
+		Size:     entry.Size,
+		Source:   entry.Source,
+		FullPath: entry.FullPath,
+		Type:     entry.Type,
 	}
 }
 
 func mapIconsBySlug(index *model.SyncedIconIndex) map[string]*model.SyncedIconEntry {
 	result := make(map[string]*model.SyncedIconEntry)
-	for _, g := range index.Groups {
+	for _, g := range index.Data {
 		for i := range g.Items {
 			id := g.Items[i].ID
 			if id != "" {
@@ -203,7 +202,7 @@ func writeIconIndex(index *model.SyncedIconIndex, path string) error {
 func printUnusedIcons(index *model.SyncedIconIndex) {
 	fmt.Println("\n🧹 Unused icons:")
 	count := 0
-	for _, group := range index.Groups {
+	for _, group := range index.Data {
 		for _, entry := range group.Items {
 			if entry.UsedBy == nil {
 				fmt.Printf("⚠️  %s (%s)\n", entry.Name, entry.FullPath)

@@ -52,7 +52,7 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 	var mu sync.Mutex
 	var wg sync.WaitGroup
 	sem := make(chan struct{}, maxConcurrency)
-	genreMap := make(map[string]model.GenreBlock)
+	genreMap := make(map[string]model.RawGenre)
 
 	cache := &dirCache{}
 
@@ -74,8 +74,8 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 			}
 
 			mu.Lock()
-			genreMap[genreName] = model.GenreBlock{
-				Genre: genreName,
+			genreMap[genreName] = model.RawGenre{
+				Name:  genreName,
 				Items: items,
 			}
 			mu.Unlock()
