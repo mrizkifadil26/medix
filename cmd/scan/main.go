@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/mrizkifadil26/medix/internal/scanner"
+	"github.com/mrizkifadil26/medix/internal/scan"
 	"github.com/mrizkifadil26/medix/util"
 )
 
@@ -30,7 +30,7 @@ func main() {
 		log.Fatalf("Unknown mode: %s", mode)
 	}
 
-	result := scanner.ScanDirectory(mode, rootDir)
+	result := scan.ScanDirectory(mode, rootDir)
 	if len(result.Data) == 0 {
 		log.Printf("⚠️ No entries found in %s\n", rootDir)
 		return

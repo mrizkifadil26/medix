@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/mrizkifadil26/medix/internal/indexer"
+	"github.com/mrizkifadil26/medix/internal/index"
 	"github.com/mrizkifadil26/medix/util"
 )
 
 func main() {
-	cfg := indexer.IconIndexerConfig{
-		Sources: []indexer.IconSource{
+	cfg := index.IconIndexerConfig{
+		Sources: []index.IconSource{
 			{
 				Path:   "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Personal Icon Pack/Movies/ICO",
 				Source: "personal",
@@ -24,7 +24,7 @@ func main() {
 		ExcludeDirs: []string{"Collection"},
 	}
 
-	index, err := indexer.BuildIconIndex(cfg)
+	index, err := index.BuildIconIndex(cfg)
 	if err != nil {
 		log.Fatalf("❌ Failed to build icon index: %v", err)
 	}

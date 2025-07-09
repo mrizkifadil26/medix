@@ -1,4 +1,4 @@
-package indexer
+package index
 
 type IconIndexerConfig struct {
 	Sources     []IconSource // List of source dirs
