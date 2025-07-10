@@ -51,10 +51,13 @@ func main() {
 		targetFile := filepath.Base(plan.TargetPath)               // e.g., "1917.ico"
 		target := fmt.Sprintf("../%s/%s", targetGroup, targetFile) // e.g., ../Action/1917.ico
 
-		if plan.MatchedID != "" {
+		switch {
+		// case !plan.Matched:
+		// 	fmt.Printf("🔴 %s → ❌ no match\n", source)
+		case plan.Duplicate:
+			fmt.Printf("⚠️  %s → %s (duplicate detected)\n", source, target)
+		default:
 			fmt.Printf("🟢 %s → %s\n", source, target)
-		} else {
-			fmt.Printf("🔴 %s → ❌ no match\n", source)
 		}
 	}
 
