@@ -6,22 +6,22 @@ type SyncedGenre = Group[SyncedItem]
 
 // One movie/tvshow folder entry (enriched version of RawItem)
 type SyncedItem struct {
-	Type   string            `json:"type"` // single or collection
-	Name   string            `json:"name"`
-	Path   string            `json:"path"`
-	Status string            `json:"status"`
-	Icon   *SyncedIconMeta   `json:"icon,omitempty"`   // Local .ico inside media folder
-	Source *SyncedIconMeta   `json:"source,omitempty"` // Linked from index
-	Items  []SyncedChildItem `json:"items,omitempty"`
+	Type   string          `json:"type"` // single or collection
+	Name   string          `json:"name"`
+	Path   string          `json:"path"`
+	Status string          `json:"status"`
+	Icon   *IconMeta       `json:"icon,omitempty"`   // Local .ico inside media folder
+	Source *SyncedIconMeta `json:"source,omitempty"` // Linked from index
+	Items  []SyncedItem    `json:"items,omitempty"`
 }
 
 // A season or subfolder
-type SyncedChildItem struct {
-	Type   string `json:"type,omitempty"` // Optional if you want to tag child as single
-	Name   string `json:"name"`
-	Path   string `json:"path"`
-	Status string `json:"status"`
-}
+// type SyncedChildItem struct {
+// 	Type   string `json:"type,omitempty"` // Optional if you want to tag child as single
+// 	Name   string `json:"name"`
+// 	Path   string `json:"path"`
+// 	Status string `json:"status"`
+// }
 
 // Icon metadata (used for both local icon and source)
 type SyncedIconMeta struct {

@@ -1,7 +1,6 @@
 package sync
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/mrizkifadil26/medix/model"
@@ -15,72 +14,94 @@ func SyncMedia(
 	raw := model.RawOutput{}
 	util.LoadJSON(inputPath, &raw)
 
-	out := model.SyncedOutput{
+	return model.SyncedOutput{
 		Type:        "synced",
 		GeneratedAt: time.Now(),
+		Data:        buildGenres(raw.Data, contentType, iconMap),
 	}
-
-	for _, block := range raw.Data {
-		genre := model.SyncedGenre{
-			Name: block.Name,
-		}
-
-		for _, item := range block.Items {
-			var iconID string
-			if item.Icon != nil {
-				iconID = item.Icon.ID
-			}
-
-			icon := iconMetaFromLocal(item)
-			var linked *model.SyncedIconEntry
-			if iconID != "" {
-				baseID := normalizeID(iconID)
-				linked = iconMap[baseID]
-				if linked != nil {
-					linked.UsedBy = &model.UsedBy{
-						Name:        item.Name,
-						Path:        item.Path,
-						ContentType: contentType,
-					}
-				}
-			}
-
-			// ✅ Skip if item is using an alt variant as its icon
-			if item.Icon != nil && isAltVariant(item.Icon.ID) {
-				fmt.Printf("🚫 Skipping entry using alt icon: %s\n", item.Icon.ID)
-				continue
-			}
-
-			var children []model.SyncedChildItem
-			if rawChildren, ok := item.Items.([]model.RawEntry); ok {
-				children = convertChildren(rawChildren)
-			}
-
-			genre.Items = append(genre.Items, model.SyncedItem{
-				Type:   item.Type,
-				Name:   item.Name,
-				Path:   item.Path,
-				Status: item.Status,
-				Icon:   icon,
-				Source: iconMetaFromSynced(linked),
-				Items:  children,
-			})
-		}
-
-		out.Data = append(out.Data, genre)
-	}
-
-	return out
 }
 
-func convertChildren(input any) []model.SyncedChildItem {
+func buildGenres(
+	rawGenres []model.RawGenre,
+	contentType string,
+	iconMap map[string]*model.SyncedIconEntry,
+) []model.SyncedGenre {
+	var genres []model.SyncedGenre
+
+	for _, block := range rawGenres {
+		genre := model.SyncedGenre{
+			Name:  block.Name,
+			Items: buildItems(block.Items, contentType, iconMap),
+		}
+		genres = append(genres, genre)
+	}
+
+	return genres
+}
+
+func buildItems(
+	rawItems []model.RawEntry,
+	contentType string,
+	iconMap map[string]*model.SyncedIconEntry,
+) []model.SyncedItem {
+	var items []model.SyncedItem
+
+	for _, item := range rawItems {
+		// Skip only if using an alt icon (optional)
+		if item.Icon != nil && isAltVariant(item.Icon.ID) {
+			continue
+		}
+
+		icon := iconMetaFromLocal(item)
+		source := iconMetaFromSynced(resolveIconLink(item.Icon, item.Name, item.Path, contentType, iconMap))
+
+		var children []model.SyncedItem
+		if len(item.Items) > 0 {
+			children = buildItems(item.Items, contentType, iconMap)
+		}
+
+		items = append(items, model.SyncedItem{
+			Type:   item.Type,
+			Name:   item.Name,
+			Path:   item.Path,
+			Status: item.Status,
+			Icon:   icon,
+			Source: source,
+			Items:  children,
+		})
+	}
+
+	return items
+}
+
+func resolveIconLink(
+	icon *model.IconMeta,
+	name, path, contentType string,
+	iconMap map[string]*model.SyncedIconEntry,
+) *model.SyncedIconEntry {
+	if icon == nil {
+		return nil
+	}
+	baseID := normalizeID(icon.ID)
+	linked := iconMap[baseID]
+	if linked != nil {
+		linked.UsedBy = &model.UsedBy{
+			Name:        name,
+			Path:        path,
+			ContentType: contentType,
+		}
+	}
+	return linked
+}
+
+func convertChildren(input any) []model.SyncedItem {
 	rawChildren, ok := input.([]model.RawEntry)
 	if !ok {
 		return nil
 	}
-	var out []model.SyncedChildItem
+	var out []model.SyncedItem
 	for _, c := range rawChildren {
-		out = append(out, model.SyncedChildItem{
+		out = append(out, model.SyncedItem{
 			Type:   c.Type,
 			Name:   c.Name,
 			Path:   c.Path,
@@ -90,16 +111,15 @@ func convertChildren(input any) []model.SyncedChildItem {
 	return out
 }
 
-func iconMetaFromLocal(item model.RawEntry) *model.SyncedIconMeta {
+func iconMetaFromLocal(item model.RawEntry) *model.IconMeta {
 	if item.Icon == nil {
 		return nil
 	}
 
-	return &model.SyncedIconMeta{
+	return &model.IconMeta{
 		Name:     item.Icon.Name,
 		FullPath: item.Icon.FullPath,
 		Size:     item.Icon.Size,
-		Type:     "icon",
 		ID:       item.Icon.ID,
 	}
 }
