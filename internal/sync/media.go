@@ -8,7 +8,10 @@ import (
 	"github.com/mrizkifadil26/medix/util"
 )
 
-func SyncMedia(contentType, inputPath string, iconMap map[string]*model.SyncedIconEntry) model.SyncedOutput {
+func SyncMedia(
+	contentType, inputPath string,
+	iconMap map[string]*model.SyncedIconEntry,
+) model.SyncedOutput {
 	raw := model.RawOutput{}
 	util.LoadJSON(inputPath, &raw)
 
@@ -91,6 +94,7 @@ func iconMetaFromLocal(item model.RawEntry) *model.SyncedIconMeta {
 	if item.Icon == nil {
 		return nil
 	}
+
 	return &model.SyncedIconMeta{
 		Name:     item.Icon.Name,
 		FullPath: item.Icon.FullPath,
@@ -112,8 +116,4 @@ func iconMetaFromSynced(entry *model.SyncedIconEntry) *model.SyncedIconMeta {
 		FullPath: entry.FullPath,
 		Type:     entry.Type,
 	}
-}
-
-func isAltVariant(id string) bool {
-	return altIDRegex.MatchString(id)
 }

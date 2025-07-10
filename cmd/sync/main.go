@@ -20,12 +20,12 @@ const (
 
 func main() {
 	fmt.Println("🔄 Syncing icon index with media entries...")
-
-	iconIndex := sync.LoadIconIndex(iconsPath)
-	iconMap := sync.MapIconsByID(iconIndex)
+	iconIndex, iconMap := sync.SyncIcons(iconsPath)
 
 	// syncAndWrite("movies", moviesPath, outMoviesSynced, iconMap)
 	movies := sync.SyncMedia("movies", moviesPath, iconMap)
+	sync.FilterVariants(iconIndex)
+
 	err := util.WriteJSON(outMoviesSynced, movies)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "❌ Failed to write synced output: %v\n", err)
@@ -33,7 +33,6 @@ func main() {
 	}
 	// syncAndWrite("tvshows", tvshowsPath, outTVSloadIconIndexynced, iconMap)
 
-	iconIndex.Data = sync.FlattenIconMap(iconMap)
 	err = util.WriteJSON(outIconSynced, iconIndex)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "❌ Failed to write icon index: %v\n", err)

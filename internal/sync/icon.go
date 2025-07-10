@@ -2,38 +2,38 @@ package sync
 
 import (
 	"fmt"
-	"regexp"
 	"time"
 
 	"github.com/mrizkifadil26/medix/model"
 	"github.com/mrizkifadil26/medix/util"
 )
 
-func LoadIconIndex(path string) *model.SyncedIconIndex {
-	var index model.SyncedIconIndex
-	util.LoadJSON(path, &index)
+func SyncIcons(path string) (
+	*model.SyncedIconIndex,
+	map[string]*model.SyncedIconEntry,
+) {
+	var raw model.SyncedIconIndex
+	util.LoadJSON(path, &raw)
 
-	index.Type = "synced-index"
-	index.GeneratedAt = time.Now()
-	return &index
+	iconMap := ParseIconIndex(&raw)
+
+	raw.Type = "synced-index"
+	raw.GeneratedAt = time.Now()
+
+	return &raw, iconMap
 }
 
-var altIDRegex = regexp.MustCompile(`-alt(?:-\d+)?$`)
-
-func normalizeID(id string) string {
-	return altIDRegex.ReplaceAllString(id, "")
-}
-
-func MapIconsByID(index *model.SyncedIconIndex) map[string]*model.SyncedIconEntry {
+// ParseIconIndex splits base icons and alt variants.
+func ParseIconIndex(raw *model.SyncedIconIndex) map[string]*model.SyncedIconEntry {
 	iconMap := make(map[string]*model.SyncedIconEntry)
 	variantBuffer := make(map[string][]model.SyncedIconMeta)
 
-	for _, group := range index.Data {
+	for _, group := range raw.Data {
 		for i := range group.Items {
 			icon := &group.Items[i]
 			baseID := normalizeID(icon.ID)
 
-			// Skip adding alt variants as top-level
+			// 🔁 If this is a variant (-alt or -alt-N)
 			if baseID != icon.ID {
 				meta := model.SyncedIconMeta{
 					ID:       icon.ID,
@@ -46,20 +46,19 @@ func MapIconsByID(index *model.SyncedIconIndex) map[string]*model.SyncedIconEntr
 
 				if baseIcon, ok := iconMap[baseID]; ok {
 					baseIcon.Variants = append(baseIcon.Variants, meta)
-					// fmt.Printf("🟡 Variant:      %-20s → attached to '%s'\n", icon.ID, baseID)
+					// fmt.Printf("🟡 Variant: %-20s → attached to base '%s'\n", icon.ID, baseID)
 				} else {
 					variantBuffer[baseID] = append(variantBuffer[baseID], meta)
-					// fmt.Printf("🕒 Buffered:      %-20s → waiting for base '%s'\n", icon.ID, baseID)
+					// fmt.Printf("🕒 Buffered: %-20s → waiting for base '%s'\n", icon.ID, baseID)
 				}
-
-				continue // ← skip storing this variant in map
+				continue // ✅ Don't store alt icon as top-level
 			}
 
-			// Main/base icon
+			// ✅ Base icon — store it in the map
 			iconMap[baseID] = icon
-			// fmt.Printf("🟢 Base Icon:    %-20s → added\n", icon.ID)
+			// fmt.Printf("🟢 Base Icon: %-20s → added\n", icon.ID)
 
-			// Merge in any buffered variants
+			// 🔁 Attach any previously buffered variants
 			if buffered, ok := variantBuffer[baseID]; ok {
 				icon.Variants = append(icon.Variants, buffered...)
 				// fmt.Printf("🔁 Buffered Variants for '%s': %d attached\n", baseID, len(buffered))
@@ -68,7 +67,7 @@ func MapIconsByID(index *model.SyncedIconIndex) map[string]*model.SyncedIconEntr
 		}
 	}
 
-	// Log unmerged variants
+	// ❗ Report orphaned variants (base icon never appeared)
 	for baseID, buffered := range variantBuffer {
 		for _, v := range buffered {
 			fmt.Printf("🔴 Orphan Variant: %-20s → base '%s' never appeared\n", v.ID, baseID)
@@ -78,26 +77,14 @@ func MapIconsByID(index *model.SyncedIconIndex) map[string]*model.SyncedIconEntr
 	return iconMap
 }
 
-// FlattenIconMap returns a slice of genre groups from the final icon map.
-func FlattenIconMap(iconMap map[string]*model.SyncedIconEntry) []model.SyncedIconGroup {
-	genreMap := make(map[string]*model.SyncedIconGroup)
-
-	for _, icon := range iconMap {
-		// Fallback if missing
-		genre := "Uncategorized"
-		if icon.Source != "" {
-			genre = icon.Source // Optional: You may want to categorize by genre instead
+func FilterVariants(index *model.SyncedIconIndex) {
+	for gi := range index.Data {
+		filtered := make([]model.SyncedIconEntry, 0, len(index.Data[gi].Items))
+		for _, icon := range index.Data[gi].Items {
+			if normalizeID(icon.ID) == icon.ID {
+				filtered = append(filtered, icon)
+			}
 		}
-
-		if _, ok := genreMap[genre]; !ok {
-			genreMap[genre] = &model.SyncedIconGroup{Name: genre}
-		}
-		genreMap[genre].Items = append(genreMap[genre].Items, *icon)
+		index.Data[gi].Items = filtered
 	}
-
-	var flat []model.SyncedIconGroup
-	for _, g := range genreMap {
-		flat = append(flat, *g)
-	}
-	return flat
 }
