@@ -24,6 +24,7 @@ type MovieOutput = MediaOutput[MovieEntry]
 type MovieGroup = Group[MovieEntry]
 type MovieEntry struct {
 	BaseEntry
+	Group string       `json:"-"`               // populated manually, not from JSON
 	Items []MovieEntry `json:"items,omitempty"` // recursive
 }
 

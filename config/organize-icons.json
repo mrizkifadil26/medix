@@ -1,0 +1,28 @@
+{
+  "raw_metadata_path": "data/movies.raw.json",
+  "sources": [
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/new",
+      "source": "new"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/Downloaded",
+      "source": "downloaded"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/done",
+      "source": "done"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/todo",
+      "source": "torrent"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/torrent done",
+      "source": "torrent-done"
+    }
+  ],
+  "output_base": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/Downloaded",
+  "exclude_dirs": ["@eaDir", "__MACOSX"],
+  "plan_path": "plan.preview.json"
+}
