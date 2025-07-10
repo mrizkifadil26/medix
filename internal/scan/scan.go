@@ -120,34 +120,36 @@ func scanGenre(genrePath string, cache *dirCache, contentType string) []model.Ra
 			continue
 		}
 
-		var children any
-		switch contentType {
-		case "movies":
-			list := extractChildren(titlePath, subEntries, cache, contentType)
-			if len(list) > 0 {
-				children = list
-			}
-		case "tvshows":
-			children = extractSeasonNames(subEntries)
-		}
-
-		itemType := "single"
-		if contentType == "movies" {
-			if list, ok := children.([]model.RawEntry); ok && len(list) > 0 {
-				itemType = "collection"
-			}
-		}
-
 		status := resolveStatus(subEntries)
 		ico := findIcon(titlePath, subEntries)
-		items = append(items, model.RawEntry{
+
+		list := extractChildren(titlePath, subEntries, cache, contentType)
+		itemType := "single"
+		if contentType == "movies" && len(list) > 0 {
+			itemType = "collection"
+		}
+
+		rawEntry := model.RawEntry{
 			Type:   itemType,
 			Name:   entry.Name(),
 			Path:   titlePath,
 			Status: status,
-			Items:  children,
 			Icon:   ico,
-		})
+		}
+
+		switch contentType {
+		case "movies":
+			if len(list) > 0 {
+				rawEntry.Items = &model.RawEntryItems{Entries: list}
+			}
+		case "tvshows":
+			seasons := extractSeasonNames(subEntries)
+			if len(seasons) > 0 {
+				rawEntry.Items = &model.RawEntryItems{Seasons: seasons}
+			}
+		}
+
+		items = append(items, rawEntry)
 	}
 
 	return items

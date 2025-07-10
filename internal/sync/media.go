@@ -56,8 +56,18 @@ func buildItems(
 		source := iconMetaFromSynced(resolveIconLink(item.Icon, item.Name, item.Path, contentType, iconMap))
 
 		var children []model.SyncedItem
-		if len(item.Items) > 0 {
-			children = buildItems(item.Items, contentType, iconMap)
+		if item.Items != nil {
+			if len(item.Items.Entries) > 0 {
+				children = buildItems(item.Items.Entries, contentType, iconMap)
+			} else if len(item.Items.Seasons) > 0 {
+				for _, season := range item.Items.Seasons {
+					children = append(children, model.SyncedItem{
+						Type: "season",
+						Name: season,
+						Path: item.Path + "/" + season,
+					})
+				}
+			}
 		}
 
 		items = append(items, model.SyncedItem{
