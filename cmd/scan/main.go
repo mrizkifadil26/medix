@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"flag"
+	"runtime"
 	"strings"
 
 	"fmt"
@@ -40,6 +41,13 @@ func main() {
 		log.Fatalf("❌ No configurations found in %s", *configPath)
 	}
 
+	// Determine concurrency (global)
+	concurrency := config.Concurrency
+	if concurrency <= 0 {
+		concurrency = runtime.NumCPU()
+	}
+	scan.SetConcurrency(concurrency)
+
 	var found bool
 	for _, cfg := range config.Configs {
 		if *filterType != "" && strings.ToLower(cfg.ContentType) != strings.ToLower(*filterType) {
@@ -57,15 +65,6 @@ func main() {
 			log.Printf("⚠️ Unsupported content type: %s\n", cfg.ContentType)
 		}
 
-		// if len(result.Data) == 0 {
-		// 	log.Printf("⚠️ No entries found for %s\n", cfg.ContentType)
-		// 	continue
-		// }
-
-		// if err := util.WriteJSON(cfg.OutputPath, result); err != nil {
-		// 	log.Fatalf("❌ Failed to write JSON for %s: %v", cfg.ContentType, err)
-		// }
-		// fmt.Printf("✅ %s written (%d genres)\n", cfg.OutputPath, len(result.Data))
 		if !found {
 			log.Printf("⚠️ No matching scan config found for -type=%s\n", *filterType)
 		}

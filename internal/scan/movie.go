@@ -13,6 +13,8 @@ type MovieStrategy struct{}
 
 func (MovieStrategy) Scan(roots []string) model.MovieOutput {
 	cache := &dirCache{}
+	concurrency := getConcurrency()
+
 	groups := scanGenericGroup[model.MovieEntry, model.MovieGroup](
 		roots,
 		cache,
@@ -42,6 +44,7 @@ func (MovieStrategy) Scan(roots []string) model.MovieOutput {
 		func(name string, items []model.MovieEntry) model.MovieGroup {
 			return model.MovieGroup{Name: name, Items: items}
 		},
+		concurrency,
 	)
 
 	return model.MovieOutput{

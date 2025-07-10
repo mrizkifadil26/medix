@@ -3,10 +3,23 @@ package scan
 import (
 	"os"
 	"path/filepath"
+	"sort"
 
 	"github.com/mrizkifadil26/medix/model"
 	"github.com/mrizkifadil26/medix/util"
 )
+
+var globalConcurrency = 1
+
+func SetConcurrency(n int) {
+	if n > 0 {
+		globalConcurrency = n
+	}
+}
+
+func getConcurrency() int {
+	return globalConcurrency
+}
 
 func findIcon(dir string, entries []os.DirEntry) *model.IconMeta {
 	for _, f := range entries {
@@ -57,4 +70,14 @@ func resolveStatus(entries []os.DirEntry) string {
 	}
 
 	return "missing"
+}
+
+func sortedKeys[M ~map[string]V, V any](m M) []string {
+	var keys []string
+	for k := range m {
+		keys = append(keys, k)
+	}
+
+	sort.Strings(keys)
+	return keys
 }

@@ -13,6 +13,8 @@ type TVShowStrategy struct{}
 
 func (TVShowStrategy) Scan(roots []string) model.TVShowOutput {
 	cache := &dirCache{}
+	concurrency := getConcurrency()
+
 	groups := scanGenericGroup[model.TVShowEntry, model.TVShowGroup](
 		roots,
 		cache,
@@ -33,6 +35,7 @@ func (TVShowStrategy) Scan(roots []string) model.TVShowOutput {
 		func(name string, items []model.TVShowEntry) model.TVShowGroup {
 			return model.TVShowGroup{Name: name, Items: items}
 		},
+		concurrency,
 	)
 
 	return model.TVShowOutput{

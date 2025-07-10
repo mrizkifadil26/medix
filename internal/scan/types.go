@@ -15,7 +15,8 @@ type ScanConfig struct {
 }
 
 type ScanConfigFile struct {
-	Configs []ScanConfig `json:"configs"`
+	Concurrency int          `json:"concurrency,omitempty"` // 👈 add this
+	Configs     []ScanConfig `json:"configs"`
 }
 
 type ScanStrategy[T any] interface {
