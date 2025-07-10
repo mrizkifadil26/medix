@@ -1,21 +1,3 @@
-const GENRE_EMOJIS = {
-  "Horror": "👻",
-  "Drama": "🎭",
-  "Animation": "🎨",
-  "Comedy": "😂",
-  "Thriller": "🔪",
-  "Action": "🔥",
-  "Romance": "💕",
-  "Sci-Fi": "👽",
-  "Fantasy": "🧙",
-  "Family": "🏠",
-  "Mystery": "🧩",
-  "Crime": "🔍",
-  "Documentary": "📽️",
-  "Adventure": "🗺️",
-  "Western": "🤠",
-};
-
 async function loadGroupedTitles() {
   const type = window.DATA_TYPE || "movies"; // fallback to movies
   const res = await fetch(`data/${type}.json`);

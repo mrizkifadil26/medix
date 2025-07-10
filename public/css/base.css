@@ -3,16 +3,11 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0; /* Removes default body margin */
   padding: 0; /* Removes default padding */
   background: #f9f9f9;
   color: #333;
-}
-
-h1 {
-  color: #222;
-  margin-bottom: 1em;
 }
 
 /* Header - sticky and flush with edges */
@@ -133,25 +128,14 @@ td:last-child {
   font-size: 1.2em;
 }
 
-section {
-  margin-bottom: 2em;
-}
-
-h2 {
-  font-size: 1.5em;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
-  margin-top: 2em;
-}
-
-ul {
+/* ul {
   list-style: none;
   padding-left: 0;
 }
 
 li {
   padding: 6px 0;
-}
+} */
 
 @media (max-width: 600px) {
   body {
@@ -165,10 +149,6 @@ li {
   header a {
     flex: 0 0 auto;
     text-align: center;
-  }
-  
-  h1 {
-    font-size: 1.25em;
   }
 }
 

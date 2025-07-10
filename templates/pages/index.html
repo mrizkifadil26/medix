@@ -1,22 +1,59 @@
 {{ define "title" }}Medix - Personal Media Tracker{{ end }}
 
 {{ define "styles" }}
-  <link rel="stylesheet" href="css/progress.css">
-  <link rel="stylesheet" href="css/table.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/progress.css">
+<link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/dashboard.css">
 {{ end }}
 
 {{ define "content" }}
-  <h1>📊 Thumbnailing Progress</h1>
-  <div id="progress-bar-container"></div>
-  <!-- Table layout for desktop -->
-  <div id="progress-table" class="desktop-only"></div>
+<h1>📊 Dashboard</h1>
 
-  <!-- Card layout for mobile -->
-  <div id="progress-cards" class="mobile-only"></div>
+<section class="dashboard-section">
+  <div class="dashboard-header">
+    <div>
+      <h2>📊 Thumbnailing Progress</h2>
+      <p class="description">Shows progress of icon generation by genre.</p>
+    </div>
+    <button class="toggle-btn" aria-expanded="false">
+      ▶️ Show All
+    </button>
+  </div>
 
-  <!-- Legend for both -->
-  <div id="progress-legend"></div>
-  <script src="js/script.js"></script>
+  <div id="progress-section" class="dashboard-content collapsed">
+    <div id="progress-bar-container"></div>
+    <!-- Table layout for desktop -->
+    <div id="progress-table" class="desktop-only"></div>
+
+    <!-- Card layout for mobile -->
+    <div id="progress-cards" class="mobile-only"></div>
+
+    <!-- Legend for both -->
+    <div id="progress-legend"></div>
+  </div>
+</section>
+
+<section class="dashboard-section">
+  <div class="dashboard-header">
+  <div>
+    <h2>🧹 Unused Icons</h2>
+    <p class="description">Icons that are not linked to any movie or TV show entries in your media database.</p>
+  </div>
+  <button class="toggle-btn" aria-expanded="false">▶️ Show All</button>
+  </div>
+
+  <div id="unused-section" class="dashboard-content collapsed">
+    <div id="unused-icons-container"></div>
+  </div>
+  </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script src="js/progress.js"></script>
+<script src="js/unused.js"></script>
+<script src="js/script.js"></script>
 {{ end }}
