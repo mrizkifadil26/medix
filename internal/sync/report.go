@@ -10,29 +10,30 @@ import (
 
 // GenerateUnusedIconReport builds a report based on icons not used in any media
 func GenerateUnusedIconsReport(index *model.SyncedIconIndex) error {
-	var report UnusedIconReport
-	report.GeneratedAt = time.Now()
+	report := UnusedIconReport{
+		GeneratedAt: time.Now(),
+		Groups:      make(map[string][]UnusedIconEntry),
+	}
 
 	for _, group := range index.Data {
 		for _, entry := range group.Items {
 			if entry.UsedBy == nil {
-				report.Icons = append(report.Icons, UnusedIconEntry{
-					Name:     entry.Name,
-					FullPath: entry.FullPath,
-					Source:   entry.Source,
+				groupName := group.Name
+				report.Groups[groupName] = append(report.Groups[groupName], UnusedIconEntry{
+					Name:   entry.Name,
+					Path:   entry.FullPath,
+					Source: entry.Source,
 				})
+				report.Total++
 			}
 		}
 	}
 
-	report.Total = len(report.Icons)
-
 	if report.Total > 0 {
 		fmt.Printf("🧾 Writing unused icons report (%d unused)...\n", report.Total)
-	} else {
-		fmt.Println("✅ No unused icons found, skipping report.")
-		return nil
+		return util.WriteReport("unused-icons", report)
 	}
 
-	return util.WriteReport("unused-icons", report)
+	fmt.Println("✅ No unused icons found, skipping report.")
+	return nil
 }
