@@ -1,6 +1,6 @@
 {
-  "type": "movies",
-  "generated_at": "2025-07-09T23:44:25.586169183+07:00",
+  "type": "raw",
+  "generated_at": "2025-07-10T21:44:30.011966035+07:00",
   "data": [
     {
       "name": "Action",
@@ -4748,9 +4748,9 @@
           "path": "/mnt/e/Media/Movies/Animation/Cars (2006)",
           "status": "ok",
           "icon": {
-            "id": "cars-2006",
-            "name": "Cars (2006).ico",
-            "full_path": "/mnt/e/Media/Movies/Animation/Cars (2006)/Cars (2006).ico",
+            "id": "cars",
+            "name": "Cars.ico",
+            "full_path": "/mnt/e/Media/Movies/Animation/Cars (2006)/Cars.ico",
             "size": 270398
           }
         },
