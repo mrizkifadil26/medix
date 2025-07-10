@@ -10,6 +10,7 @@ import (
 	"os"
 
 	"github.com/mrizkifadil26/medix/internal/scan"
+	"github.com/mrizkifadil26/medix/model"
 	"github.com/mrizkifadil26/medix/util"
 )
 
@@ -47,43 +48,56 @@ func main() {
 
 		found = true
 		fmt.Printf("🚀 Scanning %s...\n", cfg.ContentType)
-		result := scan.ScanAll(cfg)
-
-		if len(result.Data) == 0 {
-			log.Printf("⚠️ No entries found for %s\n", cfg.ContentType)
-			continue
+		switch strings.ToLower(cfg.ContentType) {
+		case "movies":
+			runScan(cfg, scan.MovieStrategy{})
+		case "tvshows":
+			runScan(cfg, scan.TVShowStrategy{})
+		default:
+			log.Printf("⚠️ Unsupported content type: %s\n", cfg.ContentType)
 		}
 
-		if err := util.WriteJSON(cfg.OutputPath, result); err != nil {
-			log.Fatalf("❌ Failed to write JSON for %s: %v", cfg.ContentType, err)
+		// if len(result.Data) == 0 {
+		// 	log.Printf("⚠️ No entries found for %s\n", cfg.ContentType)
+		// 	continue
+		// }
+
+		// if err := util.WriteJSON(cfg.OutputPath, result); err != nil {
+		// 	log.Fatalf("❌ Failed to write JSON for %s: %v", cfg.ContentType, err)
+		// }
+		// fmt.Printf("✅ %s written (%d genres)\n", cfg.OutputPath, len(result.Data))
+		if !found {
+			log.Printf("⚠️ No matching scan config found for -type=%s\n", *filterType)
 		}
-		fmt.Printf("✅ %s written (%d genres)\n", cfg.OutputPath, len(result.Data))
 	}
 
 	if !found {
 		log.Printf("⚠️ No matching scan config found for -type=%s\n", *filterType)
 	}
-	// var rootDir, outputPath string
+}
 
-	// switch mode {
-	// case "movies":
-	// 	rootDir = "/mnt/e/Media/Movies"
-	// 	outputPath = "data/movies.raw.json"
-	// case "tvshows":
-	// 	rootDir = "/mnt/e/Media/TV Shows"
-	// 	outputPath = "data/tv_shows.raw.json"
-	// default:
-	// 	log.Fatalf("Unknown mode: %s", mode)
-	// }
+func runScan[T any](cfg scan.ScanConfig, strategy scan.ScanStrategy[T]) {
+	result := scan.ScanAll(cfg, strategy)
 
-	// result := scan.ScanDirectory(mode, rootDir)
-	// if len(result.Data) == 0 {
-	// 	log.Printf("⚠️ No entries found in %s\n", rootDir)
-	// 	return
-	// }
+	// This assumes both model.MovieOutput and model.TVShowOutput have .Data
+	var dataLen int
+	switch v := any(result).(type) {
+	case model.MovieOutput:
+		dataLen = len(v.Data)
+	case model.TVShowOutput:
+		dataLen = len(v.Data)
+	default:
+		log.Printf("⚠️ Unknown result type for %s\n", cfg.ContentType)
+		return
+	}
 
-	// if err := util.WriteJSON(outputPath, result); err != nil {
-	// 	log.Fatalf("❌ Failed to write JSON: %v", err)
-	// }
-	// fmt.Printf("✅ %s written (%d genres)\n", outputPath, len(result.Data))
+	if dataLen == 0 {
+		log.Printf("⚠️ No entries found for %s\n", cfg.ContentType)
+		return
+	}
+
+	if err := util.WriteJSON(cfg.OutputPath, result); err != nil {
+		log.Fatalf("❌ Failed to write JSON for %s: %v", cfg.ContentType, err)
+	}
+	fmt.Printf("✅ %s written (%d groups)\n", cfg.OutputPath, dataLen)
 }
