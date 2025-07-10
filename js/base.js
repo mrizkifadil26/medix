@@ -1,3 +1,21 @@
+const GENRE_EMOJIS = {
+  "Horror": "👻",
+  "Drama": "🎭",
+  "Animation": "🎨",
+  "Comedy": "😂",
+  "Thriller": "🔪",
+  "Action": "🔥",
+  "Romance": "💕",
+  "Sci-Fi": "👽",
+  "Fantasy": "🧙",
+  "Family": "🏠",
+  "Mystery": "🧩",
+  "Crime": "🔍",
+  "Documentary": "📽️",
+  "Adventure": "🗺️",
+  "Western": "🤠",
+};
+
 document.addEventListener("DOMContentLoaded", function () {
     // 🔥 Highlight active navbar link
     const currentFile = window.location.pathname.split("/").pop() || "index.html";
