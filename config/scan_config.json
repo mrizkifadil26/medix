@@ -1,10 +1,10 @@
 {
+  "concurrency": 4,
   "configs": [
     {
       "content_type": "movies",
       "sources": [
-        "/mnt/e/Media/Movies",
-        "/mnt/f/Backup/Movies"
+        "/mnt/e/Media/Movies"
       ],
       "output_path": "data/movies.raw.json"
     },
@@ -12,7 +12,7 @@
       "content_type": "tvshows",
       "sources": [
         "/mnt/e/Media/TV Shows",
-        "/mnt/f/Backup/TV Shows"
+        "/mnt/d/TV Shows"
       ],
       "output_path": "data/tv_shows.raw.json"
     }
