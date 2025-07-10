@@ -33,6 +33,7 @@ func main() {
 	}
 	// syncAndWrite("tvshows", tvshowsPath, outTVSloadIconIndexynced, iconMap)
 
+	iconIndex.Data = sync.FlattenIconMap(iconMap)
 	err = util.WriteJSON(outIconSynced, iconIndex)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "❌ Failed to write icon index: %v\n", err)

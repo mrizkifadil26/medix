@@ -1,6 +1,7 @@
 package sync
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/mrizkifadil26/medix/model"
@@ -30,7 +31,8 @@ func SyncMedia(contentType, inputPath string, iconMap map[string]*model.SyncedIc
 			icon := iconMetaFromLocal(item)
 			var linked *model.SyncedIconEntry
 			if iconID != "" {
-				linked = iconMap[iconID]
+				baseID := normalizeID(iconID)
+				linked = iconMap[baseID]
 				if linked != nil {
 					linked.UsedBy = &model.UsedBy{
 						Name:        item.Name,
@@ -38,6 +40,12 @@ func SyncMedia(contentType, inputPath string, iconMap map[string]*model.SyncedIc
 						ContentType: contentType,
 					}
 				}
+			}
+
+			// ✅ Skip if item is using an alt variant as its icon
+			if item.Icon != nil && isAltVariant(item.Icon.ID) {
+				fmt.Printf("🚫 Skipping entry using alt icon: %s\n", item.Icon.ID)
+				continue
 			}
 
 			var children []model.SyncedChildItem
@@ -104,4 +112,8 @@ func iconMetaFromSynced(entry *model.SyncedIconEntry) *model.SyncedIconMeta {
 		FullPath: entry.FullPath,
 		Type:     entry.Type,
 	}
+}
+
+func isAltVariant(id string) bool {
+	return altIDRegex.MatchString(id)
 }

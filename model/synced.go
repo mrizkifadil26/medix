@@ -39,13 +39,14 @@ type SyncedIconGroup = Group[SyncedIconEntry]
 
 // One icon (linked back to media if used)
 type SyncedIconEntry struct {
-	ID       string  `json:"id"`
-	Name     string  `json:"name"`
-	FullPath string  `json:"full_path"`
-	Size     int64   `json:"size"`
-	Source   string  `json:"source"`            // downloaded/personal
-	Type     string  `json:"type"`              // icon / collection
-	UsedBy   *UsedBy `json:"used_by,omitempty"` // reverse link
+	ID       string           `json:"id"`
+	Name     string           `json:"name"`
+	FullPath string           `json:"full_path"`
+	Size     int64            `json:"size"`
+	Source   string           `json:"source"`            // downloaded/personal
+	Type     string           `json:"type"`              // icon / collection
+	UsedBy   *UsedBy          `json:"used_by,omitempty"` // reverse link
+	Variants []SyncedIconMeta `json:"variants,omitempty"`
 }
 
 type UsedBy struct {
