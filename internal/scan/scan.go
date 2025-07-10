@@ -20,17 +20,38 @@ type dirCache struct {
 	m sync.Map // map[string][]os.DirEntry
 }
 
-func ScanDirectory(contentType, root string) model.RawOutput {
-	fmt.Printf("Starting scan for type: %s in root: %s\n", contentType, root)
+func ScanAll(cfg ScanConfig) model.RawOutput {
 	result := model.RawOutput{
 		Type:        "raw",
 		GeneratedAt: time.Now(),
 	}
 
+	cache := &dirCache{}
+	genreMap := make(map[string]model.RawGenre)
+	for _, root := range cfg.Sources {
+		scanSingleRoot(cfg.ContentType, root, genreMap, cache)
+	}
+
+	// Sort and reassemble
+	var genreNames []string
+	for name := range genreMap {
+		genreNames = append(genreNames, name)
+	}
+	sort.Strings(genreNames)
+
+	for _, name := range genreNames {
+		result.Data = append(result.Data, genreMap[name])
+	}
+
+	fmt.Println("All sources scanned.")
+	return result
+}
+
+func scanSingleRoot(contentType, root string, genreMap map[string]model.RawGenre, cache *dirCache) {
 	entries, err := os.ReadDir(root)
 	if err != nil {
 		fmt.Printf("Failed to read root directory: %v\n", err)
-		return result
+		return
 	}
 
 	var genres []os.DirEntry
@@ -40,8 +61,7 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 		}
 	}
 
-	fmt.Printf("Found %d genre directories\n", len(genres))
-
+	fmt.Printf("Scanning %d genres in %s\n", len(genres), root)
 	bar := progressbar.NewOptions(len(genres),
 		progressbar.OptionSetDescription("Scanning genres"),
 		progressbar.OptionSetWidth(30),
@@ -52,10 +72,6 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 	var mu sync.Mutex
 	var wg sync.WaitGroup
 	sem := make(chan struct{}, maxConcurrency)
-	genreMap := make(map[string]model.RawGenre)
-
-	cache := &dirCache{}
-
 	for _, genre := range genres {
 		wg.Add(1)
 		sem <- struct{}{}
@@ -74,26 +90,15 @@ func ScanDirectory(contentType, root string) model.RawOutput {
 			}
 
 			mu.Lock()
-			genreMap[genreName] = model.RawGenre{
-				Name:  genreName,
-				Items: items,
-			}
+			existing := genreMap[genreName]
+			existing.Name = genreName
+			existing.Items = append(existing.Items, items...)
+			genreMap[genreName] = existing
 			mu.Unlock()
 		}(genre)
 	}
 
 	wg.Wait()
-
-	// Reconstruct result.Data in sorted order
-	for _, genre := range genres {
-		if block, ok := genreMap[genre.Name()]; ok {
-			result.Data = append(result.Data, block)
-		}
-	}
-
-	fmt.Println("Scan complete.")
-
-	return result
 }
 
 func scanGenre(genrePath string, cache *dirCache, contentType string) []model.RawEntry {

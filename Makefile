@@ -15,10 +15,10 @@ all: movies tvshows
 
 # --- Media source generation ---
 movies:
-	go run $(SCANNER_CMD) movies
+	go run $(SCANNER_CMD) -config "config/scan_config.json" -type movies
 
 tvshows:
-	go run $(SCANNER_CMD) tvshows
+	go run $(SCANNER_CMD) -config "config/scan_config.json" -type tvshows
 
 # --- Icon indexing ---
 index-icons:
