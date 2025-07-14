@@ -1,4 +1,4 @@
-package scan
+package scanner
 
 import (
 	"os"
@@ -9,10 +9,6 @@ import (
 	"github.com/mrizkifadil26/medix/model"
 	"github.com/schollz/progressbar/v3"
 )
-
-func ScanAll[T any](cfg ScanConfig, strategy ScanStrategy[T]) T {
-	return strategy.Scan(cfg.Sources)
-}
 
 func scanGenericGroup[T any, G any](
 	roots []string,

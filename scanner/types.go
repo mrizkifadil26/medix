@@ -1,10 +1,12 @@
 // internal/scan/config.go
-package scan
+package scanner
 
 import (
 	"fmt"
 	"os"
 	"sync"
+
+	"github.com/mrizkifadil26/medix/model"
 )
 
 type ScanConfig struct {
@@ -19,8 +21,8 @@ type ScanConfigFile struct {
 	Configs     []ScanConfig `json:"configs"`
 }
 
-type ScanStrategy[T any] interface {
-	Scan(roots []string) T // returns model.MovieOutput or model.TVShowOutput
+type ScanStrategy interface {
+	Scan(roots []string) (model.MediaOutput, error) // returns model.MovieOutput or model.TVShowOutput
 }
 
 type dirCache struct {
