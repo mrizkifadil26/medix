@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-type BaseEntry struct {
+type BaseEntryLegacy struct {
 	Type   string    `json:"type"` // "single" or "collection"
 	Name   string    `json:"name"`
 	Path   string    `json:"path"`

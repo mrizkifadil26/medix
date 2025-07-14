@@ -11,47 +11,49 @@ import (
 
 type MovieStrategy struct{}
 
-func (MovieStrategy) Scan(roots []string) model.MovieOutput {
+func (MovieStrategy) Scan(roots []string) (model.MediaOutput, error) {
+	start := time.Now()
 	cache := &dirCache{}
 	concurrency := getConcurrency()
 
-	groups := scanGenericGroup[model.MovieEntry, model.MovieGroup](
+	entries := scanMedia(
 		roots,
 		cache,
-		func(titlePath string, subEntries []os.DirEntry) (model.MovieEntry, bool) {
-			children := extractChildren(titlePath, subEntries, cache, "movies")
+		func(folderPath string, dirEntries []os.DirEntry) (model.MediaEntry, bool) {
+			group := filepath.Base(filepath.Dir(folderPath)) // genre
 
-			itemType := "single"
-			if len(children) > 0 {
-				itemType = "collection"
-			}
-
-			item := model.MovieEntry{
+			entry := model.MediaEntry{
 				BaseEntry: model.BaseEntry{
-					Type:   itemType,
-					Name:   filepath.Base(titlePath),
-					Path:   titlePath,
-					Status: resolveStatus(subEntries),
-					Icon:   findIcon(titlePath, subEntries),
+					Type:   "movie",
+					Name:   filepath.Base(folderPath),
+					Path:   folderPath,
+					Status: resolveStatus(dirEntries),
+					Icon:   findIcon(folderPath, dirEntries),
+					Group:  group,
 				},
 			}
-			if len(children) > 0 {
-				item.Items = children
-			}
-
-			return item, true
-		},
-		func(name string, items []model.MovieEntry) model.MovieGroup {
-			return model.MovieGroup{Name: name, Items: items}
+			return entry, true
 		},
 		concurrency,
 	)
 
-	return model.MovieOutput{
-		Type:        "raw",
-		GeneratedAt: time.Now(),
-		Data:        groups,
+	// Build group count (unique genre names)
+	groupSet := map[string]struct{}{}
+	for _, entry := range entries {
+		groupSet[entry.Group] = struct{}{}
 	}
+
+	output := model.MediaOutput{
+		Version:        "1.0.0",
+		GeneratedAt:    time.Now(),
+		Source:         "movies",
+		TotalItems:     len(entries),
+		GroupCount:     len(groupSet),
+		ScanDurationMs: time.Since(start).Milliseconds(),
+		Items:          entries,
+	}
+
+	return output, nil
 }
 
 func extractChildren(parent string, entries []os.DirEntry, cache *dirCache, contentType string) []model.MovieEntry {
