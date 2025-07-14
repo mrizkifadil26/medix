@@ -1,5 +1,4 @@
 # Makefile to build media tools, generate data, and serve static site
-
 # --- Directories ---
 OUTPUT_DIR        := output
 BIN_DIR           := bin
@@ -10,55 +9,66 @@ PROGRESS_CMD       	= ./cmd/progress
 SERVER_CMD         	= ./cmd/server
 ICON_INDEXER_CMD   	= ./cmd/index
 WEBGEN_CMD        	= ./cmd/webgen
+DEV_CMD             := ./cmd/dev
 
 DEPLOY_SCRIPT  		= ./scripts/deploy.sh
 
+# Tools
+GO       = go
+RICHGO   = richgo
+
+# Flags
+DRY_FLAG = --dry
+INPUT    = data
+OUTPUT   = dist
+
 .PHONY: all movies tvshows index-icons progress webgen \
         build-webgen build-scan build-progress build-server build-index \
-        build-all serve watch watch-serve test test-slugify deploy clean help
+        build-all serve test test-slugify deploy clean help
 
 # --- Default target ---
 all: movies tvshows
 
 # --- Media source generation ---
 movies:
-	go run $(SCANNER_CMD) -config "config/scan_config.json" -type movies
+	@$(GO) run $(SCANNER_CMD) -config "config/scan_config.json" -type movies
 
 tvshows:
-	go run $(SCANNER_CMD) -config "config/scan_config.json" -type tvshows
+	@$(GO) run $(SCANNER_CMD) -config "config/scan_config.json" -type tvshows
 
 # --- Icon indexing ---
 index-icons:
-	go run $(ICON_INDEXER_CMD)
+	@$(GO) run $(ICON_INDEXER_CMD)
 
 # --- Progress report ---
 progress:
-	go run $(PROGRESS_CMD)
+	@$(GO) run $(PROGRESS_CMD)
 
 # --- Static site generation ---
 webgen:
-	go run $(WEBGEN_CMD)
+	@$(GO) run $(WEBGEN_CMD)
+
+dry-run:
+	@$(GO) run $(WEBGEN_CMD) --input=$(INPUT) --output=$(OUTPUT) $(DRY_FLAG)
+
+run:
+	@$(GO) run $(WEBGEN_CMD) --input=$(INPUT) --output=$(OUTPUT)
 
 # --- Build individual binaries ---
 build-webgen:
 	mkdir -p $(BIN_DIR)
-	go build -o $(BIN_DIR)/webgen $(WEBGEN_CMD)
+	@$(GO) build -o $(BIN_DIR)/webgen $(WEBGEN_CMD)
+
+build-server:
+	@mkdir -p $(BIN_DIR)
+	@$(GO) build -o $(BIN_DIR)/server $(SERVER_CMD)
 
 # --- Build all tools ---
-build-all: build-webgen
+build-all: build-webgen build-server
 
-# --- Local server ---
+# --- Local dev ---
 dev:
-	go run ./cmd/dev
-
-# --- File watching ---
-watch:
-	@echo "🔁 Watching files and building with Air..."
-	@air
-
-watch-serve:
-	@echo "🌐 Watching & serving dist/ (in background)..."
-	@make -j2 watch serve
+	@$(RICHGO) run $(DEV_CMD)
 
 # --- Testing ---
 test:
@@ -71,9 +81,17 @@ test-slugify:
 deploy:
 	bash $(DEPLOY_SCRIPT)
 
-# --- Clean ---
+
+# --- Maintenance ---
+format:
+	@$(GO) fmt ./...
+
+tidy:
+	@$(GO) mod tidy
+
 clean:
-	rm -rf $(OUTPUT_DIR) dist $(BIN_DIR)
+	@rm -rf $(OUTPUT_DIR) dist $(BIN_DIR)
+	@echo "[DONE] Cleaned build artifacts"
 
 # --- Help ---
 help:
