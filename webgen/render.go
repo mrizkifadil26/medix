@@ -7,7 +7,22 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/mrizkifadil26/medix/logger"
+	"github.com/tdewolff/minify"
+	"github.com/tdewolff/minify/html"
 )
+
+var htmlMinifier = func() *minify.M {
+	minifier := minify.New()
+	minifier.Add("text/html", &html.Minifier{
+		KeepDocumentTags: true,
+	})
+
+	return minifier
+}()
+
+var DryRun = false
 
 func RenderTemplate(files []string, outPath string, data any) {
 	// Resolve all template file paths
@@ -15,14 +30,29 @@ func RenderTemplate(files []string, outPath string, data any) {
 	Must(err)
 
 	var buf bytes.Buffer
-	Must(tmpl.ExecuteTemplate(&buf, "base", data))
+	err = tmpl.ExecuteTemplate(&buf, "base", data)
+	Must(err)
+
+	minified, err := htmlMinifier.Bytes("text/html", buf.Bytes())
+	Must(err)
+
+	if DryRun {
+		logger.Dry("[DRY-RUN] Skipped writing file: " + outPath)
+		return
+	}
+
+	// Create target directory if missing
+	err = os.MkdirAll(filepath.Dir(outPath), 0755)
+	Must(err)
 
 	f, err := os.Create(outPath)
 	Must(err)
 	defer f.Close()
 
-	_, err = f.Write(buf.Bytes())
+	_, err = f.Write(minified)
 	Must(err)
+
+	logger.Done("📄 Rendered → " + outPath)
 }
 
 func RenderStaticPages() {

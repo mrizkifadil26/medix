@@ -1,11 +1,12 @@
 package webgen
 
 import (
-	"fmt"
 	"io/fs"
 	"log"
 	"os"
 	"path/filepath"
+
+	"github.com/mrizkifadil26/medix/logger"
 )
 
 func shorten(path string) string {
@@ -28,8 +29,19 @@ func EnsureDirs(paths ...string) {
 }
 
 func CopyFile(src, dst string) error {
-	fmt.Printf("[FILE] %s → %s\n", shorten(src), shorten(dst))
+	if DryRun {
+		logger.Dry("[DRY-RUN] Would copy file: " + shorten(src) + "→ " + shorten(dst))
+		return nil
+	}
+
+	// fmt.Printf("[FILE] %s → %s\n", shorten(src), shorten(dst))
+
 	input, err := os.ReadFile(src)
+	if err != nil {
+		return err
+	}
+
+	err = os.MkdirAll(filepath.Dir(dst), 0755)
 	if err != nil {
 		return err
 	}
@@ -38,7 +50,8 @@ func CopyFile(src, dst string) error {
 }
 
 func CopyDir(src, dst string) error {
-	fmt.Printf("[DIR ] %s → %s\n", shorten(src), shorten(dst))
+	// fmt.Printf("[DIR ] %s → %s\n", shorten(src), shorten(dst))
+
 	return filepath.Walk(src, func(path string, info fs.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -53,6 +66,11 @@ func CopyDir(src, dst string) error {
 		targetPath := filepath.Join(dst, relPath)
 
 		if info.IsDir() {
+			if DryRun {
+				logger.Dry("[DRY-RUN] Would create dir: " + targetPath)
+				return nil
+			}
+
 			return os.MkdirAll(targetPath, 0755)
 		}
 

@@ -1,23 +1,25 @@
 package server
 
 import (
-	"log"
 	"time"
 
 	"github.com/fsnotify/fsnotify"
+	"github.com/mrizkifadil26/medix/logger"
 	"github.com/mrizkifadil26/medix/webgen"
 )
 
 func WatchAndBuild() {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
-		log.Fatal(err)
+		logger.Error("Watcher init failed: " + err.Error())
+		return
 	}
 	defer watcher.Close()
 
 	paths := []string{"data", "templates", "assets"}
 	for _, path := range paths {
 		_ = watcher.Add(path)
+		logger.Watch("👁️ Watching: " + path)
 	}
 
 	debounce := time.Now()
@@ -30,16 +32,20 @@ func WatchAndBuild() {
 			}
 			debounce = time.Now()
 
-			log.Printf("🔁 Change detected: %s", event.Name)
+			logger.Watch("🔁 Change detected: " + event.Name)
 			err := webgen.GenerateSite("data", "dist")
 			if err != nil {
-				log.Printf("❌ Generate error: %v", err)
+				// log.Printf("❌ Generate error: %v", err)
+				logger.Error("❌ Generate error: " + err.Error())
+
 			} else {
-				log.Println("✅ Site regenerated.")
+				// log.Println("✅ Site regenerated.")
+				logger.Done("✅ Site regenerated.")
 			}
 
 		case err := <-watcher.Errors:
-			log.Println("Watcher error:", err)
+			// log.Println("Watcher error:", err)
+			logger.Error("❌ Watcher error: " + err.Error())
 		}
 	}
 }

@@ -2,23 +2,28 @@ package main
 
 import (
 	"flag"
-	"fmt"
-	"log"
 
+	"github.com/mrizkifadil26/medix/logger"
 	"github.com/mrizkifadil26/medix/webgen"
 )
 
 func main() {
-	var inputDir, outputDir string
-	flag.StringVar(&inputDir, "input", "data", "Input data directory")
+	var (
+		inputDir  string
+		outputDir string
+		dryRun    bool
+	)
+
+	flag.StringVar(&inputDir, "input", "data", "Input directory")
 	flag.StringVar(&outputDir, "output", "dist", "Output directory")
+	flag.BoolVar(&dryRun, "dry", false, "Dry-run mode (no output written)")
 	flag.Parse()
 
-	log.Println("⚙️ Starting site generation...")
+	webgen.DryRun = dryRun
+
+	logger.Info("⚙️ Starting site generation...")
 	err := webgen.GenerateSite(inputDir, outputDir)
 	if err != nil {
-		log.Fatalf("❌ Generation failed: %v", err)
+		logger.Error("❌ Generation failed: " + err.Error())
 	}
-
-	fmt.Println("✅ Static site successfully generated.")
 }

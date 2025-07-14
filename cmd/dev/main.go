@@ -1,23 +1,45 @@
 package main
 
 import (
-	"log"
+	"context"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
+	"github.com/mrizkifadil26/medix/logger"
 	"github.com/mrizkifadil26/medix/server"
 	"github.com/mrizkifadil26/medix/webgen"
 )
 
 func main() {
-	log.Println("🛠 Dev mode enabled")
+	logger.Step("🔁 Starting dev server with auto-rebuild")
 
 	if err := webgen.GenerateSite("data", "dist"); err != nil {
-		log.Fatalf("❌ Initial site generation failed: %v", err)
+		logger.Error("❌ Initial site generation failed: " + err.Error())
 	}
+	logger.Done("Initial site generation complete")
+
+	// Setup graceful shutdown
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	defer stop()
 
 	go server.WatchAndBuild()
 	go server.OpenBrowser("http://localhost:8080")
 
-	if err := server.Serve("dist", "8080"); err != nil {
-		log.Fatalf("❌ Server failed: %v", err)
-	}
+	// Serve in main goroutine
+	go func() {
+		if err := server.Serve("dist", "8080"); err != nil {
+			logger.Error("❌ Server failed: " + err.Error())
+			stop() // trigger shutdown
+		}
+	}()
+
+	// Wait for interrupt
+	<-ctx.Done()
+	logger.Warn("⚠️  Received shutdown signal. Cleaning up...")
+
+	// Optional: give time to finish writes, close file handles, etc.
+	time.Sleep(300 * time.Millisecond)
+	logger.Done("👋 Gracefully exited.")
 }
