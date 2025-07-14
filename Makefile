@@ -81,7 +81,6 @@ test-slugify:
 deploy:
 	bash $(DEPLOY_SCRIPT)
 
-
 # --- Maintenance ---
 format:
 	@$(GO) fmt ./...
