@@ -10,9 +10,9 @@ import (
 	"log"
 	"os"
 
-	"github.com/mrizkifadil26/medix/internal/scan"
 	"github.com/mrizkifadil26/medix/model"
-	"github.com/mrizkifadil26/medix/util"
+	scan "github.com/mrizkifadil26/medix/scanner"
+	util "github.com/mrizkifadil26/medix/utils"
 )
 
 func main() {

@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/mrizkifadil26/medix/internal/index"
-	"github.com/mrizkifadil26/medix/util"
+	util "github.com/mrizkifadil26/medix/utils"
 )
 
 const configPath = "config/ico-indexer.json"

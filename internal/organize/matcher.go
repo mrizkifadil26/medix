@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/mrizkifadil26/medix/model"
-	"github.com/mrizkifadil26/medix/util"
+	util "github.com/mrizkifadil26/medix/utils"
 )
 
 type MediaSlugMap map[string]model.MovieEntry

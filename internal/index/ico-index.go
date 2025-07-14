@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/mrizkifadil26/medix/model"
-	"github.com/mrizkifadil26/medix/util"
+	util "github.com/mrizkifadil26/medix/utils"
 )
 
 func BuildIconIndex(cfg IconIndexerConfig) (model.IconIndex, error) {

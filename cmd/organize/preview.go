@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 
 	"github.com/mrizkifadil26/medix/internal/organize"
-	"github.com/mrizkifadil26/medix/util"
+	util "github.com/mrizkifadil26/medix/utils"
 )
 
 const configPath = "config/organize-icons.json"
