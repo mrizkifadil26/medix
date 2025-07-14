@@ -5,9 +5,9 @@ tmp_dir = "tmp"
 [build]
   args_bin = []
   bin = "./tmp/main"
-  cmd = "go build -o ./tmp/main ./cmd/builder"
+  cmd = "go run ./cmd/dev"
   delay = 1000
-  exclude_dir = ["assets", "dist", "tmp", "vendor", "testdata", ".git"]
+  exclude_dir = ["dist", "data"]
   exclude_file = ["deploy.sh"]
   exclude_regex = ["_test.go"]
   exclude_unchanged = false

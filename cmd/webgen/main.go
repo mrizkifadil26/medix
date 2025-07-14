@@ -2,37 +2,23 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 
 	"github.com/mrizkifadil26/medix/webgen"
 )
 
-var distDirs = []string{
-	"dist/css",
-	"dist/js",
-	"dist/data",
-}
-
 func main() {
-	// Optional flags for future extensibility
-	clean := flag.Bool("clean", true, "Clean the dist directory before build")
-	verbose := flag.Bool("v", false, "Enable verbose output")
-
+	var inputDir, outputDir string
+	flag.StringVar(&inputDir, "input", "data", "Input data directory")
+	flag.StringVar(&outputDir, "output", "dist", "Output directory")
 	flag.Parse()
 
-	if *verbose {
-		log.Println("🔨 Building static site with templates...")
+	log.Println("⚙️ Starting site generation...")
+	err := webgen.GenerateSite(inputDir, outputDir)
+	if err != nil {
+		log.Fatalf("❌ Generation failed: %v", err)
 	}
 
-	if *clean {
-		webgen.CleanDist()
-	}
-
-	webgen.EnsureDirs(distDirs...)
-	webgen.CopyAssets()
-	webgen.RenderPages()
-
-	if *verbose {
-		log.Println("✅ Static site generated in dist/")
-	}
+	fmt.Println("✅ Static site successfully generated.")
 }
