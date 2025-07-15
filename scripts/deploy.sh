@@ -22,6 +22,8 @@ cd /tmp/gh-pages
 COMMIT_HASH=$(git rev-parse --short HEAD)
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
+git add .
+
 if git diff --cached --quiet; then
   echo "⚠️  No changes to commit"
 else
