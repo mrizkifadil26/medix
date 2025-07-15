@@ -1,0 +1,190 @@
+.dashboard-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+.dashboard-section {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #f5f7f9; /* Slight contrast to white */
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+}
+
+.dashboard-header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 0.3rem;
+  max-width: 600px;
+}
+
+.toggle-btn {
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
+  color: #1a73e8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: #f1f5fb;
+}
+
+.dashboard-content {
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding-top: 1.2rem;
+}
+
+.dashboard-content.collapsed {
+  max-height: 320px;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+
+.dashboard-content.collapsed::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toggle-btn {
+    align-self: flex-end;
+  }
+
+  .dashboard-content.collapsed {
+    max-height: 260px;
+  }
+}
+
+/* Group Block */
+.icon-group {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: #f9f9f9;
+}
+
+/* Group Header */
+.group-header {
+  padding: 0.75rem 1rem;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.group-name {
+  font-size: 1.05rem;
+}
+
+.group-count {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: normal;
+}
+
+/* Icon List */
+.icon-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1.25rem 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* More vertical spacing */
+}
+
+.icon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #e2e2e2;
+  gap: 0.75rem;
+}
+
+.icon-row:last-child {
+  border-bottom: none;
+}
+
+.icon-name::before {
+  content: "🔸";
+  margin-right: 0.5rem;
+}
+
+/* Tag Styles (Prettified Pills) */
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-left: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 8px;
+  text-transform: capitalize;
+}
+
+/* Downloaded: Light blue background, dark blue text */
+.tag.personal {
+    background-color: #e8f0fe;
+  color: #1a73e8;
+}
+
+/* Personal: Light green background, dark green text */
+.tag.downloaded {
+  background-color: #e6f4ea;
+  color: #188038;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .icon-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .tag {
+    margin-top: 0.25rem;
+  }
+}
