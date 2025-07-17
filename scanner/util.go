@@ -3,7 +3,6 @@ package scanner
 import (
 	"os"
 	"path/filepath"
-	"sort"
 
 	"github.com/mrizkifadil26/medix/model"
 	util "github.com/mrizkifadil26/medix/utils"
@@ -72,12 +71,12 @@ func resolveStatus(entries []os.DirEntry) string {
 	return "missing"
 }
 
-func sortedKeys[M ~map[string]V, V any](m M) []string {
-	var keys []string
-	for k := range m {
-		keys = append(keys, k)
-	}
+// func sortedKeys[M ~map[string]V, V any](m M) []string {
+// 	var keys []string
+// 	for k := range m {
+// 		keys = append(keys, k)
+// 	}
 
-	sort.Strings(keys)
-	return keys
-}
+// 	sort.Strings(keys)
+// 	return keys
+// }

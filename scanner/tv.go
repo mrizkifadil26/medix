@@ -3,7 +3,6 @@ package scanner
 import (
 	"os"
 	"path/filepath"
-	"sort"
 	"time"
 
 	"github.com/mrizkifadil26/medix/model"
@@ -22,12 +21,12 @@ func (TVStrategy) Scan(roots []string) (model.MediaOutput, error) {
 		func(folderPath string, dirEntries []os.DirEntry) (model.MediaEntry, bool) {
 			group := filepath.Base(filepath.Dir(folderPath)) // genre
 
-			var seasons []string
-			for _, entry := range dirEntries {
-				if entry.IsDir() {
-					seasons = append(seasons, entry.Name())
-				}
-			}
+			// var seasons []string
+			// for _, entry := range dirEntries {
+			// 	if entry.IsDir() {
+			// 		seasons = append(seasons, entry.Name())
+			// 	}
+			// }
 
 			showEntry := model.MediaEntry{
 				BaseEntry: model.BaseEntry{
@@ -81,15 +80,4 @@ func (TVStrategy) Scan(roots []string) (model.MediaOutput, error) {
 	}
 
 	return output, nil
-}
-
-func extractSeasonNames(entries []os.DirEntry) []string {
-	var names []string
-	for _, e := range entries {
-		if e.IsDir() {
-			names = append(names, e.Name())
-		}
-	}
-	sort.Strings(names)
-	return names
 }
