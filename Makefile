@@ -7,7 +7,7 @@ BIN_DIR           := bin
 SCANNER_CMD        	= ./cmd/scan
 PROGRESS_CMD       	= ./cmd/progress
 SERVER_CMD         	= ./cmd/server
-ICON_INDEXER_CMD   	= ./cmd/index
+ICONMAP_CMD   		= ./cmd/iconmap
 WEBGEN_CMD        	= ./cmd/webgen
 DEV_CMD             := ./cmd/dev
 
@@ -36,9 +36,8 @@ movies:
 tv:
 	@$(GO) run $(SCANNER_CMD) -config "config/scan_config.json" -type tv
 
-# --- Icon indexing ---
-index-icons:
-	@$(GO) run $(ICON_INDEXER_CMD)
+icons-%:
+	@$(GO) run $(ICONMAP_CMD) --config=config/iconmap-$*.json
 
 # --- Progress report ---
 progress:
