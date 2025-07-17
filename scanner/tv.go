@@ -73,7 +73,7 @@ func (TVStrategy) Scan(roots []string) (model.MediaOutput, error) {
 	output := model.MediaOutput{
 		Version:        "1.0.0",
 		GeneratedAt:    time.Now(),
-		Source:         "movies",
+		Source:         "tv",
 		TotalItems:     len(entries),
 		GroupCount:     len(groupSet),
 		ScanDurationMs: time.Since(start).Milliseconds(),
