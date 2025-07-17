@@ -33,8 +33,8 @@ all: movies tvshows
 movies:
 	@$(GO) run $(SCANNER_CMD) -config "config/scan_config.json" -type movies
 
-tvshows:
-	@$(GO) run $(SCANNER_CMD) -config "config/scan_config.json" -type tvshows
+tv:
+	@$(GO) run $(SCANNER_CMD) -config "config/scan_config.json" -type tv
 
 # --- Icon indexing ---
 index-icons:
