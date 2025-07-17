@@ -1,0 +1,9 @@
+{
+  "type": "movies",
+  "sources": [
+    { "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/Downloaded", "name": "Downloaded" },
+    { "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Personal Icon Pack/Movies/ICO", "name": "Personal" }
+  ],
+  "excludeDirs": [],
+  "output": "data/iconmap-movies.json"
+}

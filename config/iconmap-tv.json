@@ -1,0 +1,11 @@
+{
+  "type": "tv",
+  "sources": [
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/TV Show Icon Pack/Downloaded",
+      "name": "Downloaded"
+    }
+  ],
+  "excludeDirs": [],
+  "output": "data/iconmap-tv.json"
+}
