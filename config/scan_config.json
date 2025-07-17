@@ -9,12 +9,12 @@
       "output_path": "data/movies.raw.json"
     },
     {
-      "content_type": "tvshows",
+      "content_type": "tv",
       "sources": [
         "/mnt/e/Media/TV Shows",
         "/mnt/d/TV Shows"
       ],
-      "output_path": "data/tv_shows.raw.json"
+      "output_path": "data/tv.raw.json"
     }
   ]
 }
