@@ -55,8 +55,8 @@ func main() {
 		switch name {
 		case "movies":
 			strategy = scanner.MovieStrategy{}
-		case "tvshows":
-			strategy = scanner.TVShowStrategy{}
+		case "tv":
+			strategy = scanner.TVStrategy{}
 		default:
 			log.Printf("⚠️ Skipping unsupported content type: %s\n", cfg.ContentType)
 			continue

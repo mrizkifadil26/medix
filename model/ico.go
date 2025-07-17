@@ -1,7 +1,11 @@
 package model
 
-type IconIndex = MediaOutput[IconEntry]
-type IconGroup = Group[IconEntry]
+type IconMeta struct {
+	ID       string `json:"id,omitempty"` // e.g. "sci-fi"
+	Name     string `json:"name"`
+	FullPath string `json:"full_path"`
+	Size     int64  `json:"size"`
+}
 
 type IconEntry struct {
 	ID       string      `json:"id,omitempty"`

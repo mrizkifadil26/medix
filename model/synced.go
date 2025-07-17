@@ -1,8 +1,8 @@
 package model
 
 // Top-level synced structure for media (movies / tvshows)
-type SyncedOutput = MediaOutput[SyncedItem]
-type SyncedGenre = Group[SyncedItem]
+type SyncedOutput = MediaOutputLegacy[SyncedItem]
+type SyncedGenre = GroupLegacy[SyncedItem]
 
 // One movie/tvshow folder entry (enriched version of RawItem)
 type SyncedItem struct {
@@ -34,8 +34,8 @@ type SyncedIconMeta struct {
 }
 
 // Synced version of Icon Index
-type SyncedIconIndex = MediaOutput[SyncedIconEntry]
-type SyncedIconGroup = Group[SyncedIconEntry]
+type SyncedIconIndex = MediaOutputLegacy[SyncedIconEntry]
+type SyncedIconGroup = GroupLegacy[SyncedIconEntry]
 
 // One icon (linked back to media if used)
 type SyncedIconEntry struct {

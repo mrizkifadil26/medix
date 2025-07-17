@@ -1,0 +1,95 @@
+package scanner
+
+import (
+	"os"
+	"path/filepath"
+	"sort"
+	"time"
+
+	"github.com/mrizkifadil26/medix/model"
+)
+
+type TVStrategy struct{}
+
+func (TVStrategy) Scan(roots []string) (model.MediaOutput, error) {
+	start := time.Now()
+	cache := &dirCache{}
+	concurrency := getConcurrency()
+
+	entries := scanMedia(
+		roots,
+		cache,
+		func(folderPath string, dirEntries []os.DirEntry) (model.MediaEntry, bool) {
+			group := filepath.Base(filepath.Dir(folderPath)) // genre
+
+			var seasons []string
+			for _, entry := range dirEntries {
+				if entry.IsDir() {
+					seasons = append(seasons, entry.Name())
+				}
+			}
+
+			showEntry := model.MediaEntry{
+				BaseEntry: model.BaseEntry{
+					Type:   "show",
+					Name:   filepath.Base(folderPath),
+					Path:   folderPath,
+					Status: resolveStatus(dirEntries),
+					Icon:   findIcon(folderPath, dirEntries),
+					Group:  group,
+				},
+			}
+
+			// Add seasons as items (not recursive)
+			for _, entry := range dirEntries {
+				if entry.IsDir() {
+					seasonPath := filepath.Join(folderPath, entry.Name())
+					subEntries := cache.Read(seasonPath)
+					season := model.MediaEntry{
+						BaseEntry: model.BaseEntry{
+							Type:   "season",
+							Name:   entry.Name(),
+							Path:   seasonPath,
+							Status: resolveStatus(subEntries),
+							Parent: showEntry.Name,
+							Group:  group,
+						},
+					}
+					showEntry.Items = append(showEntry.Items, season)
+				}
+			}
+
+			return showEntry, true
+		},
+		concurrency,
+	)
+
+	// Build group count (unique genre names)
+	groupSet := map[string]struct{}{}
+	for _, entry := range entries {
+		groupSet[entry.Group] = struct{}{}
+	}
+
+	output := model.MediaOutput{
+		Version:        "1.0.0",
+		GeneratedAt:    time.Now(),
+		Source:         "movies",
+		TotalItems:     len(entries),
+		GroupCount:     len(groupSet),
+		ScanDurationMs: time.Since(start).Milliseconds(),
+		Items:          entries,
+	}
+
+	return output, nil
+}
+
+func extractSeasonNames(entries []os.DirEntry) []string {
+	var names []string
+	for _, e := range entries {
+		if e.IsDir() {
+			names = append(names, e.Name())
+		}
+	}
+	sort.Strings(names)
+	return names
+}
