@@ -1,4 +1,4 @@
-package main
+package organizer
 
 import (
 	"encoding/json"
@@ -12,7 +12,7 @@ import (
 
 const configPath = "config/organize-icons.json"
 
-func main() {
+func RunPreview() {
 	fmt.Println("🔍 Previewing scattered icon organization...")
 
 	// 1. Load config

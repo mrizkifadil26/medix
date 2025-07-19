@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	flags := iconmap.ParseFlags()
+	flags := iconmap.Parse()
 
 	var cfg iconmap.Config
 

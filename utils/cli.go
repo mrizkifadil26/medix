@@ -12,6 +12,13 @@ func (a *ArrayFlags) String() string {
 }
 
 func (a *ArrayFlags) Set(value string) error {
-	*a = append(*a, value)
+	parts := strings.Split(value, ",")
+	for _, p := range parts {
+		trimmed := strings.TrimSpace(p)
+		if trimmed != "" {
+			*a = append(*a, trimmed)
+		}
+	}
+
 	return nil
 }
