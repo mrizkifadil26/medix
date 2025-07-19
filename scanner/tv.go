@@ -21,13 +21,6 @@ func (TVStrategy) Scan(roots []string) (model.MediaOutput, error) {
 		func(folderPath string, dirEntries []os.DirEntry) (model.MediaEntry, bool) {
 			group := filepath.Base(filepath.Dir(folderPath)) // genre
 
-			// var seasons []string
-			// for _, entry := range dirEntries {
-			// 	if entry.IsDir() {
-			// 		seasons = append(seasons, entry.Name())
-			// 	}
-			// }
-
 			showEntry := model.MediaEntry{
 				BaseEntry: model.BaseEntry{
 					Type:   "show",
@@ -70,6 +63,7 @@ func (TVStrategy) Scan(roots []string) (model.MediaOutput, error) {
 	}
 
 	output := model.MediaOutput{
+		Type:           "raw",
 		Version:        "1.0.0",
 		GeneratedAt:    time.Now(),
 		Source:         "tv",

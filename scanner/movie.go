@@ -43,6 +43,7 @@ func (MovieStrategy) Scan(roots []string) (model.MediaOutput, error) {
 	}
 
 	output := model.MediaOutput{
+		Type:           "raw",
 		Version:        "1.0.0",
 		GeneratedAt:    time.Now(),
 		Source:         "movies",
