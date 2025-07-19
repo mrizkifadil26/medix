@@ -15,7 +15,6 @@ DEPLOY_SCRIPT  		= ./scripts/deploy.sh
 
 # Tools
 GO       = go
-RICHGO   = richgo
 
 # Flags
 DRY_FLAG = --dry
