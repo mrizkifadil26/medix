@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-type CLIFlags struct {
+type Flags struct {
 	ConfigPath string
 
 	Source string
@@ -15,8 +15,8 @@ type CLIFlags struct {
 	Output string
 }
 
-func ParseFlags() CLIFlags {
-	var f CLIFlags
+func Parse() Flags {
+	var f Flags
 
 	flag.StringVar(&f.ConfigPath, "config", "", "Path to config file (JSON). If provided, inline flags are ignored.")
 
@@ -28,6 +28,16 @@ func ParseFlags() CLIFlags {
 	flag.Parse()
 
 	// Validate
+	if err := f.Validate(); err != nil {
+		fmt.Fprintln(os.Stderr, "❌", err)
+		flag.Usage()
+		os.Exit(1)
+	}
+
+	return f
+}
+
+func (f Flags) Validate() error {
 	if f.ConfigPath == "" {
 		// No config file, using inline mode — validate required fields
 		if f.Source == "" || f.Type == "" || f.Name == "" || f.Output == "" {
@@ -42,5 +52,5 @@ func ParseFlags() CLIFlags {
 		}
 	}
 
-	return f
+	return nil
 }
