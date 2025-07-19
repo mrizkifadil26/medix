@@ -8,6 +8,7 @@ SCANNER_CMD        	= ./cmd/scan
 PROGRESS_CMD       	= ./cmd/progress
 SERVER_CMD         	= ./cmd/server
 ICONMAP_CMD   		= ./cmd/iconmap
+ORGANIZE_CMD        := ./cmd/organize
 WEBGEN_CMD        	= ./cmd/webgen
 DEV_CMD             := ./cmd/dev
 
@@ -38,6 +39,17 @@ tv:
 icons-%:
 	@$(GO) run $(ICONMAP_CMD) --config=config/iconmap-$*.json
 
+# --- Organize preview/apply ---
+organize-preview:
+	@$(GO) run $(ORGANIZE_CMD) \
+		-config="config/organize-movies.json"
+
+organize-apply:
+	@$(GO) run $(ORGANIZE_CMD) \
+		-config="config/organize-movies.json"
+
+organize: organize-preview organize-apply
+
 # --- Progress report ---
 progress:
 	@$(GO) run $(PROGRESS_CMD)
@@ -52,6 +64,10 @@ dry-run:
 run:
 	@$(GO) run $(WEBGEN_CMD) --input=$(INPUT) --output=$(OUTPUT)
 
+build-organize:
+	@mkdir -p $(BIN_DIR)
+	@$(GO) build -o $(BIN_DIR)/organize $(ORGANIZE_CMD)
+
 # --- Build individual binaries ---
 build-webgen:
 	mkdir -p $(BIN_DIR)
@@ -62,11 +78,11 @@ build-server:
 	@$(GO) build -o $(BIN_DIR)/server $(SERVER_CMD)
 
 # --- Build all tools ---
-build-all: build-webgen build-server
+build-all: build-webgen build-server build-organize
 
 # --- Local dev ---
 dev:
-	@$(RICHGO) run $(DEV_CMD)
+	@$(GO) run $(DEV_CMD)
 
 # --- Testing ---
 test:
@@ -99,8 +115,13 @@ help:
 	@echo "   make index-icons     Generate icon index JSON"
 	@echo "   make progress        Create progress.json"
 	@echo ""
+	@echo "🧹 Organize Media:"
+	@echo "   make preview         Run organize in preview mode"
+	@echo "   make apply           Run organize in apply mode"
+	@echo ""
 	@echo "🛠️ Build Commands:"
 	@echo "   make build-webgen    Build static site generator binary"
+	@echo "   make build-organize  Build organize binary"
 	@echo "   make build-all       Build all binaries into ./bin/"
 	@echo ""
 	@echo "🌐 Site & Serve:"
