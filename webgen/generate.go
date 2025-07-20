@@ -10,7 +10,6 @@ func GenerateSite(inputDir, outputDir string) error {
 	// Paths
 	dataPath := inputDir
 	outData := filepath.Join(outputDir, "data")
-	outAssets := filepath.Join(outputDir, "assets")
 
 	// Step 1: Render static pages
 	logger.Step("🎨 Rendering static pages...")
@@ -30,7 +29,7 @@ func GenerateSite(inputDir, outputDir string) error {
 
 	// Step 4: Copy static assets
 	logger.Step("🎨 Copying assets to dist/assets...")
-	if err := CopyDir("assets", outAssets); err != nil {
+	if err := CopyDir("assets", outputDir); err != nil {
 		return err
 	}
 
