@@ -40,13 +40,15 @@ icons-%:
 	@$(GO) run $(ICONMAP_CMD) --config=config/iconmap-$*.json
 
 # --- Organize preview/apply ---
-organize-preview:
+organize-preview-%:
 	@$(GO) run $(ORGANIZE_CMD) \
-		-config="config/organize-movies.json"
+		--config="config/organize-$*.json" \
+		--mode=preview
 
-organize-apply:
+organize-apply-%:
 	@$(GO) run $(ORGANIZE_CMD) \
-		-config="config/organize-movies.json"
+		--config="config/organize-$*.json" \
+		--mode=apply
 
 organize: organize-preview organize-apply
 
