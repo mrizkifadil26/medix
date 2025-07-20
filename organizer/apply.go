@@ -18,26 +18,22 @@ func Apply(result OrganizeResult) {
 		case "copy":
 			fmt.Printf("🟡 Copy: %s → %s\n", src, dst)
 
-			/*
-				err := copyFile(src, dst)
-				if err != nil {
-					fmt.Printf("❌ Failed to copy from %s → %s: %v\n", src, dst, err)
-				} else {
-					fmt.Printf("✅ Copied: %s → %s\n", src, dst)
-				}
-			*/
+			err := copyFile(src, dst)
+			if err != nil {
+				fmt.Printf("❌ Failed to copy from %s → %s: %v\n", src, dst, err)
+			} else {
+				fmt.Printf("✅ Copied: %s → %s\n", src, dst)
+			}
 
 		case "move":
 			fmt.Printf("🟡 Move: %s → %s\n", src, dst)
 
-			/*
-				err := moveFile(src, dst)
-				if err != nil {
-					fmt.Printf("❌ Failed to move from %s → %s: %v\n", src, dst, err)
-				} else {
-					fmt.Printf("✅ Moved: %s → %s\n", src, dst)
-				}
-			*/
+			err := moveFile(src, dst)
+			if err != nil {
+				fmt.Printf("❌ Failed to move from %s → %s: %v\n", src, dst, err)
+			} else {
+				fmt.Printf("✅ Moved: %s → %s\n", src, dst)
+			}
 
 		default:
 			fmt.Printf("⚠️ Unknown action: %s for %s\n", change.Action, src)
@@ -51,6 +47,7 @@ func moveFile(src, dst string) error {
 	if err != nil {
 		return err
 	}
+
 	return os.Rename(src, dst)
 }
 
@@ -60,5 +57,6 @@ func copyFile(src, dst string) error {
 	if err != nil {
 		return err
 	}
+
 	return utils.CopyFile(src, dst)
 }

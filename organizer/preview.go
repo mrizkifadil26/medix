@@ -1,6 +1,7 @@
 package organizer
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -10,7 +11,7 @@ import (
 	"github.com/mrizkifadil26/medix/utils"
 )
 
-func Preview(scan model.MediaOutput, sources []string) OrganizeResult {
+func Preview(scan model.MediaOutput, sources []IconSource, targetDir string) OrganizeResult {
 	iconMap := loadIcons(sources)
 	result := OrganizeResult{
 		Type:        scan.Source,
@@ -18,9 +19,9 @@ func Preview(scan model.MediaOutput, sources []string) OrganizeResult {
 	}
 
 	for _, item := range scan.Items {
-		if item.Status != "missing" {
-			continue
-		}
+		// if item.Status != "missing" {
+		// 	continue
+		// }
 
 		slug := utils.Slugify(item.Name)
 		iconPath, ok := iconMap[slug]
@@ -29,9 +30,9 @@ func Preview(scan model.MediaOutput, sources []string) OrganizeResult {
 		}
 
 		result.Changes = append(result.Changes, ChangeItem{
-			Action: "move",
+			Action: "copy",
 			Source: iconPath,
-			Target: filepath.Join(item.Path, "folder.ico"),
+			Target: filepath.Join(targetDir, item.Group, filepath.Base(iconPath)),
 			Reason: "slug match",
 			Item:   item.BaseEntry,
 		})
@@ -41,12 +42,13 @@ func Preview(scan model.MediaOutput, sources []string) OrganizeResult {
 }
 
 // loadIcons builds a map[slug]filepath from source directories
-func loadIcons(sources []string) map[string]string {
+func loadIcons(sources []IconSource) map[string]string {
 	iconMap := make(map[string]string)
 
 	for _, src := range sources {
-		entries, err := os.ReadDir(src)
+		entries, err := os.ReadDir(src.Path)
 		if err != nil {
+			fmt.Printf("⚠️ Failed to read icon source %s (%s): %v\n", src.Source, src.Path, err)
 			continue
 		}
 
@@ -64,7 +66,7 @@ func loadIcons(sources []string) map[string]string {
 
 			// only set if not already mapped
 			if _, exists := iconMap[slug]; !exists {
-				iconMap[slug] = filepath.Join(src, entry.Name())
+				iconMap[slug] = filepath.Join(src.Path, entry.Name())
 			}
 		}
 	}
