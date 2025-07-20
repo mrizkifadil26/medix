@@ -1,5 +1,10 @@
 {
-  "mode": "preview",
-  "json": "tv-data.json",
-  "icons": "Icons"
+  "mediaInput": "data/tv.raw.json",
+  "iconSources": [
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/TV Show Icon Pack/Downloaded",
+      "source": "Downloaded"
+    }
+  ],
+  "targetDir": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/TV Show Icon Pack/Downloaded"
 }

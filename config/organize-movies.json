@@ -1,6 +1,5 @@
 {
-  "mode": "preview",
-  "inputJson": "data/movies.raw.json",
+  "mediaInput": "data/movies.raw.json",
   "iconSources": [
     {
       "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/new",
