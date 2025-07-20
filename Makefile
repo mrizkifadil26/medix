@@ -1,26 +1,27 @@
 # Makefile to build media tools, generate data, and serve static site
+
 # --- Directories ---
 OUTPUT_DIR        := output
 BIN_DIR           := bin
 
 # --- Command Sources ---
-SCANNER_CMD        	= ./cmd/scan
-PROGRESS_CMD       	= ./cmd/progress
-SERVER_CMD         	= ./cmd/server
-ICONMAP_CMD   		= ./cmd/iconmap
+SCANNER_CMD        	:= ./cmd/scan
+PROGRESS_CMD       	:= ./cmd/progress
+SERVER_CMD         	:= ./cmd/server
+ICONMAP_CMD   		:= ./cmd/iconmap
 ORGANIZE_CMD        := ./cmd/organize
-WEBGEN_CMD        	= ./cmd/webgen
+WEBGEN_CMD        	:= ./cmd/webgen
 DEV_CMD             := ./cmd/dev
 
-DEPLOY_SCRIPT  		= ./scripts/deploy.sh
+DEPLOY_SCRIPT  		:= ./scripts/deploy.sh
 
 # Tools
-GO       = go
+GO       := go
 
 # Flags
-DRY_FLAG = --dry
-INPUT    = data
-OUTPUT   = dist
+DRY_FLAG := --dry
+INPUT := data
+OUTPUT   := dist
 
 .PHONY: all movies tvshows index-icons progress webgen \
         build-webgen build-scan build-progress build-server build-index \
