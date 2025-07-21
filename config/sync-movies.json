@@ -1,0 +1,7 @@
+{
+  "name": "movies",
+  "mediaInput": "data/movies.raw.json",
+  "iconInput": "data/iconmap-movies.json",
+  "outMedia": "data/movies.synced.json",
+  "outIcon": "data/iconmap.synced.json"
+}
