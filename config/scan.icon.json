@@ -1,0 +1,45 @@
+{
+  "concurrency": 8,
+  "scan": [
+    {
+      "name": "movies",
+      "type": "media",
+      "include": [
+        "TODO/Foldered",
+        "TODO/Unfoldered",
+        "TODO/By Year"
+      ],
+      "exclude": [
+        "TODO/Foreign"
+      ],
+      "final_root": "Media/Movies"
+    },
+    {
+      "name": "tv",
+      "type": "media",
+      "include": [
+        "TODO/TV Shows"
+      ],
+      "exclude": [],
+      "final_root": "Media/TV Shows"
+    },
+    {
+      "name": "movies",
+      "type": "icon",
+      "include": [
+        "TODO/Icons"
+      ],
+      "exclude": [],
+      "final_root": "Media/Movies"
+    },
+    {
+      "name": "tv",
+      "type": "icon",
+      "include": [
+        "TODO/Icons"
+      ],
+      "exclude": [],
+      "final_root": "Media/TV Shows"
+    }
+  ]
+}

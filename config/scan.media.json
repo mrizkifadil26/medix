@@ -1,0 +1,30 @@
+{
+  "concurrency": 8,
+  "scan": [
+    {
+      "name": "movies",
+      "type": "media",
+      "include": [
+        "/mnt/e/Media/Movies",
+        "/mnt/e/TODO/Movies/Unfoldered",
+        "/mnt/e/TODO/Movies/By Year",
+        "/mnt/e/TODO/Movies/Foreign",
+        "/mnt/e/TODO/Movies/Foldered"
+      ],
+      "exclude": [],
+      "final_root": "/mnt/e/Media/Movies",
+      "output": "media/movies.raw.json"
+    },
+    {
+      "name": "tv",
+      "type": "media",
+      "include": [
+        "/mnt/e/Media/TV Shows",
+        "/mnt/d/TV Shows"
+      ],
+      "exclude": [],
+      "final_root": "/mnt/e/Media/TV Shows",
+      "output": "media/tv.json"
+    }
+  ]
+}
