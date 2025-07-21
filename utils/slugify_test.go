@@ -17,6 +17,7 @@ func TestSlugify(t *testing.T) {
 		{"Zack Snyder’s Justice League.ico", "zack-snyders-justice-league"},
 		{"Café Society.ico", "cafe-society"},
 		{"The Devil's Advocate.ico", "the-devils-advocate"},
+		{"Mr. Bean's Holiday (2007).ico", "mr-beans-holiday-2007"}, // <-- Added
 	}
 
 	for _, tt := range tests {
