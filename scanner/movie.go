@@ -27,7 +27,7 @@ func (MovieStrategy) Scan(roots []string) (model.MediaOutput, error) {
 					Name:   filepath.Base(folderPath),
 					Path:   folderPath,
 					Status: resolveStatus(dirEntries),
-					Icon:   findIcon(folderPath, dirEntries),
+					Icon:   resolveIcon(folderPath, dirEntries),
 					Group:  group,
 				},
 			}

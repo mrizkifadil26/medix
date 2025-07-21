@@ -20,7 +20,7 @@ func getConcurrency() int {
 	return globalConcurrency
 }
 
-func findIcon(dir string, entries []os.DirEntry) *model.IconMeta {
+func resolveIcon(dir string, entries []os.DirEntry) *model.IconMeta {
 	for _, f := range entries {
 		if f.IsDir() || filepath.Ext(f.Name()) != ".ico" {
 			continue
@@ -38,6 +38,7 @@ func findIcon(dir string, entries []os.DirEntry) *model.IconMeta {
 			Size:     info.Size(),
 		}
 	}
+
 	return nil
 }
 
