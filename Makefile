@@ -1,29 +1,30 @@
 # Makefile to build media tools, generate data, and serve static site
 
 # --- Directories ---
-OUTPUT_DIR        := output
-BIN_DIR           := bin
+OUTPUT_DIR	:= output
+BIN_DIR		:= bin
 
 # --- Command Sources ---
-SCANNER_CMD        	:= ./cmd/scan
-PROGRESS_CMD       	:= ./cmd/progress
-SERVER_CMD         	:= ./cmd/server
-ICONMAP_CMD   		:= ./cmd/iconmap
-ORGANIZE_CMD        := ./cmd/organize
-WEBGEN_CMD        	:= ./cmd/webgen
-DEV_CMD             := ./cmd/dev
+SCANNER_CMD		:= ./cmd/scan
+PROGRESS_CMD	:= ./cmd/progress
+SERVER_CMD		:= ./cmd/server
+ICONMAP_CMD		:= ./cmd/iconmap
+ORGANIZE_CMD	:= ./cmd/organize
+SYNC_CMD    	:= ./cmd/sync
+WEBGEN_CMD		:= ./cmd/webgen
+DEV_CMD			:= ./cmd/dev
 
-DEPLOY_SCRIPT  		:= ./scripts/deploy.sh
+DEPLOY_SCRIPT	:= ./scripts/deploy.sh
 
 # Tools
-GO       := go
+GO			:= go
 
 # Flags
-DRY_FLAG := --dry
-INPUT := data
-OUTPUT   := dist
+DRY_FLAG 	:= --dry
+INPUT		:= data
+OUTPUT   	:= dist
 
-.PHONY: all movies tvshows index-icons progress webgen \
+.PHONY: all movies tvshows index-icons sync progress webgen \
         build-webgen build-scan build-progress build-server build-index \
         build-all serve test test-slugify deploy clean help
 
@@ -32,13 +33,24 @@ all: movies tvshows
 
 # --- Media source generation ---
 movies:
-	@$(GO) run $(SCANNER_CMD) -config "config/scan_config.json" -type movies
+	@$(GO) run $(SCANNER_CMD) \
+		--config "config/scan_config.json" \
+		--type movies
 
 tv:
-	@$(GO) run $(SCANNER_CMD) -config "config/scan_config.json" -type tv
+	@$(GO) run $(SCANNER_CMD) \
+		--config "config/scan_config.json" \
+		--type tv
 
+# --- Icon index generation ---
 icons-%:
-	@$(GO) run $(ICONMAP_CMD) --config=config/iconmap-$*.json
+	@$(GO) run $(ICONMAP_CMD) \
+		--config=config/iconmap-$*.json
+
+# --- Sync media and icons logically ---
+sync:
+	@$(GO) run $(SYNC_CMD) \
+		--config="config/sync-movies.json"
 
 # --- Organize preview/apply ---
 organize-preview-%:
@@ -67,11 +79,15 @@ dry-run:
 run:
 	@$(GO) run $(WEBGEN_CMD) --input=$(INPUT) --output=$(OUTPUT)
 
+# --- Build individual binaries ---
+build-sync:
+	@mkdir -p $(BIN_DIR)
+	@$(GO) build -o $(BIN_DIR)/sync $(SYNC_CMD)
+
 build-organize:
 	@mkdir -p $(BIN_DIR)
 	@$(GO) build -o $(BIN_DIR)/organize $(ORGANIZE_CMD)
 
-# --- Build individual binaries ---
 build-webgen:
 	mkdir -p $(BIN_DIR)
 	@$(GO) build -o $(BIN_DIR)/webgen $(WEBGEN_CMD)
@@ -92,7 +108,7 @@ test:
 	go test -v ./...
 
 test-slugify:
-	go test -v ./util
+	go test -v ./utils
 
 # --- Deploy ---
 deploy:
@@ -113,33 +129,41 @@ clean:
 help:
 	@echo ""
 	@echo "🎬 Media Build Commands:"
-	@echo "   make movies          Generate movies_sidebar.json"
-	@echo "   make tvshows         Generate tvshows_sidebar.json"
-	@echo "   make index-icons     Generate icon index JSON"
+	@echo "   make movies          Generate movies.raw.json"
+	@echo "   make tv              Generate tv.raw.json"
+	@echo "   make icons-movies    Generate icon index for movies"
+	@echo "   make icons-tv        Generate icon index for TV shows"
 	@echo "   make progress        Create progress.json"
 	@echo ""
+	@echo "🔄 Sync Media & Icons:"
+	@echo "   make sync              Run logical sync pipeline"
+	@echo ""
 	@echo "🧹 Organize Media:"
-	@echo "   make preview         Run organize in preview mode"
-	@echo "   make apply           Run organize in apply mode"
+	@echo "   make organize-preview-<name>  Preview organize changes"
+	@echo "   make organize-apply-<name>    Apply organize changes"
 	@echo ""
 	@echo "🛠️ Build Commands:"
+	@echo "   make build-sync        Build sync binary"
 	@echo "   make build-webgen    Build static site generator binary"
 	@echo "   make build-organize  Build organize binary"
 	@echo "   make build-all       Build all binaries into ./bin/"
 	@echo ""
 	@echo "🌐 Site & Serve:"
 	@echo "   make webgen          Build static HTML site with webgen"
+	@echo "   make dry-run         Run webgen in dry mode"
+	@echo "   make run             Run webgen with configured input/output"
 	@echo "   make serve           Run local web server"
-	@echo "   make watch           Watch & rebuild with Air"
-	@echo "   make watch-serve     Watch and serve concurrently"
+	@echo "   make dev             Run dev tool"
 	@echo ""
 	@echo "🧪 Testing:"
 	@echo "   make test            Run all unit tests"
-	@echo "   make test-slugify    Test slugify only"
+	@echo "   make test-slugify    Test slugify utilities"
 	@echo ""
 	@echo "🚀 Deployment:"
 	@echo "   make deploy          Deploy using deploy.sh"
 	@echo ""
 	@echo "🧹 Maintenance:"
-	@echo "   make clean           Remove output/"
+	@echo "   make clean           Remove output/, dist/, and bin/"
+	@echo "   make format          Format Go code"
+	@echo "   make tidy            Run go mod tidy"
 	@echo ""
