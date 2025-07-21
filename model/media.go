@@ -15,7 +15,8 @@ type MediaOutput struct {
 
 type MediaEntry struct {
 	BaseEntry
-	Items []MediaEntry `json:"items,omitempty"`
+	Source string       `json:"source"`
+	Items  []MediaEntry `json:"items,omitempty"`
 }
 
 func (e MediaEntry) GetName() string { return e.Name }
