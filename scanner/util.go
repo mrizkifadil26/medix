@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 
 	"github.com/mrizkifadil26/medix/model"
-	util "github.com/mrizkifadil26/medix/utils"
+	"github.com/mrizkifadil26/medix/utils"
 )
 
 var globalConcurrency = 1
@@ -32,7 +32,7 @@ func findIcon(dir string, entries []os.DirEntry) *model.IconMeta {
 		}
 
 		return &model.IconMeta{
-			ID:       util.Slugify(f.Name()), // Use the file name as ID
+			ID:       utils.Slugify(f.Name()), // Use the file name as ID
 			Name:     f.Name(),
 			FullPath: filepath.Join(dir, f.Name()),
 			Size:     info.Size(),
@@ -70,13 +70,3 @@ func resolveStatus(entries []os.DirEntry) string {
 
 	return "missing"
 }
-
-// func sortedKeys[M ~map[string]V, V any](m M) []string {
-// 	var keys []string
-// 	for k := range m {
-// 		keys = append(keys, k)
-// 	}
-
-// 	sort.Strings(keys)
-// 	return keys
-// }
