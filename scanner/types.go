@@ -9,20 +9,26 @@ import (
 	"github.com/mrizkifadil26/medix/model"
 )
 
-type ScanConfig struct {
-	ContentType string   `json:"content_type"`       // "movies" or "tv"
-	Sources     []string `json:"sources"`            // List of directories
-	OutputPath  string   `json:"output_path"`        // Output file path
-	Strategy    string   `json:"strategy,omitempty"` // (optional) for future use
+type ScanFileConfig struct {
+	Concurrency int          `json:"concurrency,omitempty"` // 👈 add this
+	Scan        []ScanConfig `json:"scan"`
 }
 
-type ScanConfigFile struct {
-	Concurrency int          `json:"concurrency,omitempty"` // 👈 add this
-	Configs     []ScanConfig `json:"configs"`
+type ScanConfig struct {
+	Name    string         `json:"name"`    // "movies" or "tv"
+	Type    string         `json:"type"`    // List of directories
+	Output  string         `json:"output"`  // Output file path
+	Include []IncludeEntry `json:"include"` // (optional) for future use
+	Exclude []string       `json:"exclude"` // (optional) for future use
+}
+
+type IncludeEntry struct {
+	Label string `json:"label"`
+	Path  string `json:"path"`
 }
 
 type ScanStrategy interface {
-	Scan(roots []string) (model.MediaOutput, error) // returns model.MovieOutput or model.TVShowOutput
+	Scan(sources map[string]string) (model.MediaOutput, error) // returns model.MovieOutput or model.TVShowOutput
 }
 
 type dirCache struct {

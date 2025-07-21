@@ -10,15 +10,15 @@ import (
 
 type TVStrategy struct{}
 
-func (TVStrategy) Scan(roots []string) (model.MediaOutput, error) {
+func (TVStrategy) Scan(sources map[string]string) (model.MediaOutput, error) {
 	start := time.Now()
 	cache := &dirCache{}
 	concurrency := getConcurrency()
 
 	entries := scanMedia(
-		roots,
+		sources,
 		cache,
-		func(folderPath string, dirEntries []os.DirEntry) (model.MediaEntry, bool) {
+		func(folderPath, label string, dirEntries []os.DirEntry) (model.MediaEntry, bool) {
 			group := filepath.Base(filepath.Dir(folderPath)) // genre
 
 			showEntry := model.MediaEntry{
@@ -30,6 +30,7 @@ func (TVStrategy) Scan(roots []string) (model.MediaOutput, error) {
 					Icon:   resolveIcon(folderPath, dirEntries),
 					Group:  group,
 				},
+				Source: label,
 			}
 
 			// Add seasons as items (not recursive)

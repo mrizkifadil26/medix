@@ -3,7 +3,6 @@ package scanner
 import (
 	"os"
 	"path/filepath"
-	"strings"
 	"time"
 
 	"github.com/mrizkifadil26/medix/model"
@@ -11,24 +10,17 @@ import (
 
 type MovieStrategy struct{}
 
-func (MovieStrategy) Scan(roots []string) (model.MediaOutput, error) {
+func (MovieStrategy) Scan(sources map[string]string) (model.MediaOutput, error) {
 	start := time.Now()
 	cache := &dirCache{}
 	concurrency := getConcurrency()
 
 	entries := scanMedia(
-		roots,
+		sources,
 		cache,
-		func(folderPath string, dirEntries []os.DirEntry) (model.MediaEntry, bool) {
+		func(folderPath, label string, dirEntries []os.DirEntry) (model.MediaEntry, bool) {
 			group := filepath.Base(filepath.Dir(folderPath)) // genre
 
-			matchedRoot := ""
-			for _, root := range roots {
-				if rel, err := filepath.Rel(root, folderPath); err == nil && !strings.HasPrefix(rel, "..") {
-					matchedRoot = root
-					break
-				}
-			}
 			entry := model.MediaEntry{
 				BaseEntry: model.BaseEntry{
 					Type:   "movie",
@@ -38,7 +30,7 @@ func (MovieStrategy) Scan(roots []string) (model.MediaOutput, error) {
 					Icon:   resolveIcon(folderPath, dirEntries),
 					Group:  group,
 				},
-				Source: matchedRoot,
+				Source: label,
 			}
 
 			return entry, true

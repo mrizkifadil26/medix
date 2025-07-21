@@ -11,9 +11,9 @@ import (
 )
 
 func scanMedia(
-	roots []string,
+	sources map[string]string,
 	cache *dirCache,
-	itemBuilder func(titlePath string, subEntries []os.DirEntry) (model.MediaEntry, bool),
+	itemBuilder func(titlePath, label string, subEntries []os.DirEntry) (model.MediaEntry, bool),
 	concurrency int,
 ) []model.MediaEntry {
 	var (
@@ -25,8 +25,8 @@ func scanMedia(
 
 	// Count all group directories first for progress bar
 	var totalGroups int
-	for _, root := range roots {
-		if entries := cache.Read(root); entries != nil {
+	for _, path := range sources {
+		if entries := cache.Read(path); entries != nil {
 			for _, entry := range entries {
 				if entry.IsDir() {
 					totalGroups++
@@ -42,8 +42,8 @@ func scanMedia(
 		progressbar.OptionClearOnFinish(),
 	)
 
-	for _, root := range roots {
-		groupDirs := cache.Read(root)
+	for label, path := range sources {
+		groupDirs := cache.Read(path)
 		if groupDirs == nil {
 			continue
 		}
@@ -53,7 +53,7 @@ func scanMedia(
 				continue
 			}
 
-			groupPath := filepath.Join(root, group.Name())
+			groupPath := filepath.Join(path, group.Name())
 
 			wg.Add(1)
 			go func(groupName, groupPath string) {
@@ -78,7 +78,7 @@ func scanMedia(
 						continue
 					}
 
-					if item, ok := itemBuilder(itemPath, subEntries); ok {
+					if item, ok := itemBuilder(itemPath, label, subEntries); ok {
 						mu.Lock()
 						results = append(results, item)
 						mu.Unlock()
