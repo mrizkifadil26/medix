@@ -9,7 +9,8 @@ type IconEntry struct {
 	Source   string      `json:"source,omitempty"`
 	FullPath string      `json:"full_path,omitempty"`
 	Group    string      `json:"group,omitempty"`
-	Type     string      `json:"type"` // "icon" or "collection"
+	Type     string      `json:"type"`               // "icon" or "collection"
+	Variants []string    `json:"variants,omitempty"` // List of full paths to variant .ico files
 	Items    []IconEntry `json:"items,omitempty"`
 }
 

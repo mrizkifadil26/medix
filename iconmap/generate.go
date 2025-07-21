@@ -12,7 +12,7 @@ func GenerateIndex(cfg Config) (IconIndex, error) {
 	start := time.Now()
 	log.Println("🔍 Starting icon indexing...")
 
-	dirMap := make(map[string][]IconEntry)
+	dirMap := make(map[string][]*IconEntry)
 	for _, src := range cfg.Sources {
 		if err := collectIcons(src.Path, src.Name, cfg.ExcludeDirs, dirMap); err != nil {
 			log.Printf("⚠️ Failed indexing %s: %v", src.Path, err)
@@ -39,6 +39,7 @@ func GenerateIndex(cfg Config) (IconIndex, error) {
 
 	index := IconIndex{
 		Type:           cfg.Type,
+		Version:        "0.1.0",
 		GeneratedAt:    time.Now(),
 		TotalItems:     len(flattened),             // count of all icons
 		TotalSources:   len(cfg.Sources),           // number of source directories
@@ -51,7 +52,7 @@ func GenerateIndex(cfg Config) (IconIndex, error) {
 	return index, nil
 }
 
-func flattenIcons(dirMap map[string][]IconEntry, excludeDirs []string) []IconEntry {
+func flattenIcons(dirMap map[string][]*IconEntry, excludeDirs []string) []IconEntry {
 	var flat []IconEntry
 
 	for dir, icons := range dirMap {
@@ -60,7 +61,7 @@ func flattenIcons(dirMap map[string][]IconEntry, excludeDirs []string) []IconEnt
 		for _, icon := range icons {
 			icon.Type = "icon"
 			icon.Group = groupName
-			flat = append(flat, icon)
+			flat = append(flat, *icon)
 		}
 	}
 
@@ -81,7 +82,7 @@ func getSubGroupName(dir string, excludeDirs []string) string {
 	return sub
 }
 
-func getRootGroups(dirMap map[string][]IconEntry) map[string]struct{} {
+func getRootGroups(dirMap map[string][]*IconEntry) map[string]struct{} {
 	rootGroups := make(map[string]struct{})
 	for dir := range dirMap {
 		root := strings.SplitN(dir, string(os.PathSeparator), 2)[0]
