@@ -6,13 +6,15 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
+
+	"github.com/mrizkifadil26/medix/model"
 )
 
-func GenerateIndex(cfg Config) (IconIndex, error) {
+func GenerateIndex(cfg Config) (model.IconIndex, error) {
 	start := time.Now()
 	log.Println("🔍 Starting icon indexing...")
 
-	dirMap := make(map[string][]*IconEntry)
+	dirMap := make(map[string][]*model.IconEntry)
 	for _, src := range cfg.Sources {
 		if err := collectIcons(src.Path, src.Name, cfg.ExcludeDirs, dirMap); err != nil {
 			log.Printf("⚠️ Failed indexing %s: %v", src.Path, err)
@@ -37,7 +39,7 @@ func GenerateIndex(cfg Config) (IconIndex, error) {
 
 	flattened := flattenIcons(dirMap, cfg.ExcludeDirs)
 
-	index := IconIndex{
+	index := model.IconIndex{
 		Type:           cfg.Type,
 		Version:        "0.1.0",
 		GeneratedAt:    time.Now(),
@@ -52,8 +54,8 @@ func GenerateIndex(cfg Config) (IconIndex, error) {
 	return index, nil
 }
 
-func flattenIcons(dirMap map[string][]*IconEntry, excludeDirs []string) []IconEntry {
-	var flat []IconEntry
+func flattenIcons(dirMap map[string][]*model.IconEntry, excludeDirs []string) []model.IconEntry {
+	var flat []model.IconEntry
 
 	for dir, icons := range dirMap {
 		groupName := getSubGroupName(dir, excludeDirs)
@@ -82,7 +84,7 @@ func getSubGroupName(dir string, excludeDirs []string) string {
 	return sub
 }
 
-func getRootGroups(dirMap map[string][]*IconEntry) map[string]struct{} {
+func getRootGroups(dirMap map[string][]*model.IconEntry) map[string]struct{} {
 	rootGroups := make(map[string]struct{})
 	for dir := range dirMap {
 		root := strings.SplitN(dir, string(os.PathSeparator), 2)[0]

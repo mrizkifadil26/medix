@@ -7,11 +7,12 @@ import (
 	"slices"
 	"strings"
 
+	"github.com/mrizkifadil26/medix/model"
 	"github.com/mrizkifadil26/medix/utils"
 )
 
-func collectIcons(baseDir, source string, excludeDirs []string, dirMap map[string][]*IconEntry) error {
-	baseIconMap := make(map[string]*IconEntry)
+func collectIcons(baseDir, source string, excludeDirs []string, dirMap map[string][]*model.IconEntry) error {
+	baseIconMap := make(map[string]*model.IconEntry)
 	var allIcos []string
 
 	err := filepath.WalkDir(baseDir, func(path string, d os.DirEntry, err error) error {
@@ -43,7 +44,7 @@ func collectIcons(baseDir, source string, excludeDirs []string, dirMap map[strin
 		}
 
 		info, _ := os.Stat(path)
-		entry := &IconEntry{
+		entry := &model.IconEntry{
 			ID:       utils.Slugify(filename),
 			Name:     filename + ".ico",
 			Size:     info.Size(),
@@ -74,7 +75,7 @@ func collectIcons(baseDir, source string, excludeDirs []string, dirMap map[strin
 		} else {
 			// no base found, add as fallback
 			info, _ := os.Stat(path)
-			fallback := &IconEntry{
+			fallback := &model.IconEntry{
 				ID:       utils.Slugify(filename),
 				Name:     filename + ".ico",
 				Size:     info.Size(),
