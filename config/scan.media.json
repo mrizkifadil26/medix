@@ -5,11 +5,26 @@
       "name": "movies",
       "type": "media",
       "include": [
-        "/mnt/e/Media/Movies",
-        "/mnt/e/TODO/Movies/Unfoldered",
-        "/mnt/e/TODO/Movies/By Year",
-        "/mnt/e/TODO/Movies/Foreign",
-        "/mnt/e/TODO/Movies/Foldered"
+        {
+          "label": "movies",
+          "path": "/mnt/e/Media/Movies"
+        },
+        {
+          "label": "foreign",
+          "path": "/mnt/e/TODO/Movies/Foreign"
+        },
+        {
+          "label": "foldered",
+          "path": "/mnt/e/TODO/Movies/Foldered"
+        },
+        {
+          "label": "unfoldered",
+          "path": "/mnt/e/TODO/Movies/Unfoldered"
+        },
+        {
+          "label": "by-year",
+          "path": "/mnt/e/TODO/Movies/By Year"
+        }
       ],
       "exclude": [],
       "final_root": "/mnt/e/Media/Movies",
@@ -19,8 +34,14 @@
       "name": "tv",
       "type": "media",
       "include": [
-        "/mnt/e/Media/TV Shows",
-        "/mnt/d/TV Shows"
+        {
+          "label": "tv",
+          "path": "/mnt/e/Media/TV Shows"
+        },
+        {
+          "label": "external",
+          "path": "/mnt/d/TV Shows"
+        }
       ],
       "exclude": [],
       "final_root": "/mnt/e/Media/TV Shows",
