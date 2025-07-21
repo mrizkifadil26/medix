@@ -60,6 +60,7 @@ Flags:`)
 		f.InputPath = cfg.MediaInput
 		f.TargetDir = cfg.TargetDir
 		f.IconSources = cfg.IconSources
+		f.ReportPath = cfg.ReportPath
 	}
 
 	// Set default report path if not specified

@@ -38,6 +38,7 @@ func main() {
 				os.Exit(1)
 			}
 		}
+
 		fmt.Println("✅ Preview completed:", flags.TargetDir)
 
 	case "apply":
