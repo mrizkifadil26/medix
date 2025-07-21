@@ -11,10 +11,12 @@ import (
 	"github.com/mrizkifadil26/medix/utils"
 )
 
-func collectIcons(baseDir, source string, excludeDirs []string, dirMap map[string][]*model.IconEntry) error {
+func ScanIconDirectory(baseDir, source string, excludeDirs []string) (map[string][]model.IconEntry, error) {
+	groupedIcons := make(map[string][]*model.IconEntry)
 	baseIconMap := make(map[string]*model.IconEntry)
-	var allIcos []string
+	iconPaths := []string{}
 
+	// First pass: collect all .ico file paths
 	err := filepath.WalkDir(baseDir, func(path string, d os.DirEntry, err error) error {
 		if err != nil {
 			log.Printf("⚠️ Walk error in %s: %v", path, err)
@@ -26,21 +28,23 @@ func collectIcons(baseDir, source string, excludeDirs []string, dirMap map[strin
 		}
 
 		if !d.IsDir() && strings.HasSuffix(strings.ToLower(d.Name()), ".ico") {
-			allIcos = append(allIcos, path)
+			iconPaths = append(iconPaths, path)
 		}
 
 		return nil
 	})
 
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	// First pass: add base icons
-	for _, path := range allIcos {
+	// Second pass: register base icons
+	for _, path := range iconPaths {
 		relDir, filename, baseName := getNames(baseDir, path)
+
+		// Skip if it's a variant
 		if filename != baseName {
-			continue // skip variant for now
+			continue
 		}
 
 		info, _ := os.Stat(path)
@@ -49,20 +53,20 @@ func collectIcons(baseDir, source string, excludeDirs []string, dirMap map[strin
 			Name:     filename + ".ico",
 			Size:     info.Size(),
 			Source:   source,
-			FullPath: path,
+			Path:     path,
 			Type:     "icon",
 			Variants: []string{},
 		}
 
-		dirMap[relDir] = append(dirMap[relDir], entry)
+		groupedIcons[relDir] = append(groupedIcons[relDir], entry)
 		baseKey := filepath.Join(relDir, baseName)
 		baseIconMap[baseKey] = entry
 
 		// log.Printf("🎯 Base icon added: %s (relDir: %s)", entry.Name, relDir)
 	}
 
-	// Second pass: assign variants
-	for _, path := range allIcos {
+	// Third pass: assign variants or fallback if no base found
+	for _, path := range iconPaths {
 		relDir, filename, baseName := getNames(baseDir, path)
 		if filename == baseName {
 			continue // already handled
@@ -80,16 +84,22 @@ func collectIcons(baseDir, source string, excludeDirs []string, dirMap map[strin
 				Name:     filename + ".ico",
 				Size:     info.Size(),
 				Source:   source,
-				FullPath: path,
+				Path:     path,
 				Type:     "icon",
 				Variants: []string{},
 			}
-			dirMap[relDir] = append(dirMap[relDir], fallback)
+
+			groupedIcons[relDir] = append(groupedIcons[relDir], fallback)
 			log.Printf("⚠️ No base found for variant %s, added as fallback", fallback.Name)
 		}
 	}
 
-	return nil
+	finalGrouped := make(map[string][]model.IconEntry)
+	for group, entries := range groupedIcons {
+		finalGrouped[group] = toValueSlice(entries)
+	}
+
+	return finalGrouped, nil
 }
 
 func isExcluded(name string, excludeDirs []string) bool {
@@ -112,4 +122,12 @@ func stripAltSuffix(name string) string {
 	}
 
 	return name
+}
+
+func toValueSlice(entries []*model.IconEntry) []model.IconEntry {
+	result := make([]model.IconEntry, len(entries))
+	for i, entry := range entries {
+		result[i] = *entry
+	}
+	return result
 }
