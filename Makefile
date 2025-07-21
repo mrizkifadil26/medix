@@ -1,10 +1,17 @@
 # Makefile to build media tools, generate data, and serve static site
 
 # --- Directories ---
-OUTPUT_DIR	:= output
-BIN_DIR		:= bin
+DATA_DIR        := data
+RAW_DIR         := $(DATA_DIR)/raw
+SYNCED_DIR      := $(DATA_DIR)/synced
+ICONMAP_DIR     := $(DATA_DIR)/iconmap
+ORGANIZE_DIR    := $(DATA_DIR)/organize
+REPORTS_DIR     := $(DATA_DIR)/reports
 
-# --- Command Sources ---
+OUTPUT_DIR		:= output
+BIN_DIR			:= bin
+
+# --- Executable Commands ---
 SCANNER_CMD		:= ./cmd/scan
 PROGRESS_CMD	:= ./cmd/progress
 SERVER_CMD		:= ./cmd/server
