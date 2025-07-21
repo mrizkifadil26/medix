@@ -12,3 +12,10 @@ type MediaOutput struct {
 	ScanDurationMs int64        `json:"scanDurationMs"` // for performance
 	Items          []MediaEntry `json:"items"`          // []MediaEntry or []MediaGroup
 }
+
+type MediaEntry struct {
+	BaseEntry
+	Items []MediaEntry `json:"items,omitempty"`
+}
+
+func (e MediaEntry) GetName() string { return e.Name }
