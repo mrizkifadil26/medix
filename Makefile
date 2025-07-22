@@ -39,15 +39,29 @@ OUTPUT   	:= dist
 all: movies tvshows
 
 # --- Media source generation ---
+movies-todo:
+	@$(GO) run $(SCANNER_CMD) \
+		--type movies \
+		--name movies.todo \
+		--config "config/scan.media.json"
+
+movies-staged:
+	@$(GO) run $(SCANNER_CMD) \
+		--type movies \
+		--name movies.staged \
+		--config "config/scan.media.json"
+
 movies:
 	@$(GO) run $(SCANNER_CMD) \
-		--config "config/scan_config.json" \
-		--type movies
+		--type movies \
+		--name movies.media \
+		--config "config/scan.media.json"
 
 tv:
 	@$(GO) run $(SCANNER_CMD) \
-		--config "config/scan_config.json" \
-		--type tv
+		--type tv \
+		--name tv \
+		--config "config/scan.media.json"
 
 # --- Icon index generation ---
 icons-%:
