@@ -1,7 +1,6 @@
 package scanner
 
 import (
-	"os"
 	"path/filepath"
 	"time"
 
@@ -15,10 +14,21 @@ func (MovieStrategy) Scan(sources map[string]string) (model.MediaOutput, error) 
 	cache := &dirCache{}
 	concurrency := getConcurrency()
 
-	entries := scanMedia(
+	entries := Scan(
 		sources,
 		cache,
-		func(folderPath, label string, dirEntries []os.DirEntry) (model.MediaEntry, bool) {
+		ScanOptions{
+			Mode:         ScanDirs,
+			Depth:        2,
+			Exts:         []string{},
+			Concurrency:  concurrency,
+			ShowProgress: true,
+		},
+		func(item ScannedItem) (model.MediaEntry, bool) {
+			folderPath := item.ItemPath
+			dirEntries := item.SubEntries
+			label := item.GroupLabel
+
 			group := filepath.Base(filepath.Dir(folderPath)) // genre
 
 			entry := model.MediaEntry{
@@ -35,7 +45,6 @@ func (MovieStrategy) Scan(sources map[string]string) (model.MediaOutput, error) 
 
 			return entry, true
 		},
-		concurrency,
 	)
 
 	// Build group count (unique genre names)

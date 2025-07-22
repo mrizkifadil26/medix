@@ -32,20 +32,49 @@ type ScanStrategy interface {
 }
 
 type dirCache struct {
-	m sync.Map // map[string][]os.DirEntry
+	mu    sync.Mutex
+	cache map[string][]os.DirEntry
+	// m sync.Map // map[string][]os.DirEntry
 }
 
-func (dc *dirCache) Read(path string) []os.DirEntry {
-	if val, ok := dc.m.Load(path); ok {
-		return val.([]os.DirEntry)
+func (c *dirCache) GetOrRead(path string) ([]os.DirEntry, error) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	if entries, ok := c.cache[path]; ok {
+		// ✅ Return cached result
+		return entries, nil
 	}
 
 	entries, err := os.ReadDir(path)
 	if err != nil {
 		fmt.Printf("Failed to read directory %s: %v\n", path, err)
-		return nil
+		return nil, err
 	}
 
-	dc.m.Store(path, entries)
-	return entries
+	c.cache[path] = entries
+	return entries, nil
+}
+
+type ScanMode string
+
+const (
+	ScanDirs  ScanMode = "dirs"
+	ScanFiles ScanMode = "files"
+)
+
+type ScanOptions struct {
+	Mode         ScanMode
+	Depth        int
+	Exts         []string // e.g. []string{".mkv", ".mp4"}
+	Concurrency  int
+	ShowProgress bool
+}
+
+type ScannedItem struct {
+	GroupLabel string
+	GroupPath  string
+	ItemPath   string
+	ItemName   string
+	SubEntries []os.DirEntry
 }

@@ -1,7 +1,6 @@
 package scanner
 
 import (
-	"os"
 	"path/filepath"
 	"time"
 
@@ -15,10 +14,21 @@ func (TVStrategy) Scan(sources map[string]string) (model.MediaOutput, error) {
 	cache := &dirCache{}
 	concurrency := getConcurrency()
 
-	entries := scanMedia(
+	entries := Scan(
 		sources,
 		cache,
-		func(folderPath, label string, dirEntries []os.DirEntry) (model.MediaEntry, bool) {
+		ScanOptions{
+			Mode:         ScanDirs,
+			Depth:        2,
+			Exts:         []string{},
+			Concurrency:  concurrency,
+			ShowProgress: true,
+		},
+		func(item ScannedItem) (model.MediaEntry, bool) {
+			folderPath := item.ItemPath
+			dirEntries := item.SubEntries
+			label := item.GroupLabel
+
 			group := filepath.Base(filepath.Dir(folderPath)) // genre
 
 			showEntry := model.MediaEntry{
@@ -37,7 +47,7 @@ func (TVStrategy) Scan(sources map[string]string) (model.MediaOutput, error) {
 			for _, entry := range dirEntries {
 				if entry.IsDir() {
 					seasonPath := filepath.Join(folderPath, entry.Name())
-					subEntries := cache.Read(seasonPath)
+					subEntries, _ := cache.GetOrRead(seasonPath)
 					season := model.MediaEntry{
 						BaseEntry: model.BaseEntry{
 							Type:   "season",
@@ -54,7 +64,6 @@ func (TVStrategy) Scan(sources map[string]string) (model.MediaOutput, error) {
 
 			return showEntry, true
 		},
-		concurrency,
 	)
 
 	// Build group count (unique genre names)

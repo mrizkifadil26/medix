@@ -71,3 +71,14 @@ func resolveStatus(entries []os.DirEntry) string {
 
 	return "missing"
 }
+
+func hasValidExt(path string, exts []string) bool {
+	ext := filepath.Ext(path)
+	for _, e := range exts {
+		if e == ext {
+			return true
+		}
+	}
+
+	return false
+}

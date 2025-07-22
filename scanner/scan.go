@@ -1,102 +1,170 @@
 package scanner
 
 import (
+	"log"
 	"os"
 	"path/filepath"
-	"sort"
 	"sync"
-
-	"github.com/mrizkifadil26/medix/model"
-	"github.com/schollz/progressbar/v3"
 )
 
-func scanMedia(
+// TODO: use scan options
+func Scan[T any](
 	sources map[string]string,
 	cache *dirCache,
-	itemBuilder func(titlePath, label string, subEntries []os.DirEntry) (model.MediaEntry, bool),
-	concurrency int,
-) []model.MediaEntry {
+	opts ScanOptions,
+	itemBuilder func(ScannedItem) (T, bool),
+) []T {
 	var (
 		mu      sync.Mutex
-		results []model.MediaEntry
 		wg      sync.WaitGroup
-		sem     = make(chan struct{}, concurrency)
+		results []T
+		tasks   = make(chan ScannedItem)
 	)
 
-	// Count all group directories first for progress bar
-	var totalGroups int
-	for _, path := range sources {
-		if entries := cache.Read(path); entries != nil {
-			for _, entry := range entries {
-				if entry.IsDir() {
-					totalGroups++
-				}
+	// === Progress Bar Setup ===
+	var total int
+	if opts.ShowProgress {
+		for label, root := range sources {
+			if opts.Mode == ScanDirs {
+				total += CountTargetDirs(root, label, opts.Depth, cache, func(path string, entries []os.DirEntry) bool {
+					return len(entries) > 0 // Skip empty dirs
+				})
+			} else if opts.Mode == ScanFiles {
+				// Optional: count matching files here if needed
 			}
 		}
 	}
+	progress := NewProgress(total, opts.ShowProgress, "Scanning")
 
-	bar := progressbar.NewOptions(totalGroups,
-		progressbar.OptionSetDescription("Scanning"),
-		progressbar.OptionShowCount(),
-		progressbar.OptionSetWidth(20),
-		progressbar.OptionClearOnFinish(),
-	)
+	// Worker pool
+	for i := 0; i < opts.Concurrency; i++ {
+		wg.Add(1)
 
-	for label, path := range sources {
-		groupDirs := cache.Read(path)
-		if groupDirs == nil {
-			continue
-		}
+		go func() {
+			defer wg.Done()
 
-		for _, group := range groupDirs {
-			if !group.IsDir() {
-				continue
+			for item := range tasks {
+				if out, ok := itemBuilder(item); ok {
+					mu.Lock()
+					results = append(results, out)
+					mu.Unlock()
+				}
+
+				progress.Add(1)
 			}
+		}()
+	}
 
-			groupPath := filepath.Join(path, group.Name())
-
-			wg.Add(1)
-			go func(groupName, groupPath string) {
-				defer wg.Done()
-				sem <- struct{}{}        // 🛑 acquire
-				defer func() { <-sem }() // ✅ release
-
-				dirEntries := cache.Read(groupPath)
-				if dirEntries == nil {
-					_ = bar.Add(1)
-					return
+	for label, root := range sources {
+		switch opts.Mode {
+		case ScanDirs:
+			_ = walkDirs(root, label, opts.Depth, cache, func(dirPath string, entries []os.DirEntry) {
+				tasks <- ScannedItem{
+					GroupLabel: label,
+					GroupPath:  root,
+					ItemPath:   dirPath,
+					ItemName:   filepath.Base(dirPath),
+					SubEntries: entries,
 				}
+			})
 
-				for _, entry := range dirEntries {
-					if !entry.IsDir() {
-						continue
-					}
-
-					itemPath := filepath.Join(groupPath, entry.Name())
-					subEntries := cache.Read(itemPath)
-					if subEntries == nil {
-						continue
-					}
-
-					if item, ok := itemBuilder(itemPath, label, subEntries); ok {
-						mu.Lock()
-						results = append(results, item)
-						mu.Unlock()
-					}
+		case ScanFiles:
+			_ = walkFiles(root, label, opts.Depth, opts.Exts, cache, func(filePath string) {
+				tasks <- ScannedItem{
+					GroupLabel: label,
+					GroupPath:  root,
+					ItemPath:   filePath,
+					ItemName:   filepath.Base(filePath),
+					SubEntries: nil,
 				}
+			})
 
-				_ = bar.Add(1)
+		default:
+			log.Fatalf("Scan(): unsupported scan mode %q for source %s", opts.Mode, label)
 
-			}(group.Name(), groupPath)
 		}
 	}
 
+	close(tasks)
 	wg.Wait()
-	bar.Finish()
-
-	sort.Slice(results, func(i, j int) bool {
-		return results[i].GetName() < results[j].GetName()
-	})
+	progress.Finish()
 
 	return results
+
+	// // Count all group directories first for progress bar
+	// var totalGroups int
+	// for _, path := range sources {
+	// 	if entries := cache.Read(path); entries != nil {
+	// 		for _, entry := range entries {
+	// 			if entry.IsDir() {
+	// 				totalGroups++
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	// bar := progressbar.NewOptions(totalGroups,
+	// 	progressbar.OptionSetDescription("Scanning"),
+	// 	progressbar.OptionShowCount(),
+	// 	progressbar.OptionSetWidth(20),
+	// 	progressbar.OptionClearOnFinish(),
+	// )
+
+	// for label, path := range sources {
+	// 	groupDirs := cache.Read(path)
+	// 	if groupDirs == nil {
+	// 		continue
+	// 	}
+
+	// 	for _, group := range groupDirs {
+	// 		if !group.IsDir() {
+	// 			continue
+	// 		}
+
+	// 		groupPath := filepath.Join(path, group.Name())
+
+	// 		wg.Add(1)
+	// 		go func(groupName, groupPath string) {
+	// 			defer wg.Done()
+	// 			sem <- struct{}{}        // 🛑 acquire
+	// 			defer func() { <-sem }() // ✅ release
+
+	// 			dirEntries := cache.Read(groupPath)
+	// 			if dirEntries == nil {
+	// 				_ = bar.Add(1)
+	// 				return
+	// 			}
+
+	// 			for _, entry := range dirEntries {
+	// 				if !entry.IsDir() {
+	// 					continue
+	// 				}
+
+	// 				itemPath := filepath.Join(groupPath, entry.Name())
+	// 				subEntries := cache.Read(itemPath)
+	// 				if subEntries == nil {
+	// 					continue
+	// 				}
+
+	// 				if item, ok := itemBuilder(itemPath, label, subEntries); ok {
+	// 					mu.Lock()
+	// 					results = append(results, item)
+	// 					mu.Unlock()
+	// 				}
+	// 			}
+
+	// 			_ = bar.Add(1)
+
+	// 		}(group.Name(), groupPath)
+	// 	}
+	// }
+
+	// wg.Wait()
+	// bar.Finish()
+
+	// sort.Slice(results, func(i, j int) bool {
+	// 	return results[i].GetName() < results[j].GetName()
+	// })
+
+	// return results
 }
