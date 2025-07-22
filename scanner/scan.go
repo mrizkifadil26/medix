@@ -55,12 +55,15 @@ func Scan[T any](
 		}()
 	}
 
-	for label, root := range sources {
+	for source, root := range sources {
 		switch opts.Mode {
 		case ScanDirs:
-			_ = walkDirs(root, label, opts.Depth, cache, func(dirPath string, entries []os.DirEntry) {
+			_ = walkDirs(root, opts.Depth, cache, func(dirPath string, entries []os.DirEntry) {
+				groupLabel := buildGroupLabel(root, dirPath)
+
 				tasks <- ScannedItem{
-					GroupLabel: label,
+					Source:     source,
+					GroupLabel: groupLabel,
 					GroupPath:  root,
 					ItemPath:   dirPath,
 					ItemName:   filepath.Base(dirPath),
@@ -69,9 +72,12 @@ func Scan[T any](
 			})
 
 		case ScanFiles:
-			_ = walkFiles(root, label, opts.Depth, opts.Exts, cache, func(filePath string) {
+			_ = walkFiles(root, opts.Depth, opts.Exts, cache, func(filePath string) {
+				groupLabel := buildGroupLabel(root, filepath.Dir(filePath))
+
 				tasks <- ScannedItem{
-					GroupLabel: label,
+					Source:     source,
+					GroupLabel: groupLabel,
 					GroupPath:  root,
 					ItemPath:   filePath,
 					ItemName:   filepath.Base(filePath),
@@ -80,7 +86,7 @@ func Scan[T any](
 			})
 
 		default:
-			log.Fatalf("Scan(): unsupported scan mode %q for source %s", opts.Mode, label)
+			log.Fatalf("Scan(): unsupported scan mode %q for source %s", opts.Mode, source)
 
 		}
 	}

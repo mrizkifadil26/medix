@@ -3,6 +3,7 @@ package scanner
 import (
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 type WalkDirFunc func(dir string, entries []os.DirEntry)
@@ -10,7 +11,7 @@ type WalkDirFunc func(dir string, entries []os.DirEntry)
 type WalkFileFunc func(file string)
 
 func walkDirs(
-	root, label string,
+	root string,
 	maxDepth int,
 	cache *dirCache,
 	fn WalkDirFunc,
@@ -63,7 +64,7 @@ func walkDirs(
 }
 
 func walkFiles(
-	root, label string,
+	root string,
 	maxDepth int,
 	exts []string,
 	cache *dirCache,
@@ -98,7 +99,8 @@ func splitPath(p string) []string {
 	if p == "" || p == "." {
 		return nil
 	}
-	return filepath.SplitList(filepath.ToSlash(p))
+
+	return strings.Split(filepath.ToSlash(p), "/")
 }
 
 // func isLeaf(entries []os.DirEntry) bool {
@@ -111,6 +113,16 @@ func splitPath(p string) []string {
 // 	return true
 // }
 
+func buildGroupLabel(root, path string) []string {
+	rel, err := filepath.Rel(root, path)
+	if err != nil || rel == "." || rel == "" {
+		return nil
+	}
+
+	parts := splitPath(filepath.ToSlash(rel))
+	return parts // include everything, even just one folder
+}
+
 func isEmpty(entries []os.DirEntry) bool {
 	return len(entries) == 0
 }
@@ -122,10 +134,11 @@ func CountTargetDirs(
 	filterFn func(path string, entries []os.DirEntry) bool,
 ) int {
 	count := 0
-	_ = walkDirs(root, label, maxDepth, cache, func(path string, entries []os.DirEntry) {
+	_ = walkDirs(root, maxDepth, cache, func(path string, entries []os.DirEntry) {
 		if filterFn == nil || filterFn(path, entries) {
 			count++
 		}
 	})
+
 	return count
 }

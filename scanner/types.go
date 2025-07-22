@@ -97,7 +97,8 @@ type ScanOptions struct {
 }
 
 type ScannedItem struct {
-	GroupLabel string
+	Source     string
+	GroupLabel []string
 	GroupPath  string
 	ItemPath   string
 	ItemName   string

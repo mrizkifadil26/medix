@@ -38,9 +38,9 @@ func (TVStrategy) Scan(
 		func(item ScannedItem) (model.MediaEntry, bool) {
 			folderPath := item.ItemPath
 			dirEntries := item.SubEntries
-			label := item.GroupLabel
+			source := item.Source
 
-			group := filepath.Base(filepath.Dir(folderPath)) // genre
+			group := item.GroupLabel
 
 			showEntry := model.MediaEntry{
 				BaseEntry: model.BaseEntry{
@@ -51,7 +51,7 @@ func (TVStrategy) Scan(
 					Icon:   resolveIcon(folderPath, dirEntries),
 					Group:  group,
 				},
-				Source: label,
+				Source: source,
 			}
 
 			// Add seasons as items (not recursive)
@@ -80,7 +80,14 @@ func (TVStrategy) Scan(
 	// Build group count (unique genre names)
 	groupSet := map[string]struct{}{}
 	for _, entry := range entries {
-		groupSet[entry.Group] = struct{}{}
+		if len(entry.Group) == 0 {
+			groupSet["<ungrouped>"] = struct{}{}
+			continue
+		}
+		for i := 1; i <= len(entry.Group); i++ {
+			groupKey := filepath.Join(entry.Group[:i]...)
+			groupSet[groupKey] = struct{}{}
+		}
 	}
 
 	output := model.MediaOutput{

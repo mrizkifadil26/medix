@@ -29,7 +29,15 @@ func Preview(scan model.MediaOutput, sources []IconSource, targetDir string) Org
 
 		for _, icon := range icons {
 			if icon.Size == item.Icon.Size {
-				targetPath := filepath.Join(targetDir, item.Group, filepath.Base(icon.FullPath))
+				group := item.Group
+				var lastGroup string
+				if len(group) > 0 {
+					lastGroup = group[len(group)-1]
+				} else {
+					lastGroup = "unknown" // or fallback label
+				}
+
+				targetPath := filepath.Join(targetDir, lastGroup, filepath.Base(icon.FullPath))
 
 				fmt.Printf("✅ Matched: %-40s → %-20s [size: %d]\n", item.Name, filepath.Base(icon.FullPath), icon.Size)
 

@@ -36,9 +36,9 @@ func (MovieStrategy) Scan(
 		func(item ScannedItem) (model.MediaEntry, bool) {
 			folderPath := item.ItemPath
 			dirEntries := item.SubEntries
-			label := item.GroupLabel
+			source := item.Source
 
-			group := filepath.Base(filepath.Dir(folderPath)) // genre
+			group := item.GroupLabel
 
 			entry := model.MediaEntry{
 				BaseEntry: model.BaseEntry{
@@ -49,7 +49,7 @@ func (MovieStrategy) Scan(
 					Icon:   resolveIcon(folderPath, dirEntries),
 					Group:  group,
 				},
-				Source: label,
+				Source: source,
 			}
 
 			return entry, true
@@ -59,7 +59,15 @@ func (MovieStrategy) Scan(
 	// Build group count (unique genre names)
 	groupSet := map[string]struct{}{}
 	for _, entry := range entries {
-		groupSet[entry.Group] = struct{}{}
+		if len(entry.Group) == 0 {
+			groupSet["<ungrouped>"] = struct{}{}
+			continue
+		}
+
+		for i := 1; i <= len(entry.Group); i++ {
+			groupKey := filepath.Join(entry.Group[:i]...)
+			groupSet[groupKey] = struct{}{}
+		}
 	}
 
 	output := model.MediaOutput{
