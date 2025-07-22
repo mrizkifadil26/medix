@@ -15,20 +15,22 @@ type ScanFileConfig struct {
 }
 
 type ScanConfig struct {
-	Name    string         `json:"name"`    // "movies" or "tv"
-	Type    string         `json:"type"`    // List of directories
-	Output  string         `json:"output"`  // Output file path
-	Include []IncludeEntry `json:"include"` // (optional) for future use
-	Exclude []string       `json:"exclude"` // (optional) for future use
+	Name    string        `json:"name"`              // e.g. "movies.todo"
+	Type    string        `json:"type"`              // e.g. "movies", "tv", "icon"
+	Phase   string        `json:"phase"`             // e.g. "raw", "staged", "organized"
+	Include []ScanInclude `json:"include"`           // (optional) for future use
+	Exclude []string      `json:"exclude"`           // (optional) for future use
+	Output  string        `json:"output"`            // Output file path
+	Options *ScanOptions  `json:"options,omitempty"` // optional overrides
 }
 
-type IncludeEntry struct {
+type ScanInclude struct {
 	Label string `json:"label"`
 	Path  string `json:"path"`
 }
 
 type ScanStrategy interface {
-	Scan(sources map[string]string) (model.MediaOutput, error) // returns model.MovieOutput or model.TVShowOutput
+	Scan(sources map[string]string, opts ScanOptions) (model.MediaOutput, error) // returns model.MovieOutput or model.TVShowOutput
 }
 
 type dirCache struct {
@@ -63,12 +65,35 @@ const (
 	ScanFiles ScanMode = "files"
 )
 
+func (m ScanMode) String() string {
+	return string(m)
+}
+
+type ScanPhase string
+
+const (
+	PhaseRaw    ScanPhase = "raw"
+	PhaseStaged ScanPhase = "staged"
+	PhaseMedia  ScanPhase = "media"
+)
+
+func (p ScanPhase) ImpliedMode() ScanMode {
+	switch p {
+	case PhaseRaw:
+		return ScanFiles
+	case PhaseStaged, PhaseMedia:
+		return ScanDirs
+	default:
+		return ScanDirs // Fallback default
+	}
+}
+
 type ScanOptions struct {
-	Mode         ScanMode
-	Depth        int
-	Exts         []string // e.g. []string{".mkv", ".mp4"}
-	Concurrency  int
-	ShowProgress bool
+	Mode         ScanMode `json:"mode"`                   // "files" or "dirs"
+	Depth        int      `json:"depth"`                  // e.g. 4 for raw
+	Exts         []string `json:"exts,omitempty"`         // file extensions to include (if files)
+	Concurrency  int      `json:"concurrency,omitempty"`  // override global
+	ShowProgress bool     `json:"showProgress,omitempty"` // show scan progress
 }
 
 type ScannedItem struct {

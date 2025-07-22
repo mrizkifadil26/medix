@@ -9,21 +9,32 @@ import (
 
 type TVStrategy struct{}
 
-func (TVStrategy) Scan(sources map[string]string) (model.MediaOutput, error) {
+func (TVStrategy) Scan(
+	sources map[string]string,
+	opts ScanOptions,
+) (model.MediaOutput, error) {
 	start := time.Now()
 	cache := &dirCache{}
 	concurrency := getConcurrency()
 
+	// Apply defaults if not set
+	if opts.Mode == "" {
+		opts.Mode = ScanDirs
+	}
+
+	if opts.Depth <= 0 {
+		opts.Depth = 2
+	}
+
+	if opts.Concurrency <= 0 {
+		opts.Concurrency = concurrency
+	}
+	opts.ShowProgress = true // always enable for now
+
 	entries := Scan(
 		sources,
 		cache,
-		ScanOptions{
-			Mode:         ScanDirs,
-			Depth:        2,
-			Exts:         []string{},
-			Concurrency:  concurrency,
-			ShowProgress: true,
-		},
+		opts,
 		func(item ScannedItem) (model.MediaEntry, bool) {
 			folderPath := item.ItemPath
 			dirEntries := item.SubEntries

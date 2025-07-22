@@ -44,7 +44,9 @@ func main() {
 	scanner.SetConcurrency(concurrency)
 
 	var found bool
-	for _, cfg := range config.Scan {
+	for i := range config.Scan {
+		cfg := &config.Scan[i]
+
 		if *filterType != "" && !strings.EqualFold(cfg.Type, *filterType) {
 			continue
 		}
@@ -68,13 +70,55 @@ func main() {
 			continue
 		}
 
+		// Prepare scan sources
 		sources := make(map[string]string)
 		for _, entry := range cfg.Include {
 			sources[entry.Label] = entry.Path
 		}
 
-		log.Printf("🔍 Scanning %s (%s)...\n", cfg.Name, cfg.Type)
-		output, err := strategy.Scan(sources)
+		// Apply default options if not set
+		if cfg.Options == nil {
+			cfg.Options = &scanner.ScanOptions{}
+		}
+
+		if cfg.Options.Mode == "" {
+			switch strings.ToLower(cfg.Phase) {
+			case "raw":
+				cfg.Options.Mode = scanner.ScanFiles
+			default:
+				cfg.Options.Mode = scanner.ScanDirs
+			}
+		}
+
+		if cfg.Options.Depth == 0 {
+			switch strings.ToLower(cfg.Phase) {
+			case "raw":
+				cfg.Options.Depth = 4
+			default:
+				cfg.Options.Depth = 2
+			}
+		}
+
+		if cfg.Options.Concurrency <= 0 {
+			cfg.Options.Concurrency = concurrency
+		}
+
+		log.Printf("🔍 Scanning...\n")
+		log.Printf("⚙️ Options:\n"+
+			"   • Name        : %s\n"+
+			"   • Type        : %s\n"+
+			"   • Phase       : %s\n"+
+			"   • Mode        : %s\n"+
+			"   • Depth       : %d\n"+
+			"   • Concurrency : %d\n",
+			cfg.Name,
+			cfg.Type,
+			cfg.Phase,
+			cfg.Options.Mode,
+			cfg.Options.Depth,
+			cfg.Options.Concurrency)
+
+		output, err := strategy.Scan(sources, *cfg.Options)
 		if err != nil {
 			log.Printf("❌ Failed to scan %s: %v\n", cfg.Name, err)
 			continue
