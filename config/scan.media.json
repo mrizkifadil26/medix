@@ -56,7 +56,10 @@
         }
       ],
       "exclude": [],
-      "output": "data/media/movies.media.json"
+      "output": "data/media/movies.media.json",
+      "options": {
+        "depth": 4
+      }
     },
     {
       "name": "tv",
