@@ -120,7 +120,12 @@ func buildGroupLabel(root, path string) []string {
 	}
 
 	parts := splitPath(filepath.ToSlash(rel))
-	return parts // include everything, even just one folder
+	if len(parts) >= 1 {
+		return parts[:len(parts)-1] // Exclude the last folder
+	}
+
+	// No parent folder → no group
+	return parts
 }
 
 func isEmpty(entries []os.DirEntry) bool {
