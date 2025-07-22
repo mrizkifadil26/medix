@@ -2,20 +2,13 @@
   "concurrency": 8,
   "scan": [
     {
-      "name": "movies",
-      "type": "media",
+      "name": "movies.todo",
+      "type": "movies",
+      "phase": "raw",
       "include": [
-        {
-          "label": "movies",
-          "path": "/mnt/e/Media/Movies"
-        },
         {
           "label": "foreign",
           "path": "/mnt/e/TODO/Movies/Foreign"
-        },
-        {
-          "label": "foldered",
-          "path": "/mnt/e/TODO/Movies/Foldered"
         },
         {
           "label": "unfoldered",
@@ -24,15 +17,51 @@
         {
           "label": "by-year",
           "path": "/mnt/e/TODO/Movies/By Year"
+        },
+        {
+          "label": "fresh",
+          "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies"
         }
       ],
       "exclude": [],
-      "final_root": "/mnt/e/Media/Movies",
-      "output": "media/movies.raw.json"
+      "output": "data/media/movies.raw.json",
+      "options": {
+        "exts": [
+          ".mkv",
+          ".mp4"
+        ]
+      }
+    },
+    {
+      "name": "movies.staged",
+      "type": "movies",
+      "phase": "staged",
+      "include": [
+        {
+          "label": "foldered",
+          "path": "/mnt/e/TODO/Movies/Foldered"
+        }
+      ],
+      "exclude": [],
+      "output": "data/media/movies.staged.json"
+    },
+    {
+      "name": "movies.media",
+      "type": "movies",
+      "phase": "media",
+      "include": [
+        {
+          "label": "movies",
+          "path": "/mnt/e/Media/Movies"
+        }
+      ],
+      "exclude": [],
+      "output": "data/media/movies.media.json"
     },
     {
       "name": "tv",
-      "type": "media",
+      "type": "tv",
+      "phase": "media",
       "include": [
         {
           "label": "tv",
@@ -41,11 +70,14 @@
         {
           "label": "external",
           "path": "/mnt/d/TV Shows"
+        },
+        {
+          "label": "fresh",
+          "path": "/mnt/c/Users/Rizki/Downloads/Media/TV Shows"
         }
       ],
       "exclude": [],
-      "final_root": "/mnt/e/Media/TV Shows",
-      "output": "media/tv.json"
+      "output": "data/media/tv.media.json"
     }
   ]
 }
