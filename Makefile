@@ -39,34 +39,47 @@ OUTPUT   	:= dist
 all: movies tvshows
 
 # --- Media source generation ---
-movies-todo:
-	@$(GO) run $(SCANNER_CMD) \
-		--type movies \
-		--name movies.todo \
+media:
+	@if [ -z "$(type)" ] || [ -z "$(name)" ]; then \
+		echo "Usage: make media type=<type> name=<name>"; \
+		exit 1; \
+	fi
+	@echo "Running for $(type)/$(name)"
+
+	$(GO) run $(SCANNER_CMD) \
+		--type media \
+		--content $(type) \
+		--name $(type).$(name) \
 		--config "config/scan.media.json"
 
-movies-staged:
-	@$(GO) run $(SCANNER_CMD) \
-		--type movies \
-		--name movies.staged \
-		--config "config/scan.media.json"
+scan-movies:
+	$(MAKE) media type=movies name=raw
+	$(MAKE) media type=movies name=staged
+	$(MAKE) media type=movies name=final
 
-movies:
-	@$(GO) run $(SCANNER_CMD) \
-		--type movies \
-		--name movies.media \
-		--config "config/scan.media.json"
+scan-tv:
+	$(MAKE) media type=tv name=final
 
-tv:
-	@$(GO) run $(SCANNER_CMD) \
-		--type tv \
-		--name tv \
-		--config "config/scan.media.json"
+scan-media: scan-movies scan-tv
 
 # --- Icon index generation ---
-icons-%:
-	@$(GO) run $(ICONMAP_CMD) \
-		--config=config/iconmap-$*.json
+icon:
+	@if [ -z "$(type)" ] || [ -z "$(name)" ]; then \
+		echo "Usage: make icon type=<type> name=<name>"; \
+		exit 1; \
+	fi
+	@echo "Running for $(type)/$(name)"
+
+	$(GO) run $(SCANNER_CMD) \
+		--type icon \
+		--content $(type) \
+		--name $(type).$(name) \
+		--config "config/scan.icon.json"
+
+scan-icons:
+	$(MAKE) icon type=movies name=raw
+	$(MAKE) icon type=movies name=final
+	$(MAKE) icon type=tv name=final
 
 # --- Sync media and icons logically ---
 sync:
