@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"os"
 	"sync"
-
-	"github.com/mrizkifadil26/medix/model"
 )
 
 type ScanFileConfig struct {
@@ -15,13 +13,14 @@ type ScanFileConfig struct {
 }
 
 type ScanConfig struct {
-	Name    string        `json:"name"`              // e.g. "movies.todo"
-	Type    string        `json:"type"`              // e.g. "movies", "tv", "icon"
-	Phase   string        `json:"phase"`             // e.g. "raw", "staged", "organized"
-	Include []ScanInclude `json:"include"`           // (optional) for future use
-	Exclude []string      `json:"exclude"`           // (optional) for future use
-	Output  string        `json:"output"`            // Output file path
-	Options *ScanOptions  `json:"options,omitempty"` // optional overrides
+	Name        string        `json:"name"`              // e.g. "movies.todo"
+	Type        string        `json:"type"`              // e.g. "media", "icon"
+	ContentType string        `json:"contentType"`       // e.g. "movies", "tv"
+	Phase       string        `json:"phase"`             // e.g. "raw", "staged", "organized"
+	Include     []ScanInclude `json:"include"`           // (optional) for future use
+	Exclude     []string      `json:"exclude"`           // (optional) for future use
+	Output      string        `json:"output"`            // Output file path
+	Options     *ScanOptions  `json:"options,omitempty"` // optional overrides
 }
 
 type ScanInclude struct {
@@ -30,7 +29,7 @@ type ScanInclude struct {
 }
 
 type ScanStrategy interface {
-	Scan(sources map[string]string, opts ScanOptions) (model.MediaOutput, error) // returns model.MovieOutput or model.TVShowOutput
+	Scan(sources map[string]string, opts ScanOptions) (any, error) // returns model.MovieOutput or model.TVShowOutput
 }
 
 type dirCache struct {
@@ -74,17 +73,24 @@ type ScanPhase string
 const (
 	PhaseRaw    ScanPhase = "raw"
 	PhaseStaged ScanPhase = "staged"
-	PhaseMedia  ScanPhase = "media"
+	PhaseFinal  ScanPhase = "final"
 )
 
-func (p ScanPhase) ImpliedMode() ScanMode {
-	switch p {
-	case PhaseRaw:
-		return ScanFiles
-	case PhaseStaged, PhaseMedia:
-		return ScanDirs
+func ImpliedScanMode(contentType string, phase ScanPhase) ScanMode {
+	switch contentType {
+	case "media":
+		switch phase {
+		case PhaseRaw:
+			return ScanFiles
+		case PhaseStaged, PhaseFinal:
+			return ScanDirs
+		default:
+			return ScanDirs
+		}
+	case "icon":
+		return ScanFiles // always files for icons
 	default:
-		return ScanDirs // Fallback default
+		return ScanDirs
 	}
 }
 
@@ -96,11 +102,12 @@ type ScanOptions struct {
 	ShowProgress bool     `json:"showProgress,omitempty"` // show scan progress
 }
 
-type ScannedItem struct {
+type ScanEntry struct {
 	Source     string
 	GroupLabel []string
 	GroupPath  string
 	ItemPath   string
 	ItemName   string
+	ItemSize   *int64
 	SubEntries []os.DirEntry
 }

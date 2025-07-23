@@ -11,7 +11,7 @@ import (
 func Preview(scan model.MediaOutput, sources []IconSource, targetDir string) OrganizeResult {
 	iconMap := loadIcons(sources)
 	result := OrganizeResult{
-		Type:        scan.Source,
+		Type:        string(scan.Type),
 		GeneratedAt: time.Now(),
 	}
 
@@ -20,7 +20,7 @@ func Preview(scan model.MediaOutput, sources []IconSource, targetDir string) Org
 			continue
 		}
 
-		slug := item.Icon.ID
+		slug := item.Icon.Slug
 		icons, ok := iconMap[slug]
 
 		if !ok {

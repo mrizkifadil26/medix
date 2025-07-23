@@ -1,18 +1,31 @@
 package model
 
+type Type string
+
+const (
+	TypeMedia ContentType = "media"
+	TypeIcon  ContentType = "icon"
+)
+
+type ContentType string
+
+const (
+	TypeMovies ContentType = "movies"
+	TypeTV     ContentType = "tv"
+)
+
 type BaseEntry struct {
-	Name   string    `json:"name"`
-	Path   string    `json:"path"`
-	Type   string    `json:"type"` // "single", "collection", "show", "season"
-	Status string    `json:"status"`
-	Icon   *IconMeta `json:"icon,omitempty"`
-	Group  []string  `json:"group"`
-	Parent string    `json:"parent,omitempty"` // ✅ added
+	Name        string      `json:"name"`
+	Path        string      `json:"path"`
+	Type        string      `json:"type"`        // "media" or "icon"
+	ContentType ContentType `json:"contentType"` // "movies" or "tv"
+	Group       []string    `json:"group"`
+	Source      string      `json:"source"`
 }
 
-type IconMeta struct {
-	ID       string `json:"id,omitempty"` // e.g. "sci-fi"
+type IconRef struct {
 	Name     string `json:"name"`
-	FullPath string `json:"full_path"`
+	Slug     string `json:"slug"`
 	Size     int64  `json:"size"`
+	FullPath string `json:"fullPath"`
 }

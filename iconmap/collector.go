@@ -49,13 +49,23 @@ func ScanIconDirectory(baseDir, source string, excludeDirs []string) (map[string
 
 		info, _ := os.Stat(path)
 		entry := &model.IconEntry{
-			ID:       utils.Slugify(filename),
-			Name:     filename + ".ico",
-			Size:     info.Size(),
-			Source:   source,
-			Path:     path,
-			Type:     "icon",
-			Variants: []string{},
+			// ID:       utils.Slugify(filename),
+			// Name:     filename + ".ico",
+			// Size:     info.Size(),
+			// Source:   source,
+			// Path:     path,
+			// Type:     "icon",
+			// Variants: []string{},
+			BaseEntry: model.BaseEntry{
+				Name:        filename + ".ico",
+				Path:        path,
+				Type:        "icon",
+				ContentType: "movie",
+				Source:      source,
+				Group:       []string{},
+			},
+			Slug: utils.Slugify(filename),
+			Size: info.Size(),
 		}
 
 		groupedIcons[relDir] = append(groupedIcons[relDir], entry)
@@ -79,14 +89,34 @@ func ScanIconDirectory(baseDir, source string, excludeDirs []string) (map[string
 		} else {
 			// no base found, add as fallback
 			info, _ := os.Stat(path)
+			// fallback := &model.IconEntry{
+			// 	ID:       utils.Slugify(filename),
+			// 	Name:     filename + ".ico",
+			// 	Size:     info.Size(),
+			// 	Source:   source,
+			// 	Path:     path,
+			// 	Type:     "icon",
+			// 	Variants: []string{},
+			// }
+
 			fallback := &model.IconEntry{
-				ID:       utils.Slugify(filename),
-				Name:     filename + ".ico",
-				Size:     info.Size(),
-				Source:   source,
-				Path:     path,
-				Type:     "icon",
-				Variants: []string{},
+				// ID:       utils.Slugify(filename),
+				// Name:     filename + ".ico",
+				// Size:     info.Size(),
+				// Source:   source,
+				// Path:     path,
+				// Type:     "icon",
+				// Variants: []string{},
+				BaseEntry: model.BaseEntry{
+					Name:        filename + ".ico",
+					Path:        path,
+					Type:        "icon",
+					ContentType: "movie",
+					Source:      source,
+					Group:       []string{},
+				},
+				Slug: utils.Slugify(filename),
+				Size: info.Size(),
 			}
 
 			groupedIcons[relDir] = append(groupedIcons[relDir], fallback)

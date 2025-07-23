@@ -3,10 +3,10 @@ package model
 import "time"
 
 type MediaOutput struct {
-	Type           string       `json:"type"`           // "flat" or "structured"
+	Type           Type         `json:"type"`           // always "media"
 	Version        string       `json:"version"`        // e.g. "1.0.0"
 	GeneratedAt    time.Time    `json:"generatedAt"`    // generation timestamp
-	Source         string       `json:"source"`         // "movies" or "tv"
+	Sources        []string     `json:"sources"`        // "movies" or "tv"
 	TotalItems     int          `json:"totalItems"`     // number of entries
 	GroupCount     int          `json:"groupCount"`     // number of groups (flat=genres, structured=top-level)
 	ScanDurationMs int64        `json:"scanDurationMs"` // for performance
@@ -15,7 +15,10 @@ type MediaOutput struct {
 
 type MediaEntry struct {
 	BaseEntry
-	Source string       `json:"source"`
+	// Type   string       `json:"type"` // "single", "collection", "show", "season"
+	Status string       `json:"status"`
+	Icon   *IconRef     `json:"icon,omitempty"`
+	Parent string       `json:"parent,omitempty"` // ✅ added
 	Items  []MediaEntry `json:"items,omitempty"`
 }
 

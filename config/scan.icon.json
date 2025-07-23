@@ -2,44 +2,61 @@
   "concurrency": 8,
   "scan": [
     {
-      "name": "movies",
-      "type": "media",
-      "include": [
-        "TODO/Foldered",
-        "TODO/Unfoldered",
-        "TODO/By Year"
-      ],
-      "exclude": [
-        "TODO/Foreign"
-      ],
-      "final_root": "Media/Movies"
-    },
-    {
-      "name": "tv",
-      "type": "media",
-      "include": [
-        "TODO/TV Shows"
-      ],
-      "exclude": [],
-      "final_root": "Media/TV Shows"
-    },
-    {
-      "name": "movies",
+      "name": "movies.raw",
       "type": "icon",
+      "contentType": "movies",
+      "phase": "raw",
       "include": [
-        "TODO/Icons"
+        {
+          "label": "new",
+          "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New"
+        },
+        {
+          "label": "staged",
+          "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/done"
+        },
+        {
+          "label": "fresh",
+          "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack"
+        },
+        {
+          "label": "torrent",
+          "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack"
+        }
       ],
       "exclude": [],
-      "final_root": "Media/Movies"
+      "output": "data/icons/movies.raw.json",
+      "options": {
+        "depth": 1
+      }
     },
     {
-      "name": "tv",
+      "name": "movies.final",
       "type": "icon",
+      "contentType": "movies",
+      "phase": "media",
       "include": [
-        "TODO/Icons"
+        {
+          "label": "movies",
+          "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/Downloaded"
+        }
       ],
       "exclude": [],
-      "final_root": "Media/TV Shows"
+      "output": "data/icons/movies.final.json"
+    },
+    {
+      "name": "tv.final",
+      "type": "icon",
+      "contentType": "tv",
+      "phase": "final",
+      "include": [
+        {
+          "label": "tv",
+          "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/TV Show Icon Pack/Downloaded"
+        }
+      ],
+      "exclude": [],
+      "output": "data/icons/tv.final.json"
     }
   ]
 }

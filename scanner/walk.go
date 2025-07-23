@@ -8,7 +8,7 @@ import (
 
 type WalkDirFunc func(dir string, entries []os.DirEntry)
 
-type WalkFileFunc func(file string)
+type WalkFileFunc func(file string, size int64)
 
 func walkDirs(
 	root string,
@@ -80,7 +80,10 @@ func walkFiles(
 		}
 
 		if len(exts) == 0 || hasValidExt(path, exts) {
-			fn(path)
+			info, _ := os.Stat(path)
+			size := info.Size()
+
+			fn(path, size)
 		}
 
 		return nil
@@ -113,18 +116,17 @@ func splitPath(p string) []string {
 // 	return true
 // }
 
-func buildGroupLabel(root, path string) []string {
+func buildGroupLabel(root, path string, excludeLast bool) []string {
 	rel, err := filepath.Rel(root, path)
 	if err != nil || rel == "." || rel == "" {
-		return nil
+		return []string{}
 	}
 
 	parts := splitPath(filepath.ToSlash(rel))
-	if len(parts) >= 1 {
-		return parts[:len(parts)-1] // Exclude the last folder
+	if excludeLast && len(parts) >= 1 {
+		return parts[:len(parts)-1]
 	}
 
-	// No parent folder → no group
 	return parts
 }
 

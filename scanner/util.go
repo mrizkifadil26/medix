@@ -20,7 +20,7 @@ func getConcurrency() int {
 	return globalConcurrency
 }
 
-func resolveIcon(dir string, entries []os.DirEntry) *model.IconMeta {
+func resolveIcon(dir string, entries []os.DirEntry) *model.IconRef {
 	for _, f := range entries {
 		if f.IsDir() || filepath.Ext(f.Name()) != ".ico" {
 			continue
@@ -31,11 +31,13 @@ func resolveIcon(dir string, entries []os.DirEntry) *model.IconMeta {
 			continue
 		}
 
-		return &model.IconMeta{
-			ID:       utils.Slugify(f.Name()), // Use the file name as ID
-			Name:     f.Name(),
-			FullPath: filepath.Join(dir, f.Name()),
-			Size:     info.Size(),
+		name := f.Name()
+		size := info.Size()
+		return &model.IconRef{
+			Name:     name,
+			Slug:     utils.Slugify(name),
+			FullPath: filepath.Join(dir, name),
+			Size:     size,
 		}
 	}
 

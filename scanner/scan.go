@@ -12,13 +12,13 @@ func Scan[T any](
 	sources map[string]string,
 	cache *dirCache,
 	opts ScanOptions,
-	itemBuilder func(ScannedItem) (T, bool),
+	itemBuilder func(ScanEntry) (T, bool),
 ) []T {
 	var (
 		mu      sync.Mutex
 		wg      sync.WaitGroup
 		results []T
-		tasks   = make(chan ScannedItem)
+		tasks   = make(chan ScanEntry)
 	)
 
 	// === Progress Bar Setup ===
@@ -59,9 +59,9 @@ func Scan[T any](
 		switch opts.Mode {
 		case ScanDirs:
 			_ = walkDirs(root, opts.Depth, cache, func(dirPath string, entries []os.DirEntry) {
-				groupLabel := buildGroupLabel(root, dirPath)
+				groupLabel := buildGroupLabel(root, dirPath, true)
 
-				tasks <- ScannedItem{
+				tasks <- ScanEntry{
 					Source:     source,
 					GroupLabel: groupLabel,
 					GroupPath:  root,
@@ -72,15 +72,17 @@ func Scan[T any](
 			})
 
 		case ScanFiles:
-			_ = walkFiles(root, opts.Depth, opts.Exts, cache, func(filePath string) {
-				groupLabel := buildGroupLabel(root, filepath.Dir(filePath))
+			_ = walkFiles(root, opts.Depth, opts.Exts, cache, func(filePath string, size int64) {
+				dirPath := filepath.Dir(filePath)
+				groupLabel := buildGroupLabel(root, dirPath, false)
 
-				tasks <- ScannedItem{
+				tasks <- ScanEntry{
 					Source:     source,
 					GroupLabel: groupLabel,
 					GroupPath:  root,
 					ItemPath:   filePath,
 					ItemName:   filepath.Base(filePath),
+					ItemSize:   &size,
 					SubEntries: nil,
 				}
 			})

@@ -19,10 +19,10 @@ func Link(media []model.MediaEntry, icons []model.IconEntry) ([]*SyncedMediaEntr
 		synced := &SyncedMediaEntry{MediaEntry: *m}
 
 		if m.Icon != nil {
-			key := m.Icon.ID + "|" + strconv.FormatInt(m.Icon.Size, 10)
+			key := m.Icon.Slug + "|" + strconv.FormatInt(m.Icon.Size, 10)
 			for j := range icons {
 				icon := &icons[j]
-				if icon.ID == m.Icon.ID && icon.Size == m.Icon.Size {
+				if icon.Slug == m.Icon.Slug && icon.Size == m.Icon.Size {
 					synced.IconSource = icon
 					iconIDSizeToMedia[key] = m
 					break
@@ -38,8 +38,8 @@ func Link(media []model.MediaEntry, icons []model.IconEntry) ([]*SyncedMediaEntr
 		icon := &icons[i]
 		synced := &SyncedIconEntry{IconEntry: *icon}
 
-		if icon.ID != "" && icon.Size > 0 {
-			key := icon.ID + "|" + strconv.FormatInt(icon.Size, 10)
+		if icon.Slug != "" && icon.Size > 0 {
+			key := icon.Slug + "|" + strconv.FormatInt(icon.Size, 10)
 			if m, ok := iconIDSizeToMedia[key]; ok {
 				synced.UsedBy = m
 			}

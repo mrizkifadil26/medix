@@ -46,12 +46,14 @@ func GenerateIndex(cfg Config) (*model.IconIndex, error) {
 	// flattened := flattenIcons(dirMap, cfg.ExcludeDirs)
 
 	index := &model.IconIndex{
-		Type:           cfg.Type,
-		Version:        "0.1.0",
-		GeneratedAt:    time.Now(),
-		TotalItems:     len(flatEntries), // count of all icons
-		TotalSources:   len(cfg.Sources), // number of source directories
-		GroupCount:     groupCount,       // number of top-level groups
+		// Type:           cfg.Type,
+		Type:        "icon",
+		Version:     "0.1.0",
+		GeneratedAt: time.Now(),
+		TotalItems:  len(flatEntries), // count of all icons
+		// TotalSources:   len(cfg.Sources), // number of source directories
+		Sources:        []string{}, // number of source directories
+		GroupCount:     groupCount, // number of top-level groups
 		ScanDurationMs: time.Since(start).Milliseconds(),
 		Items:          flatEntries,
 	}

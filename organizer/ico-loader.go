@@ -14,8 +14,8 @@ import (
 // Regex to match (alt), (alt 2), (alt 3), ...
 var altSuffixRegex = regexp.MustCompile(`(?i)\s*\(alt(?: \d+)?\)$`)
 
-func loadIcons(sources []IconSource) map[string][]model.IconMeta {
-	iconMap := make(map[string][]model.IconMeta)
+func loadIcons(sources []IconSource) map[string][]model.IconRef {
+	iconMap := make(map[string][]model.IconRef)
 
 	for _, src := range sources {
 		entries, err := os.ReadDir(src.Path)
@@ -38,7 +38,7 @@ func loadIcons(sources []IconSource) map[string][]model.IconMeta {
 			baseName := stripAltSuffix(fullName) // Strip "(alt)", "(alt 2)", etc.
 			slug := utils.Slugify(baseName)
 
-			meta := model.IconMeta{
+			meta := model.IconRef{
 				Name:     fullName,
 				FullPath: filepath.Join(src.Path, fullName),
 				Size:     info.Size(),

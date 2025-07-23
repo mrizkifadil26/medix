@@ -10,7 +10,7 @@ type SyncedItem struct {
 	Name   string          `json:"name"`
 	Path   string          `json:"path"`
 	Status string          `json:"status"`
-	Icon   *IconMeta       `json:"icon,omitempty"`   // Local .ico inside media folder
+	Icon   *IconRef        `json:"icon,omitempty"`   // Local .ico inside media folder
 	Source *SyncedIconMeta `json:"source,omitempty"` // Linked from index
 	Items  []SyncedItem    `json:"items,omitempty"`
 }

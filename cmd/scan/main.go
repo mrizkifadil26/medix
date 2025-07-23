@@ -15,7 +15,8 @@ import (
 
 func main() {
 	configPath := flag.String("config", "", "Path to scan_config.json (required)")
-	filterType := flag.String("type", "", "Filter by type (e.g. media or icon)")
+	filterType := flag.String("type", "", "Type (media or icon)")
+	filterContent := flag.String("content", "", "Content type (movies or tv)")
 	filterName := flag.String("name", "", "Filter by name (e.g. movies.todo or tv)")
 	flag.Parse()
 
@@ -50,7 +51,9 @@ func main() {
 		if *filterType != "" && !strings.EqualFold(cfg.Type, *filterType) {
 			continue
 		}
-
+		if *filterContent != "" && !strings.EqualFold(cfg.ContentType, *filterContent) {
+			continue
+		}
 		if *filterName != "" && !strings.EqualFold(cfg.Name, *filterName) {
 			continue
 		}
@@ -58,13 +61,15 @@ func main() {
 		found = true
 
 		var strategy scanner.ScanStrategy
-
-		switch strings.ToLower(cfg.Type) {
-		case "movies":
+		switch strings.ToLower(cfg.Type + "." + cfg.ContentType) {
+		case "media.movies":
 			strategy = scanner.MovieStrategy{}
-		case "tv":
+		case "media.tv":
 			strategy = scanner.TVStrategy{}
-		case "icon":
+		case "icon.movies":
+			strategy = scanner.IconStrategy{}
+		case "icon.tv":
+			strategy = scanner.IconStrategy{}
 		default:
 			log.Printf("⚠️ Skipping unsupported content type: %s\n", cfg.Type)
 			continue
@@ -82,9 +87,16 @@ func main() {
 		}
 
 		if cfg.Options.Mode == "" {
-			switch strings.ToLower(cfg.Phase) {
-			case "raw":
-				cfg.Options.Mode = scanner.ScanFiles
+			switch strings.ToLower(cfg.Type) {
+			case "icon":
+				cfg.Options.Mode = scanner.ScanFiles // always files
+			case "media":
+				switch strings.ToLower(cfg.Phase) {
+				case "raw":
+					cfg.Options.Mode = scanner.ScanFiles
+				default:
+					cfg.Options.Mode = scanner.ScanDirs
+				}
 			default:
 				cfg.Options.Mode = scanner.ScanDirs
 			}
@@ -124,18 +136,18 @@ func main() {
 			continue
 		}
 
-		if len(output.Items) == 0 {
-			log.Printf("⚠️ No items found for %s\n", cfg.Name)
-			continue
-		}
+		// if len(output.Items) == 0 {
+		// 	log.Printf("⚠️ No items found for %s\n", cfg.Name)
+		// 	continue
+		// }
 
 		if err := utils.WriteJSON(cfg.Output, output); err != nil {
 			log.Printf("❌ Failed to write output for %s: %v\n", cfg.Name, err)
 			continue
 		}
 
-		log.Printf("✅ %s written: %d items in %d groups (%d ms)\n",
-			cfg.Output, output.TotalItems, output.GroupCount, output.ScanDurationMs)
+		// log.Printf("✅ %s written: %d items in %d groups (%d ms)\n",
+		// 	cfg.Output, output.TotalItems, output.GroupCount, output.ScanDurationMs)
 	}
 
 	if !found {

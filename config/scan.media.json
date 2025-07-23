@@ -2,8 +2,9 @@
   "concurrency": 8,
   "scan": [
     {
-      "name": "movies.todo",
-      "type": "movies",
+      "name": "movies.raw",
+      "type": "media",
+      "contentType": "movies",
       "phase": "raw",
       "include": [
         {
@@ -29,12 +30,14 @@
         "exts": [
           ".mkv",
           ".mp4"
-        ]
+        ],
+        "detectFoldered": true
       }
     },
     {
       "name": "movies.staged",
-      "type": "movies",
+      "type": "media",
+      "contentType": "movies",
       "phase": "staged",
       "include": [
         {
@@ -46,9 +49,10 @@
       "output": "data/media/movies.staged.json"
     },
     {
-      "name": "movies.media",
-      "type": "movies",
-      "phase": "media",
+      "name": "movies.final",
+      "type": "media",
+      "contentType": "movies",
+      "phase": "final",
       "include": [
         {
           "label": "movies",
@@ -56,15 +60,16 @@
         }
       ],
       "exclude": [],
-      "output": "data/media/movies.media.json",
+      "output": "data/media/movies.final.json",
       "options": {
         "depth": 4
       }
     },
     {
-      "name": "tv",
-      "type": "tv",
-      "phase": "media",
+      "name": "tv.final",
+      "type": "media",
+      "contentType": "tv",
+      "phase": "final",
       "include": [
         {
           "label": "tv",
@@ -80,7 +85,10 @@
         }
       ],
       "exclude": [],
-      "output": "data/media/tv.media.json"
+      "output": "data/media/tv.final.json",
+      "options": {
+        "depth": 4
+      }
     }
   ]
 }

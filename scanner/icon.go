@@ -1,15 +1,16 @@
 package scanner
 
 import (
+	"fmt"
 	"path/filepath"
 	"time"
 
 	"github.com/mrizkifadil26/medix/model"
 )
 
-type MovieStrategy struct{}
+type IconStrategy struct{}
 
-func (MovieStrategy) Scan(
+func (IconStrategy) Scan(
 	sources map[string]string,
 	opts ScanOptions,
 ) (any, error) {
@@ -19,7 +20,7 @@ func (MovieStrategy) Scan(
 
 	// Apply defaults if not set
 	if opts.Mode == "" {
-		opts.Mode = ScanDirs
+		opts.Mode = ScanFiles
 	}
 	if opts.Depth <= 0 {
 		opts.Depth = 2
@@ -29,28 +30,33 @@ func (MovieStrategy) Scan(
 	}
 	opts.ShowProgress = true // always enable for now
 
+	fmt.Println("mode: ", opts.Mode)
 	entries := Scan(
 		sources,
 		cache,
 		opts,
-		func(item ScanEntry) (model.MediaEntry, bool) {
+		func(item ScanEntry) (model.IconEntry, bool) {
 			folderPath := item.ItemPath
 			dirEntries := item.SubEntries
 			source := item.Source
 
 			group := item.GroupLabel
+			var size int64
+			if item.ItemSize != nil {
+				size = *item.ItemSize
+			}
 
-			entry := model.MediaEntry{
+			entry := model.IconEntry{
 				BaseEntry: model.BaseEntry{
 					Name:        filepath.Base(folderPath),
 					Path:        folderPath,
-					Type:        "media",
+					Type:        "icon",
 					ContentType: "movie",
 					Source:      source,
 					Group:       group,
 				},
-				Icon:   resolveIcon(folderPath, dirEntries),
-				Status: resolveStatus(dirEntries),
+				Slug: resolveStatus(dirEntries),
+				Size: size,
 			}
 
 			return entry, true
@@ -76,7 +82,7 @@ func (MovieStrategy) Scan(
 		sourceEntries = append(sourceEntries, k)
 	}
 
-	output := model.MediaOutput{
+	output := model.IconIndex{
 		Type:           "raw",
 		Version:        "1.0.0",
 		GeneratedAt:    time.Now(),

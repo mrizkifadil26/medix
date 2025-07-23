@@ -12,7 +12,7 @@ type TVStrategy struct{}
 func (TVStrategy) Scan(
 	sources map[string]string,
 	opts ScanOptions,
-) (model.MediaOutput, error) {
+) (any, error) {
 	start := time.Now()
 	cache := &dirCache{}
 	concurrency := getConcurrency()
@@ -35,7 +35,7 @@ func (TVStrategy) Scan(
 		sources,
 		cache,
 		opts,
-		func(item ScannedItem) (model.MediaEntry, bool) {
+		func(item ScanEntry) (model.MediaEntry, bool) {
 			folderPath := item.ItemPath
 			dirEntries := item.SubEntries
 			source := item.Source
@@ -44,14 +44,15 @@ func (TVStrategy) Scan(
 
 			showEntry := model.MediaEntry{
 				BaseEntry: model.BaseEntry{
-					Type:   "show",
-					Name:   filepath.Base(folderPath),
-					Path:   folderPath,
-					Status: resolveStatus(dirEntries),
-					Icon:   resolveIcon(folderPath, dirEntries),
-					Group:  group,
+					Name:        filepath.Base(folderPath),
+					Path:        folderPath,
+					Type:        "show",
+					ContentType: "tv",
+					Source:      source,
+					Group:       group,
 				},
-				Source: source,
+				Status: resolveStatus(dirEntries),
+				Icon:   resolveIcon(folderPath, dirEntries),
 			}
 
 			// Add seasons as items (not recursive)
@@ -61,14 +62,16 @@ func (TVStrategy) Scan(
 					subEntries, _ := cache.GetOrRead(seasonPath)
 					season := model.MediaEntry{
 						BaseEntry: model.BaseEntry{
-							Type:   "season",
 							Name:   entry.Name(),
 							Path:   seasonPath,
-							Status: resolveStatus(subEntries),
-							Parent: showEntry.Name,
+							Type:   "season",
 							Group:  group,
+							Source: source,
 						},
+						Status: resolveStatus(subEntries),
+						Parent: showEntry.Name,
 					}
+
 					showEntry.Items = append(showEntry.Items, season)
 				}
 			}
@@ -90,11 +93,16 @@ func (TVStrategy) Scan(
 		}
 	}
 
+	sourceEntries := make([]string, 0, len(sources))
+	for k := range sources {
+		sourceEntries = append(sourceEntries, k)
+	}
+
 	output := model.MediaOutput{
 		Type:           "raw",
 		Version:        "1.0.0",
 		GeneratedAt:    time.Now(),
-		Source:         "tv",
+		Sources:        sourceEntries,
 		TotalItems:     len(entries),
 		GroupCount:     len(groupSet),
 		ScanDurationMs: time.Since(start).Milliseconds(),
