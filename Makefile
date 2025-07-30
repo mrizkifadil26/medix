@@ -66,8 +66,8 @@ all: movies tvshows
 # Default ARGS from Make
 scan-%:
 	@$(GO) run $(SCANNER_V2_CMD) \
-		--config="config/scanner/$.*/$(type).$(label).json" \
-		--output=data/scanner/$.*/$(type).$(label).json \
+		--config="config/scanner/$*/$(type).$(label).json" \
+		--output=data/scanner/$*/$(type).$(label).json \
 
 # Enable recursive globbing
 SHELL := /bin/bash
