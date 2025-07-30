@@ -1,13 +1,12 @@
 {
-  "root": "<your-path>",
-  "mode": "dirs",
+  "root": "/mnt/e/TODO/Movies/Foreign",
+  "mode": "files",
   "exts": [
     ".mkv"
   ],
   "depth": -1,
   "exclude": [],
   "onlyLeaf": true,
-  "leafDepth": 1,
   "skipEmpty": true,
   "verbose": true
 }
