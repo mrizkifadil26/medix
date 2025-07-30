@@ -40,36 +40,48 @@ OUTPUT   	:= dist
 all: movies tvshows
 
 # --- Media source generation ---
-media:
-	@if [ -z "$(type)" ] || [ -z "$(name)" ]; then \
-		echo "Usage: make media type=<type> name=<name>"; \
-		exit 1; \
-	fi
-	@echo "Running for $(type)/$(name)"
+# media:
+# 	@if [ -z "$(type)" ] || [ -z "$(name)" ]; then \
+# 		echo "Usage: make media type=<type> name=<name>"; \
+# 		exit 1; \
+# 	fi
+# 	@echo "Running for $(type)/$(name)"
 
-	$(GO) run $(SCANNER_CMD) \
-		--type media \
-		--content $(type) \
-		--name $(type).$(name) \
-		--config "config/scan.media.json"
+# 	$(GO) run $(SCANNER_CMD) \
+# 		--type media \
+# 		--content $(type) \
+# 		--name $(type).$(name) \
+# 		--config "config/scan.media.json"
 
-scan-movies:
-	$(MAKE) media type=movies name=raw
-	$(MAKE) media type=movies name=staged
-	$(MAKE) media type=movies name=final
+# scan-movies:
+# 	$(MAKE) media type=movies name=raw
+# 	$(MAKE) media type=movies name=staged
+# 	$(MAKE) media type=movies name=final
 
-scan-tv:
-	$(MAKE) media type=tv name=final
+# scan-tv:
+# 	$(MAKE) media type=tv name=final
 
-scan-media: scan-movies scan-tv
+# scan-media: scan-movies scan-tv
 
 # Default ARGS from Make
-ARGS := $(filter-out $@,$(MAKECMDGOALS))
-scan:
+scan-%:
 	@$(GO) run $(SCANNER_V2_CMD) \
-		--config="config/scanner/scanner.$(label).json" \
-		--output=data/scanner/scan.$(label).json \
-		--verbose
+		--config="config/scanner/$.*/$(type).$(label).json" \
+		--output=data/scanner/$.*/$(type).$(label).json \
+
+# Enable recursive globbing
+SHELL := /bin/bash
+.ONESHELL:
+
+scan-all:
+	@shopt -s globstar nullglob; \
+	for f in config/scanner/**/*.json; do \
+		rel_path=$${f#config/scanner/}; \
+		out_path="data/scanner/$$rel_path"; \
+		mkdir -p "$$(dirname "$$out_path")"; \
+		echo "🔍 Scanning $$f → $$out_path"; \
+		go run cmd/scan-v2/main.go --config="$$f" --output="$$out_path"; \
+	done
 
 # --- Icon index generation ---
 icon:
@@ -85,10 +97,10 @@ icon:
 		--name $(type).$(name) \
 		--config "config/scan.icon.json"
 
-scan-icons:
-	$(MAKE) icon type=movies name=raw
-	$(MAKE) icon type=movies name=final
-	$(MAKE) icon type=tv name=final
+# scan-icons:
+# 	$(MAKE) icon type=movies name=raw
+# 	$(MAKE) icon type=movies name=final
+# 	$(MAKE) icon type=tv name=final
 
 # --- Sync media and icons logically ---
 sync:
