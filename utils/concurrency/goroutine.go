@@ -1,22 +1,20 @@
 package concurrency
 
-import "sync"
+import "context"
 
-func ConcurrentExecutor(limit int) Executor {
-	return func(jobs []func()) {
-		var wg sync.WaitGroup
-		sem := make(chan struct{}, limit)
+func GoroutineExecutor(limit int) TaskExecutor {
+	sem := make(chan struct{}, limit)
 
-		for _, job := range jobs {
-			wg.Add(1)
-			sem <- struct{}{}
-			go func(job func()) {
-				defer wg.Done()
-				job()
-				<-sem
-			}(job)
+	return func(ctx context.Context, task TaskFunc) error {
+		select {
+		case sem <- struct{}{}:
+			go func() {
+				defer func() { <-sem }()
+				_ = task(ctx)
+			}()
+			return nil
+		case <-ctx.Done():
+			return ctx.Err()
 		}
-
-		wg.Wait()
 	}
 }

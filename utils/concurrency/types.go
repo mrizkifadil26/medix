@@ -1,6 +1,10 @@
 package concurrency
 
-type Executor func(jobs []func())
+import "context"
+
+type TaskFunc func(ctx context.Context) error
+type TaskExecutor func(ctx context.Context, task TaskFunc) error
+type BatchExecutor func(ctx context.Context, tasks []TaskFunc) error
 
 type Mode string
 

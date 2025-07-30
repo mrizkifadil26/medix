@@ -1,8 +1,10 @@
 package concurrency
 
+import "context"
+
 // SequentialExecutor runs jobs one by one
-func SequentialExecutor(jobs []func()) {
-	for _, job := range jobs {
-		job()
+func SequentialExecutor() TaskExecutor {
+	return func(ctx context.Context, task TaskFunc) error {
+		return task(ctx)
 	}
 }

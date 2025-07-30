@@ -1,29 +1,30 @@
 package concurrency
 
-import "sync"
+import "context"
 
-func WorkerPoolExecutor(limit int) Executor {
-	return func(jobs []func()) {
-		var wg sync.WaitGroup
-		jobChan := make(chan func())
+func WorkerPoolExecutor(limit int) TaskExecutor {
+	tasks := make(chan TaskFunc)
+	ctxs := make(chan context.Context)
 
-		// Start workers
-		for i := 0; i < limit; i++ {
-			go func() {
-				for job := range jobChan {
-					job()
-					wg.Done()
+	for i := 0; i < limit; i++ {
+		go func() {
+			for {
+				select {
+				case task := <-tasks:
+					ctx := <-ctxs
+					_ = task(ctx)
 				}
-			}()
-		}
+			}
+		}()
+	}
 
-		// Submit jobs
-		for _, job := range jobs {
-			wg.Add(1)
-			jobChan <- job
+	return func(ctx context.Context, task TaskFunc) error {
+		select {
+		case tasks <- task:
+			ctxs <- ctx
+			return nil
+		case <-ctx.Done():
+			return ctx.Err()
 		}
-
-		close(jobChan)
-		wg.Wait()
 	}
 }
