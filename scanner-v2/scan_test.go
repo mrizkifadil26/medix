@@ -1,11 +1,14 @@
 package scannerV2_test
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"testing"
+	"time"
 
 	scannerV2 "github.com/mrizkifadil26/medix/scanner-v2"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
@@ -214,4 +217,38 @@ func TestScan_TVShowStyle(t *testing.T) {
 
 	require.Contains(t, subNames, "Season 1")
 	require.Contains(t, subNames, "Season 2")
+}
+
+func TestScan_ConcurrencyEffect(t *testing.T) {
+	tmp := t.TempDir()
+
+	for i := 0; i < 5; i++ {
+		filePath := filepath.Join(tmp, fmt.Sprintf("movie%d.mkv", i))
+		os.WriteFile(filePath, []byte("dummy"), 0644)
+	}
+
+	start := time.Now()
+	_, err := scannerV2.Scan(tmp, scannerV2.ScanOptions{
+		Mode:        "files",
+		Depth:       1,
+		Exts:        []string{".mkv"},
+		Verbose:     false,
+		Concurrency: 1, // sequential
+	})
+	require.NoError(t, err)
+	durationSequential := time.Since(start)
+
+	start = time.Now()
+	_, err = scannerV2.Scan(tmp, scannerV2.ScanOptions{
+		Mode:        "files",
+		Depth:       1,
+		Exts:        []string{".mkv"},
+		Verbose:     false,
+		Concurrency: 5, // parallel
+	})
+
+	require.NoError(t, err)
+	durationParallel := time.Since(start)
+
+	assert.Less(t, durationParallel, durationSequential)
 }
