@@ -1,0 +1,12 @@
+{
+  "root": "/mnt/e/TODO/Movies/Foldered",
+  "mode": "dirs",
+  "exts": [
+    ".mkv"
+  ],
+  "depth": -1,
+  "exclude": [],
+  "onlyLeaf": true,
+  "skipEmpty": true,
+  "verbose": true
+}

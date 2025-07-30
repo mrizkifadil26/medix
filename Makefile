@@ -13,6 +13,7 @@ BIN_DIR			:= bin
 
 # --- Executable Commands ---
 SCANNER_CMD		:= ./cmd/scan
+SCANNER_V2_CMD	:= ./cmd/scan-v2
 PROGRESS_CMD	:= ./cmd/progress
 SERVER_CMD		:= ./cmd/server
 ICONMAP_CMD		:= ./cmd/iconmap
@@ -61,6 +62,14 @@ scan-tv:
 	$(MAKE) media type=tv name=final
 
 scan-media: scan-movies scan-tv
+
+# Default ARGS from Make
+ARGS := $(filter-out $@,$(MAKECMDGOALS))
+scan:
+	@$(GO) run $(SCANNER_V2_CMD) \
+		--config="config/scanner/scanner.$(label).json" \
+		--output=data/scanner/scan.$(label).json \
+		--verbose
 
 # --- Icon index generation ---
 icon:
