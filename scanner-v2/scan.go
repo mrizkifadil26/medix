@@ -62,7 +62,7 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 	var (
 		jobs  []concurrency.TaskFunc
 		mu    sync.Mutex // to protect shared output
-		items []ScanEntry
+		items = make([]ScanEntry, 0)
 
 		excluded int64 // atomic counter
 	)
