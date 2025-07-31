@@ -1,0 +1,13 @@
+{
+  "root": "/mnt/f/Torrent",
+  "mode": "dirs",
+  "exts": [
+    ".mkv"
+  ],
+  "depth": -1,
+  "exclude": [],
+  "onlyLeaf": true,
+  "skipEmpty": true,
+  "verbose": true,
+  "concurrency": 4
+}
