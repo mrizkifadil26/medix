@@ -14,6 +14,7 @@ BIN_DIR			:= bin
 # --- Executable Commands ---
 SCANNER_CMD		:= ./cmd/scan
 SCANNER_V2_CMD	:= ./cmd/scan-v2
+CLASSIFIER_CMD	:= ./cmd/classify
 PROGRESS_CMD	:= ./cmd/progress
 SERVER_CMD		:= ./cmd/server
 ICONMAP_CMD		:= ./cmd/iconmap
@@ -67,7 +68,7 @@ all: movies tvshows
 scan-%:
 	@$(GO) run $(SCANNER_V2_CMD) \
 		--config="config/scanner/$*/$(type).$(label).json" \
-		--output=data/scanner/$*/$(type).$(label).json \
+		--output=data/scanned/$*/$(type).$(label).json \
 
 # Enable recursive globbing
 SHELL := /bin/bash
@@ -81,6 +82,24 @@ scan-all:
 		mkdir -p "$$(dirname "$$out_path")"; \
 		echo "🔍 Scanning $$f → $$out_path"; \
 		go run cmd/scan-v2/main.go --config="$$f" --output="$$out_path"; \
+	done
+
+classify-%:
+	@$(GO) run $(CLASSIFIER_CMD) \
+		--config="config/classifier/$*.$(type).json" \
+
+# Enable recursive globbing
+SHELL := /bin/bash
+.ONESHELL:
+
+classify-all:
+	@shopt -s globstar nullglob; \
+	for f in config/classifier/**/*.json; do \
+		rel_path=$${f#config/classifier/}; \
+		out_path="data/classifier/$$rel_path"; \
+		mkdir -p "$$(dirname "$$out_path")"; \
+		echo "🔍 Scanning $$f → $$out_path"; \
+		go run cmd/classify/main.go --config="$$f"; \
 	done
 
 # --- Icon index generation ---
