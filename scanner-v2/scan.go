@@ -10,8 +10,6 @@ import (
 	"sync/atomic"
 	"time"
 
-	logr "log"
-
 	"github.com/mrizkifadil26/medix/utils/concurrency"
 )
 
@@ -158,28 +156,6 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		return output, fmt.Errorf("scan failed: %w", err)
 	}
 
-	var completed int64
-	total := int64(len(jobs))
-	wrapWithProgress := func(task concurrency.TaskFunc) concurrency.TaskFunc {
-		return func(ctx context.Context) error {
-			err := task(ctx)
-			atomic.AddInt64(&completed, 1)
-
-			current := atomic.LoadInt64(&completed)
-			if current%10 == 0 || current == total { // only log every 10
-				logr.Printf("✔ Progress: %d/%d done\r", current, total)
-			}
-
-			return err
-		}
-	}
-
-	for i := range jobs {
-		jobs[i] = wrapWithProgress(jobs[i])
-	}
-
-	// Use executor
-	fmt.Println("[Scan] Using concurrency:", options.Concurrency)
 	taskExec, err := SelectExecutor(options.Concurrency)
 	if err != nil {
 		return output, fmt.Errorf("concurrency error: %w", err)

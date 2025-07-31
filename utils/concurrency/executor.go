@@ -41,6 +41,8 @@ func FromTaskExecutor(exec TaskExecutor) BatchExecutor {
 	return func(ctx context.Context, tasks []TaskFunc) error {
 		var wg sync.WaitGroup
 		errCh := make(chan error, len(tasks))
+		ctx, cancel := context.WithCancel(ctx)
+		defer cancel()
 
 		for _, task := range tasks {
 			wg.Add(1)
@@ -50,15 +52,24 @@ func FromTaskExecutor(exec TaskExecutor) BatchExecutor {
 				defer wg.Done()
 
 				if err := t(ctx); err != nil {
-					errCh <- err
+					select {
+					case errCh <- err:
+						cancel() // propagate cancel to all workers
+					default:
+						// error already captured
+					}
 				}
+
 				return nil
 			})
 
 			if err != nil {
-				// Task was rejected (e.g., context already canceled)
-				wg.Done()
-				errCh <- err
+				// Executor rejected task (e.g., context canceled or channel full)
+				select {
+				case errCh <- err:
+					cancel()
+				default:
+				}
 			}
 		}
 
