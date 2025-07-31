@@ -1,0 +1,13 @@
+{
+  "inputs": ["data/scanned/icon/tv.*.json"],
+  "outputs": [
+    {
+      "name": "icon-tv",
+      "output": "data/classified/icon.tv.json",
+      "set": {
+        "type": "icon",
+        "content": "tv"
+      }
+    }
+  ]
+}
