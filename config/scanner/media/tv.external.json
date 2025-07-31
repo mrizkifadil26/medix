@@ -1,0 +1,13 @@
+{
+  "root": "/mnt/d/TV Shows",
+  "mode": "dirs",
+  "exts": [
+    ".mkv"
+  ],
+  "depth": 2,
+  "exclude": [],
+  "onlyLeaf": false,
+  "leafDepth": 1,
+  "skipEmpty": true,
+  "verbose": true
+}

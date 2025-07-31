@@ -1,0 +1,12 @@
+{
+  "root": "/mnt/c/Users/Rizki/Downloads/Media/Movies",
+  "mode": "files",
+  "exts": [
+    ".mkv"
+  ],
+  "depth": -1,
+  "exclude": [],
+  "onlyLeaf": true,
+  "skipEmpty": true,
+  "verbose": true
+}

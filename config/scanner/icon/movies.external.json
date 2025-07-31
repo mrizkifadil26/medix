@@ -1,0 +1,12 @@
+{
+  "root": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/Downloaded",
+  "mode": "files",
+  "exts": [
+    ".ico"
+  ],
+  "depth": -1,
+  "exclude": [],
+  "onlyLeaf": true,
+  "skipEmpty": true,
+  "verbose": true
+}
