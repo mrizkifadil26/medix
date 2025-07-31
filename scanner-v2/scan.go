@@ -7,13 +7,18 @@ import (
 	"path/filepath"
 	"strings"
 	"sync"
+	"sync/atomic"
 	"time"
+
+	logr "log"
 
 	"github.com/mrizkifadil26/medix/utils/concurrency"
 )
 
 func Scan(root string, options ScanOptions) (ScanOutput, error) {
-	ctx := context.Background()
+	// ctx := context.Background()
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
 
 	start := time.Now()
 	output := ScanOutput{
@@ -56,9 +61,13 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		return false
 	}
 
-	var jobs []concurrency.TaskFunc
-	var mu sync.Mutex // to protect shared output
-	excludedCount := 0
+	var (
+		jobs  []concurrency.TaskFunc
+		mu    sync.Mutex // to protect shared output
+		items []ScanEntry
+
+		excluded int64 // atomic counter
+	)
 
 	switch options.Mode {
 	case "files":
@@ -68,14 +77,15 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 			Verbose:  options.Verbose,
 		}, func(path string, size int64) {
 			if isExcluded(path) {
-				excludedCount++
+				atomic.AddInt64(&excluded, 1)
+
 				return
 			}
 
 			rel, _ := filepath.Rel(inputPath, path)
+
 			jobs = append(jobs, concurrency.TaskFunc(func(ctx context.Context) error {
 				entry := ScanEntry{
-					// Source:     inputPath,
 					GroupPath:  filepath.Dir(rel),
 					ItemPath:   path,
 					ItemName:   filepath.Base(path),
@@ -84,7 +94,7 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 				}
 
 				mu.Lock()
-				output.Items = append(output.Items, entry)
+				items = append(items, entry)
 				mu.Unlock()
 
 				return nil
@@ -102,9 +112,9 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 				Verbose:   options.Verbose,
 			},
 			func(path string, entries []os.DirEntry) {
-				excludedCount := 0
 				if isExcluded(path) {
-					excludedCount++
+					atomic.AddInt64(&excluded, 1)
+
 					return
 				}
 
@@ -123,15 +133,17 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 									subs = append(subs, e.Name())
 								}
 							}
+
 							if len(subs) > 0 {
 								return subs
 							}
+
 							return nil
 						}(),
 					}
 
 					mu.Lock()
-					output.Items = append(output.Items, entry)
+					items = append(items, entry)
 					mu.Unlock()
 
 					return nil
@@ -146,7 +158,28 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		return output, fmt.Errorf("scan failed: %w", err)
 	}
 
+	var completed int64
+	total := int64(len(jobs))
+	wrapWithProgress := func(task concurrency.TaskFunc) concurrency.TaskFunc {
+		return func(ctx context.Context) error {
+			err := task(ctx)
+			atomic.AddInt64(&completed, 1)
+
+			current := atomic.LoadInt64(&completed)
+			if current%10 == 0 || current == total { // only log every 10
+				logr.Printf("✔ Progress: %d/%d done\r", current, total)
+			}
+
+			return err
+		}
+	}
+
+	for i := range jobs {
+		jobs[i] = wrapWithProgress(jobs[i])
+	}
+
 	// Use executor
+	fmt.Println("[Scan] Using concurrency:", options.Concurrency)
 	taskExec, err := SelectExecutor(options.Concurrency)
 	if err != nil {
 		return output, fmt.Errorf("concurrency error: %w", err)
@@ -158,8 +191,9 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		return output, fmt.Errorf("execution error: %w", err)
 	}
 
-	output.ExcludedCount = excludedCount
-	output.ItemCount = len(output.Items)
+	output.Items = items
+	output.ItemCount = len(items)
+	output.ExcludedCount = int(atomic.LoadInt64(&excluded))
 	output.Duration = time.Since(start).String()
 
 	return output, nil

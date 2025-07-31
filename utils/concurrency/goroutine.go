@@ -1,6 +1,8 @@
 package concurrency
 
-import "context"
+import (
+	"context"
+)
 
 func GoroutineExecutor(limit int) TaskExecutor {
 	sem := make(chan struct{}, limit)

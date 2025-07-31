@@ -7,5 +7,5 @@ func SelectExecutor(concurrencyLimit int) (concurrency.TaskExecutor, error) {
 		return concurrency.SequentialExecutor(), nil
 	}
 
-	return concurrency.GoroutineExecutor(concurrencyLimit), nil
+	return concurrency.WorkerPoolExecutor(concurrencyLimit), nil
 }

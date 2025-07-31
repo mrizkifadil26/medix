@@ -3,6 +3,7 @@ package concurrency
 import (
 	"context"
 	"fmt"
+	"sync"
 )
 
 // SelectExecutor returns an Executor based on config (mode and limit)
@@ -38,10 +39,35 @@ func MustExecutor(cfg Config) TaskExecutor {
 
 func FromTaskExecutor(exec TaskExecutor) BatchExecutor {
 	return func(ctx context.Context, tasks []TaskFunc) error {
+		var wg sync.WaitGroup
+		errCh := make(chan error, len(tasks))
+
 		for _, task := range tasks {
-			if err := exec(ctx, task); err != nil {
-				// Optional: capture/collect/log errors
+			wg.Add(1)
+
+			t := task // avoid closure capture issues
+			err := exec(ctx, func(ctx context.Context) error {
+				defer wg.Done()
+
+				if err := t(ctx); err != nil {
+					errCh <- err
+				}
+				return nil
+			})
+
+			if err != nil {
+				// Task was rejected (e.g., context already canceled)
+				wg.Done()
+				errCh <- err
 			}
+		}
+
+		wg.Wait()
+		close(errCh)
+
+		// Return the first error (or nil)
+		for err := range errCh {
+			return err
 		}
 
 		return nil

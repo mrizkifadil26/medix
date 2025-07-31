@@ -7,27 +7,29 @@ import (
 )
 
 type ScanConfig struct {
-	Root      string   `json:"root"`
-	Mode      string   `json:"mode"` // "files" or "dirs"
-	Exts      []string `json:"exts"`
-	Depth     int      `json:"depth"`
-	Exclude   []string `json:"exclude"`
-	OnlyLeaf  bool     `json:"onlyLeaf"`
-	LeafDepth int      `json:"leafDepth"` // 0 = default, 1 = leaf-1, 2 = leaf-2, etc.
-	SkipEmpty bool     `json:"skipEmpty"`
-	Verbose   bool     `json:"verbose"`
+	Root        string   `json:"root"`
+	Mode        string   `json:"mode"` // "files" or "dirs"
+	Exts        []string `json:"exts"`
+	Depth       int      `json:"depth"`
+	Exclude     []string `json:"exclude"`
+	OnlyLeaf    bool     `json:"onlyLeaf"`
+	LeafDepth   int      `json:"leafDepth"` // 0 = default, 1 = leaf-1, 2 = leaf-2, etc.
+	SkipEmpty   bool     `json:"skipEmpty"`
+	Concurrency int      `json:"concurrency"` // worker count
+	Verbose     bool     `json:"verbose"`
 }
 
 func (c ScanConfig) ToOptions() ScanOptions {
 	return ScanOptions{
-		Mode:      c.Mode,
-		Exts:      c.Exts,
-		Depth:     c.Depth,
-		Exclude:   c.Exclude,
-		OnlyLeaf:  c.OnlyLeaf,
-		LeafDepth: c.LeafDepth,
-		SkipEmpty: c.SkipEmpty,
-		Verbose:   c.Verbose,
+		Mode:        c.Mode,
+		Exts:        c.Exts,
+		Depth:       c.Depth,
+		Exclude:     c.Exclude,
+		OnlyLeaf:    c.OnlyLeaf,
+		LeafDepth:   c.LeafDepth,
+		SkipEmpty:   c.SkipEmpty,
+		Verbose:     c.Verbose,
+		Concurrency: c.Concurrency,
 	}
 }
 
