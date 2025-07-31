@@ -1,0 +1,13 @@
+{
+  "inputs": ["data/scanned/icon/movies.*.json"],
+  "outputs": [
+    {
+      "name": "icon-movies",
+      "output": "data/classified/icon.movies.json",
+      "set": {
+        "type": "icon",
+        "content": "movie"
+      }
+    }
+  ]
+}
