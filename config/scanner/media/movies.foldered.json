@@ -8,5 +8,6 @@
   "exclude": [],
   "onlyLeaf": true,
   "skipEmpty": true,
-  "verbose": true
+  "verbose": false,
+  "concurrency": 4
 }

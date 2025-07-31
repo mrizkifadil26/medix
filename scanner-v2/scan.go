@@ -1,14 +1,23 @@
 package scannerV2
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
+	"sync/atomic"
 	"time"
+
+	"github.com/mrizkifadil26/medix/utils/concurrency"
 )
 
 func Scan(root string, options ScanOptions) (ScanOutput, error) {
+	// ctx := context.Background()
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
 	start := time.Now()
 	output := ScanOutput{
 		GeneratedAt: time.Now().Format(time.RFC3339),
@@ -18,8 +27,6 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 
 	// Normalize input path
 	inputPath := filepath.Clean(root)
-
-	// Check if input exists
 	info, err := os.Stat(inputPath)
 	if err != nil {
 		return output, fmt.Errorf("input path error: %w", err)
@@ -52,6 +59,14 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		return false
 	}
 
+	var (
+		jobs  []concurrency.TaskFunc
+		mu    sync.Mutex // to protect shared output
+		items []ScanEntry
+
+		excluded int64 // atomic counter
+	)
+
 	switch options.Mode {
 	case "files":
 		err = WalkFiles(inputPath, WalkOptions{
@@ -59,26 +74,29 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 			Exts:     options.Exts,
 			Verbose:  options.Verbose,
 		}, func(path string, size int64) {
-			excludedCount := 0
 			if isExcluded(path) {
-				excludedCount++
+				atomic.AddInt64(&excluded, 1)
+
 				return
 			}
 
 			rel, _ := filepath.Rel(inputPath, path)
-			entry := ScanEntry{
-				// Source:     inputPath,
-				GroupPath:  filepath.Dir(rel),
-				ItemPath:   path,
-				ItemName:   filepath.Base(path),
-				ItemSize:   &size,
-				GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
-			}
 
-			output.ItemCount = len(output.Items)
-			output.ExcludedCount = excludedCount
-			output.Duration = time.Since(start).String()
-			output.Items = append(output.Items, entry)
+			jobs = append(jobs, concurrency.TaskFunc(func(ctx context.Context) error {
+				entry := ScanEntry{
+					GroupPath:  filepath.Dir(rel),
+					ItemPath:   path,
+					ItemName:   filepath.Base(path),
+					ItemSize:   &size,
+					GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
+				}
+
+				mu.Lock()
+				items = append(items, entry)
+				mu.Unlock()
+
+				return nil
+			}))
 		})
 
 	case "dirs":
@@ -92,40 +110,42 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 				Verbose:   options.Verbose,
 			},
 			func(path string, entries []os.DirEntry) {
-				excludedCount := 0
 				if isExcluded(path) {
-					excludedCount++
+					atomic.AddInt64(&excluded, 1)
+
 					return
 				}
 
 				rel, _ := filepath.Rel(inputPath, path)
-				entry := ScanEntry{
-					// Source:     inputPath,
-					GroupPath: filepath.Dir(rel),
-					ItemPath:  path,
-					ItemName:  filepath.Base(path),
-					// ItemSize:   nil,
-					GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
-					SubEntries: func() []string {
-						var subs []string
-						for _, e := range entries {
-							if e.IsDir() {
-								subs = append(subs, e.Name())
+
+				jobs = append(jobs, func(ctx context.Context) error {
+					entry := ScanEntry{
+						GroupPath:  filepath.Dir(rel),
+						ItemPath:   path,
+						ItemName:   filepath.Base(path),
+						GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
+						SubEntries: func() []string {
+							var subs []string
+							for _, e := range entries {
+								if e.IsDir() {
+									subs = append(subs, e.Name())
+								}
 							}
-						}
 
-						if len(subs) > 0 {
-							return subs
-						}
+							if len(subs) > 0 {
+								return subs
+							}
 
-						return nil
-					}(),
-				}
+							return nil
+						}(),
+					}
 
-				output.ItemCount = len(output.Items)
-				output.ExcludedCount = excludedCount
-				output.Duration = time.Since(start).String()
-				output.Items = append(output.Items, entry)
+					mu.Lock()
+					items = append(items, entry)
+					mu.Unlock()
+
+					return nil
+				})
 			})
 
 	default:
@@ -136,5 +156,25 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		return output, fmt.Errorf("scan failed: %w", err)
 	}
 
+	taskExec, err := SelectExecutor(options.Concurrency)
+	if err != nil {
+		return output, fmt.Errorf("concurrency error: %w", err)
+	}
+
+	exec := concurrency.FromTaskExecutor(taskExec)
+	err = exec(ctx, jobs)
+	if err != nil {
+		return output, fmt.Errorf("execution error: %w", err)
+	}
+
+	output.Items = items
+	output.ItemCount = len(items)
+	output.ExcludedCount = int(atomic.LoadInt64(&excluded))
+	output.Duration = time.Since(start).String()
+
 	return output, nil
+}
+
+func (o ScanOptions) IsParallel() bool {
+	return o.Concurrency > 1
 }

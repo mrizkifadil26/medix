@@ -9,5 +9,6 @@
   "onlyLeaf": true,
   "leafDepth": 0,
   "skipEmpty": true,
-  "verbose": true
+  "verbose": false,
+  "concurrency": 4
 }
