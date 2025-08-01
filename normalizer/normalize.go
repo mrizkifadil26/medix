@@ -3,6 +3,8 @@ package normalizer
 import (
 	"fmt"
 	"strings"
+
+	normalizer "github.com/mrizkifadil26/medix/normalizer/helpers"
 )
 
 type Normalizer struct{}
@@ -14,17 +16,17 @@ func New() *Normalizer {
 type NormalizerFunc func(string) string
 
 var Normalizers = map[string]NormalizerFunc{
-	"unicodeFix":          NormalizeUnicode,
-	"stripExtension":      StripExtension,
-	"stripBrackets":       StripBrackets,
-	"replaceSpecialChars": ReplaceSpecialChars,
-	"collapseDashes":      CollapseDashes,
-	"toLower":             ToLower,
-	"spaceToDash":         SpaceToDash,
-	"removeKnownPrefixes": RemoveKnownPrefixes,
-	"dotToSpace":          DotToSpace,
-	"slugify":             Slugify,
-	"normalizeDashes":     NormalizeDashes,
+	"unicodeFix":          normalizer.NormalizeUnicode,
+	"stripExtension":      normalizer.StripExtension,
+	"stripBrackets":       normalizer.StripBrackets,
+	"replaceSpecialChars": normalizer.ReplaceSpecialChars,
+	"collapseDashes":      normalizer.CollapseDashes,
+	"toLower":             normalizer.ToLower,
+	"spaceToDash":         normalizer.SpaceToDash,
+	"removeKnownPrefixes": normalizer.RemoveKnownPrefixes,
+	"dotToSpace":          normalizer.DotToSpace,
+	"slugify":             normalizer.Slugify,
+	"normalizeDashes":     normalizer.NormalizeDashes,
 }
 
 func (n *Normalizer) Normalize(s string, steps []string) string {
