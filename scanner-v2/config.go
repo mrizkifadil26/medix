@@ -30,6 +30,7 @@ func (c *Config) ApplyDefaults() {
 	if c.Options.Depth == 0 {
 		c.Options.Depth = 1
 	}
+
 	// All other fields (Exclude, Exts, OnlyLeaf, LeafDepth, SkipEmpty, etc.)
 	// are optional and left as-is to respect user intent.
 }
