@@ -9,5 +9,12 @@
   "onlyLeaf": false,
   "leafDepth": 1,
   "skipEmpty": true,
-  "verbose": true
+  "verbose": true,
+  "subEntries": true,
+  "subExts": [
+    ".mkv",
+    ".mp4",
+    ".ico",
+    ".srt"
+  ]
 }

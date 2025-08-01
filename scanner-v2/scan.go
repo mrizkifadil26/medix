@@ -124,12 +124,39 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 						ItemPath:   path,
 						ItemName:   filepath.Base(path),
 						GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
-						SubEntries: func() []string {
-							var subs []string
+						SubEntries: func() []ScanEntry {
+							if !options.SubEntries {
+								return nil
+							}
+
+							var subs []ScanEntry
+							extFilter := make(map[string]bool)
+							for _, ext := range options.SubExts {
+								extFilter[strings.ToLower(ext)] = true
+							}
+
 							for _, e := range entries {
 								if e.IsDir() {
-									subs = append(subs, e.Name())
+									continue
 								}
+
+								name := e.Name()
+								ext := strings.ToLower(filepath.Ext(name))
+								if len(extFilter) > 0 && !extFilter[ext] {
+									continue
+								}
+
+								info, err := e.Info()
+								if err != nil {
+									continue // safely skip files we can't stat
+								}
+								size := info.Size()
+
+								subs = append(subs, ScanEntry{
+									ItemPath: filepath.Join(path, e.Name()),
+									ItemName: e.Name(),
+									ItemSize: &size,
+								})
 							}
 
 							if len(subs) > 0 {

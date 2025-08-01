@@ -11,15 +11,21 @@ type ScanOptions struct {
 	LeafDepth    int      `json:"leafDepth"`   // NEW: 0 = default, 1 = leaf-1, 2 = leaf-2, etc.
 	SkipEmpty    bool     `json:"skipEmpty"`   // new: skip empty directories entirely
 	Verbose      bool     `json:"verbose"`     // log visited/skipped folders
+
+	// NEW — for subentry scanning
+	SubEntries bool     `json:"subEntries"`         // If true, collect files inside dirs
+	SubExts    []string `json:"subExts,omitempty"`  // Optional: file filters for subentries
+	SubTypes   []string `json:"subTypes,omitempty"` // Optional: categorize by ["media", "icon", "subtitle"]
 }
 
 type ScanEntry struct {
-	ItemPath   string   `json:"itemPath"`             // Required
-	ItemName   string   `json:"itemName"`             // Required
-	GroupLabel []string `json:"groupLabel,omitempty"` // Optional
-	GroupPath  string   `json:"groupPath,omitempty"`  // Optional
-	ItemSize   *int64   `json:"itemSize,omitempty"`   // Optional
-	SubEntries []string `json:"subEntries,omitempty"` // Optional
+	ItemPath   string      `json:"itemPath"`             // Required
+	ItemName   string      `json:"itemName"`             // Required
+	GroupLabel []string    `json:"groupLabel,omitempty"` // Optional
+	GroupPath  string      `json:"groupPath,omitempty"`  // Optional
+	ItemSize   *int64      `json:"itemSize,omitempty"`   // Optional
+	SubPaths   []string    `json:"subPaths,omitempty"`   // for "path" mode
+	SubEntries []ScanEntry `json:"subEntries,omitempty"` // for "entry" and "recursive" mode
 }
 
 type ScanOutput struct {
