@@ -1,5 +1,12 @@
 # Makefile to build media tools, generate data, and serve static site
 
+# Enable recursive globbing
+SHELL := /bin/bash
+.ONESHELL:
+
+# Job types
+TYPES := media icon
+
 # --- Directories ---
 DATA_DIR        := data
 RAW_DIR         := $(DATA_DIR)/raw
@@ -63,25 +70,37 @@ all: movies tvshows
 
 # scan-media: scan-movies scan-tv
 
-# Default ARGS from Make
-scan-%:
-	@$(GO) run $(SCANNER_V2_CMD) \
-		--config="config/scanner/$*/$(type).$(label).json" \
-		--output=data/scanner/$*/$(type).$(label).json \
-
-# Enable recursive globbing
-SHELL := /bin/bash
-.ONESHELL:
-
-scan-all:
-	@shopt -s globstar nullglob; \
-	for f in config/scanner/**/*.json; do \
-		rel_path=$${f#config/scanner/}; \
-		out_path="data/scanner/$$rel_path"; \
-		mkdir -p "$$(dirname "$$out_path")"; \
-		echo "🔍 Scanning $$f → $$out_path"; \
-		go run cmd/scan-v2/main.go --config="$$f" --output="$$out_path"; \
+# Scan all types
+scan-all: $(SCAN)
+	for type in $(TYPES); do
+		for config in $(CONFIG_DIR)/$$type/**/*.json; do
+			[ -f "$$config" ] || continue
+			name=$$(basename $$config .json)
+			out="$(OUTPUT_DIR)/$$type/$$name.json"
+			echo "Scanning $$type: $$config → $$out"
+			mkdir -p "$$(dirname $$out)"
+			$(SCAN) --config "$$config" --output "$$out"
+		done
 	done
+
+# Scan specific type: make scan-media or make scan-icon
+scan-%: $(SCAN)
+	for config in $(CONFIG_DIR)/$*/**/*.json; do
+		[ -f "$$config" ] || continue
+		name=$$(basename $$config .json)
+		out="$(OUTPUT_DIR)/$*/$$name.json"
+		echo "Scanning $*: $$config → $$out"
+		mkdir -p "$$(dirname $$out)"
+		$(SCAN) --config "$$config" --output "$$out"
+	done
+
+# Manual scan (no config): make scan ROOT=path MODE=files|dirs
+scan: $(SCAN)
+	@if [ -z "$(ROOT)" ] || [ -z "$(MODE)" ]; then \
+		echo "Usage: make scan ROOT=/path/to/scan MODE=files|dirs"; \
+		exit 1; \
+	fi
+	$(SCAN) --root "$(ROOT)" --mode "$(MODE)"
 
 # --- Icon index generation ---
 icon:
