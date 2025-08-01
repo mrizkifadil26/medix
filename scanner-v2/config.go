@@ -1,22 +1,20 @@
 package scannerV2
 
-import (
-	"encoding/json"
-	"fmt"
-	"os"
-)
+type Config struct {
+	Root    string  `json:"root" yaml:"root"`
+	Options Options `json:"options" yaml:"options"`
+}
 
-type ScanConfig struct {
-	Root        string   `json:"root"`
-	Mode        string   `json:"mode"` // "files" or "dirs"
-	Exts        []string `json:"exts"`
-	Depth       int      `json:"depth"`
-	Exclude     []string `json:"exclude"`
-	OnlyLeaf    bool     `json:"onlyLeaf"`
-	LeafDepth   int      `json:"leafDepth"` // 0 = default, 1 = leaf-1, 2 = leaf-2, etc.
-	SkipEmpty   bool     `json:"skipEmpty"`
-	Concurrency int      `json:"concurrency"` // worker count
-	Verbose     bool     `json:"verbose"`
+type Options struct {
+	Mode        string   `json:"mode" yaml:"mode"`                                   // REQUIRED: controls behavior, never omit
+	Exts        []string `json:"exts,omitempty" yaml:"exts,omitempty"`               // OPTIONAL: filters; empty = all
+	Exclude     []string `json:"exclude,omitempty" yaml:"exclude,omitempty"`         // OPTIONAL: path filtering
+	Depth       int      `json:"depth" yaml:"depth"`                                 // REQUIRED: traversal logic
+	OnlyLeaf    bool     `json:"onlyLeaf,omitempty" yaml:"onlyLeaf,omitempty"`       // OPTIONAL: feature toggle
+	LeafDepth   int      `json:"leafDepth,omitempty" yaml:"leafDepth,omitempty"`     // OPTIONAL: advanced control
+	SkipEmpty   bool     `json:"skipEmpty,omitempty" yaml:"skipEmpty,omitempty"`     // OPTIONAL: cosmetic/efficiency
+	Concurrency int      `json:"concurrency,omitempty" yaml:"concurrency,omitempty"` // OPTIONAL: perf tuning
+	Verbose     bool     `json:"verbose,omitempty" yaml:"verbose,omitempty"`         // OPTIONAL: cosmetic/debug
 
 	// NEW — for subentry scanning
 	SubEntries SubentriesMode `json:"subEntries"`        // If true, collect files inside dirs
@@ -24,36 +22,14 @@ type ScanConfig struct {
 	SubExts    []string       `json:"subExts,omitempty"` // Optional: file filters for subentries
 }
 
-func (c ScanConfig) ToOptions() ScanOptions {
-	return ScanOptions{
-		Mode:        c.Mode,
-		Exts:        c.Exts,
-		Depth:       c.Depth,
-		Exclude:     c.Exclude,
-		OnlyLeaf:    c.OnlyLeaf,
-		LeafDepth:   c.LeafDepth,
-		SkipEmpty:   c.SkipEmpty,
-		Verbose:     c.Verbose,
-		Concurrency: c.Concurrency,
-
-		SubEntries: c.SubEntries,
-		SubExts:    c.SubExts,
-		SubDepth:   c.SubDepth,
-	}
-}
-
-func LoadConfig(path string) (*ScanConfig, error) {
-	f, err := os.Open(path)
-	if err != nil {
-		return nil, fmt.Errorf("failed to open config file: %w", err)
-	}
-	defer f.Close()
-
-	var cfg ScanConfig
-	decoder := json.NewDecoder(f)
-	if err := decoder.Decode(&cfg); err != nil {
-		return nil, fmt.Errorf("failed to decode config file: %w", err)
+func (c *Config) ApplyDefaults() {
+	if c.Options.Mode == "" {
+		c.Options.Mode = "files"
 	}
 
-	return &cfg, nil
+	if c.Options.Depth == 0 {
+		c.Options.Depth = 1
+	}
+	// All other fields (Exclude, Exts, OnlyLeaf, LeafDepth, SkipEmpty, etc.)
+	// are optional and left as-is to respect user intent.
 }
