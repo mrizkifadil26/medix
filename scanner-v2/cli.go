@@ -8,70 +8,50 @@ import (
 type CLIArgs struct {
 	ConfigPath string
 	OutputPath string
-	ScanConfig
+	Config     Config
 }
 
 func ParseCLI() CLIArgs {
-	var cli CLIArgs
-	var exts, exclude string
+	var args CLIArgs
+	options := &args.Config.Options
+	var extStr, excludeStr string
 
-	flag.StringVar(&cli.Root, "root", "", "Root directory to scan (required)")
-	flag.StringVar(&cli.Mode, "mode", "files", "Scan mode: files or dirs")
-	flag.IntVar(&cli.Depth, "depth", -1, "Max depth for directory traversal (-1 for unlimited)")
-	flag.StringVar(&exts, "exts", ".mkv,.mp4", "Comma-separated file extensions (files mode only)")
-	flag.StringVar(&exclude, "exclude", "", "Comma-separated list of excluded paths")
-	flag.BoolVar(&cli.OnlyLeaf, "only-leaf", false, "Only scan leaf directories (no subfolders)")
-	flag.BoolVar(&cli.SkipEmpty, "skip-empty", false, "Skip empty directories from scan output")
-	flag.BoolVar(&cli.Verbose, "verbose", false, "Enable verbose logging")
+	// Global CLI-only flags
+	flag.StringVar(&args.ConfigPath, "config", "", "Path to config file (JSON or YAML)")
+	flag.StringVar(&args.OutputPath, "output", "", "Path to output result (optional)")
 
-	flag.StringVar(&cli.ConfigPath, "config", "", "Path to JSON config file")
-	flag.StringVar(&cli.OutputPath, "output", "", "Path to write JSON output (if empty, print to stdout)")
+	// Config: top-level
+	flag.StringVar(&args.Config.Root, "root", "", "Root directory to scan (required if no config file)")
+
+	// Config: scan options
+	flag.StringVar(&options.Mode, "mode", "files", "Scan mode: files or dirs")
+	flag.StringVar(&extStr, "exts", ".mkv,.mp4", "Comma-separated file extensions")
+	flag.StringVar(&excludeStr, "exclude", "", "Comma-separated excluded paths")
+
+	flag.IntVar(&options.Depth, "depth", 1, "Max scan depth (0 for top-level, -1 for unlimited)")
+	flag.IntVar(&options.LeafDepth, "leaf-depth", 0, "Min leaf directory depth")
+	flag.IntVar(&options.Concurrency, "concurrency", 0, "Number of concurrent workers (0 = auto)")
+
+	flag.BoolVar(&options.OnlyLeaf, "only-leaf", false, "Only scan leaf directories")
+	flag.BoolVar(&options.SkipEmpty, "skip-empty", false, "Skip empty directories")
+	flag.BoolVar(&options.Verbose, "verbose", false, "Enable verbose logging")
 
 	flag.Parse()
 
-	cli.Exts = splitAndTrim(exts)
-	cli.Exclude = splitAndTrim(exclude)
+	// Convert comma-separated strings into slices
+	options.Exts = splitAndTrim(extStr)
+	options.Exclude = splitAndTrim(excludeStr)
 
-	return cli
+	return args
 }
-
-// func (cli CLIArgs) OverrideConfig(cfg *ScanConfig) {
-// 	if cli.Root != "" {
-// 		cfg.Root = cli.Root
-// 	}
-// 	if cli.Mode != "" {
-// 		cfg.Mode = cli.Mode
-// 	}
-// 	if len(cli.Exts) > 0 {
-// 		cfg.Exts = cli.Exts
-// 	}
-// 	if cli.Depth >= 0 {
-// 		cfg.Depth = cli.Depth
-// 	}
-// 	if len(cli.Exclude) > 0 {
-// 		cfg.Exclude = cli.Exclude
-// 	}
-// 	if cli.OnlyLeaf {
-// 		cfg.OnlyLeaf = true
-// 	}
-// 	if cli.LeafDepth > 0 {
-// 		cfg.LeafDepth = cli.LeafDepth
-// 	}
-// 	if cli.SkipEmpty {
-// 		cfg.SkipEmpty = true
-// 	}
-// 	if cli.Verbose {
-// 		cfg.Verbose = true
-// 	}
-// }
 
 func splitAndTrim(s string) []string {
 	if s == "" {
 		return nil
 	}
 	parts := strings.Split(s, ",")
-	for i := range parts {
-		parts[i] = strings.TrimSpace(parts[i])
+	for i, p := range parts {
+		parts[i] = strings.TrimSpace(p)
 	}
 	return parts
 }

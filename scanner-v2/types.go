@@ -1,17 +1,19 @@
 package scannerV2
 
-type ScanOptions struct {
-	Mode         string   `json:"mode"`        // "dirs" or "files"
-	Depth        int      `json:"depth"`       // -1 = unlimited, 0 = root only
-	Exts         []string `json:"ext"`         // filters like .mkv, .mp4
-	Exclude      []string `json:"exclude"`     // exclude path prefixes
-	ShowProgress bool     `json:"progress"`    // show progress bar
-	Concurrency  int      `json:"concurrency"` // worker count
-	OnlyLeaf     bool     `json:"onlyLeaf"`    // new: only include leaf dirs
-	LeafDepth    int      `json:"leafDepth"`   // NEW: 0 = default, 1 = leaf-1, 2 = leaf-2, etc.
-	SkipEmpty    bool     `json:"skipEmpty"`   // new: skip empty directories entirely
-	Verbose      bool     `json:"verbose"`     // log visited/skipped folders
-}
+//	type ScanOptions struct {
+//		Mode        string   `json:"mode"`        // "dirs" or "files"
+//		Depth       int      `json:"depth"`       // -1 = unlimited, 0 = root only
+//		Exts        []string `json:"ext"`         // filters like .mkv, .mp4
+//		Exclude     []string `json:"exclude"`     // exclude path prefixes
+//		Concurrency int      `json:"concurrency"` // worker count
+//		OnlyLeaf    bool     `json:"onlyLeaf"`    // new: only include leaf dirs
+//		LeafDepth   int      `json:"leafDepth"`   // NEW: 0 = default, 1 = leaf-1, 2 = leaf-2, etc.
+//		SkipEmpty   bool     `json:"skipEmpty"`   // new: skip empty directories entirely
+//		Verbose     bool     `json:"verbose"`     // log visited/skipped folders
+//		// ShowProgress bool     `json:"progress"`    // show progress bar
+//	}
+
+type ScanOptions = Options
 
 type ScanEntry struct {
 	ItemPath   string   `json:"itemPath"`             // Required
