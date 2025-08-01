@@ -12,6 +12,35 @@ type CLIArgs struct {
 }
 
 func ParseCLI() CLIArgs {
+	flag.Usage = func() {
+		helpText := `
+Usage: scan [OPTIONS]
+
+Options:
+  -config         Path to config file (JSON or YAML)
+  -output         Path to output result (optional)
+  -root           Root directory to scan (required if no config file)
+
+Scan Options:
+  -mode           Scan mode: files or dirs (default: files)
+  -exts           Comma-separated file extensions (default: .mkv,.mp4)
+  -exclude        Comma-separated excluded paths
+  -depth          Max scan depth (0 = top-level, -1 = unlimited) (default: 1)
+  -leaf-depth     Minimum leaf directory depth
+  -concurrency    Number of concurrent workers (0 = auto)
+  -only-leaf      Only scan leaf directories
+  -skip-empty     Skip empty directories
+  -verbose        Enable verbose logging
+
+Example:
+  scan -root /media/movies -exts .mkv,.mp4 -depth 2 -only-leaf -verbose
+
+If -config is provided, it overrides CLI flags (except -output).
+
+`
+		println(helpText)
+	}
+
 	var args CLIArgs
 	options := &args.Config.Options
 	var extStr, excludeStr string

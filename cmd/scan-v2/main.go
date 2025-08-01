@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 
 	scannerV2 "github.com/mrizkifadil26/medix/scanner-v2"
@@ -29,6 +30,7 @@ func main() {
 
 	// Validate required field
 	if args.Config.Root == "" {
+		flag.Usage()
 		log.Fatal("Error: --root is required (or must be in config file)")
 	}
 
