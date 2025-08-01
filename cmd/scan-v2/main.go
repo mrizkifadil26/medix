@@ -1,7 +1,8 @@
 package main
 
 import (
-	"flag"
+	"encoding/json"
+	"fmt"
 	"log"
 
 	scannerV2 "github.com/mrizkifadil26/medix/scanner-v2"
@@ -25,28 +26,24 @@ func main() {
 			log.Fatalf("Failed to merge config: %v", err)
 		}
 
-		args.Config = merged
-	}
+		// Apply CLI overrides
+		// cli.OverrideConfig(cfg)
 
-	// Validate required field
-	if args.Config.Root == "" {
-		flag.Usage()
-		log.Fatal("Error: --root is required (or must be in config file)")
-	}
-
-	args.Config.ApplyDefaults() // Apply defaults to ensure all options are set
-
-	root := args.Config.Root
-	opts := args.Config.Options
-
-	output, err := scannerV2.Scan(root, opts)
-	if err != nil {
-		log.Fatal(err)
-	}
+		fmt.Println("📄 Scanning using config file...")
+		PrettyJSON(cfg.ToOptions())
+		results, err := scannerV2.Scan(cfg.Root, cfg.ToOptions())
+		if err != nil {
+			log.Fatalf("❌ Config scan failed: %v", err)
+		}
 
 	if args.OutputPath != "" {
 		if err := utils.WriteJSON(args.OutputPath, output); err != nil {
 			log.Fatalf("Failed to write output: %v", err)
 		}
 	}
+}
+
+func PrettyJSON(v any) {
+	data, _ := json.MarshalIndent(v, "", "  ")
+	fmt.Println(string(data))
 }
