@@ -10,40 +10,43 @@ import (
 )
 
 func main() {
-	cli := scannerV2.ParseCLI()
+	args := scannerV2.ParseCLI()
+	argConfig := args.Config // CLI-level config overrides
 
-	// CLI scan
-	if cli.Root != "" {
-		fmt.Println("📂 Scanning using CLI...")
-		results, err := scannerV2.Scan(cli.Root, cli.ToOptions())
+	// Load from config file if provided
+	if args.ConfigPath != "" {
+		fileConfig, err := utils.LoadConfig[scannerV2.Config](args.ConfigPath)
 		if err != nil {
-			log.Fatalf("❌ CLI scan failed: %v", err)
+			log.Fatalf("Failed to load config file: %v", err)
 		}
 
-		if cli.OutputPath != "" {
-			utils.WriteJSON(cli.OutputPath, results)
+		// Deep merge file config with CLI overrides
+		merged, err := utils.MergeDeep(fileConfig, argConfig)
+		if err != nil {
+			log.Fatalf("Failed to merge config: %v", err)
 		}
+
+		args.Config = merged
 	}
 
-	// Config file scan
-	if cli.ConfigPath != "" {
-		cfg, err := scannerV2.LoadConfig(cli.ConfigPath)
-		if err != nil {
-			log.Fatalf("❌ Failed to load config file: %v", err)
-		}
+	// Validate required field
+	if args.Config.Root == "" {
+		log.Fatal("Error: --root is required (or must be in config file)")
+	}
 
-		// Apply CLI overrides
-		// cli.OverrideConfig(cfg)
+	args.Config.ApplyDefaults() // Apply defaults to ensure all options are set
 
-		fmt.Println("📄 Scanning using config file...")
-		PrettyJSON(cfg.ToOptions())
-		results, err := scannerV2.Scan(cfg.Root, cfg.ToOptions())
-		if err != nil {
-			log.Fatalf("❌ Config scan failed: %v", err)
-		}
+	root := args.Config.Root
+	opts := args.Config.Options
 
-		if cli.OutputPath != "" {
-			utils.WriteJSON(cli.OutputPath, results)
+	output, err := scannerV2.Scan(root, opts)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if args.OutputPath != "" {
+		if err := utils.WriteJSON(args.OutputPath, output); err != nil {
+			log.Fatalf("Failed to write output: %v", err)
 		}
 	}
 }
