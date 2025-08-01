@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"log"
 
@@ -31,6 +32,7 @@ func main() {
 
 	// Validate required field
 	if args.Config.Root == "" {
+		flag.Usage()
 		log.Fatal("Error: --root is required (or must be in config file)")
 	}
 
