@@ -96,7 +96,7 @@ scan-%: $(SCANNER_V2_CMD)
 
 # Manual scan (no config): make scan ROOT=path MODE=files|dirs
 scan:
-	@$(GO) run $(SCANNER_V2_CMD) $(foreach v,$(filter-out $@,$(MAKECMDGOALS)),$(v)=$(value $(v)))
+	@$(GO) run $(SCANNER_V2_CMD) $(ARGS)
 
 # --- Icon index generation ---
 icon:
