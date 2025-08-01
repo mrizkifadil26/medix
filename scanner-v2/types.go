@@ -14,6 +14,7 @@ type ScanOptions struct {
 
 	// NEW — for subentry scanning
 	SubEntries bool     `json:"subEntries"`         // If true, collect files inside dirs
+	SubDepth   int      `json:"subDepth"`           // NEW: limit subentry depth, -1 = unlimited, 0 = none
 	SubExts    []string `json:"subExts,omitempty"`  // Optional: file filters for subentries
 	SubTypes   []string `json:"subTypes,omitempty"` // Optional: categorize by ["media", "icon", "subtitle"]
 }
