@@ -71,28 +71,35 @@ all: movies tvshows
 # scan-media: scan-movies scan-tv
 
 # Scan all types
-scan-all: $(SCANNER_V2_CMD)
-	for type in $(TYPES); do
-		for config in $(CONFIG_DIR)/$$type/**/*.json; do
-			[ -f "$$config" ] || continue
-			name=$$(basename $$config .json)
-			out="$(OUTPUT_DIR)/$$type/$$name.json"
-			echo "Scanning $$type: $$config → $$out"
-			mkdir -p "$$(dirname $$out)"
-			$(SCANNER_V2_CMD) --config "$$config" --output "$$out"
-		done
+CONFIG_DIR := config/scanner
+OUTPUT_DIR := $(OUTPUT_DIR)/scanned
+TYPES := media icon
+
+scan-all:
+	@for type in $(TYPES); do \
+		shopt -s globstar; \
+		for config in $(CONFIG_DIR)/$$type/**/*.json; do \
+			[ -f "$$config" ] || continue; \
+			name=$$(basename $$config .json); \
+			out="$(OUTPUT_DIR)/$$type/$$name.json"; \
+			echo "Scanning $$type: $$config → $$out"; \
+			mkdir -p "$$(dirname $$out)"; \
+			$(GO) run $(SCANNER_V2_CMD) --config "$$config" --output "$$out"; \
+		done \
 	done
 
 # Scan specific type: make scan-media or make scan-icon
-scan-%: $(SCANNER_V2_CMD)
-	for config in $(CONFIG_DIR)/$*/**/*.json; do
-		[ -f "$$config" ] || continue
-		name=$$(basename $$config .json)
-		out="$(OUTPUT_DIR)/$*/$$name.json"
-		echo "Scanning $*: $$config → $$out"
-		mkdir -p "$$(dirname $$out)"
-		$(SCANNER_V2_CMD) --config "$$config" --output "$$out"
-	done
+scan-%:
+	@if [ -z "$(label)" ] || [ -z "$(type)" ]; then \
+		echo "❌ Missing arguments. Usage: make scan-one label=LABEL type=TYPE"; \
+		exit 1; \
+	fi; \
+	config="$(CONFIG_DIR)/$*/$(type).$(label).json";
+	out="$(OUTPUT_DIR)/$*/$(type).$(label).json"; \
+
+	echo "Scanning $*: $$config → $$out"; \
+	mkdir -p "$$(dirname $$out)"; \
+	$(GO) run $(SCANNER_V2_CMD) --config "$$config" --output "$$out"; \
 
 # Manual scan (no config): make scan ROOT=path MODE=files|dirs
 scan:
