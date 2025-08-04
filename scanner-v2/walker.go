@@ -1,20 +1,69 @@
 package scannerV2
 
 import (
+	"context"
 	"fmt"
 	"io/fs"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
+	"time"
 )
 
+type Walker struct {
+	Root string
+	Opts WalkOptions
+	Ctx  context.Context
+
+	// File matching / filtering
+	IsExcluded func(path string) bool
+	MatchExt   func(name string) bool
+	MatchDir   func(path string, entry fs.DirEntry) bool
+
+	// Callbacks
+	OnVisitFile func(path string, size int64)
+	OnVisitDir  func(path string, entries []fs.DirEntry)
+	OnSkip      func(path string, reason string)
+
+	Logger func(format string, args ...any) // Optional custom logger (defaults to log.Printf)
+
+	// Caching / State
+	Stats *WalkerStats           // Collects walk statistics
+	Cache map[string]fs.FileInfo // Optional metadata cache (e.g., size, modtime)
+	Mutex *sync.Mutex            // Guards concurrent access to shared fields
+	Trace []string               // Optional trace of visited paths (for debugging or test logs)
+}
+
 type WalkOptions struct {
-	MaxDepth  int
-	Exts      []string
-	OnlyLeaf  bool // only include leaf directories
-	LeafDepth int  // 0 = default, 1 = leaf-1, 2 = leaf-2, etc.
-	SkipEmpty bool // skip empty directories
-	Verbose   bool // log visited/skipped folders
+	// Control behavior
+	MaxDepth int
+
+	// Filtering
+	Exts      []string // match file extensions
+	OnlyLeaf  bool     // only include leaf directories
+	LeafDepth int      // 0 = default, 1 = leaf-1, etc.
+	SkipEmpty bool     // skip empty directories
+
+	// Logging control
+	Verbose   bool // high-level logs
+	DebugMode bool // low-level/internal logs
+}
+
+type WalkerStats struct {
+	VisitedFiles int64
+	VisitedDirs  int64
+	Skipped      int64
+	Excluded     int64
+	MatchedFiles int64
+	EmptyDirs    int64
+
+	CacheHits   int64
+	CacheMisses int64
+
+	StartTime time.Time
+	EndTime   time.Time
 }
 
 func WalkDirs(root string, opts WalkOptions, fn func(path string, entries []os.DirEntry)) error {
@@ -120,8 +169,6 @@ func WalkFiles(root string, opts WalkOptions, fn func(path string, size int64)) 
 		}
 
 		if d.IsDir() {
-			// rel, _ := filepath.Rel(root, path)
-			// depth := strings.Count(rel, string(filepath.Separator))
 			depth := pathDepth(root, path)
 			if opts.MaxDepth >= 0 && depth > opts.MaxDepth {
 				if opts.Verbose {
@@ -159,4 +206,172 @@ func WalkFiles(root string, opts WalkOptions, fn func(path string, size int64)) 
 		fn(path, info.Size())
 		return nil
 	})
+}
+
+func (w *Walker) log(format string, args ...any) {
+	if w.Opts.Verbose {
+		if w.Logger != nil {
+			w.Logger(format, args...)
+		} else {
+			log.Printf(format, args...)
+		}
+	}
+}
+
+func (w *Walker) trackSkip(path, reason string) {
+	if w.Stats != nil {
+		w.Stats.Skipped++
+	}
+
+	w.appendTrace(path)
+
+	if w.OnSkip != nil {
+		w.OnSkip(path, reason)
+	}
+
+	w.log("⏭️  Skipping %s (%s)", path, reason)
+}
+
+func (w *Walker) appendTrace(path string) {
+	if w.Trace != nil {
+		w.Trace = append(w.Trace, path)
+	}
+}
+
+// Duration returns total time spent walking.
+func (ws *WalkerStats) Duration() time.Duration {
+	if !ws.StartTime.IsZero() && !ws.EndTime.IsZero() {
+		return ws.EndTime.Sub(ws.StartTime)
+	}
+
+	return 0
+}
+
+func (w *Walker) Walk() error {
+	if w.Stats != nil {
+		w.Stats.StartTime = time.Now()
+		defer func() {
+			w.Stats.EndTime = time.Now()
+		}()
+	}
+
+	return filepath.WalkDir(w.Root, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			w.log("⚠️  Error accessing %s: %v", path, err)
+			w.trackSkip(path, "error")
+			return err
+		}
+
+		// Apply exclude filter
+		if w.IsExcluded != nil && w.IsExcluded(path) {
+			if w.Stats != nil {
+				w.Stats.Excluded++
+			}
+			w.trackSkip(path, "excluded")
+			return fs.SkipDir
+		}
+
+		depth := pathDepth(w.Root, path)
+		// fmt.Println("Depth:", depth)
+		// fmt.Println("Max Depth:", w.Opts.MaxDepth)
+		// fmt.Println("Leaf Depth:", w.Opts.LeafDepth)
+		// fmt.Println("Leaf Only:", w.Opts.OnlyLeaf)
+
+		if w.Opts.MaxDepth >= 0 && depth > w.Opts.MaxDepth {
+			w.trackSkip(path, fmt.Sprintf("depth %d > maxDepth %d", depth, w.Opts.MaxDepth))
+			return fs.SkipDir
+		}
+
+		// File visit
+		if !d.IsDir() {
+			if w.Stats != nil {
+				w.Stats.VisitedFiles++
+			}
+
+			if w.MatchExt != nil && !w.MatchExt(d.Name()) {
+				w.trackSkip(path, "extension mismatch")
+				return nil
+			}
+
+			info, err := d.Info()
+			if err != nil {
+				w.trackSkip(path, "info error")
+				return nil
+			}
+
+			if w.Stats != nil {
+				w.Stats.MatchedFiles++
+			}
+
+			if w.OnVisitFile != nil {
+				w.OnVisitFile(path, info.Size())
+			}
+			return nil
+		}
+
+		// Directory visit
+		if w.Stats != nil {
+			w.Stats.VisitedDirs++
+		}
+
+		entries, err := os.ReadDir(path)
+		if err != nil {
+			w.trackSkip(path, "readdir error")
+			return err
+		}
+
+		if w.Opts.SkipEmpty && len(entries) == 0 {
+			w.trackSkip(path, "empty")
+			if w.Stats != nil {
+				w.Stats.EmptyDirs++
+			}
+			return nil
+		}
+
+		// Leaf-level filter
+		if w.Opts.LeafDepth > 0 {
+			leafLevel, err := getLeafDepth(path)
+			if err != nil {
+				w.trackSkip(path, "leaf depth check failed")
+				return err
+			}
+
+			if leafLevel != w.Opts.LeafDepth {
+				w.trackSkip(path, fmt.Sprintf("leafDepth=%d != expected=%d", leafLevel, w.Opts.LeafDepth))
+				return nil
+			}
+
+			if w.Opts.LeafDepth == 1 && path == w.Root {
+				w.trackSkip(path, "skipping root for leafDepth=1")
+				return nil
+			}
+		} else if w.Opts.OnlyLeaf {
+			if containsDir(entries) {
+				w.trackSkip(path, "not a leaf folder")
+				return nil
+			}
+		}
+
+		if w.OnVisitDir != nil {
+			fmt.Printf("📂 Visiting %s (%d entries)\n", path, len(entries))
+			w.OnVisitDir(path, entries)
+		}
+
+		return nil
+	})
+}
+
+func (ws *WalkerStats) PrintSummary() {
+	fmt.Printf("📊 Walk Summary:\n")
+	fmt.Printf("  Files visited:      %d\n", ws.VisitedFiles)
+	fmt.Printf("  Matched files:      %d\n", ws.MatchedFiles)
+	fmt.Printf("  Directories visited:%d\n", ws.VisitedDirs)
+	fmt.Printf("  Empty directories:  %d\n", ws.EmptyDirs)
+	fmt.Printf("  Excluded:           %d\n", ws.Excluded)
+	fmt.Printf("  Skipped:            %d\n", ws.Skipped)
+	// fmt.Printf("  MaxDepth skips:     %d\n", ws.MaxDepthReached.Load())
+	// fmt.Printf("  Hidden skipped:     %d\n", ws.HiddenSkipped.Load())
+	// fmt.Printf("  Symlinks skipped:   %d\n", ws.SymlinksSkipped.Load())
+	fmt.Printf("  Duration:           %s\n", ws.Duration())
+	fmt.Println()
 }

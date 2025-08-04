@@ -13,13 +13,14 @@ type ScanEntry struct {
 }
 
 type ScanOutput struct {
-	GeneratedAt   string      `json:"generated_at"`   // ISO8601 timestamp
-	SourcePath    string      `json:"source_path"`    // Cleaned absolute input path
-	Mode          string      `json:"mode"`           // "files" or "dirs"
-	ItemCount     int         `json:"item_count"`     // len(Items)
-	ExcludedCount int         `json:"excluded_count"` // for verbosity/debug
-	Duration      string      `json:"duration"`       // Elapsed time
-	Items         []ScanEntry `json:"items"`
+	GeneratedAt    string       `json:"generated_at"`   // ISO8601 timestamp
+	SourcePath     string       `json:"source_path"`    // Cleaned absolute input path
+	Mode           string       `json:"mode"`           // "files" or "dirs"
+	ItemCount      int          `json:"item_count"`     // len(Items)
+	ExcludedCount  int          `json:"excluded_count"` // for verbosity/debug
+	Duration       string       `json:"duration"`       // Elapsed time
+	Items          []ScanEntry  `json:"items"`
+	WalkStatistics *WalkerStats `json:"walk_statistics,omitempty"` // New
 }
 
 type SubentriesMode string
