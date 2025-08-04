@@ -13,10 +13,9 @@ type ScanOptions struct {
 	Verbose      bool     `json:"verbose"`     // log visited/skipped folders
 
 	// NEW — for subentry scanning
-	SubEntries bool     `json:"subEntries"`         // If true, collect files inside dirs
-	SubDepth   int      `json:"subDepth"`           // NEW: limit subentry depth, -1 = unlimited, 0 = none
-	SubExts    []string `json:"subExts,omitempty"`  // Optional: file filters for subentries
-	SubTypes   []string `json:"subTypes,omitempty"` // Optional: categorize by ["media", "icon", "subtitle"]
+	SubEntries SubentriesMode `json:"subentries"`         // "none", "flat", "nested", "auto"
+	SubDepth   int            `json:"subdepth,omitempty"` // Depth limit for subentry scan
+	SubExts    []string       `json:"subexts,omitempty"`  // Only scan certain file types in subentries
 }
 
 type ScanEntry struct {
@@ -38,3 +37,12 @@ type ScanOutput struct {
 	Duration      string      `json:"duration"`       // Elapsed time
 	Items         []ScanEntry `json:"items"`
 }
+
+type SubentriesMode string
+
+const (
+	SubentriesNone   SubentriesMode = "none"
+	SubentriesFlat   SubentriesMode = "flat"
+	SubentriesNested SubentriesMode = "nested"
+	SubentriesAuto   SubentriesMode = "auto"
+)

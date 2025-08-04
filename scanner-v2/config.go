@@ -19,10 +19,9 @@ type ScanConfig struct {
 	Verbose     bool     `json:"verbose"`
 
 	// NEW — for subentry scanning
-	SubEntries bool     `json:"subEntries"`         // If true, collect files inside dirs
-	SubDepth   int      `json:"subDepth"`           // NEW: limit subentry depth, -1 = unlimited, 0 = none
-	SubExts    []string `json:"subExts,omitempty"`  // Optional: file filters for subentries
-	SubTypes   []string `json:"subTypes,omitempty"` // Optional: categorize by ["media", "icon", "subtitle"]
+	SubEntries SubentriesMode `json:"subEntries"`        // If true, collect files inside dirs
+	SubDepth   int            `json:"subDepth"`          // NEW: limit subentry depth, -1 = unlimited, 0 = none
+	SubExts    []string       `json:"subExts,omitempty"` // Optional: file filters for subentries
 }
 
 func (c ScanConfig) ToOptions() ScanOptions {
@@ -39,7 +38,6 @@ func (c ScanConfig) ToOptions() ScanOptions {
 
 		SubEntries: c.SubEntries,
 		SubExts:    c.SubExts,
-		SubTypes:   c.SubTypes,
 		SubDepth:   c.SubDepth,
 	}
 }
