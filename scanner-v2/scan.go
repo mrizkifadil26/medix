@@ -60,23 +60,49 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 	}
 
 	var (
-		jobs  []concurrency.TaskFunc
-		mu    sync.Mutex // to protect shared output
-		items = make([]ScanEntry, 0)
-
+		items    []ScanEntry
+		jobs     []concurrency.TaskFunc
+		mu       sync.Mutex // to protect shared output
+		stats    WalkerStats
 		excluded int64 // atomic counter
 	)
 
-	switch options.Mode {
-	case "files":
-		err = WalkFiles(inputPath, WalkOptions{
+	// Extension filter for files
+	matchExt := func(name string) bool {
+		if len(options.Exts) == 0 {
+			return true
+		}
+		ext := strings.ToLower(filepath.Ext(name))
+		for _, e := range options.Exts {
+			if strings.ToLower(e) == ext {
+				return true
+			}
+		}
+		return false
+	}
+
+	walker := &Walker{
+		Root:       inputPath,
+		Ctx:        ctx,
+		Stats:      &stats,
+		Mutex:      &mu,
+		IsExcluded: isExcluded,
+		MatchExt:   matchExt,
+		Opts: WalkOptions{
 			MaxDepth: options.Depth,
 			Exts:     options.Exts,
 			Verbose:  options.Verbose,
-		}, func(path string, size int64) {
+		},
+	}
+
+	switch options.Mode {
+	case "files":
+		walker.OnVisitFile = func(
+			path string,
+			size int64,
+		) {
 			if isExcluded(path) {
 				atomic.AddInt64(&excluded, 1)
-
 				return
 			}
 
@@ -97,64 +123,62 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 
 				return nil
 			}))
-		})
+		}
 
 	case "dirs":
-		err = WalkDirs(
-			inputPath,
-			WalkOptions{
-				MaxDepth:  options.Depth,
-				OnlyLeaf:  options.OnlyLeaf,
-				LeafDepth: options.LeafDepth,
-				SkipEmpty: options.SkipEmpty,
-				Verbose:   options.Verbose,
-			},
-			func(path string, entries []os.DirEntry) {
-				if isExcluded(path) {
-					atomic.AddInt64(&excluded, 1)
-					return
+		walker.OnVisitDir = func(
+			path string,
+			entries []os.DirEntry,
+		) {
+			if isExcluded(path) {
+				atomic.AddInt64(&excluded, 1)
+				return
+			}
+
+			rel, _ := filepath.Rel(inputPath, path)
+
+			jobs = append(jobs, func(ctx context.Context) error {
+				entry := ScanEntry{
+					GroupPath:  filepath.Dir(rel),
+					ItemPath:   path,
+					ItemName:   filepath.Base(path),
+					GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
+					SubEntries: func() []ScanEntry {
+						switch options.SubEntries {
+						case SubentriesNone:
+							return nil
+						case SubentriesFlat:
+							return scanFlat(path, options)
+						case SubentriesNested:
+							return scanNested(path, options)
+						case SubentriesAuto:
+							// Auto mode: if subdepth is -1, use nested, otherwise flat
+							return nil
+						default:
+							return nil
+						}
+					}(),
 				}
 
-				rel, _ := filepath.Rel(inputPath, path)
+				mu.Lock()
+				items = append(items, entry)
+				mu.Unlock()
 
-				jobs = append(jobs, func(ctx context.Context) error {
-					entry := ScanEntry{
-						GroupPath:  filepath.Dir(rel),
-						ItemPath:   path,
-						ItemName:   filepath.Base(path),
-						GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
-						SubEntries: func() []ScanEntry {
-							switch options.SubEntries {
-							case SubentriesNone:
-								return nil
-							case SubentriesFlat:
-								return scanFlat(path, options)
-							case SubentriesNested:
-								return scanNested(path, options)
-							case SubentriesAuto:
-								// Auto mode: if subdepth is -1, use nested, otherwise flat
-								return nil
-							default:
-								return nil
-							}
-						}(),
-					}
-
-					mu.Lock()
-					items = append(items, entry)
-					mu.Unlock()
-
-					return nil
-				})
+				return nil
 			})
+		}
 
 	default:
 		return output, fmt.Errorf("unsupported scan mode: %s", options.Mode)
 	}
 
-	if err != nil {
+	if err := walker.Walk(); err != nil {
 		return output, fmt.Errorf("scan failed: %w", err)
 	}
+
+	// if err != nil {
+	// 	return output, fmt.Errorf("scan failed: %w", err)
+	// }
 
 	taskExec, err := SelectExecutor(options.Concurrency)
 	if err != nil {
@@ -167,10 +191,13 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		return output, fmt.Errorf("execution error: %w", err)
 	}
 
+	walker.Stats.PrintSummary()
+
 	output.Items = items
 	output.ItemCount = len(items)
 	output.ExcludedCount = int(atomic.LoadInt64(&excluded))
 	output.Duration = time.Since(start).String()
+	output.WalkStatistics = walker.Stats
 
 	return output, nil
 }
