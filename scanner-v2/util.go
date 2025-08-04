@@ -6,21 +6,6 @@ import (
 	"strings"
 )
 
-func isLeaf(path string) bool {
-	entries, err := os.ReadDir(path)
-	if err != nil {
-		return false
-	}
-
-	for _, e := range entries {
-		if e.IsDir() {
-			return false
-		}
-	}
-
-	return true
-}
-
 func containsDir(entries []os.DirEntry) bool {
 	for _, e := range entries {
 		if e.IsDir() {
