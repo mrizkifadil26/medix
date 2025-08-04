@@ -112,7 +112,6 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 			func(path string, entries []os.DirEntry) {
 				if isExcluded(path) {
 					atomic.AddInt64(&excluded, 1)
-
 					return
 				}
 
@@ -125,45 +124,19 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 						ItemName:   filepath.Base(path),
 						GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
 						SubEntries: func() []ScanEntry {
-							if !options.SubEntries {
+							switch options.SubEntries {
+							case SubentriesNone:
+								return nil
+							case SubentriesFlat:
+								return scanFlat(path, options)
+							case SubentriesNested:
+								return scanNested(path, options)
+							case SubentriesAuto:
+								// Auto mode: if subdepth is -1, use nested, otherwise flat
+								return nil
+							default:
 								return nil
 							}
-
-							var subs []ScanEntry
-							extFilter := make(map[string]bool)
-							for _, ext := range options.SubExts {
-								extFilter[strings.ToLower(ext)] = true
-							}
-
-							for _, e := range entries {
-								if e.IsDir() {
-									continue
-								}
-
-								name := e.Name()
-								ext := strings.ToLower(filepath.Ext(name))
-								if len(extFilter) > 0 && !extFilter[ext] {
-									continue
-								}
-
-								info, err := e.Info()
-								if err != nil {
-									continue // safely skip files we can't stat
-								}
-								size := info.Size()
-
-								subs = append(subs, ScanEntry{
-									ItemPath: filepath.Join(path, e.Name()),
-									ItemName: e.Name(),
-									ItemSize: &size,
-								})
-							}
-
-							if len(subs) > 0 {
-								return subs
-							}
-
-							return nil
 						}(),
 					}
 
@@ -204,4 +177,99 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 
 func (o ScanOptions) IsParallel() bool {
 	return o.Concurrency > 1
+}
+
+func scanFlat(base string, opts ScanOptions) []ScanEntry {
+	entries, _ := os.ReadDir(base)
+	var out []ScanEntry
+
+	// Create lowercase extension filter map (same as collectSubEntries)
+	extFilter := make(map[string]bool)
+	for _, ext := range opts.SubExts {
+		extFilter[strings.ToLower(ext)] = true
+	}
+
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
+		}
+
+		ext := strings.ToLower(filepath.Ext(entry.Name()))
+		if len(extFilter) > 0 && !extFilter[ext] {
+			continue
+		}
+
+		info, err := entry.Info()
+		if err != nil {
+			return nil
+		}
+		size := info.Size()
+
+		fullPath := filepath.Join(base, entry.Name())
+		out = append(out, ScanEntry{
+			ItemPath: fullPath,
+			ItemName: entry.Name(),
+			ItemSize: &size,
+		})
+	}
+
+	return out
+}
+
+func scanNested(base string, opts ScanOptions) []ScanEntry {
+	return scanRecursive(base, 0, opts)
+}
+
+func scanRecursive(path string, depth int, opts ScanOptions) []ScanEntry {
+	if opts.SubDepth >= 0 && depth >= opts.SubDepth {
+		return nil
+	}
+
+	entries, err := os.ReadDir(path)
+	if err != nil {
+		return nil
+	}
+
+	// Lowercase extension filter
+	extFilter := make(map[string]bool)
+	for _, ext := range opts.SubExts {
+		extFilter[strings.ToLower(ext)] = true
+	}
+
+	var out []ScanEntry
+
+	for _, entry := range entries {
+		full := filepath.Join(path, entry.Name())
+		if entry.IsDir() {
+			sub := scanRecursive(full, depth+1, opts)
+			if opts.SkipEmpty && len(sub) == 0 {
+				continue
+			}
+
+			out = append(out, ScanEntry{
+				ItemPath:   full,
+				ItemName:   entry.Name(),
+				SubEntries: sub,
+			})
+		} else {
+			ext := strings.ToLower(filepath.Ext(entry.Name()))
+			if len(extFilter) > 0 && !extFilter[ext] {
+				continue
+			}
+
+			info, err := entry.Info()
+			if err != nil {
+				continue // skip if we can't get info
+			}
+			size := info.Size()
+
+			out = append(out, ScanEntry{
+				ItemPath: full,
+				ItemName: entry.Name(),
+				ItemSize: &size,
+			})
+		}
+	}
+
+	return out
 }
