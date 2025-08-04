@@ -17,6 +17,11 @@ type ScanConfig struct {
 	SkipEmpty   bool     `json:"skipEmpty"`
 	Concurrency int      `json:"concurrency"` // worker count
 	Verbose     bool     `json:"verbose"`
+
+	// NEW — for subentry scanning
+	SubEntries SubentriesMode `json:"subEntries"`        // If true, collect files inside dirs
+	SubDepth   int            `json:"subDepth"`          // NEW: limit subentry depth, -1 = unlimited, 0 = none
+	SubExts    []string       `json:"subExts,omitempty"` // Optional: file filters for subentries
 }
 
 func (c ScanConfig) ToOptions() ScanOptions {
@@ -30,6 +35,10 @@ func (c ScanConfig) ToOptions() ScanOptions {
 		SkipEmpty:   c.SkipEmpty,
 		Verbose:     c.Verbose,
 		Concurrency: c.Concurrency,
+
+		SubEntries: c.SubEntries,
+		SubExts:    c.SubExts,
+		SubDepth:   c.SubDepth,
 	}
 }
 

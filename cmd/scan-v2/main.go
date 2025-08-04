@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 
@@ -35,6 +36,7 @@ func main() {
 		// cli.OverrideConfig(cfg)
 
 		fmt.Println("📄 Scanning using config file...")
+		PrettyJSON(cfg.ToOptions())
 		results, err := scannerV2.Scan(cfg.Root, cfg.ToOptions())
 		if err != nil {
 			log.Fatalf("❌ Config scan failed: %v", err)
@@ -44,4 +46,9 @@ func main() {
 			utils.WriteJSON(cli.OutputPath, results)
 		}
 	}
+}
+
+func PrettyJSON(v any) {
+	data, _ := json.MarshalIndent(v, "", "  ")
+	fmt.Println(string(data))
 }

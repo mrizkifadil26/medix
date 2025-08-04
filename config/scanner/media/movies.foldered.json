@@ -9,5 +9,12 @@
   "onlyLeaf": true,
   "skipEmpty": true,
   "verbose": false,
-  "concurrency": 4
+  "concurrency": 4,
+  "subEntries": true,
+  "subExts": [
+    ".mkv",
+    ".mp4",
+    ".ico",
+    ".srt"
+  ]
 }
