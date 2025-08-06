@@ -10,24 +10,29 @@ import (
 )
 
 func main() {
-	args := normalizer.ParseCLI()
-	argConfig := args.Config // CLI-level config overrides
+	args, err := normalizer.ParseCLI()
+	if err != nil {
+		log.Fatalf("❌ CLI error: %v", err)
+	}
+
+	var input any
+	utils.LoadJSON(args.Input, &input)
 
 	// Load config from JSON file if provided
-	if args.ConfigPath != "" {
-		fileConfig, err := utils.LoadConfig[normalizer.Config](args.ConfigPath)
-		if err != nil {
-			log.Fatalf("Failed to load config file: %v", err)
-		}
+	// if args.ConfigPath != "" {
+	// 	fileConfig, err := utils.LoadConfig[normalizer.Config](args.ConfigPath)
+	// 	if err != nil {
+	// 		log.Fatalf("Failed to load config file: %v", err)
+	// 	}
 
-		// Deep merge file config with CLI overrides
-		merged, err := utils.MergeDeep(fileConfig, argConfig)
-		if err != nil {
-			log.Fatalf("Failed to merge config: %v", err)
-		}
+	// 	// Deep merge file config with CLI overrides
+	// 	merged, err := utils.MergeDeep(fileConfig, argConfig)
+	// 	if err != nil {
+	// 		log.Fatalf("Failed to merge config: %v", err)
+	// 	}
 
-		args.Config = merged
-	}
+	// 	args.Config = merged
+	// }
 
 	/*
 		 else {
@@ -55,18 +60,21 @@ func main() {
 		}
 	*/
 
-	// TODO: Handle validation of CLI
-	input := args.Input
-	steps := args.Config.Steps
+	// norm := normalizer.New()
+	// output, err := norm.Run(input, steps)
+	// if err != nil {
+	// 	fail("Normalization failed", err)
+	// }
 
-	norm := normalizer.New()
-	output, err := norm.Run(input, steps)
-	if err != nil {
-		fail("Normalization failed", err)
-	}
+	result, err := normalizer.Process(
+		input,
+		args.Config.Fields,
+	)
+
+	fmt.Println(result)
 
 	if args.OutputPath != "" {
-		if err := utils.WriteJSON(args.OutputPath, output); err != nil {
+		if err := utils.WriteJSON(args.OutputPath, result); err != nil {
 			log.Fatalf("Failed to write output: %v", err)
 		}
 	}
