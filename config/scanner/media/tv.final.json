@@ -11,11 +11,11 @@
   "skipEmpty": true,
   "verbose": false,
   "subentries": "nested",
+  "subdepth": -1,
   "subexts": [
     ".mkv",
     ".mp4",
     ".ico",
     ".srt"
-  ],
-  "subdepth": -1
+  ]
 }

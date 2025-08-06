@@ -13,9 +13,10 @@ import (
 )
 
 type Walker struct {
+	Ctx  context.Context
 	Root string
 	Opts WalkOptions
-	Ctx  context.Context
+	Stats *WalkerStats           // Collects walk statistics
 
 	// File matching / filtering
 	IsExcluded func(path string) bool
@@ -30,10 +31,9 @@ type Walker struct {
 	Logger func(format string, args ...any) // Optional custom logger (defaults to log.Printf)
 
 	// Caching / State
-	Stats *WalkerStats           // Collects walk statistics
 	Cache map[string]fs.FileInfo // Optional metadata cache (e.g., size, modtime)
-	Mutex *sync.Mutex            // Guards concurrent access to shared fields
-	Trace []string               // Optional trace of visited paths (for debugging or test logs)
+	mutex *sync.Mutex            // Guards concurrent access to shared fields
+	trace []string               // Optional trace of visited paths (for debugging or test logs)
 }
 
 type WalkOptions struct {
@@ -256,10 +256,19 @@ func (w *Walker) Walk() error {
 	}
 
 	return filepath.WalkDir(w.Root, func(path string, d fs.DirEntry, err error) error {
+		// TODO: handle walk errors gracefully
 		if err != nil {
-			w.log("⚠️  Error accessing %s: %v", path, err)
-			w.trackSkip(path, "error")
+			w.log("⚠️ Error accessing %s: %v", path, err)
+			w.trackSkip(path, "walk error")
 			return err
+		}
+
+		// Respect context cancellation
+		select {
+		case <-w.Ctx.Done():
+			w.trackSkip(path, "context canceled")
+			return w.Ctx.Err()
+		default:
 		}
 
 		// Apply exclude filter
@@ -267,19 +276,39 @@ func (w *Walker) Walk() error {
 			if w.Stats != nil {
 				w.Stats.Excluded++
 			}
+
 			w.trackSkip(path, "excluded")
 			return fs.SkipDir
 		}
 
 		depth := pathDepth(w.Root, path)
-		// fmt.Println("Depth:", depth)
-		// fmt.Println("Max Depth:", w.Opts.MaxDepth)
-		// fmt.Println("Leaf Depth:", w.Opts.LeafDepth)
-		// fmt.Println("Leaf Only:", w.Opts.OnlyLeaf)
-
 		if w.Opts.MaxDepth >= 0 && depth > w.Opts.MaxDepth {
-			w.trackSkip(path, fmt.Sprintf("depth %d > maxDepth %d", depth, w.Opts.MaxDepth))
+			w.trackSkip(path,
+				fmt.Sprintf("depth %d > maxDepth %d", depth, w.Opts.MaxDepth)
+			)
+
 			return fs.SkipDir
+		}
+
+		var info fs.FileInfo
+		if w.Cache != nil {
+			w.mutex.Lock()
+			info = w.Cache[path]
+			w.mutex.Unlock()
+		}
+		if info == nil {
+			var err error
+			info, err = d.Info()
+			if err != nil {
+				w.trackSkip(path, "info error")
+				return nil
+			}
+
+			if w.Cache != nil {
+				w.mutex.Lock()
+				w.Cache[path] = info
+				w.mutex.Unlock()
+			}
 		}
 
 		// File visit
@@ -306,6 +335,7 @@ func (w *Walker) Walk() error {
 			if w.OnVisitFile != nil {
 				w.OnVisitFile(path, info.Size())
 			}
+
 			return nil
 		}
 
@@ -369,9 +399,7 @@ func (ws *WalkerStats) PrintSummary() {
 	fmt.Printf("  Empty directories:  %d\n", ws.EmptyDirs)
 	fmt.Printf("  Excluded:           %d\n", ws.Excluded)
 	fmt.Printf("  Skipped:            %d\n", ws.Skipped)
-	// fmt.Printf("  MaxDepth skips:     %d\n", ws.MaxDepthReached.Load())
-	// fmt.Printf("  Hidden skipped:     %d\n", ws.HiddenSkipped.Load())
-	// fmt.Printf("  Symlinks skipped:   %d\n", ws.SymlinksSkipped.Load())
 	fmt.Printf("  Duration:           %s\n", ws.Duration())
+
 	fmt.Println()
 }

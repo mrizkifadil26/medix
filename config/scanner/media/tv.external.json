@@ -10,8 +10,9 @@
   "leafDepth": 1,
   "skipEmpty": true,
   "verbose": true,
-  "subEntries": true,
-  "subExts": [
+  "subentries": "nested",
+  "subdepth": -1,
+  "subexts": [
     ".mkv",
     ".mp4",
     ".ico",

@@ -50,12 +50,12 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		}
 
 		rel = filepath.ToSlash(rel) // make sure slashes match
-
 		for prefix := range excludeMap {
 			if strings.HasPrefix(rel, prefix) {
 				return true
 			}
 		}
+
 		return false
 	}
 
@@ -85,7 +85,7 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		Root:       inputPath,
 		Ctx:        ctx,
 		Stats:      &stats,
-		Mutex:      &mu,
+		mutex:      &mu,
 		IsExcluded: isExcluded,
 		MatchExt:   matchExt,
 		Opts: WalkOptions{

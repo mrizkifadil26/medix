@@ -10,8 +10,8 @@
   "skipEmpty": true,
   "verbose": false,
   "concurrency": 4,
-  "subEntries": true,
-  "subExts": [
+  "subentries": "flat",
+  "subexts": [
     ".mkv",
     ".mp4",
     ".ico",

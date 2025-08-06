@@ -1,21 +1,23 @@
 {
   "root": "/mnt/e/Media/Movies",
-  "mode": "dirs",
-  "exts": [
-    ".mkv"
-  ],
-  "depth": -1,
-  "exclude": [],
-  "onlyLeaf": true,
-  "leafDepth": 0,
-  "skipEmpty": true,
-  "verbose": false,
-  "concurrency": 4,
-  "subEntries": true,
-  "subExts": [
-    ".mkv",
-    ".mp4",
-    ".ico",
-    ".srt"
-  ]
+  "options": {
+    "mode": "dirs",
+    "exts": [
+      ".mkv"
+    ],
+    "depth": -1,
+    "exclude": [],
+    "onlyLeaf": true,
+    "leafDepth": 0,
+    "skipEmpty": true,
+    "verbose": false,
+    "concurrency": 4,
+    "subentries": "flat",
+    "subexts": [
+      ".mkv",
+      ".mp4",
+      ".ico",
+      ".srt"
+    ]
+  }
 }
