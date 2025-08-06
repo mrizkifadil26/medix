@@ -15,9 +15,15 @@ func main() {
 		log.Fatalf("❌ CLI error: %v", err)
 	}
 
-	var input any
-	utils.LoadJSON(args.Input, &input)
+	fmt.Println("Input path:", args.Input)
 
+	var input any
+	err = utils.LoadJSON(args.Input, &input)
+	if err != nil {
+		fmt.Println("Err: ", err)
+	}
+
+	// fmt.Println(input)
 	// Load config from JSON file if provided
 	// if args.ConfigPath != "" {
 	// 	fileConfig, err := utils.LoadConfig[normalizer.Config](args.ConfigPath)
@@ -65,13 +71,17 @@ func main() {
 	// if err != nil {
 	// 	fail("Normalization failed", err)
 	// }
-
+	registry := normalizer.NewOperators()
 	result, err := normalizer.Process(
 		input,
 		args.Config.Fields,
+		registry,
 	)
 
-	fmt.Println(result)
+	if err != nil {
+		// log.Printf("Process failed: %v", err)
+		fail("Process failed", err)
+	}
 
 	if args.OutputPath != "" {
 		if err := utils.WriteJSON(args.OutputPath, result); err != nil {
