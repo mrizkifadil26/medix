@@ -1,5 +1,5 @@
 {
-  "file": "data/scanner/movies.final.json",
+  "file": "data/scanner/media/movies.test.json",
   "fields": [
     {
       "name": "items.#.itemName",
@@ -15,7 +15,7 @@
       "saveAs": "items.#.metadata.year"
     },
     {
-      "format": "{{title}} {{year}}",
+      "format": "{{title}} ({{year}})",
       "from": {
         "title": "items.#.metadata.title",
         "year": "items.#.metadata.year"
