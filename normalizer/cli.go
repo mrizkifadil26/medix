@@ -1,8 +1,11 @@
 package normalizer
 
 import (
+	"encoding/json"
 	"flag"
-	"strings"
+	"fmt"
+	"os"
+	"path/filepath"
 )
 
 type CLIArgs struct {
@@ -12,29 +15,55 @@ type CLIArgs struct {
 	Config     Config
 }
 
-func ParseCLI() CLIArgs {
-	var args CLIArgs
-	config := &args.Config
-	var stepsStr string
+func ParseCLI() (CLIArgs, error) {
+	var (
+		inputPath  string
+		outputPath string
+		configPath string
+	)
 
-	flag.StringVar(&args.Input, "input", "", "Input string, JSON array, or path to scan JSON")
-	flag.StringVar(&args.OutputPath, "output", "", "Output file (optional)")
-	flag.StringVar(&args.ConfigPath, "config", "", "Path to config JSON (optional)")
-	flag.StringVar(&stepsStr, "steps", "", "Comma-separated normalization steps")
+	// Define CLI flags
+	flag.StringVar(&inputPath, "input", "", "Override input file path (optional, defaults to 'file' in config)")
+	flag.StringVar(&outputPath, "output", "", "Optional output file path")
+	flag.StringVar(&configPath, "config", "", "Path to normalization config JSON (required)")
 	flag.Parse()
 
-	config.Steps = splitAndTrim(stepsStr)
-
-	return args
-}
-
-func splitAndTrim(s string) []string {
-	if s == "" {
-		return nil
+	// Ensure config file is provided
+	if configPath == "" {
+		return CLIArgs{}, fmt.Errorf("missing required --config flag")
 	}
-	parts := strings.Split(s, ",")
-	for i, p := range parts {
-		parts[i] = strings.TrimSpace(p)
+
+	// Load config from file
+	configAbsPath, err := filepath.Abs(configPath)
+	if err != nil {
+		return CLIArgs{}, fmt.Errorf("invalid config path: %w", err)
 	}
-	return parts
+
+	configFile, err := os.ReadFile(configAbsPath)
+	if err != nil {
+		return CLIArgs{}, fmt.Errorf("failed to read config file: %w", err)
+	}
+
+	var config Config
+	if err := json.Unmarshal(configFile, &config); err != nil {
+		return CLIArgs{}, fmt.Errorf("failed to parse config JSON: %w", err)
+	}
+
+	// Determine final input path: CLI > config
+	// Determine input path: CLI overrides config
+	finalInput := config.File
+	if inputPath != "" {
+		finalInput = inputPath
+	}
+
+	if finalInput == "" {
+		return CLIArgs{}, fmt.Errorf("input path not provided (either via --input or config.file)")
+	}
+
+	return CLIArgs{
+		Input:      finalInput,
+		OutputPath: outputPath,
+		ConfigPath: configPath,
+		Config:     config,
+	}, nil
 }

@@ -1,0 +1,26 @@
+{
+  "file": "data/scanner/movies.final.json",
+  "fields": [
+    {
+      "name": "items.#.itemName",
+      "replace": {
+        "from": " - ", "to": ": "
+      },
+      "normalize": ["stripBrackets", "titlecase"],
+      "saveAs": "items.#.metadata.title"
+    },
+    {
+      "name": "items.#.itemName",
+      "extract": "year",
+      "saveAs": "items.#.metadata.year"
+    },
+    {
+      "format": "{{title}} {{year}}",
+      "from": {
+        "title": "items.#.metadata.title",
+        "year": "items.#.metadata.year"
+      },
+      "saveAs": "items.#.displayName"
+    }
+  ]
+}
