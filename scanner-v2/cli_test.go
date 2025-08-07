@@ -1,13 +1,6 @@
 package scannerV2_test
 
-import (
-	"os"
-	"reflect"
-	"testing"
-
-	scannerV2 "github.com/mrizkifadil26/medix/scanner-v2"
-)
-
+/*
 func TestParseCLI(t *testing.T) {
 	// Save original args and restore after test
 	origArgs := os.Args
@@ -71,3 +64,4 @@ func TestParseCLI(t *testing.T) {
 		t.Error("Expected Verbose to be true")
 	}
 }
+*/

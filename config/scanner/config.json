@@ -1,4 +1,7 @@
 {
   "root": "/mnt/e/Media/Movies",
-  "verbose": false
+  "verbose": false,
+  "options": {
+    "mode": "dirs"
+  }
 }
