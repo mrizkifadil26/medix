@@ -5,8 +5,37 @@ import (
 	"reflect"
 )
 
+type MergeOptions struct {
+	Overwrite bool // true = overwrite base, false = fill only
+	Recursive bool // true = deep merge, false = shallow
+}
+
+type MergeTypeError struct {
+	Reason string
+}
+
+func (e *MergeTypeError) Error() string {
+	return "merge type error: " + e.Reason
+}
+
+func MergeDefault[T any](base, patch T) (T, error) {
+	return Merge(base, patch, MergeOptions{})
+}
+
+func MergeOverwrite[T any](base, patch T) (T, error) {
+	return Merge(base, patch, MergeOptions{Overwrite: true})
+}
+
+func MergeDeep[T any](base, patch T) (T, error) {
+	return Merge(base, patch, MergeOptions{Recursive: true})
+}
+
+func MergeDeepOverwrite[T any](base, patch T) (T, error) {
+	return Merge(base, patch, MergeOptions{Recursive: true, Overwrite: true})
+}
+
 // Merge performs a shallow merge of non-zero fields from override into base.
-func Merge[T any](base T, override T) (T, error) {
+func Merge[T any](base T, override T, opts MergeOptions) (T, error) {
 	baseVal := reflect.ValueOf(&base).Elem()
 	overrideVal := reflect.ValueOf(override)
 	if overrideVal.Kind() == reflect.Ptr {
@@ -14,48 +43,54 @@ func Merge[T any](base T, override T) (T, error) {
 	}
 
 	if baseVal.Kind() != reflect.Struct || overrideVal.Kind() != reflect.Struct {
-		return base, fmt.Errorf("both base and override must be structs")
+		return base, fmt.Errorf(
+			"merge error: both base and override must be structs, got base: %s, override: %s",
+			baseVal.Kind(), overrideVal.Kind(),
+		)
 	}
 
-	baseType := baseVal.Type()
-
-	for i := 0; i < baseVal.NumField(); i++ {
-		field := baseVal.Field(i)
-		if !field.CanSet() {
-			continue
+	if opts.Recursive {
+		if err := mergeRecursive(baseVal, overrideVal, opts.Overwrite); err != nil {
+			return base, err
 		}
-		ovrField := overrideVal.FieldByName(baseType.Field(i).Name)
-		if !ovrField.IsValid() {
-			continue
-		}
-		if !isZeroValue(ovrField) {
-			field.Set(ovrField)
+	} else {
+		if err := mergeShallow(baseVal, overrideVal, opts.Overwrite); err != nil {
+			return base, err
 		}
 	}
+
 	return base, nil
 }
 
-// MergeDeep performs a deep recursive merge of override into base.
-func MergeDeep[T any](base T, override T) (T, error) {
-	baseVal := reflect.ValueOf(&base).Elem()
-	overrideVal := reflect.ValueOf(override)
-	if overrideVal.Kind() == reflect.Ptr {
-		overrideVal = overrideVal.Elem()
-	}
+func mergeShallow(dst, src reflect.Value, overwrite bool) error {
+	dstType := dst.Type()
 
-	if baseVal.Kind() != reflect.Struct || overrideVal.Kind() != reflect.Struct {
-		return base, fmt.Errorf("both base and override must be structs")
-	}
+	for i := 0; i < dst.NumField(); i++ {
+		dstField := dst.Field(i)
+		if !dstField.CanSet() {
+			continue
+		}
 
-	err := mergeDeepRecursive(baseVal, overrideVal)
-	if err != nil {
-		return base, err
+		fieldName := dstType.Field(i).Name
+		srcField := src.FieldByName(fieldName)
+		if !srcField.IsValid() {
+			continue
+		}
+
+		if overwrite {
+			if !isZeroValue(srcField) {
+				dstField.Set(srcField)
+			}
+		} else {
+			if isZeroValue(dstField) && !isZeroValue(srcField) {
+				dstField.Set(srcField)
+			}
+		}
 	}
-	return base, nil
+	return nil
 }
 
-// mergeDeepRecursive does field-by-field recursive merging.
-func mergeDeepRecursive(dst, src reflect.Value) error {
+func mergeRecursive(dst, src reflect.Value, overwrite bool) error {
 	for i := 0; i < dst.NumField(); i++ {
 		dstField := dst.Field(i)
 		if !dstField.CanSet() {
@@ -69,8 +104,7 @@ func mergeDeepRecursive(dst, src reflect.Value) error {
 
 		switch dstField.Kind() {
 		case reflect.Struct:
-			err := mergeDeepRecursive(dstField, srcField)
-			if err != nil {
+			if err := mergeRecursive(dstField, srcField, overwrite); err != nil {
 				return err
 			}
 
@@ -78,24 +112,65 @@ func mergeDeepRecursive(dst, src reflect.Value) error {
 			if srcField.IsNil() {
 				continue
 			}
+
 			if dstField.IsNil() {
-				dstField.Set(reflect.New(dstField.Type().Elem()))
+				if srcField.Elem().Kind() == reflect.Struct {
+					// Allocate struct pointer if patch has a struct
+					newStruct := reflect.New(srcField.Type().Elem())
+					dstField.Set(newStruct)
+				} else {
+					// Scalar pointer (*string, *bool, etc.)
+					if !overwrite {
+						dstField.Set(srcField) // base is nil, patch has value
+					} else if !isZeroValue(srcField) {
+						dstField.Set(srcField)
+					}
+					continue
+				}
 			}
+
 			if dstField.Elem().Kind() == reflect.Struct {
-				err := mergeDeepRecursive(dstField.Elem(), srcField.Elem())
-				if err != nil {
+				// Recurse into struct pointer
+				if err := mergeRecursive(dstField.Elem(), srcField.Elem(), overwrite); err != nil {
 					return err
 				}
 			} else {
-				dstField.Set(srcField)
+				// Scalar pointer merge
+				if !overwrite {
+					if isZeroValue(dstField) && !isZeroValue(srcField) {
+						dstField.Set(srcField)
+					}
+				} else {
+					if !isZeroValue(srcField) {
+						dstField.Set(srcField)
+					}
+				}
+			}
+
+		case reflect.Slice, reflect.Map:
+			if !overwrite {
+				if isZeroValue(dstField) && !isZeroValue(srcField) {
+					dstField.Set(srcField)
+				}
+			} else {
+				if !isZeroValue(srcField) {
+					dstField.Set(srcField)
+				}
 			}
 
 		default:
-			if !isZeroValue(srcField) {
-				dstField.Set(srcField)
+			if !overwrite {
+				if isZeroValue(dstField) && !isZeroValue(srcField) {
+					dstField.Set(srcField)
+				}
+			} else {
+				if !isZeroValue(srcField) {
+					dstField.Set(srcField)
+				}
 			}
 		}
 	}
+
 	return nil
 }
 
@@ -104,6 +179,8 @@ func isZeroValue(v reflect.Value) bool {
 	switch v.Kind() {
 	case reflect.Slice, reflect.Map, reflect.Interface, reflect.Ptr, reflect.Func:
 		return v.IsNil()
+	default:
+		zero := reflect.Zero(v.Type()).Interface()
+		return reflect.DeepEqual(v.Interface(), zero)
 	}
-	return reflect.DeepEqual(v.Interface(), reflect.Zero(v.Type()).Interface())
 }
