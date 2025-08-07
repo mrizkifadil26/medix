@@ -1,5 +1,5 @@
 {
-  "file": "data/scanner/media/movies.test.json",
+  "file": "data/scanner/media/movies.final.json",
   "fields": [
     {
       "name": "items.#.itemName",
