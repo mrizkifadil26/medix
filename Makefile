@@ -105,6 +105,11 @@ scan-%:
 scan:
 	@$(GO) run $(SCANNER_V2_CMD) $(ARGS)
 
+scan-test:
+	@$(GO) run $(SCANNER_V2_CMD) \
+		-config="$(CONFIG_DIR)/config.json" \
+		$(ARGS)
+
 # --- Icon index generation ---
 icon:
 	@if [ -z "$(type)" ] || [ -z "$(name)" ]; then \
