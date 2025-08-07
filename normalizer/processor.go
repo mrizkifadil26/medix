@@ -219,6 +219,8 @@ func applyConstructor(
 		for i, val := range vals {
 			if s, ok := val.(string); ok {
 				strVals[i] = s
+			} else if val == nil && continueOnError {
+				strVals[i] = "«unknown»" // ✅ convert nil to fallback
 			} else {
 				errs = append(errs, fmt.Errorf("constructor: value at path %q[%d] for key %q is not a string (got %T)", path, i, key, val))
 				if !continueOnError {
@@ -240,7 +242,7 @@ func applyConstructor(
 			if i < len(list) {
 				row[key] = list[i]
 			} else {
-				row[key] = ""
+				row[key] = "«unknown»" // ✅ convert nil to fallback
 			}
 		}
 
