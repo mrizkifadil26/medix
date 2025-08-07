@@ -60,7 +60,7 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 	}
 
 	var (
-		items    []ScanEntry
+		items    = make([]ScanEntry, 0)
 		jobs     []concurrency.TaskFunc
 		mu       sync.Mutex // to protect shared output
 		stats    WalkerStats
