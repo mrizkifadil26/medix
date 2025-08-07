@@ -30,19 +30,20 @@ func Process(
 			continue
 		}
 
-		if err := applyModifier(root, field, reg); err != nil {
-			wrappedErr := fmt.Errorf("modifier failed for field %s: %w", field.Name, err)
-
-			if opts.CollectErrors {
-				allErrors = append(allErrors, wrappedErr)
-			}
-
-			if !opts.ContinueOnError {
+		if errs := applyModifier(root, field, reg, opts.ContinueOnError); len(errs) > 0 {
+			for _, err := range errs {
+				wrapped := fmt.Errorf("modifier failed for field %s: %w", field.Name, err)
 				if opts.CollectErrors {
-					return nil, combineErrors(allErrors)
+					allErrors = append(allErrors, wrapped)
 				}
 
-				return nil, wrappedErr
+				if !opts.ContinueOnError {
+					if opts.CollectErrors {
+						return nil, combineErrors(allErrors)
+					}
+
+					return nil, wrapped
+				}
 			}
 		}
 	}
@@ -53,19 +54,20 @@ func Process(
 			continue
 		}
 
-		if err := applyConstructor(root, field, reg); err != nil {
-			wrappedErr := fmt.Errorf("constructor failed for format %s: %w", field.Format, err)
-
-			if opts.CollectErrors {
-				allErrors = append(allErrors, wrappedErr)
-			}
-
-			if !opts.ContinueOnError {
+		if errs := applyConstructor(root, field, reg, opts.ContinueOnError); len(errs) > 0 {
+			for _, err := range errs {
+				wrapped := fmt.Errorf("constructor failed for format %s: %w", field.Format, err)
 				if opts.CollectErrors {
-					return nil, combineErrors(allErrors)
+					allErrors = append(allErrors, wrapped)
 				}
 
-				return nil, wrappedErr
+				if !opts.ContinueOnError {
+					if opts.CollectErrors {
+						return nil, combineErrors(allErrors)
+					}
+
+					return nil, wrapped
+				}
 			}
 		}
 	}
@@ -109,10 +111,11 @@ func applyModifier(
 	root map[string]any,
 	field FieldConfig,
 	reg *OperatorRegistry,
-) error {
+	continueOnError bool,
+) []error {
 	values, err := ResolvePath(root, field.Name)
 	if err != nil {
-		return fmt.Errorf("traverse %s failed: %w", field.Name, err)
+		return []error{fmt.Errorf("traverse %s failed: %w", field.Name, err)}
 	}
 
 	// Build ops map
@@ -129,6 +132,8 @@ func applyModifier(
 		fieldOps["extract"] = field.Extract
 	}
 
+	var errs []error
+
 	for i, val := range values {
 		strVal, ok := val.(string)
 		if !ok {
@@ -137,26 +142,37 @@ func applyModifier(
 
 		modified, err := reg.ApplyOperators(strVal, fieldOps)
 		if err != nil {
-			return fmt.Errorf("applyOperators failed on value %q (field: %s): %w", strVal, field.Name, err)
+			errs = append(errs, fmt.Errorf("modifier failed for field %s: applyOperators failed on value %q (field: %s): %w", field.Name, strVal, field.Name, err))
+			if !continueOnError {
+				return errs
+			}
+
+			continue
 		}
 
 		if field.SaveAs != "" {
 			if err := SetPath(root, field.SaveAs, modified, i); err != nil {
-				return fmt.Errorf("failed to save result for value %q (field: %s): %w", strVal, field.Name, err)
+				errs = append(errs, fmt.Errorf("failed to save result for value %q (field: %s): %w", strVal, field.Name, err))
+				if !continueOnError {
+					return errs
+				}
 			}
 		}
 	}
 
-	return nil
+	return errs
 }
 
 func applyConstructor(
 	root map[string]any,
 	field FieldConfig,
 	reg *OperatorRegistry,
-) error {
+	continueOnError bool,
+) []error {
+	var errs []error
+
 	if field.Format == "" || len(field.From) == 0 {
-		return fmt.Errorf("constructor needs both 'format' and 'from'")
+		return []error{fmt.Errorf("constructor needs both 'format' and 'from'")}
 	}
 
 	// Resolve all field values
@@ -164,34 +180,54 @@ func applyConstructor(
 	for key, path := range field.From {
 		vals, err := ResolvePath(root, path)
 		if err != nil {
-			return fmt.Errorf("resolve path %q for constructor key %q failed: %w", path, key, err)
+			errs = append(errs, fmt.Errorf("resolve path %q for constructor key %q failed: %w", path, key, err))
+			if !continueOnError {
+				return errs
+			}
+
+			continue
 		}
 
 		if len(vals) == 0 {
-			// continue
-			return fmt.Errorf("no values found at path %q for constructor key %q", path, key)
+			errs = append(errs, fmt.Errorf("no values found at path %q for constructor key %q", path, key))
+			if !continueOnError {
+				return errs
+			}
+
+			continue
 		}
 
 		if strVal, ok := vals[0].(string); ok {
 			data[key] = strVal
 		} else {
-			return fmt.Errorf("value at path %q for constructor key %q is not a string", path, key)
+			errs = append(errs, fmt.Errorf("constructor: value at path %q for key %q is not a string (got %T)", path, key, vals[0]))
+			if !continueOnError {
+				return errs
+			}
+
+			continue
 		}
 	}
 
 	// Format the result
 	result, err := reg.FormatFunc(field.Format, data)
 	if err != nil {
-		return fmt.Errorf("format failed for template %q with data %v: %w", field.Format, data, err)
+		errs = append(errs, fmt.Errorf("constructor failed for format %s: %w", field.Format, err))
+		if !continueOnError {
+			return errs
+		}
 	}
 
 	if field.SaveAs != "" {
 		if err := SetPath(root, field.SaveAs, result, 0); err != nil {
-			return fmt.Errorf("failed to save result for value %q (field: %s): %w", result, field.Name, err)
+			errs = append(errs, fmt.Errorf("failed to save result for value %q (field: %s): %w", result, field.Name, err))
+			if !continueOnError {
+				return errs
+			}
 		}
 	}
 
-	return nil
+	return errs
 }
 
 func SetPath(
