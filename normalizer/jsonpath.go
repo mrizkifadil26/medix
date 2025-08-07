@@ -1,17 +1,16 @@
 package normalizer
 
 import (
-	"errors"
 	"fmt"
 	"strings"
 )
 
 func ResolvePath(json any, path string) ([]any, error) {
 	tokens := tokenize(path)
-	return walk(json, tokens)
+	return walk(json, tokens, []string{})
 }
 
-func walk(data any, path []string) ([]any, error) {
+func walk(data any, path []string, trail []string) ([]any, error) {
 	if len(path) == 0 {
 		// Reached the leaf node
 		return []any{data}, nil
@@ -19,6 +18,7 @@ func walk(data any, path []string) ([]any, error) {
 
 	token := path[0]
 	rest := path[1:]
+	trail = append(trail, token)
 
 	switch d := data.(type) {
 	case map[string]any:
@@ -26,14 +26,16 @@ func walk(data any, path []string) ([]any, error) {
 		if !ok {
 			return nil, fmt.Errorf("field %q not found in object", token)
 		}
-		return walk(val, rest)
+
+		return walk(val, rest, trail)
 	case []any:
 		if token == "#" {
 			var results []any
 			for i, item := range d {
-				vals, err := walk(item, rest)
+				itemTrail := append(trail[:len(trail)-1], fmt.Sprintf("[%d]", i))
+				vals, err := walk(item, rest, itemTrail)
 				if err != nil {
-					return nil, fmt.Errorf("error in array at index %d: %w", i, err)
+					return nil, fmt.Errorf("error at path %q: %w", strings.Join(itemTrail, "."), err)
 				}
 
 				results = append(results, vals...)
@@ -41,11 +43,11 @@ func walk(data any, path []string) ([]any, error) {
 
 			return results, nil
 		} else {
-			return nil, fmt.Errorf("unexpected token %q for array (expected '#')", token)
+			return nil, fmt.Errorf("unexpected token %q for array at path %q (expected '#')", token, strings.Join(trail, "."))
 		}
 
 	default:
-		return nil, errors.New("unexpected structure; cannot continue path")
+		return nil, fmt.Errorf("unexpected structure at path %q; cannot continue", strings.Join(trail, "."))
 	}
 }
 
