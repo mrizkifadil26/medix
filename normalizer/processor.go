@@ -113,9 +113,24 @@ func applyModifier(
 	reg *OperatorRegistry,
 	continueOnError bool,
 ) []error {
-	values, err := ResolvePath(root, field.Name)
+	values, softErrs, err := ResolvePathWithOptions(
+		root,
+		field.Name,
+		ResolveOptions{
+			InjectNilOnMissing: continueOnError,
+		},
+	)
+
+	var errs []error
 	if err != nil {
-		return []error{fmt.Errorf("traverse %s failed: %w", field.Name, err)}
+		errs = append(errs, fmt.Errorf("traverse %s failed: %w", field.Name, err))
+		return errs
+	}
+
+	if continueOnError {
+		for _, warn := range softErrs {
+			errs = append(errs, fmt.Errorf("warning during traversal %s: %w", field.Name, warn))
+		}
 	}
 
 	// Build ops map
@@ -132,8 +147,7 @@ func applyModifier(
 		fieldOps["extract"] = field.Extract
 	}
 
-	var errs []error
-
+	// var errs []error
 	for i, val := range values {
 		strVal, ok := val.(string)
 		if !ok {
@@ -177,8 +191,12 @@ func applyConstructor(
 
 	// Resolve all field values
 	data := map[string]string{}
+	// fmt.Println(field.From)
 	for key, path := range field.From {
-		vals, err := ResolvePath(root, path)
+		vals, softErrs, err := ResolvePathWithOptions(root, path, ResolveOptions{
+			InjectNilOnMissing: continueOnError,
+		})
+
 		if err != nil {
 			errs = append(errs, fmt.Errorf("resolve path %q for constructor key %q failed: %w", path, key, err))
 			if !continueOnError {
@@ -186,6 +204,12 @@ func applyConstructor(
 			}
 
 			continue
+		}
+
+		if continueOnError {
+			for _, warn := range softErrs {
+				errs = append(errs, fmt.Errorf("warning during constructor resolution for key %q at path %q: %w", key, path, warn))
+			}
 		}
 
 		if len(vals) == 0 {
@@ -211,6 +235,7 @@ func applyConstructor(
 
 	// Format the result
 	result, err := reg.FormatFunc(field.Format, data)
+	fmt.Println(data)
 	if err != nil {
 		errs = append(errs, fmt.Errorf("constructor failed for format %s: %w", field.Format, err))
 		if !continueOnError {

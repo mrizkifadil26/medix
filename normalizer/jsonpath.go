@@ -5,15 +5,33 @@ import (
 	"strings"
 )
 
-func ResolvePath(json any, path string) ([]any, error) {
-	tokens := tokenize(path)
-	return walk(json, tokens, []string{})
+type ResolveOptions struct {
+	InjectNilOnMissing bool
 }
 
-func walk(data any, path []string, trail []string) ([]any, error) {
+func ResolvePath(json any, path string) ([]any, error) {
+	vals, _, err := ResolvePathWithOptions(json, path, ResolveOptions{})
+	return vals, err
+}
+
+func ResolvePathWithOptions(
+	json any,
+	path string,
+	opts ResolveOptions,
+) ([]any, []error, error) {
+	tokens := tokenize(path)
+	return walk(json, tokens, []string{}, opts)
+}
+
+func walk(
+	data any,
+	path []string,
+	trail []string,
+	opts ResolveOptions,
+) ([]any, []error, error) {
 	if len(path) == 0 {
 		// Reached the leaf node
-		return []any{data}, nil
+		return []any{data}, nil, nil
 	}
 
 	token := path[0]
@@ -24,63 +42,50 @@ func walk(data any, path []string, trail []string) ([]any, error) {
 	case map[string]any:
 		val, ok := d[token]
 		if !ok {
-			return nil, fmt.Errorf("field %q not found in object", token)
+			msg := fmt.Errorf("field %q not found in object at path %q", token, strings.Join(trail, "."))
+			if opts.InjectNilOnMissing {
+				return []any{nil}, []error{msg}, nil
+			}
+			return nil, nil, msg
 		}
+		return walk(val, rest, trail, opts)
 
-		return walk(val, rest, trail)
 	case []any:
 		if token == "#" {
 			var results []any
+			var allErrors []error
 			for i, item := range d {
 				itemTrail := append(trail[:len(trail)-1], fmt.Sprintf("[%d]", i))
-				vals, err := walk(item, rest, itemTrail)
+				vals, errs, err := walk(item, rest, itemTrail, opts)
 				if err != nil {
-					return nil, fmt.Errorf("error at path %q: %w", strings.Join(itemTrail, "."), err)
+					if opts.InjectNilOnMissing {
+						allErrors = append(allErrors, fmt.Errorf("error at path %q: %w", strings.Join(itemTrail, "."), err))
+						results = append(results, nil)
+						continue
+					}
+					return nil, nil, fmt.Errorf("error at path %q: %w", strings.Join(itemTrail, "."), err)
+				}
+				if len(errs) > 0 {
+					allErrors = append(allErrors, errs...)
 				}
 
 				results = append(results, vals...)
 			}
 
-			return results, nil
-		} else {
-			return nil, fmt.Errorf("unexpected token %q for array at path %q (expected '#')", token, strings.Join(trail, "."))
+			return results, allErrors, nil
 		}
 
+		return nil, nil, fmt.Errorf("unexpected token %q for array at path %q (expected '#')", token, strings.Join(trail, "."))
+
 	default:
-		return nil, fmt.Errorf("unexpected structure at path %q; cannot continue", strings.Join(trail, "."))
+		msg := fmt.Errorf("unexpected structure at path %q; cannot continue", strings.Join(trail, "."))
+		if opts.InjectNilOnMissing {
+			return []any{nil}, []error{msg}, nil
+		}
+
+		return nil, nil, msg
 	}
 }
-
-// case "#":
-// 	// Expecting an array
-// 	arr, ok := current.([]any)
-// 	if !ok {
-// 		return nil, fmt.Errorf("expected array at '#', got %T", current)
-// 	}
-// 	var results []any
-// 	for _, elem := range arr {
-// 		vals, err := traverseRecursive(elem, rest)
-// 		if err != nil {
-// 			continue // or log
-// 		}
-
-// 		results = append(results, vals...)
-// 	}
-// 	return results, nil
-
-// default:
-// 	// Expecting an object with this key
-// 	obj, ok := current.(map[string]any)
-// 	if !ok {
-// 		return nil, fmt.Errorf("expected object at '%s', got %T", seg, current)
-// 	}
-// 	next, ok := obj[seg]
-// 	if !ok {
-// 		return nil, fmt.Errorf("key '%s' not found", seg)
-// 	}
-// 	return traverseRecursive(next, rest)
-// }
-// }
 
 func tokenize(path string) []string {
 	return strings.Split(path, ".")
