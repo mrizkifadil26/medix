@@ -117,6 +117,6 @@ func printRow(key, value, comment string) {
 	const valWidth = 30
 
 	keyStr := fmt.Sprintf("%-*s", keyWidth, key)
-	valStr := fmt.Sprintf("%-*s", valWidth, ":"value)
+	valStr := fmt.Sprintf("%-*s", valWidth, ":"+value)
 	fmt.Printf("%s %s # %s\n", keyStr, valStr, comment)
 }
