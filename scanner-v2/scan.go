@@ -18,7 +18,7 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	start := time.Now()
+	// start := time.Now()
 	output := ScanOutput{
 		GeneratedAt: time.Now().Format(time.RFC3339),
 		SourcePath:  root,
@@ -38,9 +38,9 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 
 	// Normalize exclude list
 	excludeMap := make(map[string]bool)
-	for _, ex := range options.Exclude {
-		excludeMap[filepath.ToSlash(filepath.Clean(ex))] = true
-	}
+	// for _, ex := range options.Exclude {
+	// 	excludeMap[filepath.ToSlash(filepath.Clean(ex))] = true
+	// }
 
 	// Helper: check if path is excluded
 	isExcluded := func(absPath string) bool {
@@ -69,15 +69,15 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 
 	// Extension filter for files
 	matchExt := func(name string) bool {
-		if len(options.Exts) == 0 {
-			return true
-		}
-		ext := strings.ToLower(filepath.Ext(name))
-		for _, e := range options.Exts {
-			if strings.ToLower(e) == ext {
-				return true
-			}
-		}
+		// if len(options.Exts) == 0 {
+		// 	return true
+		// }
+		// ext := strings.ToLower(filepath.Ext(name))
+		// for _, e := range options.Exts {
+		// 	if strings.ToLower(e) == ext {
+		// 		return true
+		// 	}
+		// }
 		return false
 	}
 
@@ -90,8 +90,8 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		MatchExt:   matchExt,
 		Opts: WalkOptions{
 			MaxDepth: options.Depth,
-			Exts:     options.Exts,
-			Verbose:  options.Verbose,
+			// Exts:     options.Exts,
+			// Verbose:  options.Verbose,
 		},
 	}
 
@@ -111,9 +111,9 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 			jobs = append(jobs, concurrency.TaskFunc(func(ctx context.Context) error {
 				entry := ScanEntry{
 					GroupPath:  filepath.Dir(rel),
-					ItemPath:   path,
-					ItemName:   filepath.Base(path),
-					ItemSize:   &size,
+					Path:       path,
+					Name:       filepath.Base(path),
+					Size:       &size,
 					GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
 				}
 
@@ -140,23 +140,24 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 			jobs = append(jobs, func(ctx context.Context) error {
 				entry := ScanEntry{
 					GroupPath:  filepath.Dir(rel),
-					ItemPath:   path,
-					ItemName:   filepath.Base(path),
+					Path:       path,
+					Name:       filepath.Base(path),
 					GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
 					SubEntries: func() []ScanEntry {
-						switch options.SubEntries {
-						case SubentriesNone:
-							return nil
-						case SubentriesFlat:
-							return scanFlat(path, options)
-						case SubentriesNested:
-							return scanNested(path, options)
-						case SubentriesAuto:
-							// Auto mode: if subdepth is -1, use nested, otherwise flat
-							return nil
-						default:
-							return nil
-						}
+						// switch options.SubEntries {
+						// case SubentriesNone:
+						// 	return nil
+						// case SubentriesFlat:
+						// 	return scanFlat(path, options)
+						// case SubentriesNested:
+						// 	return scanNested(path, options)
+						// case SubentriesAuto:
+						// 	// Auto mode: if subdepth is -1, use nested, otherwise flat
+						// 	return nil
+						// default:
+						// 	return nil
+						// }
+						return nil
 					}(),
 				}
 
@@ -180,7 +181,8 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 	// 	return output, fmt.Errorf("scan failed: %w", err)
 	// }
 
-	taskExec, err := SelectExecutor(options.Concurrency)
+	// taskExec, err := SelectExecutor(options.Concurrency)
+	taskExec, err := SelectExecutor(1)
 	if err != nil {
 		return output, fmt.Errorf("concurrency error: %w", err)
 	}
@@ -195,16 +197,16 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 
 	output.Items = items
 	output.ItemCount = len(items)
-	output.ExcludedCount = int(atomic.LoadInt64(&excluded))
-	output.Duration = time.Since(start).String()
-	output.WalkStatistics = walker.Stats
+	// output.ExcludedCount = int(atomic.LoadInt64(&excluded))
+	// output.Duration = time.Since(start).String()
+	// output.WalkStatistics = walker.Stats
 
 	return output, nil
 }
 
-func (o ScanOptions) IsParallel() bool {
-	return o.Concurrency > 1
-}
+// func (o ScanOptions) IsParallel() bool {
+// 	return o.Concurrency > 1
+// }
 
 func scanFlat(base string, opts ScanOptions) []ScanEntry {
 	entries, _ := os.ReadDir(base)
@@ -212,9 +214,9 @@ func scanFlat(base string, opts ScanOptions) []ScanEntry {
 
 	// Create lowercase extension filter map (same as collectSubEntries)
 	extFilter := make(map[string]bool)
-	for _, ext := range opts.SubExts {
-		extFilter[strings.ToLower(ext)] = true
-	}
+	// for _, ext := range opts.SubExts {
+	// 	extFilter[strings.ToLower(ext)] = true
+	// }
 
 	for _, entry := range entries {
 		if entry.IsDir() {
@@ -234,9 +236,9 @@ func scanFlat(base string, opts ScanOptions) []ScanEntry {
 
 		fullPath := filepath.Join(base, entry.Name())
 		out = append(out, ScanEntry{
-			ItemPath: fullPath,
-			ItemName: entry.Name(),
-			ItemSize: &size,
+			Path: fullPath,
+			Name: entry.Name(),
+			Size: &size,
 		})
 	}
 
@@ -248,9 +250,9 @@ func scanNested(base string, opts ScanOptions) []ScanEntry {
 }
 
 func scanRecursive(path string, depth int, opts ScanOptions) []ScanEntry {
-	if opts.SubDepth >= 0 && depth >= opts.SubDepth {
-		return nil
-	}
+	// if opts.SubDepth >= 0 && depth >= opts.SubDepth {
+	// 	return nil
+	// }
 
 	entries, err := os.ReadDir(path)
 	if err != nil {
@@ -259,9 +261,9 @@ func scanRecursive(path string, depth int, opts ScanOptions) []ScanEntry {
 
 	// Lowercase extension filter
 	extFilter := make(map[string]bool)
-	for _, ext := range opts.SubExts {
-		extFilter[strings.ToLower(ext)] = true
-	}
+	// for _, ext := range opts.SubExts {
+	// 	extFilter[strings.ToLower(ext)] = true
+	// }
 
 	var out []ScanEntry
 
@@ -274,8 +276,8 @@ func scanRecursive(path string, depth int, opts ScanOptions) []ScanEntry {
 			}
 
 			out = append(out, ScanEntry{
-				ItemPath:   full,
-				ItemName:   entry.Name(),
+				Path:       full,
+				Name:       entry.Name(),
 				SubEntries: sub,
 			})
 		} else {
@@ -291,9 +293,9 @@ func scanRecursive(path string, depth int, opts ScanOptions) []ScanEntry {
 			size := info.Size()
 
 			out = append(out, ScanEntry{
-				ItemPath: full,
-				ItemName: entry.Name(),
-				ItemSize: &size,
+				Path: full,
+				Name: entry.Name(),
+				Size: &size,
 			})
 		}
 	}
