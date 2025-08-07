@@ -71,23 +71,52 @@ func main() {
 	// if err != nil {
 	// 	fail("Normalization failed", err)
 	// }
+	ContinueOnError := true
 	registry := normalizer.NewOperators()
 	result, err := normalizer.Process(
 		input,
 		args.Config.Fields,
 		registry,
+		normalizer.ErrorHandlingOptions{
+			ContinueOnError: ContinueOnError,
+			CollectErrors:   true,
+		},
 	)
 
-	if err != nil {
-		// log.Printf("Process failed: %v", err)
-		fail("Process failed", err)
-	}
+	// if err != nil {
+	// 	// log.Printf("Process failed: %v", err)
+	// 	fail("Process failed", err)
+	// }
 
+	// if args.OutputPath != "" {
+	// 	if err := utils.WriteJSON(args.OutputPath, result); err != nil {
+	// 		log.Fatalf("Failed to write output: %v", err)
+	// 	}
+	// }
+
+	// Always try to write output, even if errors occurred
 	if args.OutputPath != "" {
-		if err := utils.WriteJSON(args.OutputPath, result); err != nil {
-			log.Fatalf("Failed to write output: %v", err)
+		if err != nil {
+			if m, ok := result.(map[string]any); ok {
+				if _, exists := m["_errors"]; !exists {
+					m["_errors"] = err.Error()
+				}
+			}
+		}
+
+		if writeErr := utils.WriteJSON(args.OutputPath, result); writeErr != nil {
+			log.Fatalf("Failed to write output: %v", writeErr)
 		}
 	}
+
+	if err != nil {
+		if ContinueOnError {
+			fmt.Println("✅ Process completed with errors. Check output for details.")
+		} else {
+			fail("❌ Process failed", err)
+		}
+	}
+
 }
 
 func fail(msg string, err error) {
