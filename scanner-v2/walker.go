@@ -13,10 +13,10 @@ import (
 )
 
 type Walker struct {
-	Ctx  context.Context
-	Root string
-	Opts WalkOptions
-	Stats *WalkerStats           // Collects walk statistics
+	Ctx   context.Context
+	Root  string
+	Opts  WalkOptions
+	Stats *WalkerStats // Collects walk statistics
 
 	// File matching / filtering
 	IsExcluded func(path string) bool
@@ -233,9 +233,9 @@ func (w *Walker) trackSkip(path, reason string) {
 }
 
 func (w *Walker) appendTrace(path string) {
-	if w.Trace != nil {
-		w.Trace = append(w.Trace, path)
-	}
+	// if w.Trace != nil {
+	// 	w.Trace = append(w.Trace, path)
+	// }
 }
 
 // Duration returns total time spent walking.
@@ -284,7 +284,7 @@ func (w *Walker) Walk() error {
 		depth := pathDepth(w.Root, path)
 		if w.Opts.MaxDepth >= 0 && depth > w.Opts.MaxDepth {
 			w.trackSkip(path,
-				fmt.Sprintf("depth %d > maxDepth %d", depth, w.Opts.MaxDepth)
+				fmt.Sprintf("depth %d > maxDepth %d", depth, w.Opts.MaxDepth),
 			)
 
 			return fs.SkipDir

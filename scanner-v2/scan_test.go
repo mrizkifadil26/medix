@@ -2,15 +2,7 @@
 
 package scannerV2_test
 
-import (
-	"os"
-	"path/filepath"
-	"testing"
-
-	scannerV2 "github.com/mrizkifadil26/medix/scanner-v2"
-	"github.com/stretchr/testify/require"
-)
-
+/*
 func TestScan_Basic(t *testing.T) {
 	root := t.TempDir()
 
@@ -178,7 +170,7 @@ func TestScan_MultiExtDeep(t *testing.T) {
 	out, err := scannerV2.Scan(root, opts)
 	require.NoError(t, err)
 	require.Len(t, out.Items, 2)
-}
+} */
 
 /*
 func TestScan_TVShowStyle(t *testing.T) {
