@@ -114,7 +114,7 @@ func (cfg *Config) PrettyPrint() {
 
 func printRow(key, value, comment string) {
 	const keyWidth = 18
-	const valWidth = 30
+	const valWidth = 24
 
 	keyStr := fmt.Sprintf("%-*s", keyWidth, key)
 	valStr := fmt.Sprintf("%-*s", valWidth, ":"+value)
