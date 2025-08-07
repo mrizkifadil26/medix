@@ -6,23 +6,44 @@ import (
 	"strings"
 )
 
+type ErrorHandlingOptions struct {
+	ContinueOnError bool
+	CollectErrors   bool
+}
+
 func Process(
 	input any,
 	fields []FieldConfig,
 	reg *OperatorRegistry,
+	opts ErrorHandlingOptions,
 ) (any, error) {
 	root, ok := input.(map[string]any)
 	if !ok {
 		return nil, fmt.Errorf("input must be a JSON object")
 	}
 
+	var allErrors []error
+
 	// 1. Apply all modifiers first
 	for _, field := range fields {
 		if field.Name == "" {
 			continue
 		}
+
 		if err := applyModifier(root, field, reg); err != nil {
-			return nil, fmt.Errorf("modifier failed for field %s: %w", field.Name, err)
+			wrappedErr := fmt.Errorf("modifier failed for field %s: %w", field.Name, err)
+
+			if opts.CollectErrors {
+				allErrors = append(allErrors, wrappedErr)
+			}
+
+			if !opts.ContinueOnError {
+				if opts.CollectErrors {
+					return nil, combineErrors(allErrors)
+				}
+
+				return nil, wrappedErr
+			}
 		}
 	}
 
@@ -33,11 +54,50 @@ func Process(
 		}
 
 		if err := applyConstructor(root, field, reg); err != nil {
-			return nil, fmt.Errorf("constructor failed for format %s: %w", field.Format, err)
+			wrappedErr := fmt.Errorf("constructor failed for format %s: %w", field.Format, err)
+
+			if opts.CollectErrors {
+				allErrors = append(allErrors, wrappedErr)
+			}
+
+			if !opts.ContinueOnError {
+				if opts.CollectErrors {
+					return nil, combineErrors(allErrors)
+				}
+
+				return nil, wrappedErr
+			}
 		}
 	}
 
+	if opts.CollectErrors && len(allErrors) > 0 {
+		if rootMap, ok := input.(map[string]any); ok {
+			var lines []string
+			for _, err := range allErrors {
+				lines = append(lines, err.Error())
+			}
+			rootMap["_errors"] = lines
+		}
+
+		return input, combineErrors(allErrors)
+	}
+
 	return input, nil
+}
+
+func combineErrors(errs []error) error {
+	if len(errs) == 0 {
+		return nil
+	}
+
+	var sb strings.Builder
+	for _, err := range errs {
+		sb.WriteString("- ")
+		sb.WriteString(err.Error())
+		sb.WriteString("\n")
+	}
+
+	return fmt.Errorf("multiple errors:\n%s", sb.String())
 }
 
 type ExpandedField struct {
@@ -50,7 +110,7 @@ func applyModifier(
 	field FieldConfig,
 	reg *OperatorRegistry,
 ) error {
-	values, err := Traverse(root, field.Name)
+	values, err := ResolvePath(root, field.Name)
 	if err != nil {
 		return fmt.Errorf("traverse %s failed: %w", field.Name, err)
 	}
@@ -75,18 +135,14 @@ func applyModifier(
 			continue
 		}
 
-		fmt.Println("strVal: ", strVal)
-
 		modified, err := reg.ApplyOperators(strVal, fieldOps)
 		if err != nil {
-			return fmt.Errorf("applyOperators failed: %w", err)
+			return fmt.Errorf("applyOperators failed on value %q (field: %s): %w", strVal, field.Name, err)
 		}
-
-		fmt.Printf("Modifier result [%d]: %s\n", i, modified)
 
 		if field.SaveAs != "" {
 			if err := SetPath(root, field.SaveAs, modified, i); err != nil {
-				return fmt.Errorf("failed to save result: %w", err)
+				return fmt.Errorf("failed to save result for value %q (field: %s): %w", strVal, field.Name, err)
 			}
 		}
 	}
@@ -106,25 +162,32 @@ func applyConstructor(
 	// Resolve all field values
 	data := map[string]string{}
 	for key, path := range field.From {
-		vals, err := Traverse(root, path)
-		if err != nil || len(vals) == 0 {
-			continue
+		vals, err := ResolvePath(root, path)
+		if err != nil {
+			return fmt.Errorf("resolve path %q for constructor key %q failed: %w", path, key, err)
 		}
+
+		if len(vals) == 0 {
+			// continue
+			return fmt.Errorf("no values found at path %q for constructor key %q", path, key)
+		}
+
 		if strVal, ok := vals[0].(string); ok {
 			data[key] = strVal
+		} else {
+			return fmt.Errorf("value at path %q for constructor key %q is not a string", path, key)
 		}
 	}
 
 	// Format the result
 	result, err := reg.FormatFunc(field.Format, data)
 	if err != nil {
-		return fmt.Errorf("format failed: %w", err)
+		return fmt.Errorf("format failed for template %q with data %v: %w", field.Format, data, err)
 	}
-	fmt.Printf("Constructor result: %s\n", result)
 
 	if field.SaveAs != "" {
 		if err := SetPath(root, field.SaveAs, result, 0); err != nil {
-			return fmt.Errorf("failed to save result: %w", err)
+			return fmt.Errorf("failed to save result for value %q (field: %s): %w", result, field.Name, err)
 		}
 	}
 
