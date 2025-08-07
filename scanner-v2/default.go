@@ -8,13 +8,13 @@ const (
 
 func DefaultConfig() Config {
 	return Config{
-		Verbose: false,
-		Options: ScanOptions{
+		Verbose: ptr(false),
+		Options: &ScanOptions{
 			Mode:  DefaultMode,
 			Depth: DefaultDepth,
 		},
-		Output: OutputOptions{
-			Format:          "json",
+		Output: &OutputOptions{
+			Format:          ptr("json"),
 			OutputPath:      nil,
 			IncludeErrors:   false,
 			IncludeWarnings: false,
@@ -22,3 +22,5 @@ func DefaultConfig() Config {
 		},
 	}
 }
+
+func ptr[T any](v T) *T { return &v }

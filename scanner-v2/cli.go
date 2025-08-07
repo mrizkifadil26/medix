@@ -2,22 +2,15 @@ package scannerV2
 
 import (
 	"flag"
+	"fmt"
 )
 
 type CLIArgs struct {
 	ConfigPath *string
-
-	// Partial overrides (nullable)
-	OutputPath *string
-	Root       *string
-	Mode       *string
-	Depth      *int
-	Verbose    *bool
-
-	Config Config // Full config with all options
+	Config     Config // Full config with all options
 }
 
-func ParseCLI() *CLIArgs {
+func ParseCLI() (*CLIArgs, error) {
 	flag.Usage = func() {
 		helpText := `
 Usage: scan [OPTIONS]
@@ -35,83 +28,55 @@ Example:
 
 If -config is provided, it overrides everything except -output.
 `
-		println(helpText)
+		fmt.Println(helpText)
 	}
 
-	// var args CLIArgs
-	// options := &args.Config.Options
-	// var extStr, excludeStr string
 	var (
 		configPath = flag.String("config", "", "Path to config file (JSON or YAML)")
 		outputPath = flag.String("output", "", "Output result path")
 		root       = flag.String("root", "", "Root directory to scan")
 		mode       = flag.String("mode", "", "Scan mode: files, dirs, or mixed")
-		depth      = flag.Int("depth", -9999, "Max scan depth")
+		depth      = flag.Int("depth", -1, "Max scan depth")
 		verbose    = flag.Bool("verbose", false, "Enable verbose logging")
 	)
 
 	flag.Parse()
 
-	// Global CLI-only flags
-	// flag.StringVar(&configPath, "config", "", "Path to config file (JSON or YAML)")
-	// flag.StringVar(&outputPath, "output", "", "Path to output result (optional)")
-	// flag.StringVar(&root, "root", "", "Root directory to scan (required if no config file)")
+	if configPath == nil || *configPath == "" {
+		return nil, fmt.Errorf("missing required -config argument")
+	}
 
-	// Config: scan options
-	// flag.StringVar(&options.Mode, "mode", "files", "Scan mode: files or dirs")
-	// flag.StringVar(&extStr, "exts", ".mkv,.mp4", "Comma-separated file extensions")
-	// flag.StringVar(&excludeStr, "exclude", "", "Comma-separated excluded paths")
+	var cfg Config
+	shouldPopulate := false
 
-	// flag.IntVar(&options.Depth, "depth", 1, "Max scan depth (0 for top-level, -1 for unlimited)")
-	// flag.IntVar(&options.LeafDepth, "leaf-depth", 0, "Min leaf directory depth")
-	// flag.IntVar(&options.Concurrency, "concurrency", 0, "Number of concurrent workers (0 = auto)")
-
-	// flag.BoolVar(&options.OnlyLeaf, "only-leaf", false, "Only scan leaf directories")
-	// flag.BoolVar(&options.SkipEmpty, "skip-empty", false, "Skip empty directories")
-	// flag.BoolVar(&verbose, "verbose", false, "Enable verbose logging")
-
-	flag.Parse()
-
-	// Convert comma-separated strings into slices
-	// options.Exts = splitAndTrim(extStr)
-	// options.Exclude = splitAndTrim(excludeStr)
-
-	cfg := Config{}
-	// Only assign if explicitly set (non-empty or non-placeholder)
-	if root != nil && *root != "" {
+	if *root != "" {
 		cfg.Root = root
+		shouldPopulate = true
 	}
-
-	if outputPath != nil && *outputPath != "" {
-		cfg.Output.OutputPath = outputPath
-	}
-
-	if verbose != nil && flag.Lookup("verbose").Value.String() == "true" {
-		cfg.Verbose = verbose
-	}
-
-	if mode != nil && *mode != "" {
+	if *mode != "" {
 		cfg.Options.Mode = *mode
+		shouldPopulate = true
 	}
-
-	if depth != nil && *depth != -9999 {
+	if *depth != -1 {
 		cfg.Options.Depth = *depth
+		shouldPopulate = true
+	}
+	if *verbose {
+		cfg.Verbose = verbose
+		shouldPopulate = true
+	}
+	if *outputPath != "" {
+		cfg.Output = &OutputOptions{OutputPath: outputPath}
+		shouldPopulate = true
 	}
 
-	return &CLIArgs{
+	args := &CLIArgs{
 		ConfigPath: configPath,
-		OutputPath: outputPath,
-		Config:     cfg,
 	}
-}
 
-// func splitAndTrim(s string) []string {
-// 	if s == "" {
-// 		return nil
-// 	}
-// 	parts := strings.Split(s, ",")
-// 	for i, p := range parts {
-// 		parts[i] = strings.TrimSpace(p)
-// 	}
-// 	return parts
-// }
+	if shouldPopulate {
+		args.Config = cfg
+	}
+
+	return args, nil
+}

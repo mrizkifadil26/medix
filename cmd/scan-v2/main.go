@@ -12,10 +12,14 @@ import (
 )
 
 func main() {
-	args := scannerV2.ParseCLI()
-	argConfig := args.Config // CLI-level config overrides
+	args, err := scannerV2.ParseCLI()
+	if err != nil {
+		log.Fatalf("Error: %v", err)
+	}
 
-	// Load from config file if provided
+	// Start config from CLI
+	config := args.Config
+	// If config file exists, load and merge
 	if args.ConfigPath != nil {
 		fileConfig, err := utils.LoadConfig[scannerV2.Config](*args.ConfigPath)
 		if err != nil {
@@ -24,35 +28,43 @@ func main() {
 		}
 
 		// Deep merge file config with CLI overrides
-		merged, err := utils.MergeDeep(fileConfig, argConfig)
+		merged, err := utils.Merge(
+			fileConfig,
+			args.Config,
+			utils.MergeOptions{
+				Overwrite: true,
+				Recursive: true,
+			},
+		)
+
 		if err != nil {
-			log.Fatalf("Failed to merge config: %v", err)
+			log.Fatalf("Failed to merge CLI config: %v", err)
 		}
 
-		args.Config = merged
+		config = merged
 	}
 
 	// Validate required field
-	if argConfig.Root == nil || *argConfig.Root == "" {
+	if config.Root == nil || *config.Root == "" {
 		flag.Usage()
 		log.Fatal("Error: --root is required (or must be in config file)")
 	}
 
-	args.Config.ApplyDefaults() // Apply defaults to ensure all options are set
+	// Fill missing defaults
+	finalConfig := config.ApplyDefaults()
+	finalConfig.PrettyPrint()
 
-	// root := args.Config.Root
-	// opts := args.Config.Options
-
-	// output, err := scannerV2.Scan(root, opts)
+	// output, err := scannerV2.Scan(*config.Root, config.Options)
 	// if err != nil {
-	// log.Fatal(err)
+	// 	log.Fatal(err)
 	// }
 
-	if args.OutputPath != "" {
-		if err := utils.WriteJSON(args.OutputPath, output); err != nil {
-			log.Fatalf("Failed to write output: %v", err)
-		}
-	}
+	// Output results
+	// if args.OutputPath != nil && *args.OutputPath != "" {
+	// 	if err := utils.WriteJSON(*args.OutputPath, output); err != nil {
+	// 		log.Fatalf("Failed to write output: %v", err)
+	// 	}
+	// }
 }
 
 func PrettyJSON(v any) {

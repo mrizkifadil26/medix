@@ -1,11 +1,15 @@
 package scannerV2
 
-import "github.com/mrizkifadil26/medix/utils"
+import (
+	"fmt"
+
+	"github.com/mrizkifadil26/medix/utils"
+)
 
 type Config struct {
-	Root    *string  `json:"root" yaml:"root"`
-	Tags    []string `json:"tags,omitempty" yaml:"tags,omitempty"` // Optional job/context tags
-	Verbose *bool    `json:"verbose" yaml:"verbose"`
+	Root    *string   `json:"root" yaml:"root"`
+	Tags    *[]string `json:"tags,omitempty" yaml:"tags,omitempty"` // Optional job/context tags
+	Verbose *bool     `json:"verbose" yaml:"verbose"`
 
 	Options *ScanOptions `json:"options" yaml:"options"`
 	// FileRules []Rule      `json:"fileRules,omitempty"`
@@ -39,7 +43,7 @@ type ScanOptions struct {
 }
 
 type OutputOptions struct {
-	Format     string  `json:"format" yaml:"format"`                             // Output format: "json", "yaml", etc
+	Format     *string `json:"format" yaml:"format"`                             // Output format: "json", "yaml", etc
 	OutputPath *string `json:"outputPath,omitempty" yaml:"outputPath,omitempty"` // Optional output file path
 
 	IncludeErrors   bool `json:"includeErrors,omitempty" yaml:"includeErrors,omitempty"`     // Include errors in output
@@ -55,22 +59,64 @@ type Rule struct {
 	MaxFiles   int      `json:"maxFiles,omitempty"`
 }
 
-// func (c *Config) ApplyDefaults() {
-// 	if c.Options.Mode == "" {
-// 		c.Options.Mode = "files"
-// 	}
-
-// 	if c.Options.Depth == 0 {
-// 		c.Options.Depth = 1
-// 	}
-
-// 	// All other fields (Exclude, Exts, OnlyLeaf, LeafDepth, SkipEmpty, etc.)
-// 	// are optional and left as-is to respect user intent.
-// }
-
 // config.go
-func (c *Config) ApplyDefaults() {
-	def := DefaultConfig()
+func (baseConfig *Config) ApplyDefaults() *Config {
+	defaultCfg := DefaultConfig()
 
-	utils.MergeDeep(c, &def)
+	merged, err := utils.MergeDeep(*baseConfig, defaultCfg)
+	if err != nil {
+		fmt.Println("Error: ", err)
+	}
+
+	return &merged
+}
+
+func (cfg *Config) PrettyPrint() {
+	fmt.Println("📦 Scanning Configuration")
+
+	// Root-level fields
+	if cfg.Root != nil {
+		printRow("Root", *cfg.Root, "Root directory to scan")
+	}
+	if cfg.Tags != nil {
+		printRow("Tags", fmt.Sprintf("%v", *cfg.Tags), "Optional tags for context")
+	}
+	if cfg.Verbose != nil {
+		printRow("Verbose", fmt.Sprintf("%v", *cfg.Verbose), "Verbose logging enabled")
+	}
+
+	// Options section
+	if cfg.Options != nil {
+		fmt.Println()
+		fmt.Println("🛠️  Scan Options:")
+		printRow("Mode", cfg.Options.Mode, "Scan mode: files, dirs, or mixed")
+		printRow("Depth", fmt.Sprintf("%d", cfg.Options.Depth), "How deep to traverse directories")
+		printRow("SkipEmpty", fmt.Sprintf("%v", cfg.Options.SkipEmpty), "Skip empty directories")
+		printRow("IncludeRootFiles", fmt.Sprintf("%v", cfg.Options.IncludeRootFiles), "Include root-level files")
+		printRow("OnlyLeaf", fmt.Sprintf("%v", cfg.Options.OnlyLeaf), "Only include leaf-level directories")
+	}
+
+	// Output section
+	if cfg.Output != nil {
+		fmt.Println()
+		fmt.Println("📤 Output Options:")
+		if cfg.Output.Format != nil {
+			printRow("Format", *cfg.Output.Format, "Output format: json, yaml, etc.")
+		}
+		if cfg.Output.OutputPath != nil {
+			printRow("OutputPath", *cfg.Output.OutputPath, "Path to save output (optional)")
+		}
+		printRow("IncludeErrors", fmt.Sprintf("%v", cfg.Output.IncludeErrors), "Include error info in output")
+		printRow("IncludeWarnings", fmt.Sprintf("%v", cfg.Output.IncludeWarnings), "Include warnings in output")
+		printRow("IncludeStats", fmt.Sprintf("%v", cfg.Output.IncludeStats), "Include detailed scan stats")
+	}
+}
+
+func printRow(key, value, comment string) {
+	const keyWidth = 18
+	const valWidth = 30
+
+	keyStr := fmt.Sprintf("%-*s", keyWidth, key)
+	valStr := fmt.Sprintf("%-*s", valWidth, ":"value)
+	fmt.Printf("%s %s # %s\n", keyStr, valStr, comment)
 }
