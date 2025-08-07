@@ -190,7 +190,10 @@ func applyConstructor(
 	}
 
 	// Resolve all field values
-	data := map[string]string{}
+	// data := map[string]string{}
+	collected := map[string][]string{}
+	maxLen := 0
+
 	// fmt.Println(field.From)
 	for key, path := range field.From {
 		vals, softErrs, err := ResolvePathWithOptions(root, path, ResolveOptions{
@@ -212,42 +215,50 @@ func applyConstructor(
 			}
 		}
 
-		if len(vals) == 0 {
-			errs = append(errs, fmt.Errorf("no values found at path %q for constructor key %q", path, key))
-			if !continueOnError {
-				return errs
+		strVals := make([]string, len(vals))
+		for i, val := range vals {
+			if s, ok := val.(string); ok {
+				strVals[i] = s
+			} else {
+				errs = append(errs, fmt.Errorf("constructor: value at path %q[%d] for key %q is not a string (got %T)", path, i, key, val))
+				if !continueOnError {
+					return errs
+				}
 			}
-
-			continue
 		}
 
-		if strVal, ok := vals[0].(string); ok {
-			data[key] = strVal
-		} else {
-			errs = append(errs, fmt.Errorf("constructor: value at path %q for key %q is not a string (got %T)", path, key, vals[0]))
-			if !continueOnError {
-				return errs
-			}
-
-			continue
+		collected[key] = strVals
+		if len(strVals) > maxLen {
+			maxLen = len(strVals)
 		}
 	}
 
-	// Format the result
-	result, err := reg.FormatFunc(field.Format, data)
-	fmt.Println(data)
-	if err != nil {
-		errs = append(errs, fmt.Errorf("constructor failed for format %s: %w", field.Format, err))
-		if !continueOnError {
-			return errs
+	// Step 2: Batch format per index
+	for i := 0; i < maxLen; i++ {
+		row := map[string]string{}
+		for key, list := range collected {
+			if i < len(list) {
+				row[key] = list[i]
+			} else {
+				row[key] = ""
+			}
 		}
-	}
 
-	if field.SaveAs != "" {
-		if err := SetPath(root, field.SaveAs, result, 0); err != nil {
-			errs = append(errs, fmt.Errorf("failed to save result for value %q (field: %s): %w", result, field.Name, err))
+		result, err := reg.FormatFunc(field.Format, row)
+		if err != nil {
+			errs = append(errs, fmt.Errorf("constructor failed for format %q at index %d: %w", field.Format, i, err))
 			if !continueOnError {
 				return errs
+			}
+			continue
+		}
+
+		if field.SaveAs != "" {
+			if err := SetPath(root, field.SaveAs, result, i); err != nil {
+				errs = append(errs, fmt.Errorf("failed to save result for index %d (value %q): %w", i, result, err))
+				if !continueOnError {
+					return errs
+				}
 			}
 		}
 	}
