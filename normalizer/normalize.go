@@ -36,7 +36,7 @@ func (r *OperatorRegistry) ApplyOperators(input string, field map[string]any) (s
 	var err error
 
 	// var appliedKeys = make(map[string]bool) // track what keys we actually apply
-	fmt.Println(PrettyPrintJSON(field))
+	// fmt.Println(PrettyPrintJSON(field))
 	// var operatorOrder = []string{"replace", "normalize", "extract", "format"}
 	for key, opVal := range field {
 		// fmt.Println("Key: ", key)
@@ -55,14 +55,14 @@ func (r *OperatorRegistry) ApplyOperators(input string, field map[string]any) (s
 			from, _ := replaceCfg["from"]
 			to, _ := replaceCfg["to"]
 
-			fmt.Println("REPLACE:", from, "=>", to, "| before:", current)
+			// fmt.Println("REPLACE:", from, "=>", to, "| before:", current)
 			current, err = r.ReplaceFunc(current, map[string]string{"from": from, "to": to})
 			if err != nil {
-				fmt.Println("REPLACE ERROR:", err)
+				// fmt.Println("REPLACE ERROR:", err)
 				return "", err
 			}
 
-			fmt.Println("REPLACE after:", current)
+			// fmt.Println("REPLACE after:", current)
 			// appliedKeys["replace"] = true
 			// }
 
