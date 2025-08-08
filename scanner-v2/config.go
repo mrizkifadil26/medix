@@ -11,11 +11,10 @@ type Config struct {
 	Tags    *[]string `json:"tags,omitempty" yaml:"tags,omitempty"` // Optional job/context tags
 	Verbose *bool     `json:"verbose" yaml:"verbose"`
 
-	Options *ScanOptions `json:"options" yaml:"options"`
+	Options *ScanOptions   `json:"options" yaml:"options"`
+	Output  *OutputOptions `json:"output" yaml:"output"` // Output format and options
 	// FileRules []Rule      `json:"fileRules,omitempty"`
 	// DirRules  []Rule      `json:"dirRules,omitempty"`
-
-	Output *OutputOptions `json:"output" yaml:"output"` // Output format and options
 }
 
 // type Options struct {
@@ -39,7 +38,9 @@ type ScanOptions struct {
 	Depth            int    `json:"depth" yaml:"depth"`                             // REQUIRED: traversal logic
 	SkipEmpty        bool   `json:"skipEmpty,omitempty" yaml:"skipEmpty,omitempty"` // OPTIONAL: skip empty directories
 	IncludeRootFiles bool   `json:"includeRootFiles,omitempty" yaml:"includeRootFiles,omitempty"`
+	IncludeChildren  bool   `json:"includeChildren,omitempty" yaml:"includeChildren,omitempty"`
 	OnlyLeaf         bool   `json:"onlyLeaf,omitempty" yaml:"onlyLeaf,omitempty"` // OPTIONAL: feature toggle
+	Trace            bool   `json:"trace,omitempty" yaml:"trace,omitempty"`
 }
 
 type OutputOptions struct {
@@ -93,6 +94,7 @@ func (cfg *Config) PrettyPrint() {
 		printRow("Depth", fmt.Sprintf("%d", cfg.Options.Depth), "How deep to traverse directories")
 		printRow("SkipEmpty", fmt.Sprintf("%v", cfg.Options.SkipEmpty), "Skip empty directories")
 		printRow("IncludeRootFiles", fmt.Sprintf("%v", cfg.Options.IncludeRootFiles), "Include root-level files")
+		printRow("IncludeChildren", fmt.Sprintf("%v", cfg.Options.IncludeChildren), "Include children dirs and files")
 		printRow("OnlyLeaf", fmt.Sprintf("%v", cfg.Options.OnlyLeaf), "Only include leaf-level directories")
 	}
 
@@ -103,9 +105,11 @@ func (cfg *Config) PrettyPrint() {
 		if cfg.Output.Format != nil {
 			printRow("Format", *cfg.Output.Format, "Output format: json, yaml, etc.")
 		}
+
 		if cfg.Output.OutputPath != nil {
 			printRow("OutputPath", *cfg.Output.OutputPath, "Path to save output (optional)")
 		}
+
 		printRow("IncludeErrors", fmt.Sprintf("%v", cfg.Output.IncludeErrors), "Include error info in output")
 		printRow("IncludeWarnings", fmt.Sprintf("%v", cfg.Output.IncludeWarnings), "Include warnings in output")
 		printRow("IncludeStats", fmt.Sprintf("%v", cfg.Output.IncludeStats), "Include detailed scan stats")
