@@ -54,17 +54,22 @@ func main() {
 	finalConfig := config.ApplyDefaults()
 	finalConfig.PrettyPrint()
 
-	// output, err := scannerV2.Scan(*config.Root, config.Options)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
+	results, err := scannerV2.Scan(
+		*config.Root,
+		*config.Options,
+		*config.Tags,
+	)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	// Output results
-	// if args.OutputPath != nil && *args.OutputPath != "" {
-	// 	if err := utils.WriteJSON(*args.OutputPath, output); err != nil {
-	// 		log.Fatalf("Failed to write output: %v", err)
-	// 	}
-	// }
+	outputPath := finalConfig.Output.OutputPath
+	if outputPath != nil && *outputPath != "" {
+		if err := utils.WriteJSON(*outputPath, results); err != nil {
+			log.Fatalf("Failed to write output: %v", err)
+		}
+	}
 }
 
 func PrettyJSON(v any) {
