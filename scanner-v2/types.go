@@ -12,10 +12,10 @@ type ScanEntry struct {
 	Size    *int64 `json:"size,omitempty"`     // Optional size
 	ModTime string `json:"mod_time,omitempty"` // ISO8601
 
-	GroupLabel    []string    `json:"groupLabel,omitempty"`    // e.g. ["Action"], ["Action", "Marvel"]
-	GroupPath     string      `json:"groupPath,omitempty"`     // e.g. "Action/Marvel"
-	AncestorPaths []string    `json:"ancestorPaths,omitempty"` // ["Action", "Action/MCU"]
-	SubEntries    []ScanEntry `json:"subEntries,omitempty"`    // Recursive entries
+	GroupLabel    []string    `json:"group_label,omitempty"`    // e.g. ["Action"], ["Action", "Marvel"]
+	GroupPath     string      `json:"group_path,omitempty"`     // e.g. "Action/Marvel"
+	AncestorPaths []string    `json:"ancestor_paths,omitempty"` // ["Action", "Action/MCU"]
+	Children      []ScanEntry `json:"children,omitempty"`       // Recursive entries
 }
 
 type ScanOutput struct {
@@ -25,8 +25,8 @@ type ScanOutput struct {
 	Mode        string        `json:"mode"`               // "files" | "dirs" | "mixed"
 	ItemCount   int           `json:"item_count"`         // len(Items)
 	DurationMs  int64         `json:"duration_ms"`        // Total elapsed time in milliseconds
-	Stats       *WalkerStats  `json:"stats,omitempty"`    // Deep stats from walker
 	Tags        []string      `json:"tags,omitempty"`     // Optional job/context tags
+	Stats       *WalkerStats  `json:"stats,omitempty"`    // Deep stats from walker
 	Errors      []ScanError   `json:"errors,omitempty"`   // Errors encountered (path + reason)
 	Warnings    []ScanWarning `json:"warnings,omitempty"` // Non-critical issues
 	Items       []ScanEntry   `json:"items"`              // Final matched items

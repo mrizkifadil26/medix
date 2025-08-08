@@ -13,20 +13,25 @@ import (
 	"github.com/mrizkifadil26/medix/utils/concurrency"
 )
 
-func Scan(root string, options ScanOptions) (ScanOutput, error) {
-	// ctx := context.Background()
+func Scan(
+	root string,
+	options ScanOptions,
+	tags []string,
+) (ScanOutput, error) {
+	start := time.Now()
+
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	// start := time.Now()
+	inputPath := filepath.Clean(root)
 	output := ScanOutput{
+		Version:     "0.1.0",
 		GeneratedAt: time.Now().Format(time.RFC3339),
-		SourcePath:  root,
+		SourcePath:  inputPath,
 		Mode:        options.Mode,
 	}
 
 	// Normalize input path
-	inputPath := filepath.Clean(root)
 	info, err := os.Stat(inputPath)
 	if err != nil {
 		return output, fmt.Errorf("input path error: %w", err)
@@ -90,6 +95,7 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		MatchExt:   matchExt,
 		Opts: WalkOptions{
 			MaxDepth: options.Depth,
+			OnlyLeaf: options.OnlyLeaf,
 			// Exts:     options.Exts,
 			// Verbose:  options.Verbose,
 		},
@@ -107,13 +113,13 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 			}
 
 			rel, _ := filepath.Rel(inputPath, path)
-
 			jobs = append(jobs, concurrency.TaskFunc(func(ctx context.Context) error {
 				entry := ScanEntry{
-					GroupPath:  filepath.Dir(rel),
-					Path:       path,
 					Name:       filepath.Base(path),
+					Path:       path,
+					RelPath:    rel,
 					Size:       &size,
+					GroupPath:  filepath.Dir(rel),
 					GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
 				}
 
@@ -136,29 +142,34 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 			}
 
 			rel, _ := filepath.Rel(inputPath, path)
-
 			jobs = append(jobs, func(ctx context.Context) error {
 				entry := ScanEntry{
-					GroupPath:  filepath.Dir(rel),
 					Path:       path,
+					RelPath:    rel,
 					Name:       filepath.Base(path),
+					Type:       "directory",
+					GroupPath:  filepath.Dir(rel),
 					GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
-					SubEntries: func() []ScanEntry {
-						// switch options.SubEntries {
-						// case SubentriesNone:
-						// 	return nil
-						// case SubentriesFlat:
-						// 	return scanFlat(path, options)
-						// case SubentriesNested:
-						// 	return scanNested(path, options)
-						// case SubentriesAuto:
-						// 	// Auto mode: if subdepth is -1, use nested, otherwise flat
-						// 	return nil
-						// default:
-						// 	return nil
-						// }
-						return nil
-					}(),
+					// Children: func() []ScanEntry {
+					// switch options.SubEntries {
+					// case SubentriesNone:
+					// 	return nil
+					// case SubentriesFlat:
+					// 	return scanFlat(path, options)
+					// case SubentriesNested:
+					// 	return scanNested(path, options)
+					// case SubentriesAuto:
+					// 	// Auto mode: if subdepth is -1, use nested, otherwise flat
+					// 	return nil
+					// default:
+					// 	return nil
+					// }
+					// return nil
+					// }(),
+				}
+
+				if options.IncludeChildren {
+					entry.Children = collectChildren(path, inputPath)
 				}
 
 				mu.Lock()
@@ -193,13 +204,16 @@ func Scan(root string, options ScanOptions) (ScanOutput, error) {
 		return output, fmt.Errorf("execution error: %w", err)
 	}
 
-	walker.Stats.PrintSummary()
+	// walker.Stats.PrintSummary()
 
-	output.Items = items
+	duration := time.Since(start)
+
+	if tags != nil {
+		output.Tags = tags
+	}
+	output.DurationMs = duration.Milliseconds()
 	output.ItemCount = len(items)
-	// output.ExcludedCount = int(atomic.LoadInt64(&excluded))
-	// output.Duration = time.Since(start).String()
-	// output.WalkStatistics = walker.Stats
+	output.Items = items
 
 	return output, nil
 }
@@ -276,9 +290,9 @@ func scanRecursive(path string, depth int, opts ScanOptions) []ScanEntry {
 			}
 
 			out = append(out, ScanEntry{
-				Path:       full,
-				Name:       entry.Name(),
-				SubEntries: sub,
+				Path:     full,
+				Name:     entry.Name(),
+				Children: sub,
 			})
 		} else {
 			ext := strings.ToLower(filepath.Ext(entry.Name()))
@@ -301,4 +315,47 @@ func scanRecursive(path string, depth int, opts ScanOptions) []ScanEntry {
 	}
 
 	return out
+}
+
+func collectChildren(root, base string) []ScanEntry {
+	var children []ScanEntry
+
+	entries, err := os.ReadDir(root)
+	if err != nil {
+		return children
+	}
+
+	for _, entry := range entries {
+		fullPath := filepath.Join(root, entry.Name())
+		relPath, _ := filepath.Rel(base, fullPath)
+
+		child := ScanEntry{
+			Path:       fullPath,
+			RelPath:    relPath,
+			Name:       entry.Name(),
+			Type:       "directory",
+			GroupPath:  filepath.Dir(relPath),
+			GroupLabel: strings.Split(filepath.Dir(relPath), string(filepath.Separator)),
+		}
+
+		if entry.IsDir() {
+			child.Type = "directory"
+			child.Children = collectChildren(fullPath, base)
+		} else {
+			child.Type = "file"
+
+			// Stat the file to get ModTime and Size
+			info, err := entry.Info()
+			fileSize := info.Size()
+			if err == nil {
+				child.ModTime = info.ModTime().Format(time.RFC3339)
+				child.Size = &fileSize
+				child.Ext = filepath.Ext(entry.Name())
+			}
+		}
+
+		children = append(children, child)
+	}
+
+	return children
 }
