@@ -2,6 +2,7 @@ package scannerV2
 
 import (
 	"context"
+	"fmt"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -214,7 +215,7 @@ func (w *Walker) Walk(root string) error {
 
 			if w.OnVisitDir != nil {
 				if err := w.OnVisitDir(path, entries); err != nil {
-					return err
+					return w.handleError(path, err)
 				}
 			}
 
@@ -253,7 +254,7 @@ func (w *Walker) Walk(root string) error {
 
 		if w.OnVisitFile != nil {
 			if err := w.OnVisitFile(path, size); err != nil {
-				return err
+				return w.handleError(path, err)
 			}
 		}
 
@@ -484,4 +485,39 @@ func (w *Walker) debug(path, msg string, detail any) {
 			Detail:  detail,
 		})
 	}
+}
+
+func (s *WalkStats) PrettyPrint() string {
+	var sb strings.Builder
+
+	sb.WriteString("=== Walk Stats ===\n")
+	sb.WriteString(fmt.Sprintf("Dirs Visited:   %d\n", s.DirsVisited))
+	sb.WriteString(fmt.Sprintf("Files Visited:  %d\n", s.FilesVisited))
+	sb.WriteString(fmt.Sprintf("Errors Count:   %d\n", s.ErrorsCount))
+	sb.WriteString(fmt.Sprintf("Total Size:     %d bytes\n", s.TotalSize))
+
+	if len(s.Errors) > 0 {
+		sb.WriteString("\n--- Errors ---\n")
+		for i, err := range s.Errors {
+			sb.WriteString(fmt.Sprintf("[%d] %v\n", i+1, err))
+		}
+	}
+
+	return sb.String()
+}
+
+func (o WalkOptions) PrettyPrint() string {
+	var sb strings.Builder
+
+	sb.WriteString("=== Walk Options ===\n")
+	sb.WriteString(fmt.Sprintf("IncludeStats:   %t\n", o.IncludeStats))
+	sb.WriteString(fmt.Sprintf("IncludeErrors:  %t\n", o.IncludeErrors))
+	sb.WriteString(fmt.Sprintf("StopOnError:    %t\n", o.StopOnError))
+	sb.WriteString(fmt.Sprintf("SkipOnError:    %t\n", o.SkipOnError))
+	sb.WriteString(fmt.Sprintf("MaxDepth:       %d\n", o.MaxDepth))
+	sb.WriteString(fmt.Sprintf("SkipEmpty:      %t\n", o.SkipEmptyDirs))
+	// sb.WriteString(fmt.Sprintf("FollowSymlinks: %t\n", o.FollowSymlinks))
+	sb.WriteString(fmt.Sprintf("IncludeHidden:  %t\n", o.IncludeHidden))
+
+	return sb.String()
 }
