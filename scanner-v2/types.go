@@ -26,7 +26,7 @@ type ScanOutput struct {
 	ItemCount   int           `json:"item_count"`         // len(Items)
 	DurationMs  int64         `json:"duration_ms"`        // Total elapsed time in milliseconds
 	Tags        []string      `json:"tags,omitempty"`     // Optional job/context tags
-	Stats       *WalkerStats  `json:"stats,omitempty"`    // Deep stats from walker
+	Stats       *WalkOptions  `json:"stats,omitempty"`    // Deep stats from walker
 	Errors      []ScanError   `json:"errors,omitempty"`   // Errors encountered (path + reason)
 	Warnings    []ScanWarning `json:"warnings,omitempty"` // Non-critical issues
 	Items       []ScanEntry   `json:"items"`              // Final matched items

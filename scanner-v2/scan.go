@@ -65,10 +65,10 @@ func Scan(
 	}
 
 	var (
-		items    = make([]ScanEntry, 0)
-		jobs     []concurrency.TaskFunc
-		mu       sync.Mutex // to protect shared output
-		stats    WalkerStats
+		items = make([]ScanEntry, 0)
+		jobs  []concurrency.TaskFunc
+		mu    sync.Mutex // to protect shared output
+		// stats    WalkerStats
 		excluded int64 // atomic counter
 	)
 
@@ -86,20 +86,24 @@ func Scan(
 		return false
 	}
 
-	walker := &Walker{
-		Root:       inputPath,
-		Ctx:        ctx,
-		Stats:      &stats,
-		mutex:      &mu,
-		IsExcluded: isExcluded,
-		MatchExt:   matchExt,
-		Opts: WalkOptions{
-			MaxDepth: options.Depth,
-			OnlyLeaf: options.OnlyLeaf,
-			// Exts:     options.Exts,
-			// Verbose:  options.Verbose,
-		},
-	}
+	// walker := &Walker{
+	// 	Root:       inputPath,
+	// 	Ctx:        ctx,
+	// 	Stats:      &stats,
+	// 	mutex:      &mu,
+	// 	IsExcluded: isExcluded,
+	// 	MatchExt:   matchExt,
+	// 	Opts: WalkOptions{
+	// 		MaxDepth: options.Depth,
+	// 		OnlyLeaf: options.OnlyLeaf,
+	// 		// Exts:     options.Exts,
+	// 		// Verbose:  options.Verbose,
+	// 	},
+	// }
+
+	walker := New(ctx, WalkOptions{
+		MaxDepth: options.De,
+	})
 
 	switch options.Mode {
 	case "files":
