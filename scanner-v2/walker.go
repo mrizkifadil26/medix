@@ -38,7 +38,9 @@ type WalkOptions struct {
 	IncludeExts     []string
 	ExcludeExts     []string
 
-	EnableStats    bool // collect walk statistics
+	IncludeErrors bool
+	IncludeStats  bool // collect walk statistics
+
 	EnableProgress bool
 
 	Debug DebugOptions
@@ -100,11 +102,15 @@ func (w *Walker) Walk(root string) error {
 	start := time.Now()
 
 	// Initialize stats if enabled
-	if w.Opts.EnableStats && w.Stats != nil {
+	if w.Opts.IncludeStats && w.Stats != nil {
 		w.Stats.StartTime = start
 		w.Stats.MinFileSize = -1 // sentinel for tracking min
 		if w.Stats.Custom == nil {
 			w.Stats.Custom = make(map[string]interface{})
+		}
+
+		if w.Stats.Errors == nil {
+			w.Stats.Errors = []error{}
 		}
 	}
 
@@ -120,7 +126,7 @@ func (w *Walker) Walk(root string) error {
 	}
 
 	defer func() {
-		if w.Opts.EnableStats && w.Stats != nil {
+		if w.Opts.IncludeStats && w.Stats != nil {
 			w.mu.Lock()
 			w.Stats.EndTime = time.Now()
 			w.Stats.Duration = w.Stats.EndTime.Sub(w.Stats.StartTime)
@@ -155,7 +161,7 @@ func (w *Walker) Walk(root string) error {
 		}
 
 		// --- Stats: entries visited ---
-		if w.Opts.EnableStats && w.Stats != nil {
+		if w.Opts.IncludeStats && w.Stats != nil {
 			w.mu.Lock()
 			w.Stats.EntriesVisited++
 			w.mu.Unlock()
@@ -199,7 +205,7 @@ func (w *Walker) Walk(root string) error {
 				return w.handleSkip(path, "filtered out")
 			}
 
-			if w.Opts.EnableStats {
+			if w.Opts.IncludeStats {
 				w.mu.Lock()
 				w.Stats.DirsVisited++
 				w.Stats.Matches++
@@ -229,7 +235,7 @@ func (w *Walker) Walk(root string) error {
 		size := info.Size()
 
 		// Update stats for matched files only
-		if w.Opts.EnableStats && w.Stats != nil {
+		if w.Opts.IncludeStats && w.Stats != nil {
 			w.mu.Lock()
 			w.Stats.FilesVisited++
 			w.Stats.TotalSize += size
@@ -254,7 +260,7 @@ func (w *Walker) Walk(root string) error {
 		return nil
 	})
 
-	if w.Opts.EnableStats && w.Stats != nil {
+	if w.Opts.IncludeStats && w.Stats != nil {
 		w.Stats.EndTime = time.Now()
 		w.Stats.Duration = w.Stats.EndTime.Sub(w.Stats.StartTime)
 
@@ -279,7 +285,7 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 
 	w.OnVisitFile = nil
 	w.OnVisitDir = nil
-	w.Opts.EnableStats = true
+	w.Opts.IncludeStats = true
 	w.Opts.EnableProgress = false // disable progress during counting
 
 	// Reset stats
@@ -429,9 +435,15 @@ func (w *Walker) matchesFilters(path string) bool {
 
 // handleError handles errors according to opts.
 func (w *Walker) handleError(path string, err error) error {
-	if w.Opts.EnableStats && w.Stats != nil {
+	if w.Opts.IncludeStats && w.Stats != nil {
+		w.mu.Lock()
 		w.Stats.ErrorsCount++
-		w.Stats.Errors = append(w.Stats.Errors, err)
+
+		if w.Opts.IncludeErrors {
+			w.Stats.Errors = append(w.Stats.Errors, err)
+		}
+
+		w.mu.Unlock()
 	}
 
 	if w.OnError != nil {
