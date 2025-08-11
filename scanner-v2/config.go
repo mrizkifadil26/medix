@@ -61,15 +61,13 @@ type Rule struct {
 }
 
 // config.go
-func (baseConfig *Config) ApplyDefaults() *Config {
-	defaultCfg := DefaultConfig()
+func (c *Config) ApplyDefaults() error {
+	defaults := DefaultConfig()
 
-	merged, err := utils.MergeDeep(*baseConfig, defaultCfg)
-	if err != nil {
-		fmt.Println("Error: ", err)
-	}
-
-	return &merged
+	return utils.MergeInto(c, &defaults, utils.MergeOptions{
+		Overwrite: false,
+		Recursive: true,
+	})
 }
 
 func (cfg *Config) PrettyPrint() {

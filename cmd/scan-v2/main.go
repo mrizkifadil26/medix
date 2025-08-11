@@ -51,8 +51,10 @@ func main() {
 	}
 
 	// Fill missing defaults
-	finalConfig := config.ApplyDefaults()
-	finalConfig.PrettyPrint()
+	if err := config.ApplyDefaults(); err != nil {
+		log.Fatalf("Error applying defaults: %v", err)
+	}
+	config.PrettyPrint()
 
 	results, err := scannerV2.Scan(
 		*config.Root,
@@ -64,7 +66,7 @@ func main() {
 	}
 
 	// Output results
-	outputPath := finalConfig.Output.OutputPath
+	outputPath := config.Output.OutputPath
 	if outputPath != nil && *outputPath != "" {
 		if err := utils.WriteJSON(*outputPath, results); err != nil {
 			log.Fatalf("Failed to write output: %v", err)
