@@ -53,7 +53,8 @@ func Scan(
 		SkipOnError:     options.SkipOnError,
 		EnableProgress:  options.EnableProgress,
 
-		EnableStats: outputOptions.IncludeStats,
+		IncludeErrors: outputOptions.IncludeErrors,
+		IncludeStats:  outputOptions.IncludeStats,
 	}
 
 	walker := NewWalker(ctx, walkOpts)
