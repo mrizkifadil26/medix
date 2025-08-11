@@ -34,6 +34,27 @@ func MergeDeepOverwrite[T any](base, patch T) (T, error) {
 	return Merge(base, patch, MergeOptions{Recursive: true, Overwrite: true})
 }
 
+func MergeInto[T any](dst *T, src *T, opts MergeOptions) error {
+	dstVal := reflect.ValueOf(dst).Elem()
+	srcVal := reflect.ValueOf(src)
+	if srcVal.Kind() == reflect.Ptr {
+		srcVal = srcVal.Elem()
+	}
+
+	if dstVal.Kind() != reflect.Struct || srcVal.Kind() != reflect.Struct {
+		return fmt.Errorf(
+			"merge error: both dst and src must be structs, got dst: %s, src: %s",
+			dstVal.Kind(), srcVal.Kind(),
+		)
+	}
+
+	if opts.Recursive {
+		return mergeRecursive(dstVal, srcVal, opts.Overwrite)
+	}
+
+	return mergeShallow(dstVal, srcVal, opts.Overwrite)
+}
+
 // Merge performs a shallow merge of non-zero fields from override into base.
 func Merge[T any](base T, override T, opts MergeOptions) (T, error) {
 	baseVal := reflect.ValueOf(&base).Elem()
