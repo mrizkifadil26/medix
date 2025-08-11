@@ -15,13 +15,23 @@ func containsDir(entries []os.DirEntry) bool {
 	return false
 }
 
-func pathDepth(base, path string) int {
+func getDepth(base, path string) int {
 	rel, _ := filepath.Rel(base, path)
 	if rel == "." {
 		return 0
 	}
 
 	return len(strings.Split(rel, string(filepath.Separator)))
+}
+
+func contains(list []string, v string) bool {
+	for _, s := range list {
+		if s == v {
+			return true
+		}
+	}
+
+	return false
 }
 
 func getLeafDepth(start string) (int, error) {
