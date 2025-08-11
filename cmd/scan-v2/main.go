@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"os"
 
 	scannerV2 "github.com/mrizkifadil26/medix/scanner-v2"
 	"github.com/mrizkifadil26/medix/utils"
@@ -14,17 +13,17 @@ import (
 func main() {
 	args, err := scannerV2.ParseCLI()
 	if err != nil {
-		log.Fatalf("Error: %v", err)
+		log.Fatalf("Error parsing CLI: %v", err)
 	}
 
 	// Start config from CLI
 	config := args.Config
+
 	// If config file exists, load and merge
 	if args.ConfigPath != nil {
 		fileConfig, err := utils.LoadConfig[scannerV2.Config](*args.ConfigPath)
 		if err != nil {
 			log.Fatalf("Failed to load config file: %v", err)
-			os.Exit(1)
 		}
 
 		// Deep merge file config with CLI overrides
@@ -62,7 +61,7 @@ func main() {
 		*config.Tags,
 	)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Scan failed: %v", err)
 	}
 
 	// Output results
