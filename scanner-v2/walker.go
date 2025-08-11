@@ -27,6 +27,7 @@ type WalkOptions struct {
 	MaxDepth      int
 	SkipEmptyDirs bool
 	OnlyLeafDirs  bool
+	IncludeHidden bool
 
 	IncludePatterns []string
 	ExcludePatterns []string
@@ -92,6 +93,7 @@ func New(ctx context.Context, opts WalkOptions) *Walker {
 
 func (w *Walker) Walk(root string) error {
 	start := time.Now()
+
 	// Initialize stats if enabled
 	if w.Opts.EnableStats && w.Stats != nil {
 		w.Stats.StartTime = start
@@ -134,6 +136,11 @@ func (w *Walker) Walk(root string) error {
 		// --- Stats: entries visited ---
 		if w.Opts.EnableStats && w.Stats != nil {
 			w.Stats.EntriesVisited++
+		}
+
+		// Hidden file/dir skipping
+		if !w.Opts.IncludeHidden && isHidden(d.Name()) {
+			return w.handleSkip(path, "hidden entry")
 		}
 
 		depth := getDepth(root, path)
@@ -195,114 +202,22 @@ func (w *Walker) Walk(root string) error {
 		}
 
 		return nil
-
-		// var info fs.FileInfo
-		// if w.Cache != nil {
-		// 	w.mutex.Lock()
-		// 	info = w.Cache[path]
-		// 	w.mutex.Unlock()
-		// }
-		// if info == nil {
-		// 	var err error
-		// 	info, err = d.Info()
-		// 	if err != nil {
-		// 		w.trackSkip(path, "info error")
-		// 		return nil
-		// 	}
-
-		// 	if w.Cache != nil {
-		// 		w.mutex.Lock()
-		// 		w.Cache[path] = info
-		// 		w.mutex.Unlock()
-		// 	}
-		// }
-
-		// File visit
-		// if !d.IsDir() {
-		// 	if w.Stats != nil {
-		// 		w.Stats.VisitedFiles++
-		// 	}
-
-		// 	if w.MatchExt != nil && !w.MatchExt(d.Name()) {
-		// 		w.trackSkip(path, "extension mismatch")
-		// 		return nil
-		// 	}
-
-		// 	info, err := d.Info()
-		// 	if err != nil {
-		// 		w.trackSkip(path, "info error")
-		// 		return nil
-		// 	}
-
-		// 	if w.Stats != nil {
-		// 		w.Stats.MatchedFiles++
-		// 	}
-
-		// 	if w.OnVisitFile != nil {
-		// 		w.OnVisitFile(path, info.Size())
-		// 	}
-
-		// 	return nil
-		// }
-
-		// Directory visit
-		// if w.Stats != nil {
-		// 	w.Stats.VisitedDirs++
-		// }
-
-		// entries, err := os.ReadDir(path)
-		// if err != nil {
-		// 	w.trackSkip(path, "readdir error")
-		// 	return err
-		// }
-
-		// if w.Opts.SkipEmpty && len(entries) == 0 {
-		// 	w.trackSkip(path, "empty")
-		// 	if w.Stats != nil {
-		// 		w.Stats.EmptyDirs++
-		// 	}
-		// 	return nil
-		// }
-
-		// Leaf-level filter
-		// if w.Opts.LeafDepth > 0 {
-		// 	leafLevel, err := getLeafDepth(path)
-		// 	if err != nil {
-		// 		w.trackSkip(path, "leaf depth check failed")
-		// 		return err
-		// 	}
-
-		// 	if leafLevel != w.Opts.LeafDepth {
-		// 		w.trackSkip(path, fmt.Sprintf("leafDepth=%d != expected=%d", leafLevel, w.Opts.LeafDepth))
-		// 		return nil
-		// 	}
-
-		// 	if w.Opts.LeafDepth == 1 && path == w.Root {
-		// 		w.trackSkip(path, "skipping root for leafDepth=1")
-		// 		return nil
-		// 	}
-		// } else if w.Opts.OnlyLeaf {
-		// 	if containsDir(entries) {
-		// 		w.trackSkip(path, "not a leaf folder")
-		// 		return nil
-		// 	}
-		// }
-
-		// if w.OnVisitDir != nil {
-		// 	fmt.Printf("📂 Visiting %s (%d entries)\n", path, len(entries))
-		// 	w.OnVisitDir(path, entries)
-		// }
 	})
 
-	w.Stats.EndTime = time.Now()
-	w.Stats.Duration = w.Stats.EndTime.Sub(w.Stats.StartTime)
+	if w.Opts.EnableStats && w.Stats != nil {
+		w.Stats.EndTime = time.Now()
+		w.Stats.Duration = w.Stats.EndTime.Sub(w.Stats.StartTime)
 
-	if w.Stats.FilesVisited > 0 {
-		w.Stats.AvgFileSize = w.Stats.TotalSize / int64(w.Stats.FilesVisited)
+		if w.Stats.FilesVisited > 0 {
+			w.Stats.AvgFileSize = w.Stats.TotalSize / int64(w.Stats.FilesVisited)
+		}
+
+		if w.Stats.Duration > 0 {
+			w.Stats.EntriesPerSec = float64(w.Stats.EntriesVisited) / w.Stats.Duration.Seconds()
+			w.Stats.FilesPerSec = float64(w.Stats.FilesVisited) / w.Stats.Duration.Seconds()
+			w.Stats.DataRate = float64(w.Stats.TotalSize) / w.Stats.Duration.Seconds()
+		}
 	}
-	w.Stats.EntriesPerSec = float64(w.Stats.EntriesVisited) / w.Stats.Duration.Seconds()
-	w.Stats.FilesPerSec = float64(w.Stats.FilesVisited) / w.Stats.Duration.Seconds()
-	w.Stats.DataRate = float64(w.Stats.TotalSize) / w.Stats.Duration.Seconds()
 
 	return err
 }
@@ -318,7 +233,28 @@ func (w *Walker) matchesFilters(path string) bool {
 		return false
 	}
 
-	// TODO: Include patterns
+	// Include pattern check
+	if len(w.Opts.IncludePatterns) > 0 {
+		matched := false
+		for _, pat := range w.Opts.IncludePatterns {
+			if ok, _ := filepath.Match(pat, filepath.Base(path)); ok {
+				matched = true
+				break
+			}
+		}
+		if !matched {
+			return false
+		}
+	}
+
+	// Exclude pattern check
+	if len(w.Opts.ExcludePatterns) > 0 {
+		for _, pat := range w.Opts.ExcludePatterns {
+			if ok, _ := filepath.Match(pat, filepath.Base(path)); ok {
+				return false
+			}
+		}
+	}
 
 	return true
 }

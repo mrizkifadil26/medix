@@ -59,3 +59,8 @@ func getLeafDepth(start string) (int, error) {
 
 	return level, nil
 }
+
+// isHidden checks if a file/dir is hidden (starts with .)
+func isHidden(name string) bool {
+	return strings.HasPrefix(name, ".")
+}
