@@ -17,30 +17,26 @@ type Config struct {
 	// DirRules  []Rule      `json:"dirRules,omitempty"`
 }
 
-// type Options struct {
-// 	Mode        string   `json:"mode" yaml:"mode"`                                   // REQUIRED: controls behavior, never omit
-// 	Exts        []string `json:"exts,omitempty" yaml:"exts,omitempty"`               // OPTIONAL: filters; empty = all
-// 	Exclude     []string `json:"exclude,omitempty" yaml:"exclude,omitempty"`         // OPTIONAL: path filtering
-// 	Depth       int      `json:"depth" yaml:"depth"`                                 // REQUIRED: traversal logic
-// 	OnlyLeaf    bool     `json:"onlyLeaf,omitempty" yaml:"onlyLeaf,omitempty"`       // OPTIONAL: feature toggle
-// 	LeafDepth   int      `json:"leafDepth,omitempty" yaml:"leafDepth,omitempty"`     // OPTIONAL: advanced control
-// 	SkipEmpty   bool     `json:"skipEmpty,omitempty" yaml:"skipEmpty,omitempty"`     // OPTIONAL: cosmetic/efficiency
-// 	Concurrency int      `json:"concurrency,omitempty" yaml:"concurrency,omitempty"` // OPTIONAL: perf tuning
-
-// 	// NEW — for subentry scanning
-// 	SubEntries SubentriesMode `json:"subEntries"`        // If true, collect files inside dirs
-// 	SubDepth   int            `json:"subDepth"`          // NEW: limit subentry depth, -1 = unlimited, 0 = none
-// 	SubExts    []string       `json:"subExts,omitempty"` // Optional: file filters for subentries
-// }
-
 type ScanOptions struct {
-	Mode             string `json:"mode" yaml:"mode"`                               // "files", "dirs", "mixed"
-	Depth            int    `json:"depth" yaml:"depth"`                             // REQUIRED: traversal logic
-	SkipEmpty        bool   `json:"skipEmpty,omitempty" yaml:"skipEmpty,omitempty"` // OPTIONAL: skip empty directories
+	Mode             string `json:"mode" yaml:"mode"`                                       // "files", "dirs", "mixed"
+	Depth            int    `json:"depth" yaml:"depth"`                                     // REQUIRED: traversal logic
+	SkipEmpty        bool   `json:"skipEmpty,omitempty" yaml:"skipEmpty,omitempty"`         // OPTIONAL: skip empty directories
+	IncludeHidden    bool   `json:"includeHidden,omitempty" yaml:"includeHidden,omitempty"` // Include hidden files/dirs
 	IncludeRootFiles bool   `json:"includeRootFiles,omitempty" yaml:"includeRootFiles,omitempty"`
 	IncludeChildren  bool   `json:"includeChildren,omitempty" yaml:"includeChildren,omitempty"`
 	OnlyLeaf         bool   `json:"onlyLeaf,omitempty" yaml:"onlyLeaf,omitempty"` // OPTIONAL: feature toggle
 	Trace            bool   `json:"trace,omitempty" yaml:"trace,omitempty"`
+
+	EnableProgress bool `json:"enableProgress,omitempty" yaml:"enableProgress,omitempty"` // Show real-time progress during scan
+
+	IncludePatterns []string `json:"includePatterns,omitempty" yaml:"includePatterns,omitempty"` // Glob patterns to include
+	ExcludePatterns []string `json:"excludePatterns,omitempty" yaml:"excludePatterns,omitempty"` // Glob patterns to exclude
+	IncludeExts     []string `json:"includeExts,omitempty" yaml:"includeExts,omitempty"`         // File extensions to include
+	ExcludeExts     []string `json:"excludeExts,omitempty" yaml:"excludeExts,omitempty"`         // File extensions to exclude
+
+	StopOnError bool `json:"stopOnError,omitempty" yaml:"stopOnError,omitempty"` // Stop walking on first error
+	SkipOnError bool `json:"skipOnError,omitempty" yaml:"skipOnError,omitempty"` // Skip entries that cause errors
+	Concurrency int  `json:"concurrency,omitempty" yaml:"concurrency,omitempty"` // Concurrency level for processing
 }
 
 type OutputOptions struct {
