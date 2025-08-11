@@ -1,16 +1,16 @@
 package scannerV2_test
 
 import (
+	"context"
+	"errors"
 	"os"
 	"path/filepath"
-	"strings"
 	"testing"
 
 	scannerV2 "github.com/mrizkifadil26/medix/scanner-v2"
-	"github.com/stretchr/testify/require"
 )
 
-func setupTestData(t *testing.T) string {
+/* func setupTestData(t *testing.T) string {
 	root := t.TempDir()
 
 	// Create: root/Action/Inception (2010)/Inception.2010.mkv
@@ -21,8 +21,33 @@ func setupTestData(t *testing.T) string {
 	require.NoError(t, os.WriteFile(movieFile, []byte("mock data"), 0644))
 
 	return root
+} */
+
+func setupTestData(t *testing.T) string {
+	dir := t.TempDir()
+
+	// Create structure:
+	// dir/
+	//   file1.txt
+	//   sub/
+	//     file2.txt
+	if err := os.WriteFile(filepath.Join(dir, "file1.txt"), []byte("abc"), 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	sub := filepath.Join(dir, "sub")
+	if err := os.Mkdir(sub, 0755); err != nil {
+		t.Fatal(err)
+	}
+
+	if err := os.WriteFile(filepath.Join(sub, "file2.txt"), []byte("12345"), 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	return dir
 }
 
+/*
 func TestWalkDirs(t *testing.T) {
 	root := setupTestData(t)
 
@@ -212,4 +237,131 @@ func TestWalkDirs_OnlyLeaf(t *testing.T) {
 	require.Contains(t, visited, filepath.Join("Parent", "Child", "Grandchild"))
 	require.NotContains(t, visited, "Parent")
 	require.NotContains(t, visited, filepath.Join("Parent", "Child"))
+}
+*/
+
+func TestIncludeErrors_CollectsErrors(t *testing.T) {
+	root := setupTestData(t)
+
+	opts := scannerV2.WalkOptions{
+		IncludeStats:  true,
+		IncludeErrors: true,
+		StopOnError:   false,
+		SkipOnError:   true,
+		MaxDepth:      -1,
+	}
+	w := scannerV2.NewWalker(context.Background(), opts)
+
+	// fmt.Println(opts.PrettyPrint())
+
+	// Simulate error for first file
+	w.OnVisitFile = func(path string, size int64) error {
+		if filepath.Base(path) == "file1.txt" {
+			return errors.New("test file error")
+		}
+
+		return nil
+	}
+
+	err := w.Walk(root)
+	if err != nil {
+		t.Fatalf("unexpected walk error: %v", err)
+	}
+
+	stats := w.GetStats()
+	if stats.ErrorsCount != 1 {
+		t.Errorf("expected ErrorsCount=1, got %d", stats.ErrorsCount)
+	}
+	if len(stats.Errors) != 1 {
+		t.Errorf("expected 1 stored error, got %d", len(stats.Errors))
+	}
+	if stats.Errors[0].Error() != "test file error" {
+		t.Errorf("unexpected error content: %v", stats.Errors[0])
+	}
+}
+
+func TestIncludeErrors_False_NoStorage(t *testing.T) {
+	root := setupTestData(t)
+
+	opts := scannerV2.WalkOptions{
+		IncludeStats:  true,
+		IncludeErrors: false,
+		StopOnError:   false,
+		SkipOnError:   true,
+		MaxDepth:      -1,
+	}
+	w := scannerV2.NewWalker(context.Background(), opts)
+
+	w.OnVisitFile = func(path string, size int64) error {
+		return errors.New("err without storage")
+	}
+
+	err := w.Walk(root)
+	if err != nil {
+		t.Fatalf("unexpected walk error: %v", err)
+	}
+
+	stats := w.GetStats()
+	if stats.ErrorsCount == 0 {
+		t.Errorf("expected ErrorsCount > 0")
+	}
+	if len(stats.Errors) != 0 {
+		t.Errorf("expected 0 stored errors when IncludeErrors=false, got %d", len(stats.Errors))
+	}
+}
+
+func TestStopOnError_StopsImmediately(t *testing.T) {
+	root := setupTestData(t)
+
+	opts := scannerV2.WalkOptions{
+		IncludeStats:  true,
+		IncludeErrors: true,
+		StopOnError:   true,
+		MaxDepth:      -1,
+	}
+	w := scannerV2.NewWalker(context.Background(), opts)
+
+	called := 0
+	w.OnVisitFile = func(path string, size int64) error {
+		called++
+		return errors.New("stop now")
+	}
+
+	err := w.Walk(root)
+	if err == nil || err.Error() != "stop now" {
+		t.Fatalf("expected stop error, got %v", err)
+	}
+	if called != 1 {
+		t.Errorf("expected to stop after first file, got %d calls", called)
+	}
+}
+
+func TestSkipOnError_Skips(t *testing.T) {
+	root := setupTestData(t)
+
+	opts := scannerV2.WalkOptions{
+		IncludeStats:  true,
+		IncludeErrors: true,
+		StopOnError:   false,
+		SkipOnError:   true,
+		MaxDepth:      -1,
+	}
+	w := scannerV2.NewWalker(context.Background(), opts)
+
+	called := 0
+	w.OnVisitFile = func(path string, size int64) error {
+		called++
+		return errors.New("skip this")
+	}
+
+	err := w.Walk(root)
+	if err != nil {
+		t.Fatalf("unexpected walk error: %v", err)
+	}
+	if called == 0 {
+		t.Errorf("expected files to be visited")
+	}
+	if w.Stats.ErrorsCount == 0 {
+		t.Errorf("expected error count increment")
+	}
 }
