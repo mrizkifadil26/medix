@@ -55,6 +55,10 @@ func Scan(
 
 		IncludeErrors: outputOptions.IncludeErrors,
 		IncludeStats:  outputOptions.IncludeStats,
+
+		Debug: DebugOptions{
+			Enable: true,
+		},
 	}
 
 	walker := NewWalker(ctx, walkOpts)
@@ -64,14 +68,6 @@ func Scan(
 		// jobs  []concurrency.TaskFunc
 		mu sync.Mutex // to protect shared output
 	)
-
-	// Optional count pass for progress bar
-	var progress *ProgressTracker
-	if options.EnableProgress {
-		stats, _ := walker.Count(inputPath)
-		progress = NewProgressTracker(stats.EntriesVisited, true, "Scanning")
-		defer progress.Finish()
-	}
 
 	switch options.Mode {
 	case "files":
