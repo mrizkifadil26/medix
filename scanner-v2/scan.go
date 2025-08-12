@@ -58,6 +58,9 @@ func Scan(
 
 		Debug: DebugOptions{
 			Enable: true,
+			LogFunc: func(e DebugEvent) {
+				fmt.Printf("[%s] %s - %s (%v)\n", e.Level, e.Path, e.Message, e.Detail)
+			},
 		},
 	}
 

@@ -103,9 +103,16 @@ func NewWalker(ctx context.Context, opts WalkOptions) *Walker {
 
 func (w *Walker) Walk(root string) error {
 	start := time.Now()
+	w.debug(root, "Starting walk", map[string]interface{}{
+		"IncludeStats":   w.Opts.IncludeStats,
+		"EnableProgress": w.Opts.EnableProgress,
+		"MaxDepth":       w.Opts.MaxDepth,
+	})
 
 	// Initialize stats if enabled
 	if w.Opts.IncludeStats && w.Stats != nil {
+		w.debug(root, "Initializing stats", nil)
+
 		w.Stats.StartTime = start
 		w.Stats.MinFileSize = -1 // sentinel for tracking min
 		if w.Stats.Custom == nil {
@@ -119,11 +126,17 @@ func (w *Walker) Walk(root string) error {
 
 	// Initialize progress if enabled
 	if w.Opts.EnableProgress {
+		w.debug(root, "Counting total entries for progress", nil)
+
 		// Count total entries first (no callbacks)
 		stats, _ := w.Count(root)
 		total := stats.EntriesVisited
+		w.debug(root, "Total entries found", map[string]interface{}{"total": total})
+
 		if total > 0 {
 			w.Progress = NewProgressTracker(total, true, "Scanning")
+			w.debug(root, "Finishing progress", nil)
+
 			defer w.Progress.Finish()
 		}
 	}
@@ -147,6 +160,8 @@ func (w *Walker) Walk(root string) error {
 			}
 
 			w.mu.Unlock()
+
+			w.debug(root, "Stats collected", w.Stats)
 		}
 	}()
 
@@ -158,6 +173,7 @@ func (w *Walker) Walk(root string) error {
 		// Respect context cancellation
 		select {
 		case <-w.Context.Done():
+			w.debug(path, "Context canceled", nil)
 			w.handleSkip(path, "context canceled")
 			return w.handleError(path, w.Context.Err())
 		default:
@@ -177,6 +193,7 @@ func (w *Walker) Walk(root string) error {
 
 		// Hidden file/dir skipping
 		if !w.Opts.IncludeHidden && isHidden(d.Name()) {
+			w.debug(path, "Skipping hidden entry", nil)
 			return w.handleSkip(path, "hidden entry")
 		}
 
@@ -198,11 +215,13 @@ func (w *Walker) Walk(root string) error {
 		if d.IsDir() {
 			entries, err := os.ReadDir(path)
 			if err != nil {
+				w.debug(path, "Error reading directory", map[string]interface{}{"err": err})
 				return w.handleError(path, err)
 			}
 
 			// Skip empty dirs
 			if w.Opts.SkipEmptyDirs && len(entries) == 0 {
+				w.debug(path, "Skipping empty dir", nil)
 				return w.handleSkip(path, "empty dir")
 			}
 
@@ -213,8 +232,10 @@ func (w *Walker) Walk(root string) error {
 
 			// Check directory filters
 			if !w.matchesFilters(path) {
+				w.debug(path, "Directory filtered out", nil)
 				return w.handleSkip(path, "filtered out")
 			}
+
 			if w.Opts.IncludeStats {
 				w.mu.Lock()
 				w.Stats.DirsVisited++
@@ -224,6 +245,7 @@ func (w *Walker) Walk(root string) error {
 
 			if w.OnVisitDir != nil {
 				if err := w.OnVisitDir(path, entries); err != nil {
+					w.debug(path, "OnVisitDir returned error", map[string]interface{}{"err": err})
 					return w.handleError(path, err)
 				}
 			}
@@ -233,12 +255,14 @@ func (w *Walker) Walk(root string) error {
 
 		// File handling - check filters BEFORE counting stats
 		if !w.matchesFilters(path) {
+			w.debug(path, "File filtered out", nil)
 			return w.handleSkip(path, "filtered out")
 		}
 
 		// File handling
 		info, err := d.Info()
 		if err != nil {
+			w.debug(path, "Error getting file info", map[string]interface{}{"err": err})
 			return w.handleError(path, err)
 		}
 
@@ -263,6 +287,7 @@ func (w *Walker) Walk(root string) error {
 
 		if w.OnVisitFile != nil {
 			if err := w.OnVisitFile(path, size); err != nil {
+				w.debug(path, "OnVisitFile returned error", map[string]interface{}{"err": err})
 				return w.handleError(path, err)
 			}
 		}
