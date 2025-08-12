@@ -58,6 +58,7 @@ func main() {
 	results, err := scannerV2.Scan(
 		*config.Root,
 		*config.Options,
+		*config.Output,
 		*config.Tags,
 	)
 	if err != nil {
