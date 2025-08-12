@@ -7,9 +7,8 @@ import (
 )
 
 type Config struct {
-	Root    *string   `json:"root" yaml:"root"`
-	Tags    *[]string `json:"tags,omitempty" yaml:"tags,omitempty"` // Optional job/context tags
-	Verbose *bool     `json:"verbose" yaml:"verbose"`
+	Root *string   `json:"root" yaml:"root"`
+	Tags *[]string `json:"tags,omitempty" yaml:"tags,omitempty"` // Optional job/context tags
 
 	Options *ScanOptions   `json:"options" yaml:"options"`
 	Output  *OutputOptions `json:"output" yaml:"output"` // Output format and options
@@ -27,7 +26,10 @@ type ScanOptions struct {
 	IncludeRootFiles bool   `json:"includeRootFiles,omitempty" yaml:"includeRootFiles,omitempty"`
 	IncludeChildren  bool   `json:"includeChildren,omitempty" yaml:"includeChildren,omitempty"`
 	OnlyLeaf         bool   `json:"onlyLeaf,omitempty" yaml:"onlyLeaf,omitempty"` // OPTIONAL: feature toggle
-	Trace            bool   `json:"trace,omitempty" yaml:"trace,omitempty"`
+
+	Verbose bool `json:"verbose,omitempty" yaml:"verbose,omitempty"`
+	Debug   bool `json:"debug,omitempty" yaml:"debug,omitempty"` // Enable DEBUG logging
+	Trace   bool `json:"trace,omitempty" yaml:"trace,omitempty"` // Enable TRACE logging
 
 	IncludePatterns []string `json:"includePatterns,omitempty" yaml:"includePatterns,omitempty"` // Glob patterns to include
 	ExcludePatterns []string `json:"excludePatterns,omitempty" yaml:"excludePatterns,omitempty"` // Glob patterns to exclude
@@ -80,9 +82,6 @@ func (cfg *Config) PrettyPrint() {
 	if cfg.Tags != nil {
 		printRow("Tags", fmt.Sprintf("%v", *cfg.Tags), "Optional tags for context")
 	}
-	if cfg.Verbose != nil {
-		printRow("Verbose", fmt.Sprintf("%v", *cfg.Verbose), "Verbose logging enabled")
-	}
 
 	// Options
 	if cfg.Options != nil {
@@ -92,6 +91,9 @@ func (cfg *Config) PrettyPrint() {
 		}{
 			{"Mode", cfg.Options.Mode, "Scan mode: files, dirs, or mixed"},
 			{"Depth", fmt.Sprintf("%d", cfg.Options.Depth), "Traversal depth (0=root only)"},
+
+			{"Log Level", cfg.logLevelString(), "Logging verbosity level (verbose, debug, trace)"},
+
 			{"OnlyLeaf", fmt.Sprintf("%v", cfg.Options.OnlyLeaf), "Only leaf directories"},
 			{"SkipEmpty", fmt.Sprintf("%v", cfg.Options.SkipEmpty), "Skip empty directories"},
 			{"SkipRoot", fmt.Sprintf("%v", cfg.Options.SkipRoot), "Skip root directory"},
@@ -123,6 +125,8 @@ func (cfg *Config) PrettyPrint() {
 		printRow("IncludeWarnings", fmt.Sprintf("%v", cfg.Output.IncludeWarnings), "Include warnings in output")
 		printRow("IncludeStats", fmt.Sprintf("%v", cfg.Output.IncludeStats), "Include detailed scan stats")
 	}
+
+	fmt.Println()
 }
 
 func printRow(key, value, comment string) {
@@ -132,4 +136,22 @@ func printRow(key, value, comment string) {
 	keyStr := fmt.Sprintf("%-*s", keyWidth, key)
 	valStr := fmt.Sprintf("%-*s", valWidth, ":"+value)
 	fmt.Printf("%s %s # %s\n", keyStr, valStr, comment)
+}
+
+func (cfg *Config) logLevelString() string {
+	opts := cfg.Options
+
+	if opts.Verbose {
+		return "verbose"
+	}
+
+	if opts.Debug {
+		return "debug"
+	}
+
+	if opts.Trace {
+		return "trace"
+	}
+
+	return "normal"
 }

@@ -40,6 +40,8 @@ func Scan(
 		return output, fmt.Errorf("input path is not a directory")
 	}
 
+	logLevel := determineLogLevel(options)
+
 	walkOpts := WalkOptions{
 		MaxDepth:        options.Depth,
 		SkipEmptyDirs:   options.SkipEmpty,
@@ -60,8 +62,12 @@ func Scan(
 
 		Debug: DebugOptions{
 			Enable: true,
+			Level:  logLevel,
 			LogFunc: func(e DebugEvent) {
-				fmt.Printf("[%s] %s - %s (%v)\n", e.Level, e.Path, e.Message, e.Detail)
+				fmt.Println(logLevel)
+				if shouldLog(e.Level, logLevel) {
+					fmt.Printf("[%s] %s - %s (%v)\n", e.Level, e.Path, e.Message, e.Detail)
+				}
 			},
 		},
 	}

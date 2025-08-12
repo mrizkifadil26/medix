@@ -55,6 +55,8 @@ type WalkOptions struct {
 type DebugOptions struct {
 	Enable  bool
 	LogFunc func(event DebugEvent)
+
+	Level string // e.g. "ERROR", "DEBUG", "TRACE"
 }
 
 // DebugEvent is a structured debug message from the walker.
@@ -578,48 +580,63 @@ func (w *Walker) handleSkip(path string, reason string) error {
 	return nil
 }
 
-// debug emits debug events if enabled.
+func (w *Walker) shouldLog(eventLevel string) bool {
+	// Map severity levels (lower number = higher priority)
+	allowedLevels := map[string]int{
+		"ERROR": 1,
+		"DEBUG": 2,
+		"TRACE": 3,
+	}
+
+	configuredLevel, ok := allowedLevels[strings.ToUpper(w.Opts.Debug.Level)]
+	if !ok {
+		// Default to ERROR if level not recognized
+		configuredLevel = 1
+	}
+
+	levelValue, ok := allowedLevels[strings.ToUpper(eventLevel)]
+	if !ok {
+		// Unknown event level, do not log
+		return false
+	}
+
+	// Log if event is at or above configured level severity
+	return levelValue <= configuredLevel
+}
+
+func (w *Walker) log(level, path, message string, detail any) {
+	if !w.Opts.Debug.Enable {
+		return
+	}
+
+	currentLevel := w.Opts.Debug.Level
+	fmt.Println(currentLevel)
+
+	if !w.shouldLog(level) {
+		return
+	}
+
+	if w.Opts.Debug.LogFunc != nil {
+		w.Opts.Debug.LogFunc(DebugEvent{
+			Time:    time.Now(),
+			Level:   strings.ToUpper(level),
+			Path:    path,
+			Message: message,
+			Detail:  detail,
+		})
+	}
+}
+
 func (w *Walker) debug(path, msg string, detail any) {
-	if w.Opts.Debug.Enable && w.Opts.Debug.LogFunc != nil {
-		w.Opts.Debug.LogFunc(DebugEvent{
-			Time:    time.Now(),
-			Level:   "DEBUG",
-			Path:    path,
-			Message: msg,
-			Detail:  detail,
-		})
-	}
+	w.log("DEBUG", path, msg, detail)
 }
 
-func (w *Walker) trace(path, message string, detail any) {
-	if !w.Opts.Debug.Enable {
-		return
-	}
-	if w.Opts.Debug.LogFunc != nil {
-		w.Opts.Debug.LogFunc(DebugEvent{
-			Time:    time.Now(),
-			Level:   "TRACE",
-			Path:    path,
-			Message: message,
-			Detail:  detail,
-		})
-	}
+func (w *Walker) trace(path, msg string, detail any) {
+	w.log("TRACE", path, msg, detail)
 }
 
-func (w *Walker) error(path, message string, detail any) {
-	if !w.Opts.Debug.Enable {
-		return
-	}
-
-	if w.Opts.Debug.LogFunc != nil {
-		w.Opts.Debug.LogFunc(DebugEvent{
-			Time:    time.Now(),
-			Level:   "ERROR",
-			Path:    path,
-			Message: message,
-			Detail:  detail,
-		})
-	}
+func (w *Walker) error(path, msg string, detail any) {
+	w.log("ERROR", path, msg, detail)
 }
 
 func (s *WalkStats) PrettyPrint() string {

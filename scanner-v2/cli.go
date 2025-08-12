@@ -62,7 +62,7 @@ If -config is provided, it overrides everything except -output.
 		shouldPopulate = true
 	}
 	if *verbose {
-		cfg.Verbose = verbose
+		cfg.Options.Verbose = *verbose
 		shouldPopulate = true
 	}
 	if *outputPath != "" {
