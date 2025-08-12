@@ -1,4 +1,4 @@
-package scannerV2_test
+package scanner_test
 
 import (
 	"context"
@@ -8,7 +8,7 @@ import (
 	"sync"
 	"testing"
 
-	scannerV2 "github.com/mrizkifadil26/medix/scanner-v2"
+	"github.com/mrizkifadil26/medix/scanner"
 	"github.com/stretchr/testify/require"
 )
 
@@ -54,7 +54,7 @@ func TestWalkDirs(t *testing.T) {
 	root := setupTestData(t)
 
 	var visited []string
-	err := scannerV2.WalkDirs(root, scannerV2.WalkOptions{
+	err := scanner.WalkDirs(root, scanner.WalkOptions{
 		MaxDepth: 2,
 	}, func(path string, entries []os.DirEntry) {
 		rel, _ := filepath.Rel(root, path)
@@ -72,7 +72,7 @@ func TestWalkFiles(t *testing.T) {
 
 	var files []string
 	var totalSize int64
-	err := scannerV2.WalkFiles(root, scannerV2.WalkOptions{
+	err := scanner.WalkFiles(root, scanner.WalkOptions{
 		MaxDepth: 2,
 		Exts:     []string{".mkv"},
 	}, func(path string, size int64) {
@@ -95,7 +95,7 @@ func TestWalkFiles_IgnoresOtherExtensions(t *testing.T) {
 	require.NoError(t, os.WriteFile(txtFile, []byte("ignore me"), 0644))
 
 	var files []string
-	err := scannerV2.WalkFiles(root, scannerV2.WalkOptions{
+	err := scanner.WalkFiles(root, scanner.WalkOptions{
 		MaxDepth: 2,
 		Exts:     []string{".mkv"},
 	}, func(path string, size int64) {
@@ -112,7 +112,7 @@ func TestWalkDirs_MaxDepthLimit(t *testing.T) {
 
 	// maxDepth = 1 should skip "Action/Inception (2010)"
 	var visited []string
-	err := scannerV2.WalkDirs(root, scannerV2.WalkOptions{
+	err := scanner.WalkDirs(root, scanner.WalkOptions{
 		MaxDepth: 1,
 	}, func(path string, entries []os.DirEntry) {
 		rel, _ := filepath.Rel(root, path)
@@ -129,7 +129,7 @@ func TestWalkFiles_MaxDepthLimit(t *testing.T) {
 	root := setupTestData(t)
 
 	var files []string
-	err := scannerV2.WalkFiles(root, scannerV2.WalkOptions{
+	err := scanner.WalkFiles(root, scanner.WalkOptions{
 		MaxDepth: 1,
 		Exts:     []string{".mkv"},
 	}, func(path string, size int64) {
@@ -147,9 +147,9 @@ func TestWalkDirs_EmptyFolder(t *testing.T) {
 	var visitedDirs []string
 	var mu sync.Mutex
 
-	walker := &scannerV2.Walker{
+	walker := &scanner.Walker{
 		Context: context.Background(),
-		Opts: scannerV2.WalkOptions{
+		Opts: scanner.WalkOptions{
 			MaxDepth: -1,
 			OnlyDirs: true,
 		},
@@ -178,9 +178,9 @@ func TestWalkFiles_EmptyFolder(t *testing.T) {
 	var files []string
 	var mu sync.Mutex
 
-	walker := &scannerV2.Walker{
+	walker := &scanner.Walker{
 		Context: context.Background(),
-		Opts: scannerV2.WalkOptions{
+		Opts: scanner.WalkOptions{
 			MaxDepth:  -1,
 			OnlyFiles: true,
 		},
@@ -226,9 +226,9 @@ func TestWalkFiles_NoExtFilter(t *testing.T) {
 	var files []string
 	var mu sync.Mutex
 
-	walker := &scannerV2.Walker{
+	walker := &scanner.Walker{
 		Context: context.Background(),
-		Opts: scannerV2.WalkOptions{
+		Opts: scanner.WalkOptions{
 			MaxDepth:    -1,
 			IncludeExts: []string{},
 		},
@@ -269,9 +269,9 @@ func TestWalkDirs_SkipEmptyDirs(t *testing.T) {
 	visitedDirs := make([]string, 0)
 	var mu sync.Mutex
 
-	walker := &scannerV2.Walker{
+	walker := &scanner.Walker{
 		Context: context.Background(),
-		Opts: scannerV2.WalkOptions{
+		Opts: scanner.WalkOptions{
 			OnlyDirs:       true,
 			IncludeHidden:  false,
 			SkipEmptyDirs:  true,
@@ -318,9 +318,9 @@ func TestWalkDirs_OnlyLeaf(t *testing.T) {
 	visitedDirs := make([]string, 0)
 	var mu sync.Mutex
 
-	walker := &scannerV2.Walker{
+	walker := &scanner.Walker{
 		Context: context.Background(),
-		Opts: scannerV2.WalkOptions{
+		Opts: scanner.WalkOptions{
 			IncludeHidden:  false,
 			SkipEmptyDirs:  false,
 			OnlyLeafDirs:   true,
@@ -360,14 +360,14 @@ func TestWalkDirs_OnlyLeaf(t *testing.T) {
 func TestIncludeErrors_CollectsErrors(t *testing.T) {
 	root := setupTestData(t)
 
-	opts := scannerV2.WalkOptions{
+	opts := scanner.WalkOptions{
 		IncludeStats:  true,
 		IncludeErrors: true,
 		StopOnError:   false,
 		SkipOnError:   true,
 		MaxDepth:      -1,
 	}
-	w := scannerV2.NewWalker(context.Background(), opts)
+	w := scanner.NewWalker(context.Background(), opts)
 
 	// Simulate error for first file
 	w.OnVisitFile = func(path string, size int64) error {
@@ -405,14 +405,14 @@ func TestIncludeErrors_CollectsErrors(t *testing.T) {
 func TestIncludeErrors_False_NoStorage(t *testing.T) {
 	root := setupTestData(t)
 
-	opts := scannerV2.WalkOptions{
+	opts := scanner.WalkOptions{
 		IncludeStats:  true,
 		IncludeErrors: false,
 		StopOnError:   false,
 		SkipOnError:   true,
 		MaxDepth:      -1,
 	}
-	w := scannerV2.NewWalker(context.Background(), opts)
+	w := scanner.NewWalker(context.Background(), opts)
 
 	w.OnVisitFile = func(path string, size int64) error {
 		t.Logf("Visiting file: %s", filepath.Base(path))
@@ -438,13 +438,13 @@ func TestIncludeErrors_False_NoStorage(t *testing.T) {
 func TestStopOnError_StopsImmediately(t *testing.T) {
 	root := setupTestData(t)
 
-	opts := scannerV2.WalkOptions{
+	opts := scanner.WalkOptions{
 		IncludeStats:  true,
 		IncludeErrors: true,
 		StopOnError:   true,
 		MaxDepth:      -1,
 	}
-	w := scannerV2.NewWalker(context.Background(), opts)
+	w := scanner.NewWalker(context.Background(), opts)
 
 	called := 0
 	w.OnVisitFile = func(path string, size int64) error {
@@ -469,14 +469,14 @@ func TestStopOnError_StopsImmediately(t *testing.T) {
 func TestSkipOnError_Skips(t *testing.T) {
 	root := setupTestData(t)
 
-	opts := scannerV2.WalkOptions{
+	opts := scanner.WalkOptions{
 		IncludeStats:  true,
 		IncludeErrors: true,
 		StopOnError:   false,
 		SkipOnError:   true,
 		MaxDepth:      -1,
 	}
-	w := scannerV2.NewWalker(context.Background(), opts)
+	w := scanner.NewWalker(context.Background(), opts)
 
 	called := 0
 	w.OnVisitFile = func(path string, size int64) error {

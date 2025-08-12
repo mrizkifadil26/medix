@@ -1,13 +1,13 @@
-package scannerV2_test
+package scanner_test
 
 import (
 	"testing"
 
-	scannerV2 "github.com/mrizkifadil26/medix/scanner-v2"
+	"github.com/mrizkifadil26/medix/scanner"
 )
 
 func TestApplyDefaults(t *testing.T) {
-	cfg := scannerV2.Config{}
+	cfg := scanner.Config{}
 	cfg.ApplyDefaults()
 
 	if cfg.Options.Mode != "files" {
