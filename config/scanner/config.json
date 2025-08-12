@@ -1,14 +1,17 @@
 {
   "root": "/mnt/d/Movies/Torrent",
-  "verbose": false,
+  "verbose": true,
   "tags": ["media", "movies", "torrent"],
   "options": {
     "mode": "dirs",
     "depth": 2,
     "onlyLeaf": true,
-    "includeChildren": true
+    "includeChildren": true,
+    "enableProgress": true
   },
   "output": {
-    "outputPath": "out/movies.torrent.json"
+    "outputPath": "out/movies.torrent.json",
+    "includeErrors": true,
+    "includeStats": true
   }
 }
