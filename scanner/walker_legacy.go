@@ -233,3 +233,98 @@ package scanner
 
 // 	fmt.Println()
 // }
+
+// func scanFlat(base string, opts ScanOptions) []ScanEntry {
+// 	entries, _ := os.ReadDir(base)
+// 	var out []ScanEntry
+
+// 	// Create lowercase extension filter map (same as collectSubEntries)
+// 	extFilter := make(map[string]bool)
+// 	// for _, ext := range opts.SubExts {
+// 	// 	extFilter[strings.ToLower(ext)] = true
+// 	// }
+
+// 	for _, entry := range entries {
+// 		if entry.IsDir() {
+// 			continue
+// 		}
+
+// 		ext := strings.ToLower(filepath.Ext(entry.Name()))
+// 		if len(extFilter) > 0 && !extFilter[ext] {
+// 			continue
+// 		}
+
+// 		info, err := entry.Info()
+// 		if err != nil {
+// 			return nil
+// 		}
+// 		size := info.Size()
+
+// 		fullPath := filepath.Join(base, entry.Name())
+// 		out = append(out, ScanEntry{
+// 			Path: fullPath,
+// 			Name: entry.Name(),
+// 			Size: &size,
+// 		})
+// 	}
+
+// 	return out
+// }
+
+// func scanNested(base string, opts ScanOptions) []ScanEntry {
+// 	return scanRecursive(base, 0, opts)
+// }
+
+// func scanRecursive(path string, depth int, opts ScanOptions) []ScanEntry {
+// 	// if opts.SubDepth >= 0 && depth >= opts.SubDepth {
+// 	// 	return nil
+// 	// }
+
+// 	entries, err := os.ReadDir(path)
+// 	if err != nil {
+// 		return nil
+// 	}
+
+// 	// Lowercase extension filter
+// 	extFilter := make(map[string]bool)
+// 	// for _, ext := range opts.SubExts {
+// 	// 	extFilter[strings.ToLower(ext)] = true
+// 	// }
+
+// 	var out []ScanEntry
+
+// 	for _, entry := range entries {
+// 		full := filepath.Join(path, entry.Name())
+// 		if entry.IsDir() {
+// 			sub := scanRecursive(full, depth+1, opts)
+// 			if opts.SkipEmpty && len(sub) == 0 {
+// 				continue
+// 			}
+
+// 			out = append(out, ScanEntry{
+// 				Path:     full,
+// 				Name:     entry.Name(),
+// 				Children: sub,
+// 			})
+// 		} else {
+// 			ext := strings.ToLower(filepath.Ext(entry.Name()))
+// 			if len(extFilter) > 0 && !extFilter[ext] {
+// 				continue
+// 			}
+
+// 			info, err := entry.Info()
+// 			if err != nil {
+// 				continue // skip if we can't get info
+// 			}
+// 			size := info.Size()
+
+// 			out = append(out, ScanEntry{
+// 				Path: full,
+// 				Name: entry.Name(),
+// 				Size: &size,
+// 			})
+// 		}
+// 	}
+
+// 	return out
+// }
