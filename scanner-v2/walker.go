@@ -207,7 +207,7 @@ func (w *Walker) Walk(root string) error {
 			}
 
 			// Only leaf dirs (skip if not leaf)
-			if w.Opts.OnlyLeafDirs && len(entries) > 0 {
+			if w.Opts.OnlyLeafDirs && d.IsDir() && !isLeafDir(path) {
 				return nil
 			}
 
@@ -215,7 +215,6 @@ func (w *Walker) Walk(root string) error {
 			if !w.matchesFilters(path) {
 				return w.handleSkip(path, "filtered out")
 			}
-
 			if w.Opts.IncludeStats {
 				w.mu.Lock()
 				w.Stats.DirsVisited++
@@ -293,11 +292,11 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 	// Save callbacks so we can restore after counting
 	savedFileCb := w.OnVisitFile
 	savedDirCb := w.OnVisitDir
+	savedProgress := w.Opts.EnableProgress
 
 	w.OnVisitFile = nil
 	w.OnVisitDir = nil
-	w.Opts.IncludeStats = true
-	w.Opts.EnableProgress = false // disable progress during counting
+	w.Opts.EnableProgress = false
 
 	// Reset stats
 	w.Stats = &WalkStats{Custom: make(map[string]interface{})}
@@ -340,7 +339,7 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 			}
 
 			// Only leaf dirs
-			if w.Opts.OnlyLeafDirs && len(entries) > 0 {
+			if w.Opts.OnlyLeafDirs && d.IsDir() && !isLeafDir(path) {
 				return nil
 			}
 
@@ -366,6 +365,7 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 	// Restore callbacks
 	w.OnVisitFile = savedFileCb
 	w.OnVisitDir = savedDirCb
+	w.Opts.EnableProgress = savedProgress
 
 	return w.Stats, err
 }
@@ -427,6 +427,7 @@ func (w *Walker) matchesFilters(path string) bool {
 				break
 			}
 		}
+
 		if !matched {
 			return false
 		}
