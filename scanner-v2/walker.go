@@ -29,6 +29,8 @@ type WalkOptions struct {
 	StopOnError bool
 	SkipOnError bool
 
+	OnlyDirs      bool
+	OnlyFiles     bool
 	MaxDepth      int
 	SkipEmptyDirs bool
 	OnlyLeafDirs  bool
@@ -182,6 +184,14 @@ func (w *Walker) Walk(root string) error {
 		if w.Opts.MaxDepth >= 0 && depth > w.Opts.MaxDepth {
 			w.debug(path, "Skipping due to depth limit", nil)
 			return fs.SkipDir
+		}
+
+		// Skip based on OnlyDirs / OnlyFiles flags:
+		if w.Opts.OnlyDirs && !d.IsDir() {
+			return nil // skip files
+		}
+		if w.Opts.OnlyFiles && d.IsDir() {
+			return nil // skip dirs
 		}
 
 		// Directory handling
@@ -466,7 +476,10 @@ func (w *Walker) handleError(path string, err error) error {
 
 // skip calls OnSkip if set.
 func (w *Walker) handleSkip(path string, reason string) error {
-	w.Stats.Skipped++
+	if w.Stats != nil {
+		w.Stats.Skipped++
+	}
+
 	if w.OnSkip != nil {
 		return w.OnSkip(path, reason)
 	}
