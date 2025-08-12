@@ -3,154 +3,78 @@ package main
 import (
 	"encoding/json"
 	"flag"
-	"runtime"
-	"strings"
-
+	"fmt"
 	"log"
-	"os"
 
 	"github.com/mrizkifadil26/medix/scanner"
 	"github.com/mrizkifadil26/medix/utils"
 )
 
 func main() {
-	configPath := flag.String("config", "", "Path to scan_config.json (required)")
-	filterType := flag.String("type", "", "Type (media or icon)")
-	filterContent := flag.String("content", "", "Content type (movies or tv)")
-	filterName := flag.String("name", "", "Filter by name (e.g. movies.todo or tv)")
-	flag.Parse()
-
-	if *configPath == "" {
-		log.Fatal("❌ Missing required -config flag")
-	}
-
-	var config scanner.ScanFileConfig
-	data, err := os.ReadFile(*configPath)
+	args, err := scanner.ParseCLI()
 	if err != nil {
-		log.Fatalf("❌ Failed to read config file: %v", err)
+		log.Fatalf("Error parsing CLI: %v", err)
 	}
 
-	if err := json.Unmarshal(data, &config); err != nil {
-		log.Fatalf("❌ Failed to parse config JSON: %v", err)
-	}
+	// Start config from CLI
+	config := args.Config
 
-	if len(config.Scan) == 0 {
-		log.Fatalf("❌ No scan entries in config file")
-	}
-
-	concurrency := config.Concurrency
-	if concurrency <= 0 {
-		concurrency = runtime.NumCPU()
-	}
-	scanner.SetConcurrency(concurrency)
-
-	var found bool
-	for i := range config.Scan {
-		cfg := &config.Scan[i]
-
-		if *filterType != "" && !strings.EqualFold(cfg.Type, *filterType) {
-			continue
-		}
-		if *filterContent != "" && !strings.EqualFold(cfg.ContentType, *filterContent) {
-			continue
-		}
-		if *filterName != "" && !strings.EqualFold(cfg.Name, *filterName) {
-			continue
-		}
-
-		found = true
-
-		var strategy scanner.ScanStrategy
-		switch strings.ToLower(cfg.Type + "." + cfg.ContentType) {
-		case "media.movies":
-			strategy = scanner.MovieStrategy{}
-		case "media.tv":
-			strategy = scanner.TVStrategy{}
-		case "icon.movies":
-			strategy = scanner.IconStrategy{}
-		case "icon.tv":
-			strategy = scanner.IconStrategy{}
-		default:
-			log.Printf("⚠️ Skipping unsupported content type: %s\n", cfg.Type)
-			continue
-		}
-
-		// Prepare scan sources
-		sources := make(map[string]string)
-		for _, entry := range cfg.Include {
-			sources[entry.Label] = entry.Path
-		}
-
-		// Apply default options if not set
-		if cfg.Options == nil {
-			cfg.Options = &scanner.ScanOptions{}
-		}
-
-		if cfg.Options.Mode == "" {
-			switch strings.ToLower(cfg.Type) {
-			case "icon":
-				cfg.Options.Mode = scanner.ScanFiles // always files
-			case "media":
-				switch strings.ToLower(cfg.Phase) {
-				case "raw":
-					cfg.Options.Mode = scanner.ScanFiles
-				default:
-					cfg.Options.Mode = scanner.ScanDirs
-				}
-			default:
-				cfg.Options.Mode = scanner.ScanDirs
-			}
-		}
-
-		if cfg.Options.Depth == 0 {
-			switch strings.ToLower(cfg.Phase) {
-			case "raw":
-				cfg.Options.Depth = 4
-			default:
-				cfg.Options.Depth = 2
-			}
-		}
-
-		if cfg.Options.Concurrency <= 0 {
-			cfg.Options.Concurrency = concurrency
-		}
-
-		log.Printf("🔍 Scanning...\n")
-		log.Printf("⚙️ Options:\n"+
-			"   • Name        : %s\n"+
-			"   • Type        : %s\n"+
-			"   • Phase       : %s\n"+
-			"   • Mode        : %s\n"+
-			"   • Depth       : %d\n"+
-			"   • Concurrency : %d\n",
-			cfg.Name,
-			cfg.Type,
-			cfg.Phase,
-			cfg.Options.Mode,
-			cfg.Options.Depth,
-			cfg.Options.Concurrency)
-
-		output, err := strategy.Scan(sources, *cfg.Options)
+	// If config file exists, load and merge
+	if args.ConfigPath != nil {
+		fileConfig, err := utils.LoadConfig[scanner.Config](*args.ConfigPath)
 		if err != nil {
-			log.Printf("❌ Failed to scan %s: %v\n", cfg.Name, err)
-			continue
+			log.Fatalf("Failed to load config file: %v", err)
 		}
 
-		// if len(output.Items) == 0 {
-		// 	log.Printf("⚠️ No items found for %s\n", cfg.Name)
-		// 	continue
-		// }
+		// Deep merge file config with CLI overrides
+		merged, err := utils.Merge(
+			fileConfig,
+			args.Config,
+			utils.MergeOptions{
+				Overwrite: true,
+				Recursive: true,
+			},
+		)
 
-		if err := utils.WriteJSON(cfg.Output, output); err != nil {
-			log.Printf("❌ Failed to write output for %s: %v\n", cfg.Name, err)
-			continue
+		if err != nil {
+			log.Fatalf("Failed to merge CLI config: %v", err)
 		}
 
-		// log.Printf("✅ %s written: %d items in %d groups (%d ms)\n",
-		// 	cfg.Output, output.TotalItems, output.GroupCount, output.ScanDurationMs)
+		config = merged
 	}
 
-	if !found {
-		log.Printf("⚠️ No matching scan config found for -type=%s\n", *filterType)
+	// Validate required field
+	if config.Root == nil || *config.Root == "" {
+		flag.Usage()
+		log.Fatal("Error: --root is required (or must be in config file)")
 	}
+
+	// Fill missing defaults
+	if err := config.ApplyDefaults(); err != nil {
+		log.Fatalf("Error applying defaults: %v", err)
+	}
+	config.PrettyPrint()
+
+	results, err := scanner.Scan(
+		*config.Root,
+		*config.Options,
+		*config.Output,
+		*config.Tags,
+	)
+	if err != nil {
+		log.Fatalf("Scan failed: %v", err)
+	}
+
+	// Output results
+	outputPath := config.Output.OutputPath
+	if outputPath != nil && *outputPath != "" {
+		if err := utils.WriteJSON(*outputPath, results); err != nil {
+			log.Fatalf("Failed to write output: %v", err)
+		}
+	}
+}
+
+func PrettyJSON(v any) {
+	data, _ := json.MarshalIndent(v, "", "  ")
+	fmt.Println(string(data))
 }
