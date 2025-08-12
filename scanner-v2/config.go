@@ -18,9 +18,11 @@ type Config struct {
 }
 
 type ScanOptions struct {
-	Mode             string `json:"mode" yaml:"mode"`                                       // "files", "dirs", "mixed"
-	Depth            int    `json:"depth" yaml:"depth"`                                     // REQUIRED: traversal logic
-	SkipEmpty        bool   `json:"skipEmpty,omitempty" yaml:"skipEmpty,omitempty"`         // OPTIONAL: skip empty directories
+	Mode             string `json:"mode" yaml:"mode"`                               // "files", "dirs", "mixed"
+	Depth            int    `json:"depth" yaml:"depth"`                             // REQUIRED: traversal logic
+	SkipEmpty        bool   `json:"skipEmpty,omitempty" yaml:"skipEmpty,omitempty"` // OPTIONAL: skip empty directories
+	SkipRoot         bool   `json:"skipRoot,omitempty" yaml:"skipRoot,omitempty"`   // OPTIONAL: skip root directory
+	MinIncludeDepth  int    `json:"minIncludeDepth,omitempty" yaml:"minIncludeDepth,omitempty"`
 	IncludeHidden    bool   `json:"includeHidden,omitempty" yaml:"includeHidden,omitempty"` // Include hidden files/dirs
 	IncludeRootFiles bool   `json:"includeRootFiles,omitempty" yaml:"includeRootFiles,omitempty"`
 	IncludeChildren  bool   `json:"includeChildren,omitempty" yaml:"includeChildren,omitempty"`
@@ -92,9 +94,11 @@ func (cfg *Config) PrettyPrint() {
 			{"Depth", fmt.Sprintf("%d", cfg.Options.Depth), "Traversal depth (0=root only)"},
 			{"OnlyLeaf", fmt.Sprintf("%v", cfg.Options.OnlyLeaf), "Only leaf directories"},
 			{"SkipEmpty", fmt.Sprintf("%v", cfg.Options.SkipEmpty), "Skip empty directories"},
+			{"SkipRoot", fmt.Sprintf("%v", cfg.Options.SkipRoot), "Skip root directory"},
 			{"IncludeHidden", fmt.Sprintf("%v", cfg.Options.IncludeHidden), "Include hidden files/dirs"},
 			{"IncludeRootFiles", fmt.Sprintf("%v", cfg.Options.IncludeRootFiles), "Include root-level files"},
 			{"IncludeChildren", fmt.Sprintf("%v", cfg.Options.IncludeChildren), "Include child dirs/files"},
+			{"MinIncludeDepth", fmt.Sprintf("%v", cfg.Options.MinIncludeDepth), "Include child dirs/files"},
 			{"Trace", fmt.Sprintf("%v", cfg.Options.Trace), "Enable tracing"},
 			{"EnableProgress", fmt.Sprintf("%v", cfg.Options.EnableProgress), "Show progress updates"},
 			{"StopOnError", fmt.Sprintf("%v", cfg.Options.StopOnError), "Stop on first error"},
