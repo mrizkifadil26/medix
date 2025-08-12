@@ -194,11 +194,6 @@ func (w *Walker) Walk(root string) error {
 			w.mu.Unlock()
 		}
 
-		// --- Progress tracking ---
-		if includeThis && w.Opts.EnableProgress && w.Progress != nil {
-			w.Progress.Increment(1)
-		}
-
 		// Hidden file/dir skipping
 		if !w.Opts.IncludeHidden && isHidden(d.Name()) {
 			w.debug(path, "Skipping hidden entry", nil)
@@ -221,6 +216,11 @@ func (w *Walker) Walk(root string) error {
 		}
 		if w.Opts.OnlyFiles && d.IsDir() {
 			return nil // skip dirs
+		}
+
+		// --- Progress tracking ---
+		if includeThis && w.Opts.EnableProgress && w.Progress != nil {
+			w.Progress.Increment(1)
 		}
 
 		// Directory handling
@@ -357,16 +357,41 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 
 		// Skip depth beyond MaxDepth
 		depth := getDepth(root, path)
-		if depth >= w.Opts.MinIncludeDepth {
-			w.Stats.EntriesVisited++
-		}
+		// if depth >= w.Opts.MinIncludeDepth {
+		// 	w.Stats.EntriesVisited++
+		// }
 
 		if w.Opts.SkipRoot && depth == 0 {
 			// Root: skip processing, but allow traversal into immediate children
 			return nil
 		}
 
+		// Enforce min include depth if set
+		if w.Opts.MinIncludeDepth > 0 && depth < w.Opts.MinIncludeDepth {
+			// We don't count entries shallower than min depth
+			// but continue traversal
+			return nil
+		}
+
 		if w.Opts.MaxDepth >= 0 && depth > w.Opts.MaxDepth {
+			if d.IsDir() {
+				return fs.SkipDir
+			}
+
+			return nil
+		}
+
+		// Skip hidden entries if needed
+		if !w.Opts.IncludeHidden && isHidden(d.Name()) {
+			if d.IsDir() {
+				return fs.SkipDir
+			}
+
+			return nil
+		}
+
+		// Filter by patterns and extensions
+		if !w.matchesFilters(path) {
 			if d.IsDir() {
 				return fs.SkipDir
 			}
@@ -390,9 +415,9 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 				return nil
 			}
 
-			if !w.matchesFilters(path) {
-				return nil
-			}
+			// if !w.matchesFilters(path) {
+			// 	return nil
+			// }
 
 			w.Stats.DirsVisited++
 			w.Stats.EntriesVisited++
@@ -400,9 +425,9 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 		}
 
 		// File filtering
-		if !w.matchesFilters(path) {
-			return nil
-		}
+		// if !w.matchesFilters(path) {
+		// 	return nil
+		// }
 
 		w.Stats.FilesVisited++
 		w.Stats.EntriesVisited++
