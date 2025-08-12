@@ -1,178 +1,342 @@
 package scanner
 
 import (
-	"log"
+	"context"
+	"fmt"
+	"io/fs"
 	"os"
 	"path/filepath"
+	"strings"
 	"sync"
+	"time"
 )
 
-// TODO: use scan options
-func Scan[T any](
-	sources map[string]string,
-	cache *dirCache,
-	opts ScanOptions,
-	itemBuilder func(ScanEntry) (T, bool),
-) []T {
+func Scan(
+	root string,
+	options ScanOptions,
+	outputOptions OutputOptions,
+	tags []string,
+) (ScanOutput, error) {
+	start := time.Now()
+
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	inputPath := filepath.Clean(root)
+	output := ScanOutput{
+		Version:     "0.1.0",
+		GeneratedAt: time.Now().Format(time.RFC3339),
+		SourcePath:  inputPath,
+		Mode:        options.Mode,
+	}
+
+	// Normalize input path
+	info, err := os.Stat(inputPath)
+	if err != nil {
+		return output, fmt.Errorf("input path error: %w", err)
+	}
+
+	if !info.IsDir() {
+		return output, fmt.Errorf("input path is not a directory")
+	}
+
+	logLevel := determineLogLevel(options)
+
+	walkOpts := WalkOptions{
+		MaxDepth:        options.Depth,
+		SkipEmptyDirs:   options.SkipEmpty,
+		SkipRoot:        options.SkipRoot,
+		OnlyLeafDirs:    options.OnlyLeaf,
+		MinIncludeDepth: options.MinIncludeDepth,
+		IncludeHidden:   options.IncludeHidden,
+		IncludePatterns: options.IncludePatterns,
+		ExcludePatterns: options.ExcludePatterns,
+		IncludeExts:     options.IncludeExts,
+		ExcludeExts:     options.ExcludeExts,
+		StopOnError:     options.StopOnError,
+		SkipOnError:     options.SkipOnError,
+		EnableProgress:  options.EnableProgress,
+
+		IncludeErrors: outputOptions.IncludeErrors,
+		IncludeStats:  outputOptions.IncludeStats,
+
+		Debug: DebugOptions{
+			Enable: true,
+			Level:  logLevel,
+			LogFunc: func(e DebugEvent) {
+				fmt.Println(logLevel)
+				if shouldLog(e.Level, logLevel) {
+					fmt.Printf("[%s] %s - %s (%v)\n", e.Level, e.Path, e.Message, e.Detail)
+				}
+			},
+		},
+	}
+
+	walker := NewWalker(ctx, walkOpts)
+
 	var (
-		mu      sync.Mutex
-		wg      sync.WaitGroup
-		results []T
-		tasks   = make(chan ScanEntry)
+		items = make([]ScanEntry, 0)
+		// jobs  []concurrency.TaskFunc
+		mu sync.Mutex // to protect shared output
 	)
 
-	// === Progress Bar Setup ===
-	var total int
-	if opts.ShowProgress {
-		for label, root := range sources {
-			if opts.Mode == ScanDirs {
-				total += CountTargetDirs(root, label, opts.Depth, cache, func(path string, entries []os.DirEntry) bool {
-					return len(entries) > 0 // Skip empty dirs
-				})
-			} else if opts.Mode == ScanFiles {
-				// Optional: count matching files here if needed
+	switch options.Mode {
+	case "files":
+		walker.OnVisitFile = func(path string, size int64) error {
+			rel, _ := filepath.Rel(inputPath, path)
+			entry := ScanEntry{
+				Name:       filepath.Base(path),
+				Path:       path,
+				RelPath:    rel,
+				Size:       &size,
+				Type:       "file",
+				GroupPath:  filepath.Dir(rel),
+				GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
 			}
+
+			mu.Lock()
+			items = append(items, entry)
+			mu.Unlock()
+
+			return nil
 		}
-	}
-	progress := NewProgress(total, opts.ShowProgress, "Scanning")
 
-	// Worker pool
-	for i := 0; i < opts.Concurrency; i++ {
-		wg.Add(1)
-
-		go func() {
-			defer wg.Done()
-
-			for item := range tasks {
-				if out, ok := itemBuilder(item); ok {
-					mu.Lock()
-					results = append(results, out)
-					mu.Unlock()
-				}
-
-				progress.Add(1)
+	case "dirs":
+		walker.OnVisitDir = func(path string, entries []os.DirEntry) error {
+			rel, _ := filepath.Rel(inputPath, path)
+			entry := ScanEntry{
+				Path:       path,
+				RelPath:    rel,
+				Name:       filepath.Base(path),
+				Type:       "directory",
+				GroupPath:  filepath.Dir(rel),
+				GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
 			}
-		}()
-	}
 
-	for source, root := range sources {
-		switch opts.Mode {
-		case ScanDirs:
-			_ = walkDirs(root, opts.Depth, cache, func(dirPath string, entries []os.DirEntry) {
-				groupLabel := buildGroupLabel(root, dirPath, true)
+			if options.IncludeChildren {
+				entry.Children = collectChildren(path, inputPath)
+			}
 
-				tasks <- ScanEntry{
-					Source:     source,
-					GroupLabel: groupLabel,
-					GroupPath:  root,
-					ItemPath:   dirPath,
-					ItemName:   filepath.Base(dirPath),
-					SubEntries: entries,
-				}
-			})
+			mu.Lock()
+			items = append(items, entry)
+			mu.Unlock()
 
-		case ScanFiles:
-			_ = walkFiles(root, opts.Depth, opts.Exts, cache, func(filePath string, size int64) {
-				dirPath := filepath.Dir(filePath)
-				groupLabel := buildGroupLabel(root, dirPath, false)
-
-				tasks <- ScanEntry{
-					Source:     source,
-					GroupLabel: groupLabel,
-					GroupPath:  root,
-					ItemPath:   filePath,
-					ItemName:   filepath.Base(filePath),
-					ItemSize:   &size,
-					SubEntries: nil,
-				}
-			})
-
-		default:
-			log.Fatalf("Scan(): unsupported scan mode %q for source %s", opts.Mode, source)
-
+			return nil
 		}
+
+	case "mixed":
+		walker.OnVisitFile = func(path string, size int64) error {
+			rel, _ := filepath.Rel(inputPath, path)
+			entry := ScanEntry{
+				Name:       filepath.Base(path),
+				Path:       path,
+				RelPath:    rel,
+				Size:       &size,
+				Type:       "file",
+				GroupPath:  filepath.Dir(rel),
+				GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
+			}
+
+			mu.Lock()
+			items = append(items, entry)
+			mu.Unlock()
+
+			return nil
+		}
+
+		walker.OnVisitDir = func(path string, entries []fs.DirEntry) error {
+			rel, _ := filepath.Rel(inputPath, path)
+			entry := ScanEntry{
+				Path:       path,
+				RelPath:    rel,
+				Name:       filepath.Base(path),
+				Type:       "directory",
+				GroupPath:  filepath.Dir(rel),
+				GroupLabel: strings.Split(filepath.Dir(rel), string(filepath.Separator)),
+			}
+
+			if options.IncludeChildren {
+				entry.Children = collectChildren(path, inputPath)
+			}
+
+			mu.Lock()
+			items = append(items, entry)
+			mu.Unlock()
+
+			return nil
+		}
+
+	default:
+		return output, fmt.Errorf("unsupported scan mode: %s", options.Mode)
 	}
 
-	close(tasks)
-	wg.Wait()
-	progress.Finish()
+	if err := walker.Walk(inputPath); err != nil {
+		return output, fmt.Errorf("scan failed: %w", err)
+	}
 
-	return results
-
-	// // Count all group directories first for progress bar
-	// var totalGroups int
-	// for _, path := range sources {
-	// 	if entries := cache.Read(path); entries != nil {
-	// 		for _, entry := range entries {
-	// 			if entry.IsDir() {
-	// 				totalGroups++
-	// 			}
-	// 		}
-	// 	}
+	// taskExec, err := SelectExecutor(options.Concurrency)
+	// taskExec, err := SelectExecutor(1)
+	// if err != nil {
+	// 	return output, fmt.Errorf("concurrency error: %w", err)
 	// }
 
-	// bar := progressbar.NewOptions(totalGroups,
-	// 	progressbar.OptionSetDescription("Scanning"),
-	// 	progressbar.OptionShowCount(),
-	// 	progressbar.OptionSetWidth(20),
-	// 	progressbar.OptionClearOnFinish(),
-	// )
-
-	// for label, path := range sources {
-	// 	groupDirs := cache.Read(path)
-	// 	if groupDirs == nil {
-	// 		continue
-	// 	}
-
-	// 	for _, group := range groupDirs {
-	// 		if !group.IsDir() {
-	// 			continue
-	// 		}
-
-	// 		groupPath := filepath.Join(path, group.Name())
-
-	// 		wg.Add(1)
-	// 		go func(groupName, groupPath string) {
-	// 			defer wg.Done()
-	// 			sem <- struct{}{}        // 🛑 acquire
-	// 			defer func() { <-sem }() // ✅ release
-
-	// 			dirEntries := cache.Read(groupPath)
-	// 			if dirEntries == nil {
-	// 				_ = bar.Add(1)
-	// 				return
-	// 			}
-
-	// 			for _, entry := range dirEntries {
-	// 				if !entry.IsDir() {
-	// 					continue
-	// 				}
-
-	// 				itemPath := filepath.Join(groupPath, entry.Name())
-	// 				subEntries := cache.Read(itemPath)
-	// 				if subEntries == nil {
-	// 					continue
-	// 				}
-
-	// 				if item, ok := itemBuilder(itemPath, label, subEntries); ok {
-	// 					mu.Lock()
-	// 					results = append(results, item)
-	// 					mu.Unlock()
-	// 				}
-	// 			}
-
-	// 			_ = bar.Add(1)
-
-	// 		}(group.Name(), groupPath)
-	// 	}
+	// exec := concurrency.FromTaskExecutor(taskExec)
+	// if err := exec(ctx, jobs); err != nil {
+	// return output, fmt.Errorf("execution error: %w", err)
 	// }
 
-	// wg.Wait()
-	// bar.Finish()
+	if tags != nil {
+		output.Tags = tags
+	}
+	output.DurationMs = time.Since(start).Milliseconds()
+	output.ItemCount = len(items)
+	output.Items = items
 
-	// sort.Slice(results, func(i, j int) bool {
-	// 	return results[i].GetName() < results[j].GetName()
-	// })
+	if outputOptions.IncludeStats && walker.Stats != nil {
+		output.Stats = walker.GetStats()
+	}
 
-	// return results
+	return output, nil
+}
+
+// func (o ScanOptions) IsParallel() bool {
+// 	return o.Concurrency > 1
+// }
+
+func scanFlat(base string, opts ScanOptions) []ScanEntry {
+	entries, _ := os.ReadDir(base)
+	var out []ScanEntry
+
+	// Create lowercase extension filter map (same as collectSubEntries)
+	extFilter := make(map[string]bool)
+	// for _, ext := range opts.SubExts {
+	// 	extFilter[strings.ToLower(ext)] = true
+	// }
+
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
+		}
+
+		ext := strings.ToLower(filepath.Ext(entry.Name()))
+		if len(extFilter) > 0 && !extFilter[ext] {
+			continue
+		}
+
+		info, err := entry.Info()
+		if err != nil {
+			return nil
+		}
+		size := info.Size()
+
+		fullPath := filepath.Join(base, entry.Name())
+		out = append(out, ScanEntry{
+			Path: fullPath,
+			Name: entry.Name(),
+			Size: &size,
+		})
+	}
+
+	return out
+}
+
+func scanNested(base string, opts ScanOptions) []ScanEntry {
+	return scanRecursive(base, 0, opts)
+}
+
+func scanRecursive(path string, depth int, opts ScanOptions) []ScanEntry {
+	// if opts.SubDepth >= 0 && depth >= opts.SubDepth {
+	// 	return nil
+	// }
+
+	entries, err := os.ReadDir(path)
+	if err != nil {
+		return nil
+	}
+
+	// Lowercase extension filter
+	extFilter := make(map[string]bool)
+	// for _, ext := range opts.SubExts {
+	// 	extFilter[strings.ToLower(ext)] = true
+	// }
+
+	var out []ScanEntry
+
+	for _, entry := range entries {
+		full := filepath.Join(path, entry.Name())
+		if entry.IsDir() {
+			sub := scanRecursive(full, depth+1, opts)
+			if opts.SkipEmpty && len(sub) == 0 {
+				continue
+			}
+
+			out = append(out, ScanEntry{
+				Path:     full,
+				Name:     entry.Name(),
+				Children: sub,
+			})
+		} else {
+			ext := strings.ToLower(filepath.Ext(entry.Name()))
+			if len(extFilter) > 0 && !extFilter[ext] {
+				continue
+			}
+
+			info, err := entry.Info()
+			if err != nil {
+				continue // skip if we can't get info
+			}
+			size := info.Size()
+
+			out = append(out, ScanEntry{
+				Path: full,
+				Name: entry.Name(),
+				Size: &size,
+			})
+		}
+	}
+
+	return out
+}
+
+func collectChildren(root, base string) []ScanEntry {
+	var children []ScanEntry
+
+	entries, err := os.ReadDir(root)
+	if err != nil {
+		return children
+	}
+
+	for _, entry := range entries {
+		fullPath := filepath.Join(root, entry.Name())
+		relPath, _ := filepath.Rel(base, fullPath)
+
+		child := ScanEntry{
+			Path:       fullPath,
+			RelPath:    relPath,
+			Name:       entry.Name(),
+			Type:       "directory",
+			GroupPath:  filepath.Dir(relPath),
+			GroupLabel: strings.Split(filepath.Dir(relPath), string(filepath.Separator)),
+		}
+
+		if entry.IsDir() {
+			child.Type = "directory"
+			child.Children = collectChildren(fullPath, base)
+		} else {
+			child.Type = "file"
+
+			// Stat the file to get ModTime and Size
+			info, err := entry.Info()
+			fileSize := info.Size()
+			if err == nil {
+				child.ModTime = info.ModTime().Format(time.RFC3339)
+				child.Size = &fileSize
+				child.Ext = filepath.Ext(entry.Name())
+			}
+		}
+
+		children = append(children, child)
+	}
+
+	return children
 }

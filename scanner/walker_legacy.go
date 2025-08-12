@@ -1,4 +1,4 @@
-package scannerV2
+package scanner
 
 // type Walker struct {
 // 	Ctx   context.Context

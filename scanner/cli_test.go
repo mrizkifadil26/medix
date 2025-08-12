@@ -1,4 +1,4 @@
-package scannerV2_test
+package scanner_test
 
 /*
 func TestParseCLI(t *testing.T) {

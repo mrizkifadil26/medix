@@ -1,4 +1,4 @@
-package scannerV2
+package scanner
 
 const (
 	DefaultOutputPath = "output.json"

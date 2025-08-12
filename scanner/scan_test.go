@@ -1,6 +1,4 @@
-//go:build !tvtest
-
-package scannerV2_test
+package scanner_test
 
 /*
 func TestScan_Basic(t *testing.T) {
@@ -34,6 +32,7 @@ func TestScan_Basic(t *testing.T) {
 	require.Equal(t, "Inception.2010.mkv", entry.ItemName)
 	require.NotNil(t, entry.ItemSize)
 }
+	/*
 
 func TestScan_FilterMP4(t *testing.T) {
 	root := t.TempDir()
