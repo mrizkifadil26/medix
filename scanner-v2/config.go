@@ -27,12 +27,12 @@ type ScanOptions struct {
 	OnlyLeaf         bool   `json:"onlyLeaf,omitempty" yaml:"onlyLeaf,omitempty"` // OPTIONAL: feature toggle
 	Trace            bool   `json:"trace,omitempty" yaml:"trace,omitempty"`
 
-	EnableProgress bool `json:"enableProgress,omitempty" yaml:"enableProgress,omitempty"` // Show real-time progress during scan
-
 	IncludePatterns []string `json:"includePatterns,omitempty" yaml:"includePatterns,omitempty"` // Glob patterns to include
 	ExcludePatterns []string `json:"excludePatterns,omitempty" yaml:"excludePatterns,omitempty"` // Glob patterns to exclude
 	IncludeExts     []string `json:"includeExts,omitempty" yaml:"includeExts,omitempty"`         // File extensions to include
 	ExcludeExts     []string `json:"excludeExts,omitempty" yaml:"excludeExts,omitempty"`         // File extensions to exclude
+
+	EnableProgress bool `json:"enableProgress,omitempty" yaml:"enableProgress,omitempty"` // Show real-time progress during scan
 
 	StopOnError bool `json:"stopOnError,omitempty" yaml:"stopOnError,omitempty"` // Stop walking on first error
 	SkipOnError bool `json:"skipOnError,omitempty" yaml:"skipOnError,omitempty"` // Skip entries that cause errors
@@ -69,6 +69,8 @@ func (c *Config) ApplyDefaults() error {
 func (cfg *Config) PrettyPrint() {
 	fmt.Println("📦 Scanning Configuration")
 
+	section := func(title string) { fmt.Printf("\n%s\n", title) }
+
 	// Root-level fields
 	if cfg.Root != nil {
 		printRow("Root", *cfg.Root, "Root directory to scan")
@@ -80,30 +82,39 @@ func (cfg *Config) PrettyPrint() {
 		printRow("Verbose", fmt.Sprintf("%v", *cfg.Verbose), "Verbose logging enabled")
 	}
 
-	// Options section
+	// Options
 	if cfg.Options != nil {
-		fmt.Println()
-		fmt.Println("🛠️  Scan Options:")
-		printRow("Mode", cfg.Options.Mode, "Scan mode: files, dirs, or mixed")
-		printRow("Depth", fmt.Sprintf("%d", cfg.Options.Depth), "How deep to traverse directories")
-		printRow("SkipEmpty", fmt.Sprintf("%v", cfg.Options.SkipEmpty), "Skip empty directories")
-		printRow("IncludeRootFiles", fmt.Sprintf("%v", cfg.Options.IncludeRootFiles), "Include root-level files")
-		printRow("IncludeChildren", fmt.Sprintf("%v", cfg.Options.IncludeChildren), "Include children dirs and files")
-		printRow("OnlyLeaf", fmt.Sprintf("%v", cfg.Options.OnlyLeaf), "Only include leaf-level directories")
+		section("🛠️  Scan Options:")
+		rows := []struct {
+			Name, Value, Desc string
+		}{
+			{"Mode", cfg.Options.Mode, "Scan mode: files, dirs, or mixed"},
+			{"Depth", fmt.Sprintf("%d", cfg.Options.Depth), "Traversal depth (0=root only)"},
+			{"OnlyLeaf", fmt.Sprintf("%v", cfg.Options.OnlyLeaf), "Only leaf directories"},
+			{"SkipEmpty", fmt.Sprintf("%v", cfg.Options.SkipEmpty), "Skip empty directories"},
+			{"IncludeHidden", fmt.Sprintf("%v", cfg.Options.IncludeHidden), "Include hidden files/dirs"},
+			{"IncludeRootFiles", fmt.Sprintf("%v", cfg.Options.IncludeRootFiles), "Include root-level files"},
+			{"IncludeChildren", fmt.Sprintf("%v", cfg.Options.IncludeChildren), "Include child dirs/files"},
+			{"Trace", fmt.Sprintf("%v", cfg.Options.Trace), "Enable tracing"},
+			{"EnableProgress", fmt.Sprintf("%v", cfg.Options.EnableProgress), "Show progress updates"},
+			{"StopOnError", fmt.Sprintf("%v", cfg.Options.StopOnError), "Stop on first error"},
+			{"SkipOnError", fmt.Sprintf("%v", cfg.Options.SkipOnError), "Skip entries on error"},
+			{"Concurrency", fmt.Sprintf("%d", cfg.Options.Concurrency), "Worker concurrency"},
+		}
+		for _, r := range rows {
+			printRow(r.Name, r.Value, r.Desc)
+		}
 	}
 
 	// Output section
 	if cfg.Output != nil {
-		fmt.Println()
-		fmt.Println("📤 Output Options:")
+		section("📤 Output Options:")
 		if cfg.Output.Format != nil {
 			printRow("Format", *cfg.Output.Format, "Output format: json, yaml, etc.")
 		}
-
 		if cfg.Output.OutputPath != nil {
 			printRow("OutputPath", *cfg.Output.OutputPath, "Path to save output (optional)")
 		}
-
 		printRow("IncludeErrors", fmt.Sprintf("%v", cfg.Output.IncludeErrors), "Include error info in output")
 		printRow("IncludeWarnings", fmt.Sprintf("%v", cfg.Output.IncludeWarnings), "Include warnings in output")
 		printRow("IncludeStats", fmt.Sprintf("%v", cfg.Output.IncludeStats), "Include detailed scan stats")
