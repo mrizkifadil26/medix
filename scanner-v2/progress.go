@@ -30,7 +30,7 @@ func NewProgressTracker(
 		progressbar.OptionSetDescription(desc),
 		progressbar.OptionShowCount(),
 		progressbar.OptionSetWidth(20),
-		progressbar.OptionClearOnFinish(),
+		// progressbar.OptionClearOnFinish(),
 		progressbar.OptionFullWidth(),
 	)
 

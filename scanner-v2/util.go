@@ -64,3 +64,24 @@ func getLeafDepth(start string) (int, error) {
 func isHidden(name string) bool {
 	return strings.HasPrefix(name, ".")
 }
+
+func isLeafDir(path string) bool {
+	f, err := os.Open(path)
+	if err != nil {
+		return false
+	}
+	defer f.Close()
+
+	for {
+		infos, err := f.Readdir(1) // read 1 entry at a time
+		if err != nil {
+			break // EOF or error
+		}
+
+		if infos[0].IsDir() {
+			return false // has a subdirectory
+		}
+	}
+
+	return true // no subdirectories found
+}
