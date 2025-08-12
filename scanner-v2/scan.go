@@ -43,7 +43,9 @@ func Scan(
 	walkOpts := WalkOptions{
 		MaxDepth:        options.Depth,
 		SkipEmptyDirs:   options.SkipEmpty,
+		SkipRoot:        options.SkipRoot,
 		OnlyLeafDirs:    options.OnlyLeaf,
+		MinIncludeDepth: options.MinIncludeDepth,
 		IncludeHidden:   options.IncludeHidden,
 		IncludePatterns: options.IncludePatterns,
 		ExcludePatterns: options.ExcludePatterns,

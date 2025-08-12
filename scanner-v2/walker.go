@@ -29,12 +29,14 @@ type WalkOptions struct {
 	StopOnError bool
 	SkipOnError bool
 
-	OnlyDirs      bool
-	OnlyFiles     bool
-	MaxDepth      int
-	SkipEmptyDirs bool
-	OnlyLeafDirs  bool
-	IncludeHidden bool
+	OnlyDirs        bool
+	OnlyFiles       bool
+	MaxDepth        int
+	MinIncludeDepth int
+	SkipEmptyDirs   bool
+	SkipRoot        bool
+	OnlyLeafDirs    bool
+	IncludeHidden   bool
 
 	IncludePatterns []string
 	ExcludePatterns []string
@@ -104,9 +106,10 @@ func NewWalker(ctx context.Context, opts WalkOptions) *Walker {
 func (w *Walker) Walk(root string) error {
 	start := time.Now()
 	w.debug(root, "Starting walk", map[string]interface{}{
-		"IncludeStats":   w.Opts.IncludeStats,
-		"EnableProgress": w.Opts.EnableProgress,
-		"MaxDepth":       w.Opts.MaxDepth,
+		"IncludeStats":    w.Opts.IncludeStats,
+		"EnableProgress":  w.Opts.EnableProgress,
+		"MaxDepth":        w.Opts.MaxDepth,
+		"MinIncludeDepth": w.Opts.MinIncludeDepth,
 	})
 
 	// Initialize stats if enabled
@@ -179,15 +182,20 @@ func (w *Walker) Walk(root string) error {
 		default:
 		}
 
+		depth := getDepth(root, path)
+
+		// Skip entries above MinIncludeDepth from being added to results/stats/callbacks
+		includeThis := depth >= w.Opts.MinIncludeDepth
+
 		// --- Stats: entries visited ---
-		if w.Opts.IncludeStats && w.Stats != nil {
+		if includeThis && w.Opts.IncludeStats && w.Stats != nil {
 			w.mu.Lock()
 			w.Stats.EntriesVisited++
 			w.mu.Unlock()
 		}
 
 		// --- Progress tracking ---
-		if w.Opts.EnableProgress && w.Progress != nil {
+		if includeThis && w.Opts.EnableProgress && w.Progress != nil {
 			w.Progress.Increment(1)
 		}
 
@@ -197,7 +205,11 @@ func (w *Walker) Walk(root string) error {
 			return w.handleSkip(path, "hidden entry")
 		}
 
-		depth := getDepth(root, path)
+		if w.Opts.SkipRoot && depth == 0 {
+			// Root: skip processing, but allow traversal into immediate children
+			return nil
+		}
+
 		if w.Opts.MaxDepth >= 0 && depth > w.Opts.MaxDepth {
 			w.debug(path, "Skipping due to depth limit", nil)
 			return fs.SkipDir
@@ -236,14 +248,14 @@ func (w *Walker) Walk(root string) error {
 				return w.handleSkip(path, "filtered out")
 			}
 
-			if w.Opts.IncludeStats {
+			if includeThis && w.Opts.IncludeStats && w.Stats != nil {
 				w.mu.Lock()
 				w.Stats.DirsVisited++
 				w.Stats.Matches++
 				w.mu.Unlock()
 			}
 
-			if w.OnVisitDir != nil {
+			if includeThis && w.OnVisitDir != nil {
 				if err := w.OnVisitDir(path, entries); err != nil {
 					w.debug(path, "OnVisitDir returned error", map[string]interface{}{"err": err})
 					return w.handleError(path, err)
@@ -269,7 +281,7 @@ func (w *Walker) Walk(root string) error {
 		size := info.Size()
 
 		// Update stats for matched files only
-		if w.Opts.IncludeStats && w.Stats != nil {
+		if includeThis && w.Opts.IncludeStats && w.Stats != nil {
 			w.mu.Lock()
 			w.Stats.FilesVisited++
 			w.Stats.TotalSize += size
@@ -285,7 +297,7 @@ func (w *Walker) Walk(root string) error {
 			w.mu.Unlock()
 		}
 
-		if w.OnVisitFile != nil {
+		if includeThis && w.OnVisitFile != nil {
 			if err := w.OnVisitFile(path, size); err != nil {
 				w.debug(path, "OnVisitFile returned error", map[string]interface{}{"err": err})
 				return w.handleError(path, err)
@@ -345,10 +357,20 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 
 		// Skip depth beyond MaxDepth
 		depth := getDepth(root, path)
+		if depth >= w.Opts.MinIncludeDepth {
+			w.Stats.EntriesVisited++
+		}
+
+		if w.Opts.SkipRoot && depth == 0 {
+			// Root: skip processing, but allow traversal into immediate children
+			return nil
+		}
+
 		if w.Opts.MaxDepth >= 0 && depth > w.Opts.MaxDepth {
 			if d.IsDir() {
 				return fs.SkipDir
 			}
+
 			return nil
 		}
 
