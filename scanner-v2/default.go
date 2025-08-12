@@ -8,7 +8,6 @@ const (
 
 func DefaultConfig() Config {
 	return Config{
-		Verbose: ptr(false),
 		Options: &ScanOptions{
 			Mode:  DefaultMode,
 			Depth: DefaultDepth,
