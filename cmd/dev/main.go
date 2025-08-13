@@ -13,12 +13,12 @@ import (
 )
 
 func main() {
-	logger.Step("🔁 Starting dev server with auto-rebuild")
+	logger.Info("🔁 Starting dev server with auto-rebuild")
 
 	if err := webgen.GenerateSite("data", "dist"); err != nil {
 		logger.Error("❌ Initial site generation failed: " + err.Error())
 	}
-	logger.Done("Initial site generation complete")
+	logger.Info("Initial site generation complete")
 
 	// Setup graceful shutdown
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
@@ -41,5 +41,5 @@ func main() {
 
 	// Optional: give time to finish writes, close file handles, etc.
 	time.Sleep(300 * time.Millisecond)
-	logger.Done("👋 Gracefully exited.")
+	logger.Info("👋 Gracefully exited.")
 }

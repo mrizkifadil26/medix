@@ -30,7 +30,7 @@ func EnsureDirs(paths ...string) {
 
 func CopyFile(src, dst string) error {
 	if DryRun {
-		logger.Dry("[DRY-RUN] Would copy file: " + shorten(src) + "→ " + shorten(dst))
+		logger.Info("[DRY-RUN] Would copy file: " + shorten(src) + "→ " + shorten(dst))
 		return nil
 	}
 
@@ -67,7 +67,7 @@ func CopyDir(src, dst string) error {
 
 		if info.IsDir() {
 			if DryRun {
-				logger.Dry("[DRY-RUN] Would create dir: " + targetPath)
+				logger.Info("[DRY-RUN] Would create dir: " + targetPath)
 				return nil
 			}
 

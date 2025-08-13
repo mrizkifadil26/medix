@@ -37,7 +37,7 @@ func RenderTemplate(files []string, outPath string, data any) {
 	Must(err)
 
 	if DryRun {
-		logger.Dry("[DRY-RUN] Skipped writing file: " + outPath)
+		logger.Info("[DRY-RUN] Skipped writing file: " + outPath)
 		return
 	}
 
@@ -52,7 +52,7 @@ func RenderTemplate(files []string, outPath string, data any) {
 	_, err = f.Write(minified)
 	Must(err)
 
-	logger.Done("📄 Rendered → " + outPath)
+	logger.Info("📄 Rendered → " + outPath)
 }
 
 func RenderStaticPages() {
