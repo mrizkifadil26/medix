@@ -1,4 +1,4 @@
-package scannerV2
+package scanner
 
 import "github.com/mrizkifadil26/medix/utils/concurrency"
 

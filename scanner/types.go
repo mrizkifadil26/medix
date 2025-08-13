@@ -1,113 +1,52 @@
-// internal/scan/config.go
 package scanner
 
-import (
-	"fmt"
-	"os"
-	"sync"
-)
-
-type ScanFileConfig struct {
-	Concurrency int          `json:"concurrency,omitempty"` // 👈 add this
-	Scan        []ScanConfig `json:"scan"`
-}
-
-type ScanConfig struct {
-	Name        string        `json:"name"`              // e.g. "movies.todo"
-	Type        string        `json:"type"`              // e.g. "media", "icon"
-	ContentType string        `json:"contentType"`       // e.g. "movies", "tv"
-	Phase       string        `json:"phase"`             // e.g. "raw", "staged", "organized"
-	Include     []ScanInclude `json:"include"`           // (optional) for future use
-	Exclude     []string      `json:"exclude"`           // (optional) for future use
-	Output      string        `json:"output"`            // Output file path
-	Options     *ScanOptions  `json:"options,omitempty"` // optional overrides
-}
-
-type ScanInclude struct {
-	Label string `json:"label"`
-	Path  string `json:"path"`
-}
-
-type ScanStrategy interface {
-	Scan(sources map[string]string, opts ScanOptions) (any, error) // returns model.MovieOutput or model.TVShowOutput
-}
-
-type dirCache struct {
-	mu    sync.Mutex
-	cache map[string][]os.DirEntry
-	// m sync.Map // map[string][]os.DirEntry
-}
-
-func (c *dirCache) GetOrRead(path string) ([]os.DirEntry, error) {
-	c.mu.Lock()
-	defer c.mu.Unlock()
-
-	if entries, ok := c.cache[path]; ok {
-		// ✅ Return cached result
-		return entries, nil
-	}
-
-	entries, err := os.ReadDir(path)
-	if err != nil {
-		fmt.Printf("Failed to read directory %s: %v\n", path, err)
-		return nil, err
-	}
-
-	c.cache[path] = entries
-	return entries, nil
-}
-
-type ScanMode string
-
-const (
-	ScanDirs  ScanMode = "dirs"
-	ScanFiles ScanMode = "files"
-)
-
-func (m ScanMode) String() string {
-	return string(m)
-}
-
-type ScanPhase string
-
-const (
-	PhaseRaw    ScanPhase = "raw"
-	PhaseStaged ScanPhase = "staged"
-	PhaseFinal  ScanPhase = "final"
-)
-
-func ImpliedScanMode(contentType string, phase ScanPhase) ScanMode {
-	switch contentType {
-	case "media":
-		switch phase {
-		case PhaseRaw:
-			return ScanFiles
-		case PhaseStaged, PhaseFinal:
-			return ScanDirs
-		default:
-			return ScanDirs
-		}
-	case "icon":
-		return ScanFiles // always files for icons
-	default:
-		return ScanDirs
-	}
-}
-
-type ScanOptions struct {
-	Mode         ScanMode `json:"mode"`                   // "files" or "dirs"
-	Depth        int      `json:"depth"`                  // e.g. 4 for raw
-	Exts         []string `json:"exts,omitempty"`         // file extensions to include (if files)
-	Concurrency  int      `json:"concurrency,omitempty"`  // override global
-	ShowProgress bool     `json:"showProgress,omitempty"` // show scan progress
-}
+// type ScanOptions = Options
 
 type ScanEntry struct {
-	Source     string
-	GroupLabel []string
-	GroupPath  string
-	ItemPath   string
-	ItemName   string
-	ItemSize   *int64
-	SubEntries []os.DirEntry
+	Path    string `json:"path"`     // Absolute path
+	RelPath string `json:"rel_path"` // Relative to scan root
+	Name    string `json:"name"`     // Basename
+	Type    string `json:"type"`     // "file", "dir", "symlink", etc
+
+	Ext     string `json:"ext,omitempty"`      // ".mkv", ".txt", etc
+	Size    *int64 `json:"size,omitempty"`     // Optional size
+	ModTime string `json:"mod_time,omitempty"` // ISO8601
+
+	GroupLabel    []string    `json:"group_label,omitempty"`    // e.g. ["Action"], ["Action", "Marvel"]
+	GroupPath     string      `json:"group_path,omitempty"`     // e.g. "Action/Marvel"
+	AncestorPaths []string    `json:"ancestor_paths,omitempty"` // ["Action", "Action/MCU"]
+	Children      []ScanEntry `json:"children,omitempty"`       // Recursive entries
 }
+
+type ScanOutput struct {
+	Version     string        `json:"version"`            // Schema version, e.g. "1.0.0"
+	GeneratedAt string        `json:"generated_at"`       // ISO8601 timestamp
+	SourcePath  string        `json:"source_path"`        // Absolute root path scanned
+	Mode        string        `json:"mode"`               // "files" | "dirs" | "mixed"
+	ItemCount   int           `json:"item_count"`         // len(Items)
+	DurationMs  int64         `json:"duration_ms"`        // Total elapsed time in milliseconds
+	Tags        []string      `json:"tags,omitempty"`     // Optional job/context tags
+	Stats       *WalkStats    `json:"stats,omitempty"`    // Deep stats from walker
+	Errors      []ScanError   `json:"errors,omitempty"`   // Errors encountered (path + reason)
+	Warnings    []ScanWarning `json:"warnings,omitempty"` // Non-critical issues
+	Items       []ScanEntry   `json:"items"`              // Final matched items
+}
+
+type ScanError struct {
+	Path   string `json:"path"`
+	Reason string `json:"reason"`
+}
+
+type ScanWarning struct {
+	Path   string `json:"path"`
+	Detail string `json:"detail"`
+}
+
+type SubentriesMode string
+
+const (
+	SubentriesNone   SubentriesMode = "none"
+	SubentriesFlat   SubentriesMode = "flat"
+	SubentriesNested SubentriesMode = "nested"
+	SubentriesAuto   SubentriesMode = "auto"
+)

@@ -1,12 +1,22 @@
 {
   "root": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/TV Show Icon Pack/Downloaded",
-  "mode": "files",
-  "exts": [
-    ".ico"
+  "tags": [
+    "tv",
+    "icon",
+    "external"
   ],
-  "depth": -1,
-  "exclude": [],
-  "onlyLeaf": true,
-  "skipEmpty": true,
-  "verbose": true
+  "options": {
+    "mode": "files",
+    "depth": -1,
+    "debug": true,
+    "enableProgress": true,
+    "includeExts": [
+      ".ico"
+    ],
+    "excludePatterns": []
+  },
+  "output": {
+    "includeStats": true,
+    "includeErrors": true
+  }
 }

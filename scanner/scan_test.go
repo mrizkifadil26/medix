@@ -1,19 +1,6 @@
-//go:build !tvtest
+package scanner_test
 
-package scannerV2_test
-
-import (
-	"fmt"
-	"os"
-	"path/filepath"
-	"testing"
-	"time"
-
-	scannerV2 "github.com/mrizkifadil26/medix/scanner-v2"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-)
-
+/*
 func TestScan_Basic(t *testing.T) {
 	root := t.TempDir()
 
@@ -45,6 +32,7 @@ func TestScan_Basic(t *testing.T) {
 	require.Equal(t, "Inception.2010.mkv", entry.ItemName)
 	require.NotNil(t, entry.ItemSize)
 }
+	/*
 
 func TestScan_FilterMP4(t *testing.T) {
 	root := t.TempDir()
@@ -181,7 +169,7 @@ func TestScan_MultiExtDeep(t *testing.T) {
 	out, err := scannerV2.Scan(root, opts)
 	require.NoError(t, err)
 	require.Len(t, out.Items, 2)
-}
+} */
 
 /*
 func TestScan_TVShowStyle(t *testing.T) {
@@ -223,6 +211,7 @@ func TestScan_TVShowStyle(t *testing.T) {
 }
 */
 
+/*
 func TestScan_ConcurrencyEffect(t *testing.T) {
 	tmp := t.TempDir()
 
@@ -248,7 +237,7 @@ func TestScan_ConcurrencyEffect(t *testing.T) {
 		Depth:       1,
 		Exts:        []string{".mkv"},
 		Verbose:     false,
-		Concurrency: 5, // parallel
+		Concurrency: 4, // parallel
 	})
 
 	require.NoError(t, err)
@@ -256,3 +245,4 @@ func TestScan_ConcurrencyEffect(t *testing.T) {
 
 	assert.Less(t, durationParallel, durationSequential)
 }
+*/

@@ -3,84 +3,101 @@ package scanner
 import (
 	"os"
 	"path/filepath"
-
-	"github.com/mrizkifadil26/medix/model"
-	"github.com/mrizkifadil26/medix/utils"
+	"strings"
 )
 
-var globalConcurrency = 1
-
-func SetConcurrency(n int) {
-	if n > 0 {
-		globalConcurrency = n
-	}
-}
-
-func getConcurrency() int {
-	return globalConcurrency
-}
-
-func resolveIcon(dir string, entries []os.DirEntry) *model.IconRef {
-	for _, f := range entries {
-		if f.IsDir() || filepath.Ext(f.Name()) != ".ico" {
-			continue
-		}
-
-		info, err := os.Stat(filepath.Join(dir, f.Name()))
-		if err != nil {
-			continue
-		}
-
-		name := f.Name()
-		size := info.Size()
-		return &model.IconRef{
-			Name:     name,
-			Slug:     utils.Slugify(name),
-			FullPath: filepath.Join(dir, name),
-			Size:     size,
+func containsDir(entries []os.DirEntry) bool {
+	for _, e := range entries {
+		if e.IsDir() {
+			return true
 		}
 	}
-
-	return nil
+	return false
 }
 
-func resolveStatus(entries []os.DirEntry) string {
-	hasIco := false
-	hasIni := false
-
-	for _, f := range entries {
-		if f.IsDir() {
-			continue
-		}
-		switch filepath.Ext(f.Name()) {
-		case ".ico":
-			hasIco = true
-		case ".ini":
-			if f.Name() == "desktop.ini" {
-				hasIni = true
-			}
-		}
-
-		// Early exit once both are found
-		if hasIco && hasIni {
-			return "ok"
-		}
+func getDepth(base, path string) int {
+	rel, _ := filepath.Rel(base, path)
+	if rel == "." {
+		return 0
 	}
 
-	if hasIco {
-		return "warn"
-	}
-
-	return "missing"
+	return len(strings.Split(rel, string(filepath.Separator)))
 }
 
-func hasValidExt(path string, exts []string) bool {
-	ext := filepath.Ext(path)
-	for _, e := range exts {
-		if e == ext {
+func contains(list []string, v string) bool {
+	for _, s := range list {
+		if s == v {
 			return true
 		}
 	}
 
 	return false
+}
+
+func getLeafDepth(start string) (int, error) {
+	level := 0
+	current := start
+
+	for {
+		entries, err := os.ReadDir(current)
+		if err != nil {
+			return 0, err
+		}
+		found := false
+		for _, e := range entries {
+			if e.IsDir() {
+				current = filepath.Join(current, e.Name())
+				found = true
+				break
+			}
+		}
+		if !found {
+			break
+		}
+		level++
+	}
+
+	return level, nil
+}
+
+// isHidden checks if a file/dir is hidden (starts with .)
+func isHidden(name string) bool {
+	return strings.HasPrefix(name, ".")
+}
+
+func isLeafDir(path string) bool {
+	f, err := os.Open(path)
+	if err != nil {
+		return false
+	}
+	defer f.Close()
+
+	for {
+		infos, err := f.Readdir(1) // read 1 entry at a time
+		if err != nil {
+			break // EOF or error
+		}
+
+		if infos[0].IsDir() {
+			return false // has a subdirectory
+		}
+	}
+
+	return true // no subdirectories found
+}
+
+func determineLogLevel(opts ScanOptions) string {
+	if opts.Trace {
+		return "TRACE"
+	}
+
+	if opts.Debug { // if you have a Debug bool in opts
+		return "DEBUG"
+	}
+
+	if opts.Verbose {
+		return "INFO" // or VERBOSE as you want
+	}
+
+	return "ERROR"
 }

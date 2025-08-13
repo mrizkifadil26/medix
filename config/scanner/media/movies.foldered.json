@@ -1,20 +1,21 @@
 {
   "root": "/mnt/e/TODO/Movies/Foldered",
-  "mode": "dirs",
-  "exts": [
-    ".mkv"
+  "tags": [
+    "media",
+    "movies",
+    "foldered"
   ],
-  "depth": -1,
-  "exclude": [],
-  "onlyLeaf": true,
-  "skipEmpty": true,
-  "verbose": false,
-  "concurrency": 4,
-  "subEntries": true,
-  "subExts": [
-    ".mkv",
-    ".mp4",
-    ".ico",
-    ".srt"
-  ]
+  "options": {
+    "mode": "dirs",
+    "depth": 2,
+    "onlyLeaf": true,
+    "skipEmpty": true,
+    "includeChildren": true,
+    "enableProgress": true,
+    "debug": true
+  },
+  "output": {
+    "includeErrors": true,
+    "includeStats": true
+  }
 }

@@ -1,21 +1,21 @@
 {
-  "root": "/mnt/e/Media/Movies",
+  "root": "/mnt/d/TV Shows",
   "tags": [
     "media",
     "movies",
-    "main",
-    "final"
+    "torrent"
   ],
   "options": {
     "mode": "dirs",
     "depth": 2,
-    "onlyLeaf": true,
+    "onlyLeaf": false,
     "skipEmpty": true,
+    "minIncludeDepth": 2,
     "includeChildren": true,
-    "enableProgress": true,
-    "debug": true
+    "enableProgress": true
   },
   "output": {
+    "outputPath": "out/movies.torrent.json",
     "includeErrors": true,
     "includeStats": true
   }

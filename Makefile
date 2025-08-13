@@ -1,5 +1,12 @@
 # Makefile to build media tools, generate data, and serve static site
 
+# Enable recursive globbing
+SHELL := /bin/bash
+.ONESHELL:
+
+# Job types
+TYPES := media icon
+
 # --- Directories ---
 DATA_DIR        := data
 RAW_DIR         := $(DATA_DIR)/raw
@@ -63,25 +70,45 @@ all: movies tvshows
 
 # scan-media: scan-movies scan-tv
 
-# Default ARGS from Make
-scan-%:
-	@$(GO) run $(SCANNER_V2_CMD) \
-		--config="config/scanner/$*/$(type).$(label).json" \
-		--output=data/scanner/$*/$(type).$(label).json \
-
-# Enable recursive globbing
-SHELL := /bin/bash
-.ONESHELL:
+# Scan all types
+CONFIG_DIR := config/scanner
+OUTPUT_DIR := $(OUTPUT_DIR)/scanned
+TYPES := media icon
 
 scan-all:
-	@shopt -s globstar nullglob; \
-	for f in config/scanner/**/*.json; do \
-		rel_path=$${f#config/scanner/}; \
-		out_path="data/scanner/$$rel_path"; \
-		mkdir -p "$$(dirname "$$out_path")"; \
-		echo "🔍 Scanning $$f → $$out_path"; \
-		go run cmd/scan-v2/main.go --config="$$f" --output="$$out_path"; \
+	@for type in $(TYPES); do \
+		shopt -s globstar; \
+		for config in $(CONFIG_DIR)/$$type/**/*.json; do \
+			[ -f "$$config" ] || continue; \
+			name=$$(basename $$config .json); \
+			out="$(OUTPUT_DIR)/$$type/$$name.json"; \
+			echo "Scanning $$type: $$config → $$out"; \
+			mkdir -p "$$(dirname $$out)"; \
+			$(GO) run $(SCANNER_CMD) --config "$$config" --output "$$out"; \
+		done \
 	done
+
+# Scan specific type: make scan-media or make scan-icon
+scan-%:
+	@if [ -z "$(label)" ] || [ -z "$(type)" ]; then \
+		echo "❌ Missing arguments. Usage: make scan-one label=LABEL type=TYPE"; \
+		exit 1; \
+	fi; \
+	config="$(CONFIG_DIR)/$*/$(type).$(label).json";
+	out="$(OUTPUT_DIR)/$*/$(type).$(label).json"; \
+
+	echo "Scanning $*: $$config → $$out"; \
+	mkdir -p "$$(dirname $$out)"; \
+	$(GO) run $(SCANNER_CMD) --config "$$config" --output "$$out"; \
+
+# Manual scan (no config): make scan ROOT=path MODE=files|dirs
+scan:
+	@$(GO) run $(SCANNER_CMD) $(ARGS)
+
+scan-test:
+	@$(GO) run $(SCANNER_CMD) \
+		-config="$(CONFIG_DIR)/config.json" \
+		$(ARGS)
 
 # --- Icon index generation ---
 icon:
