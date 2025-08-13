@@ -11,6 +11,8 @@ type FieldConfig struct {
 }
 
 type Config struct {
-	File   string        `json:"file"`   // Path to input data file
-	Fields []FieldConfig `json:"fields"` // List of normalization rules
+	Root       string        `json:"root"`   // Path to input data file
+	Fields     []FieldConfig `json:"fields"` // List of normalization rules
+	Verbose    bool          `json:"verbose,omitempty"`
+	OutputPath string        `json:"outputPath,omitempty"`
 }
