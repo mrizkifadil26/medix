@@ -13,13 +13,11 @@ func DefaultConfig() Config {
 			Depth: DefaultDepth,
 		},
 		Output: &OutputOptions{
-			Format:          ptr("json"),
-			OutputPath:      nil,
+			Format:          "json",
+			OutputPath:      DefaultOutputPath,
 			IncludeErrors:   false,
 			IncludeWarnings: false,
 			IncludeStats:    false,
 		},
 	}
 }
-
-func ptr[T any](v T) *T { return &v }

@@ -49,24 +49,28 @@ If -config is provided, it overrides everything except -output.
 	var cfg Config
 	shouldPopulate := false
 
-	if *root != "" {
-		cfg.Root = root
+	if root != nil && *root != "" {
+		cfg.Root = *root
 		shouldPopulate = true
 	}
-	if *mode != "" {
+	if mode != nil && *mode != "" {
 		cfg.Options.Mode = *mode
 		shouldPopulate = true
 	}
-	if *depth != -1 {
+	if depth != nil && *depth != -1 {
 		cfg.Options.Depth = *depth
 		shouldPopulate = true
 	}
-	if *verbose {
+	if verbose != nil && *verbose {
 		cfg.Options.Verbose = *verbose
 		shouldPopulate = true
 	}
-	if *outputPath != "" {
-		cfg.Output = &OutputOptions{OutputPath: outputPath}
+	if outputPath != nil && *outputPath != "" {
+		if cfg.Output == nil {
+			cfg.Output = &OutputOptions{}
+		}
+
+		cfg.Output.OutputPath = *outputPath
 		shouldPopulate = true
 	}
 
