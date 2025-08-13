@@ -399,9 +399,9 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 		// Skip entries shallower than MinIncludeDepth
 		if w.Opts.MinIncludeDepth > 0 && depth < w.Opts.MinIncludeDepth {
 			// continue walking children
-			if d.IsDir() {
-				return nil
-			}
+			// if d.IsDir() {
+			// 	return nil
+			// }
 
 			return nil
 		}
@@ -434,16 +434,32 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 		}
 
 		// Skip empty dirs if configured
-		if d.IsDir() {
-			entries, err := os.ReadDir(path)
-			if err == nil && w.Opts.SkipEmptyDirs && len(entries) == 0 {
+		// Skip empty dirs only if necessary
+		if d.IsDir() && w.Opts.SkipEmptyDirs {
+			entries, _ := os.ReadDir(path) // optional: ignore errors
+
+			if len(entries) == 0 {
 				return fs.SkipDir
 			}
 		}
+		// if d.IsDir() {
+		// 	entries, err := os.ReadDir(path)
+		// 	if err == nil && w.Opts.SkipEmptyDirs && len(entries) == 0 {
+		// 		return fs.SkipDir
+		// 	}
+		// }
 
 		// Skip non-leaf dirs if OnlyLeafDirs
 		if d.IsDir() && w.Opts.OnlyLeafDirs && !isLeafDir(path) {
 			return nil
+		}
+
+		// Skip entries based on OnlyDirs / OnlyFiles
+		if d.IsDir() && w.Opts.OnlyFiles {
+			return nil // skip dir entirely
+		}
+		if !d.IsDir() && w.Opts.OnlyDirs {
+			return nil // skip file entirely
 		}
 
 		// Passed all filters, increment counts
@@ -592,6 +608,7 @@ func (w *Walker) injectPath(path string, detail any) map[string]interface{} {
 		if _, exists := dm["path"]; !exists {
 			dm["path"] = path
 		}
+
 		return dm
 	}
 
