@@ -9,6 +9,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/mrizkifadil26/medix/logger"
 )
 
 type Walker struct {
@@ -16,6 +18,7 @@ type Walker struct {
 	Opts     WalkOptions
 	Stats    *WalkStats
 	Progress *ProgressTracker
+	Logger   logger.Logger
 
 	OnVisitFile func(path string, size int64) error
 	OnVisitDir  func(path string, entries []fs.DirEntry) error
@@ -53,19 +56,8 @@ type WalkOptions struct {
 
 // DebugOptions holds debug logging settings.
 type DebugOptions struct {
-	Enable  bool
-	LogFunc func(event DebugEvent)
-
-	Level string // e.g. "ERROR", "DEBUG", "TRACE"
-}
-
-// DebugEvent is a structured debug message from the walker.
-type DebugEvent struct {
-	Time    time.Time
-	Level   string // always "DEBUG" here
-	Path    string // affected file/dir path
-	Message string // short description
-	Detail  any    // optional extra info (filters, depth, etc.)
+	Enable bool
+	Level  string // e.g. "ERROR", "DEBUG", "TRACE"
 }
 
 type WalkStats struct {
@@ -97,12 +89,41 @@ type WalkStats struct {
 	Custom map[string]interface{}
 }
 
+// Default constructor without logger (logger will be nil)
 func NewWalker(ctx context.Context, opts WalkOptions) *Walker {
-	return &Walker{
+	return NewWalkerWithLogger(ctx, opts, nil)
+}
+
+func NewWalkerWithLogger(ctx context.Context, opts WalkOptions, log logger.Logger) *Walker {
+	var loggerWithCtx logger.Logger
+
+	if log == nil {
+		// Create default SimpleLogger
+		defaultLogger := logger.NewLogrusLogger()
+		loggerWithCtx = defaultLogger.WithContext("scanner.Walker")
+	} else {
+		// Use provided logger, ensure output set
+		loggerWithCtx = log.WithContext("scanner.Walker")
+	}
+
+	w := &Walker{
 		Context: ctx,
 		Opts:    opts,
 		Stats:   &WalkStats{Custom: make(map[string]interface{})},
+		Logger:  loggerWithCtx,
 	}
+
+	// Configure logger based on debug opts
+	if w.Logger != nil && opts.Debug.Enable {
+		level := parseLevel(opts.Debug.Level)
+
+		w.Logger.SetLevel(level)
+		w.Logger.SetEnabled(true)
+	} else if w.Logger != nil {
+		w.Logger.SetEnabled(false)
+	}
+
+	return w
 }
 
 func (w *Walker) Walk(root string) error {
@@ -562,63 +583,60 @@ func (w *Walker) handleSkip(path string, reason string) error {
 	return nil
 }
 
-func (w *Walker) shouldLog(eventLevel string) bool {
-	// Map severity levels (lower number = higher priority)
-	allowedLevels := map[string]int{
-		"ERROR": 1,
-		"DEBUG": 2,
-		"TRACE": 3,
+func (w *Walker) injectPath(path string, detail any) map[string]interface{} {
+	if detail == nil {
+		return map[string]interface{}{"path": path}
 	}
 
-	configuredLevel, ok := allowedLevels[strings.ToUpper(w.Opts.Debug.Level)]
-	if !ok {
-		// Default to ERROR if level not recognized
-		configuredLevel = 1
+	if dm, ok := detail.(map[string]interface{}); ok {
+		if _, exists := dm["path"]; !exists {
+			dm["path"] = path
+		}
+		return dm
 	}
 
-	levelValue, ok := allowedLevels[strings.ToUpper(eventLevel)]
-	if !ok {
-		// Unknown event level, do not log
-		return false
-	}
-
-	// Log if event is at or above configured level severity
-	return levelValue <= configuredLevel
+	return map[string]interface{}{"path": path, "detail": detail}
 }
 
-func (w *Walker) log(level, path, message string, detail any) {
-	if !w.Opts.Debug.Enable {
+// Log methods automatically inject path into detail
+func (w *Walker) debug(path string, msg string, detail any) {
+	if w.Logger == nil {
 		return
 	}
 
-	// currentLevel := w.Opts.Debug.Level
-	// fmt.Println(currentLevel)
+	w.Logger.Debug(msg, w.injectPath(path, detail))
+}
 
-	if !w.shouldLog(level) {
+func (w *Walker) info(path string, msg string, detail any) {
+	if w.Logger == nil {
 		return
 	}
 
-	if w.Opts.Debug.LogFunc != nil {
-		w.Opts.Debug.LogFunc(DebugEvent{
-			Time:    time.Now(),
-			Level:   strings.ToUpper(level),
-			Path:    path,
-			Message: message,
-			Detail:  detail,
-		})
+	w.Logger.Info(msg, w.injectPath(path, detail))
+}
+
+func (w *Walker) warn(path string, msg string, detail any) {
+	if w.Logger == nil {
+		return
 	}
+
+	w.Logger.Warn(msg, w.injectPath(path, detail))
 }
 
-func (w *Walker) debug(path, msg string, detail any) {
-	w.log("DEBUG", path, msg, detail)
+func (w *Walker) error(path string, msg string, detail any) {
+	if w.Logger == nil {
+		return
+	}
+
+	w.Logger.Error(msg, w.injectPath(path, detail))
 }
 
-func (w *Walker) trace(path, msg string, detail any) {
-	w.log("TRACE", path, msg, detail)
-}
+func (w *Walker) trace(path string, msg string, detail any) {
+	if w.Logger == nil {
+		return
+	}
 
-func (w *Walker) error(path, msg string, detail any) {
-	w.log("ERROR", path, msg, detail)
+	w.Logger.Trace(msg, w.injectPath(path, detail))
 }
 
 func (s *WalkStats) PrettyPrint() string {
@@ -728,4 +746,21 @@ func FormatStats(s *WalkStats) string {
 		s.EntriesPerSec, s.FilesPerSec,
 		customSummary,
 	)
+}
+
+func parseLevel(levelStr string) logger.Level {
+	switch strings.ToUpper(levelStr) {
+	case "ERROR":
+		return logger.LevelError
+	case "WARN":
+		return logger.LevelWarn
+	case "INFO":
+		return logger.LevelInfo
+	case "DEBUG":
+		return logger.LevelDebug
+	case "TRACE":
+		return logger.LevelTrace
+	default:
+		return logger.LevelInfo
+	}
 }
