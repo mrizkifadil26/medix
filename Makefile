@@ -84,7 +84,7 @@ scan-all:
 			out="$(OUTPUT_DIR)/$$type/$$name.json"; \
 			echo "Scanning $$type: $$config → $$out"; \
 			mkdir -p "$$(dirname $$out)"; \
-			$(GO) run $(SCANNER_V2_CMD) --config "$$config" --output "$$out"; \
+			$(GO) run $(SCANNER_CMD) --config "$$config" --output "$$out"; \
 		done \
 	done
 
@@ -99,14 +99,14 @@ scan-%:
 
 	echo "Scanning $*: $$config → $$out"; \
 	mkdir -p "$$(dirname $$out)"; \
-	$(GO) run $(SCANNER_V2_CMD) --config "$$config" --output "$$out"; \
+	$(GO) run $(SCANNER_CMD) --config "$$config" --output "$$out"; \
 
 # Manual scan (no config): make scan ROOT=path MODE=files|dirs
 scan:
-	@$(GO) run $(SCANNER_V2_CMD) $(ARGS)
+	@$(GO) run $(SCANNER_CMD) $(ARGS)
 
 scan-test:
-	@$(GO) run $(SCANNER_V2_CMD) \
+	@$(GO) run $(SCANNER_CMD) \
 		-config="$(CONFIG_DIR)/config.json" \
 		$(ARGS)
 
