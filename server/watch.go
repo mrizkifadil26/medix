@@ -19,7 +19,7 @@ func WatchAndBuild() {
 	paths := []string{"data", "templates", "assets"}
 	for _, path := range paths {
 		_ = watcher.Add(path)
-		logger.Watch("👁️ Watching: " + path)
+		logger.Info("👁️ Watching: " + path)
 	}
 
 	debounce := time.Now()
@@ -32,7 +32,7 @@ func WatchAndBuild() {
 			}
 			debounce = time.Now()
 
-			logger.Watch("🔁 Change detected: " + event.Name)
+			logger.Info("🔁 Change detected: " + event.Name)
 			err := webgen.GenerateSite("data", "dist")
 			if err != nil {
 				// log.Printf("❌ Generate error: %v", err)
@@ -40,7 +40,7 @@ func WatchAndBuild() {
 
 			} else {
 				// log.Println("✅ Site regenerated.")
-				logger.Done("✅ Site regenerated.")
+				logger.Info("✅ Site regenerated.")
 			}
 
 		case err := <-watcher.Errors:
