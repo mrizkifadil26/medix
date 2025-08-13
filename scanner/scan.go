@@ -40,7 +40,6 @@ func Scan(
 	}
 
 	logLevel := determineLogLevel(options)
-
 	walkOpts := WalkOptions{
 		MaxDepth:        options.Depth,
 		SkipEmptyDirs:   options.SkipEmpty,
@@ -62,11 +61,6 @@ func Scan(
 		Debug: DebugOptions{
 			Enable: true,
 			Level:  logLevel,
-			LogFunc: func(e DebugEvent) {
-				if shouldLog(e.Level, logLevel) {
-					fmt.Printf("[%s] %s - %s (%v)\n", e.Level, e.Path, e.Message, e.Detail)
-				}
-			},
 		},
 	}
 

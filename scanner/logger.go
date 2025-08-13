@@ -1,12 +1,6 @@
 package scanner
 
-const (
-	LevelError = 1
-	LevelInfo  = 2
-	LevelDebug = 3
-	LevelTrace = 4
-)
-
+/*
 func getLogLevel(opts ScanOptions) int {
 	if opts.Trace {
 		return LevelTrace
@@ -22,3 +16,4 @@ func getLogLevel(opts ScanOptions) int {
 
 	return LevelError
 }
+*/

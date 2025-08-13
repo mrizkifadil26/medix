@@ -101,24 +101,3 @@ func determineLogLevel(opts ScanOptions) string {
 
 	return "ERROR"
 }
-
-// Levels priority: ERROR < INFO < DEBUG < TRACE
-func shouldLog(eventLevel, configuredLevel string) bool {
-	levelPriority := map[string]int{
-		"ERROR": 1,
-		"INFO":  2, // verbose mapped to INFO
-		"DEBUG": 3,
-		"TRACE": 4,
-	}
-
-	eventPri, ok1 := levelPriority[strings.ToUpper(eventLevel)]
-	configPri, ok2 := levelPriority[strings.ToUpper(configuredLevel)]
-
-	if !ok1 || !ok2 {
-		// Unknown level, be safe and allow logging
-		return true
-	}
-
-	// Log if event level priority is less or equal (more severe or equal)
-	return eventPri <= configPri
-}
