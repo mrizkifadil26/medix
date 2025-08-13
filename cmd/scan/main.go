@@ -18,10 +18,6 @@ func main() {
 		log.Fatalf("Error parsing CLI: %v", err)
 	}
 
-	// Start config from CLI
-	// config := args.Config
-	// var fileConfig Config
-	// If config file exists, load and merge
 	if args.ConfigPath != nil {
 		fileConfig, err := utils.LoadConfig[scanner.Config](*args.ConfigPath)
 		if err != nil {
@@ -29,31 +25,25 @@ func main() {
 		}
 
 		// Deep merge file config with CLI overrides
-		merged, err := utils.Merge(
-			config,
-			fileConfig,
+		if err := utils.MergeInto(
+			&config,
+			&fileConfig,
 			utils.MergeOptions{
 				Overwrite: true,
 				Recursive: true,
 			},
-		)
-
-		if err != nil {
+		); err != nil {
 			log.Fatalf("Failed to merge file config into defaults: %v", err)
 		}
-
-		config = merged
 	}
 
 	// 3. Merge CLI config into result (CLI overrides file+defaults)
-	merged, err := utils.Merge(config, args.Config, utils.MergeOptions{
+	if err := utils.MergeInto(&config, &args.Config, utils.MergeOptions{
 		Overwrite: true,
 		Recursive: true,
-	})
-	if err != nil {
+	}); err != nil {
 		log.Fatalf("Failed to merge CLI config: %v", err)
 	}
-	config = merged
 
 	// Validate required field
 	if config.Root == "" {
@@ -62,10 +52,10 @@ func main() {
 	}
 
 	// Fill missing defaults
-	if err := config.ApplyDefaults(); err != nil {
-		log.Fatalf("Error applying defaults: %v", err)
-	}
-	config.PrettyPrint()
+	// if err := config.ApplyDefaults(); err != nil {
+	// 	log.Fatalf("Error applying defaults: %v", err)
+	// }
+	// config.PrettyPrint()
 
 	results, err := scanner.Scan(
 		config.Root,
