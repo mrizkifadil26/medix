@@ -1,12 +1,18 @@
 {
   "root": "/mnt/e/TODO/Movies/By Year",
-  "mode": "files",
-  "exts": [
-    ".mkv"
+  "tags": [
+    "media",
+    "movies",
+    "by year"
   ],
-  "depth": -1,
-  "exclude": [],
-  "onlyLeaf": true,
-  "skipEmpty": true,
-  "verbose": true
+  "options": {
+    "mode": "files",
+    "depth": -1,
+    "enableProgress": true,
+    "debug": true
+  },
+  "output": {
+    "includeErrors": true,
+    "includeStats": true
+  }
 }

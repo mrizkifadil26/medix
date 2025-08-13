@@ -1,21 +1,21 @@
 {
   "root": "/mnt/d/TV Shows",
-  "mode": "dirs",
-  "exts": [
-    ".mkv"
+  "tags": [
+    "media",
+    "tv",
+    "external"
   ],
-  "depth": 2,
-  "exclude": [],
-  "onlyLeaf": false,
-  "leafDepth": 1,
-  "skipEmpty": true,
-  "verbose": true,
-  "subentries": "nested",
-  "subdepth": -1,
-  "subexts": [
-    ".mkv",
-    ".mp4",
-    ".ico",
-    ".srt"
-  ]
+  "options": {
+    "mode": "dirs",
+    "depth": 2,
+    "onlyLeaf": false,
+    "skipEmpty": true,
+    "includeChildren": true,
+    "enableProgress": true,
+    "debug": true
+  },
+  "output": {
+    "includeErrors": true,
+    "includeStats": true
+  }
 }

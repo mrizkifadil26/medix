@@ -1,11 +1,16 @@
 {
-  "root": "/mnt/d/Movies/Torrent",
-  "verbose": true,
-  "tags": ["media", "movies", "torrent"],
+  "root": "/mnt/d/TV Shows",
+  "tags": [
+    "media",
+    "movies",
+    "torrent"
+  ],
   "options": {
     "mode": "dirs",
     "depth": 2,
-    "onlyLeaf": true,
+    "onlyLeaf": false,
+    "skipEmpty": true,
+    "minIncludeDepth": 2,
     "includeChildren": true,
     "enableProgress": true
   },

@@ -1,23 +1,22 @@
 {
   "root": "/mnt/e/Media/Movies",
+  "tags": [
+    "media",
+    "movies",
+    "main",
+    "final"
+  ],
   "options": {
     "mode": "dirs",
-    "exts": [
-      ".mkv"
-    ],
-    "depth": -1,
-    "exclude": [],
+    "depth": 2,
     "onlyLeaf": true,
-    "leafDepth": 0,
     "skipEmpty": true,
-    "verbose": false,
-    "concurrency": 4,
-    "subentries": "flat",
-    "subexts": [
-      ".mkv",
-      ".mp4",
-      ".ico",
-      ".srt"
-    ]
+    "includeChildren": true,
+    "enableProgress": true,
+    "debug": true
+  },
+  "output": {
+    "includeErrors": true,
+    "includeStats": true
   }
 }

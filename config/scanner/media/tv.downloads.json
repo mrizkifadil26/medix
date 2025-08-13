@@ -1,13 +1,21 @@
 {
   "root": "/mnt/c/Users/Rizki/Downloads/Media/TV Shows",
-  "mode": "dirs",
-  "exts": [
-    ".mkv"
+  "tags": [
+    "media",
+    "tv",
+    "downloads"
   ],
-  "depth": 2,
-  "exclude": [],
-  "onlyLeaf": false,
-  "leafDepth": 1,
-  "skipEmpty": true,
-  "verbose": true
+  "options": {
+    "mode": "dirs",
+    "depth": 2,
+    "onlyLeaf": false,
+    "skipEmpty": true,
+    "includeChildren": true,
+    "enableProgress": true,
+    "debug": true
+  },
+  "output": {
+    "includeErrors": true,
+    "includeStats": true
+  }
 }

@@ -1,13 +1,21 @@
 {
   "root": "/mnt/f/Torrent",
-  "mode": "dirs",
-  "exts": [
-    ".mkv"
+  "tags": [
+    "media",
+    "movies",
+    "torrent"
   ],
-  "depth": -1,
-  "exclude": [],
-  "onlyLeaf": true,
-  "skipEmpty": true,
-  "verbose": true,
-  "concurrency": 4
+  "options": {
+    "mode": "dirs",
+    "depth": 2,
+    "onlyLeaf": true,
+    "skipEmpty": true,
+    "includeChildren": true,
+    "enableProgress": true,
+    "debug": true
+  },
+  "output": {
+    "includeErrors": true,
+    "includeStats": true
+  }
 }
