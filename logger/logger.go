@@ -1,5 +1,7 @@
 package logger
 
+import "io"
+
 // Level defines log severity levels.
 type Level int
 
@@ -30,15 +32,18 @@ func (l Level) String() string {
 
 // Logger interface supports the specified severities.
 type Logger interface {
-	Log(level Level, context, msg string, detail any)
-	Error(context, msg string, detail any)
-	Warn(context, msg string, detail any)
-	Info(context, msg string, detail any)
-	Debug(context, msg string, detail any)
-	Trace(context, msg string, detail any)
+	WithContext(ctx string) Logger
+
+	Log(level Level, msg string, detail ...any)
+	Error(msg string, detail ...any)
+	Warn(msg string, detail ...any)
+	Info(msg string, detail ...any)
+	Debug(msg string, detail ...any)
+	Trace(msg string, detail ...any)
 
 	// Optional: expose config getters/setters
 	SetEnabled(enabled bool)
 	SetLevel(level Level)
 	GetLevel() Level
+	SetOutput(w io.Writer)
 }

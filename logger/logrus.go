@@ -3,7 +3,6 @@ package logger
 import (
 	"fmt"
 	"io"
-	"strings"
 	"time"
 
 	"github.com/sirupsen/logrus"
@@ -11,9 +10,10 @@ import (
 
 // LogrusLogger wraps a logrus.Logger to implement Logger interface.
 type LogrusLogger struct {
-	logger *logrus.Logger
-	Enable bool
-	Level  Level
+	enabled bool
+	level   Level
+	context string
+	logger  *logrus.Logger
 }
 
 func NewLogrusLogger() *LogrusLogger {
@@ -25,9 +25,9 @@ func NewLogrusLogger() *LogrusLogger {
 	})
 
 	l := &LogrusLogger{
-		logger: baseLogger,
-		Enable: true,
-		Level:  LevelInfo,
+		enabled: true,
+		level:   LevelInfo,
+		logger:  baseLogger,
 	}
 
 	l.syncLogrusLevel()
@@ -35,88 +35,87 @@ func NewLogrusLogger() *LogrusLogger {
 	return l
 }
 
-func (l *LogrusLogger) Log(level Level, context, msg string, detail any) {
-	if !l.Enable || level > l.Level {
+func (l *LogrusLogger) WithContext(ctx string) Logger {
+	return &LogrusLogger{
+		enabled: l.enabled,
+		level:   l.level,
+		logger:  l.logger,
+		context: ctx,
+	}
+}
+
+func (l *LogrusLogger) SetEnabled(enabled bool) { l.enabled = enabled }
+func (l *LogrusLogger) GetLevel() Level         { return l.level }
+func (l *LogrusLogger) SetLevel(level Level) {
+	l.level = level
+	l.syncLogrusLevel()
+}
+
+func (l *LogrusLogger) SetOutput(w io.Writer) { l.logger.SetOutput(w) }
+
+func (l *LogrusLogger) Log(level Level, msg string, detail ...any) {
+	if !l.enabled || level > l.level {
 		return
 	}
 
-	col := colorForLevel(level)
-	tag := fmt.Sprintf("%s[%s]%s", col, strings.ToUpper(level.String()), colorReset)
-	fullMsg := fmt.Sprintf("%s %s - %s", tag, context, msg)
+	entry := l.logger.WithFields(logrus.Fields{})
+	if l.context != "" {
+		entry = entry.WithField("context", l.context)
+	}
 
-	entry := l.logger.WithField("context", context)
-	if detail != nil {
-		entry = entry.WithField("detail", detail)
+	if len(detail) > 0 && detail[0] != nil {
+		// Try to flatten if single map[string]interface{}
+		if len(detail) == 1 {
+			if fields, ok := detail[0].(map[string]interface{}); ok {
+				entry = entry.WithFields(fields)
+			} else {
+				// fallback: join all details as string
+				entry = entry.WithField("detail", fmt.Sprint(detail...))
+			}
+		} else {
+			entry = entry.WithField("detail", fmt.Sprint(detail...))
+		}
 	}
 
 	switch level {
 	case LevelError:
-		entry.Error(fullMsg)
+		entry.Error(msg)
 	case LevelWarn:
-		entry.Warn(fullMsg)
+		entry.Warn(msg)
 	case LevelInfo:
-		entry.Info(fullMsg)
+		entry.Info(msg)
 	case LevelDebug:
-		entry.Debug(fullMsg)
+		entry.Debug(msg)
 	case LevelTrace:
-		entry.Trace(fullMsg)
+		entry.Trace(msg)
 	default:
-		entry.Info(fullMsg)
+		entry.Info(msg)
 	}
 }
 
-func (l *LogrusLogger) Error(context, msg string, detail any) {
-	l.Log(LevelError, context, msg, detail)
-}
-func (l *LogrusLogger) Warn(context, msg string, detail any) { l.Log(LevelWarn, context, msg, detail) }
-func (l *LogrusLogger) Info(context, msg string, detail any) { l.Log(LevelInfo, context, msg, detail) }
-func (l *LogrusLogger) Debug(context, msg string, detail any) {
-	l.Log(LevelDebug, context, msg, detail)
-}
-func (l *LogrusLogger) Trace(context, msg string, detail any) {
-	l.Log(LevelTrace, context, msg, detail)
+func (l *LogrusLogger) Error(msg string, detail ...any) {
+	l.Log(LevelError, msg, detail...)
 }
 
-func (l *LogrusLogger) SetEnabled(enabled bool) { l.Enable = enabled }
-func (l *LogrusLogger) SetLevel(level Level) {
-	l.Level = level
-	l.syncLogrusLevel()
-}
-func (l *LogrusLogger) GetLevel() Level { return l.Level }
-func (l *LogrusLogger) SetOutput(w io.Writer) {
-	l.logger.SetOutput(w)
+func (l *LogrusLogger) Warn(msg string, detail ...any) {
+	l.Log(LevelWarn, msg, detail...)
 }
 
-// ANSI color codes for LogrusLogger
-const (
-	colorReset  = "\033[0m"
-	colorRed    = "\033[31m"
-	colorYellow = "\033[33m"
-	colorBlue   = "\033[34m"
-	colorCyan   = "\033[36m"
-	colorGray   = "\033[37m"
-)
+func (l *LogrusLogger) Info(msg string, detail ...any) {
+	l.Log(LevelInfo, msg, detail...)
+}
 
-func colorForLevel(l Level) string {
-	switch l {
-	case LevelError:
-		return colorRed
-	case LevelWarn:
-		return colorYellow
-	case LevelInfo:
-		return colorBlue
-	case LevelDebug:
-		return colorCyan
-	case LevelTrace:
-		return colorGray
-	default:
-		return colorReset
-	}
+func (l *LogrusLogger) Debug(msg string, detail ...any) {
+	l.Log(LevelDebug, msg, detail...)
+}
+
+func (l *LogrusLogger) Trace(msg string, detail ...any) {
+	l.Log(LevelTrace, msg, detail...)
 }
 
 // syncLogrusLevel adjusts the internal logrus.Logger level to match l.level
 func (l *LogrusLogger) syncLogrusLevel() {
-	switch l.Level {
+	switch l.level {
 	case LevelError:
 		l.logger.SetLevel(logrus.ErrorLevel)
 	case LevelWarn:
