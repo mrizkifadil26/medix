@@ -1,69 +1,85 @@
 package normalizer
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
-	"os"
-	"path/filepath"
 )
 
 type CLIArgs struct {
-	Input      string
-	OutputPath string
-	ConfigPath string
+	ConfigPath *string
 	Config     Config
 }
 
-func ParseCLI() (CLIArgs, error) {
+func ParseCLI() (*CLIArgs, error) {
 	var (
-		inputPath  string
-		outputPath string
-		configPath string
+		configPath = flag.String("config", "", "Path to config file (JSON or YAML)")
+		outputPath = flag.String("output", "", "Output result path")
+		root       = flag.String("root", "", "Root directory to scan")
+		verbose    = flag.Bool("verbose", false, "Enable verbose logging")
 	)
 
-	// Define CLI flags
-	flag.StringVar(&inputPath, "input", "", "Override input file path (optional, defaults to 'file' in config)")
-	flag.StringVar(&outputPath, "output", "", "Optional output file path")
-	flag.StringVar(&configPath, "config", "", "Path to normalization config JSON (required)")
 	flag.Parse()
 
 	// Ensure config file is provided
-	if configPath == "" {
-		return CLIArgs{}, fmt.Errorf("missing required --config flag")
+	if configPath == nil || *configPath == "" {
+		return nil, fmt.Errorf("missing required -config argument")
 	}
 
-	// Load config from file
-	configAbsPath, err := filepath.Abs(configPath)
-	if err != nil {
-		return CLIArgs{}, fmt.Errorf("invalid config path: %w", err)
+	var cfg Config
+	shouldPopulate := false
+
+	if root != nil && *root != "" {
+		cfg.Root = *root
+		shouldPopulate = true
 	}
 
-	configFile, err := os.ReadFile(configAbsPath)
-	if err != nil {
-		return CLIArgs{}, fmt.Errorf("failed to read config file: %w", err)
+	if verbose != nil && *verbose {
+		cfg.Verbose = *verbose
+		shouldPopulate = true
 	}
 
-	var config Config
-	if err := json.Unmarshal(configFile, &config); err != nil {
-		return CLIArgs{}, fmt.Errorf("failed to parse config JSON: %w", err)
+	if outputPath != nil && *outputPath != "" {
+		cfg.OutputPath = *outputPath
+		shouldPopulate = true
 	}
 
-	// Determine final input path: CLI > config
-	// Determine input path: CLI overrides config
-	finalInput := config.File
-	if inputPath != "" {
-		finalInput = inputPath
-	}
-
-	if finalInput == "" {
-		return CLIArgs{}, fmt.Errorf("input path not provided (either via --input or config.file)")
-	}
-
-	return CLIArgs{
-		Input:      finalInput,
-		OutputPath: outputPath,
+	args := &CLIArgs{
 		ConfigPath: configPath,
-		Config:     config,
-	}, nil
+	}
+
+	if shouldPopulate {
+		args.Config = cfg
+	}
+
+	fmt.Println(*args.ConfigPath)
+
+	return args, nil
+
+	// configFile, err := os.ReadFile(configAbsPath)
+	// if err != nil {
+	// 	return CLIArgs{}, fmt.Errorf("failed to read config file: %w", err)
+	// }
+
+	// var config Config
+	// if err := json.Unmarshal(configFile, &config); err != nil {
+	// 	return CLIArgs{}, fmt.Errorf("failed to parse config JSON: %w", err)
+	// }
+
+	// // Determine final input path: CLI > config
+	// // Determine input path: CLI overrides config
+	// finalInput := config.File
+	// if inputPath != "" {
+	// 	finalInput = inputPath
+	// }
+
+	// if finalInput == "" {
+	// 	return CLIArgs{}, fmt.Errorf("input path not provided (either via --input or config.file)")
+	// }
+
+	// return CLIArgs{
+	// 	Input:      finalInput,
+	// 	OutputPath: outputPath,
+	// 	ConfigPath: configPath,
+	// 	Config:     config,
+	// }, nil
 }
