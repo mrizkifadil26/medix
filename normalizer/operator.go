@@ -7,9 +7,13 @@ import (
 	normalizer "github.com/mrizkifadil26/medix/normalizer/helpers"
 )
 
+// --- function types ---
 type NormalizeFunc func(string) string
+type ExtractFunc func(string) (string, error)
+type ReplaceFunc func(string, map[string]string) (string, error)
+type FormatFunc func(string, map[string]string) (string, error)
 
-var Normalizers = map[string]NormalizeFunc{
+var DefaultNormalizers = map[string]NormalizeFunc{
 	"unicodeFix":          normalizer.NormalizeUnicode,
 	"stripExtension":      normalizer.StripExtension,
 	"stripBrackets":       normalizer.StripBrackets,
@@ -23,13 +27,9 @@ var Normalizers = map[string]NormalizeFunc{
 	"normalizeDashes":     normalizer.NormalizeDashes,
 }
 
-type ExtractFunc func(string) (string, error)
-
-var Extractors = map[string]ExtractFunc{
+var DefaultExtractors = map[string]ExtractFunc{
 	"year": normalizer.ExtractYear,
 }
-
-type ReplaceFunc func(string, map[string]string) (string, error)
 
 func DefaultReplacer(input string, params map[string]string) (string, error) {
 	from, ok := params["from"]
@@ -40,8 +40,6 @@ func DefaultReplacer(input string, params map[string]string) (string, error) {
 	to := params["to"] // `to` can be empty, which is valid (to remove `from`)
 	return strings.ReplaceAll(input, from, to), nil
 }
-
-type FormatFunc func(string, map[string]string) (string, error)
 
 func DefaultFormatter(template string, from map[string]string) (string, error) {
 	result := template
@@ -63,9 +61,18 @@ type OperatorRegistry struct {
 
 func NewOperators() *OperatorRegistry {
 	return &OperatorRegistry{
-		NormalizeFuncs: Normalizers,      // map[string]NormalizerFunc
-		ExtractFuncs:   Extractors,       // map[string]ExtractorFunc
-		ReplaceFunc:    DefaultReplacer,  // func(string, map[string]string)
-		FormatFunc:     DefaultFormatter, // func(string, map[string]string)
+		NormalizeFuncs: clone(DefaultNormalizers), // map[string]NormalizerFunc
+		ExtractFuncs:   clone(DefaultExtractors),  // map[string]ExtractorFunc
+		ReplaceFunc:    DefaultReplacer,           // func(string, map[string]string)
+		FormatFunc:     DefaultFormatter,          // func(string, map[string]string)
 	}
+}
+
+func clone[K comparable, V any](src map[K]V) map[K]V {
+	dst := make(map[K]V, len(src))
+	for k, v := range src {
+		dst[k] = v
+	}
+
+	return dst
 }
