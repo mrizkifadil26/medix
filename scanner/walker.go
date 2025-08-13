@@ -433,7 +433,6 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 			return nil
 		}
 
-		// Skip empty dirs if configured
 		// Skip empty dirs only if necessary
 		if d.IsDir() && w.Opts.SkipEmptyDirs {
 			entries, _ := os.ReadDir(path) // optional: ignore errors
@@ -442,12 +441,6 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 				return fs.SkipDir
 			}
 		}
-		// if d.IsDir() {
-		// 	entries, err := os.ReadDir(path)
-		// 	if err == nil && w.Opts.SkipEmptyDirs && len(entries) == 0 {
-		// 		return fs.SkipDir
-		// 	}
-		// }
 
 		// Skip non-leaf dirs if OnlyLeafDirs
 		if d.IsDir() && w.Opts.OnlyLeafDirs && !isLeafDir(path) {
