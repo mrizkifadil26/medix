@@ -7,11 +7,11 @@ import (
 )
 
 type Config struct {
-	Root *string   `json:"root" yaml:"root"`
-	Tags *[]string `json:"tags,omitempty" yaml:"tags,omitempty"` // Optional job/context tags
+	Root string   `json:"root" yaml:"root"`
+	Tags []string `json:"tags,omitempty" yaml:"tags,omitempty"` // Optional job/context tags
 
-	Options *ScanOptions   `json:"options" yaml:"options"`
-	Output  *OutputOptions `json:"output" yaml:"output"` // Output format and options
+	Options *ScanOptions   `json:"options,omitempty" yaml:"options,omitempty"`
+	Output  *OutputOptions `json:"output,omitempty" yaml:"output,omitempty"` // Output format and options
 	// FileRules []Rule      `json:"fileRules,omitempty"`
 	// DirRules  []Rule      `json:"dirRules,omitempty"`
 }
@@ -44,8 +44,8 @@ type ScanOptions struct {
 }
 
 type OutputOptions struct {
-	Format     *string `json:"format" yaml:"format"`                             // Output format: "json", "yaml", etc
-	OutputPath *string `json:"outputPath,omitempty" yaml:"outputPath,omitempty"` // Optional output file path
+	Format     string `json:"format,omitempty" yaml:"format,omitempty"`         // Output format: "json", "yaml", etc
+	OutputPath string `json:"outputPath,omitempty" yaml:"outputPath,omitempty"` // Optional output file path
 
 	IncludeErrors   bool `json:"includeErrors,omitempty" yaml:"includeErrors,omitempty"`     // Include errors in output
 	IncludeWarnings bool `json:"includeWarnings,omitempty" yaml:"includeWarnings,omitempty"` // Include warnings in output
@@ -76,11 +76,12 @@ func (cfg *Config) PrettyPrint() {
 	section := func(title string) { fmt.Printf("\n%s\n", title) }
 
 	// Root-level fields
-	if cfg.Root != nil {
-		printRow("Root", *cfg.Root, "Root directory to scan")
+	if cfg.Root != "" {
+		printRow("Root", cfg.Root, "Root directory to scan")
 	}
+
 	if cfg.Tags != nil {
-		printRow("Tags", fmt.Sprintf("%v", *cfg.Tags), "Optional tags for context")
+		printRow("Tags", fmt.Sprintf("%v", cfg.Tags), "Optional tags for context")
 	}
 
 	// Options
@@ -115,12 +116,9 @@ func (cfg *Config) PrettyPrint() {
 	// Output section
 	if cfg.Output != nil {
 		section("📤 Output Options:")
-		if cfg.Output.Format != nil {
-			printRow("Format", *cfg.Output.Format, "Output format: json, yaml, etc.")
-		}
-		if cfg.Output.OutputPath != nil {
-			printRow("OutputPath", *cfg.Output.OutputPath, "Path to save output (optional)")
-		}
+
+		printRow("Format", cfg.Output.Format, "Output format: json, yaml, etc.")
+		printRow("OutputPath", cfg.Output.OutputPath, "Path to save output (optional)")
 		printRow("IncludeErrors", fmt.Sprintf("%v", cfg.Output.IncludeErrors), "Include error info in output")
 		printRow("IncludeWarnings", fmt.Sprintf("%v", cfg.Output.IncludeWarnings), "Include warnings in output")
 		printRow("IncludeStats", fmt.Sprintf("%v", cfg.Output.IncludeStats), "Include detailed scan stats")

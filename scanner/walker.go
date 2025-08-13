@@ -134,8 +134,8 @@ func (w *Walker) Walk(root string) error {
 		w.debug(root, "Counting total entries for progress", nil)
 
 		// Count total entries first (no callbacks)
-		stats, _ := w.Count(root)
-		total := stats.EntriesVisited
+		progressStats, _ := w.Count(root)
+		total := progressStats.EntriesVisited
 		w.debug(root, "Total entries found", map[string]interface{}{"total": total})
 
 		if total > 0 {
@@ -164,7 +164,8 @@ func (w *Walker) Walk(root string) error {
 
 			w.mu.Unlock()
 
-			w.debug(root, "Stats collected", w.Stats)
+			stats := w.GetStats()
+			w.debug(root, "Stats collected", FormatStats(stats))
 		}
 	}()
 
@@ -281,7 +282,7 @@ func (w *Walker) Walk(root string) error {
 
 		// File handling - check filters BEFORE counting stats
 		if !w.matchesFilters(path) {
-			w.trace(path, "File filtered out", nil)
+			w.debug(path, "File filtered out", nil)
 			return w.handleSkip(path, "filtered out")
 		}
 
@@ -347,20 +348,19 @@ func (w *Walker) Walk(root string) error {
 
 func (w *Walker) Count(root string) (*WalkStats, error) {
 	// Save callbacks so we can restore after counting
-	savedFileCb := w.OnVisitFile
-	savedDirCb := w.OnVisitDir
+	savedFileCb, savedDirCb := w.OnVisitFile, w.OnVisitDir
 	savedProgress := w.Opts.EnableProgress
 
-	w.OnVisitFile = nil
-	w.OnVisitDir = nil
+	w.OnVisitFile, w.OnVisitDir = nil, nil
 	w.Opts.EnableProgress = false
 
 	// Reset stats
-	w.Stats = &WalkStats{Custom: make(map[string]interface{})}
+	stats := &WalkStats{Custom: make(map[string]interface{})}
 
 	err := filepath.WalkDir(root, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
-			return nil // skip error during counting
+			// ignore error, continue walking
+			return nil
 		}
 
 		// Respect context cancellation
@@ -370,29 +370,22 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 		default:
 		}
 
-		// Skip hidden
-		if !w.Opts.IncludeHidden && isHidden(d.Name()) {
-			return nil
-		}
-
-		// Skip depth beyond MaxDepth
 		depth := getDepth(root, path)
-		// if depth >= w.Opts.MinIncludeDepth {
-		// 	w.Stats.EntriesVisited++
-		// }
-
 		if w.Opts.SkipRoot && depth == 0 {
-			// Root: skip processing, but allow traversal into immediate children
 			return nil
 		}
 
-		// Enforce min include depth if set
+		// Skip entries shallower than MinIncludeDepth
 		if w.Opts.MinIncludeDepth > 0 && depth < w.Opts.MinIncludeDepth {
-			// We don't count entries shallower than min depth
-			// but continue traversal
+			// continue walking children
+			if d.IsDir() {
+				return nil
+			}
+
 			return nil
 		}
 
+		// Skip entries deeper than MaxDepth
 		if w.Opts.MaxDepth >= 0 && depth > w.Opts.MaxDepth {
 			if d.IsDir() {
 				return fs.SkipDir
@@ -401,7 +394,7 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 			return nil
 		}
 
-		// Skip hidden entries if needed
+		// Skip hidden files/dirs unless IncludeHidden
 		if !w.Opts.IncludeHidden && isHidden(d.Name()) {
 			if d.IsDir() {
 				return fs.SkipDir
@@ -410,7 +403,7 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 			return nil
 		}
 
-		// Filter by patterns and extensions
+		// Apply filters (patterns, extensions, etc.)
 		if !w.matchesFilters(path) {
 			if d.IsDir() {
 				return fs.SkipDir
@@ -419,47 +412,35 @@ func (w *Walker) Count(root string) (*WalkStats, error) {
 			return nil
 		}
 
+		// Skip empty dirs if configured
 		if d.IsDir() {
 			entries, err := os.ReadDir(path)
-			if err != nil {
-				return nil // ignore error in count mode
+			if err == nil && w.Opts.SkipEmptyDirs && len(entries) == 0 {
+				return fs.SkipDir
 			}
+		}
 
-			// Skip empty dirs
-			if w.Opts.SkipEmptyDirs && len(entries) == 0 {
-				return nil
-			}
-
-			// Only leaf dirs
-			if w.Opts.OnlyLeafDirs && d.IsDir() && !isLeafDir(path) {
-				return nil
-			}
-
-			// if !w.matchesFilters(path) {
-			// 	return nil
-			// }
-
-			w.Stats.DirsVisited++
-			w.Stats.EntriesVisited++
+		// Skip non-leaf dirs if OnlyLeafDirs
+		if d.IsDir() && w.Opts.OnlyLeafDirs && !isLeafDir(path) {
 			return nil
 		}
 
-		// File filtering
-		// if !w.matchesFilters(path) {
-		// 	return nil
-		// }
+		// Passed all filters, increment counts
+		stats.EntriesVisited++
+		if d.IsDir() {
+			stats.DirsVisited++
+		} else {
+			stats.FilesVisited++
+		}
 
-		w.Stats.FilesVisited++
-		w.Stats.EntriesVisited++
 		return nil
 	})
 
-	// Restore callbacks
-	w.OnVisitFile = savedFileCb
-	w.OnVisitDir = savedDirCb
+	// Restore callbacks and options
+	w.OnVisitFile, w.OnVisitDir = savedFileCb, savedDirCb
 	w.Opts.EnableProgress = savedProgress
 
-	return w.Stats, err
+	return stats, err
 }
 
 func (w *Walker) GetStats() *WalkStats {
@@ -501,14 +482,15 @@ func (w *Walker) GetStats() *WalkStats {
 
 // matchesFilters checks include/exclude rules.
 func (w *Walker) matchesFilters(path string) bool {
-	ext := strings.ToLower(filepath.Ext(path))
-	if len(w.Opts.IncludeExts) > 0 && !contains(w.Opts.IncludeExts, ext) {
-		return false
-	}
+	// ext := strings.ToLower(filepath.Ext(path))
+	// if len(w.Opts.IncludeExts) > 0 && !contains(w.Opts.IncludeExts, ext) {
+	// 	fmt.Println("included exts")
+	// 	return false
+	// }
 
-	if len(w.Opts.ExcludeExts) > 0 && contains(w.Opts.ExcludeExts, ext) {
-		return false
-	}
+	// if len(w.Opts.ExcludeExts) > 0 && contains(w.Opts.ExcludeExts, ext) {
+	// 	return false
+	// }
 
 	// Include pattern check
 	if len(w.Opts.IncludePatterns) > 0 {
@@ -609,8 +591,8 @@ func (w *Walker) log(level, path, message string, detail any) {
 		return
 	}
 
-	currentLevel := w.Opts.Debug.Level
-	fmt.Println(currentLevel)
+	// currentLevel := w.Opts.Debug.Level
+	// fmt.Println(currentLevel)
 
 	if !w.shouldLog(level) {
 		return
@@ -672,4 +654,78 @@ func (o WalkOptions) PrettyPrint() string {
 	sb.WriteString(fmt.Sprintf("IncludeHidden:  %t\n", o.IncludeHidden))
 
 	return sb.String()
+}
+
+func FormatStats(s *WalkStats) string {
+	// Format times nicely, or show "N/A" if zero
+	start := "N/A"
+	if !s.StartTime.IsZero() {
+		start = s.StartTime.Format("2006-01-02 15:04:05")
+	}
+
+	end := "N/A"
+	if !s.EndTime.IsZero() {
+		end = s.EndTime.Format("2006-01-02 15:04:05")
+	}
+
+	// Calculate duration if zero but start and end are valid
+	duration := s.Duration
+	if duration == 0 && !s.StartTime.IsZero() && !s.EndTime.IsZero() {
+		duration = s.EndTime.Sub(s.StartTime)
+	}
+
+	// Format Errors count and show first few errors if any
+	errCount := len(s.Errors)
+	var errSummary string
+	if errCount == 0 {
+		errSummary = "None"
+	} else if errCount <= 3 {
+		errSummary = ""
+		for i, e := range s.Errors {
+			errSummary += fmt.Sprintf("\n    %d: %v", i+1, e)
+		}
+	} else {
+		errSummary = fmt.Sprintf("%d errors (showing first 3):", errCount)
+		for i := 0; i < 3; i++ {
+			errSummary += fmt.Sprintf("\n    %d: %v", i+1, s.Errors[i])
+		}
+	}
+
+	// Format Custom map keys and values, or skip if empty
+	customSummary := "None"
+	if len(s.Custom) > 0 {
+		customSummary = ""
+		for k, v := range s.Custom {
+			customSummary += fmt.Sprintf("\n    %s: %v", k, v)
+		}
+	}
+
+	return fmt.Sprintf(`Scan Stats:
+  Start Time:      %s
+  End Time:        %s
+  Duration:        %s
+
+  Entries Visited: %d (Files: %d, Dirs: %d)
+  Matches:         %d
+  Skipped:         %d
+  Errors Count:    %d
+  Errors:          %s
+
+  Total Size:      %d bytes
+  Avg File Size:   %d bytes
+  Min File Size:   %d bytes
+  Max File Size:   %d bytes
+  Data Rate:       %.2f bytes/sec
+
+  Entries/sec:     %.2f
+  Files/sec:       %.2f
+
+  Custom Metrics:  %s
+`, start, end, duration,
+		s.EntriesVisited, s.FilesVisited, s.DirsVisited,
+		s.Matches, s.Skipped, s.ErrorsCount, errSummary,
+		s.TotalSize, s.AvgFileSize, s.MinFileSize, s.MaxFileSize, s.DataRate,
+		s.EntriesPerSec, s.FilesPerSec,
+		customSummary,
+	)
 }

@@ -63,7 +63,6 @@ func Scan(
 			Enable: true,
 			Level:  logLevel,
 			LogFunc: func(e DebugEvent) {
-				fmt.Println(logLevel)
 				if shouldLog(e.Level, logLevel) {
 					fmt.Printf("[%s] %s - %s (%v)\n", e.Level, e.Path, e.Message, e.Detail)
 				}
@@ -75,8 +74,7 @@ func Scan(
 
 	var (
 		items = make([]ScanEntry, 0)
-		// jobs  []concurrency.TaskFunc
-		mu sync.Mutex // to protect shared output
+		mu    sync.Mutex
 	)
 
 	handleFile := func(path string, size int64) error {
