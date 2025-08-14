@@ -335,12 +335,3 @@ func SetPath(
 	curr[lastKey] = value
 	return nil
 }
-
-func toAnySlice(strs []string) []any {
-	out := make([]any, len(strs))
-	for i, s := range strs {
-		out[i] = s
-	}
-
-	return out
-}
