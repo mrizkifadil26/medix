@@ -7,24 +7,24 @@ import (
 )
 
 type Extractor func(string) (string, error)
-type ExtractorRegistry struct {
+type Registry struct {
 	*utils.Registry[Extractor]
 }
 
-var extractorSingleton *ExtractorRegistry
+var singleton *Registry
 
-func GetExtractorRegistry() *ExtractorRegistry {
-	if extractorSingleton == nil {
-		extractorSingleton = &ExtractorRegistry{
+func GetRegistry() *Registry {
+	if singleton == nil {
+		singleton = &Registry{
 			Registry: utils.NewRegistry[Extractor](),
 		}
 	}
 
-	return extractorSingleton
+	return singleton
 }
 
 // ApplyByName applies a transformer by name to a value
-func (r *ExtractorRegistry) Apply(
+func (r *Registry) Apply(
 	name, input string,
 ) (string, error) {
 	fn, ok := r.Get(name)
@@ -36,7 +36,7 @@ func (r *ExtractorRegistry) Apply(
 }
 
 // ApplyByName applies a transformer by name to a value
-func (r *ExtractorRegistry) ApplyAll(
+func (r *Registry) ApplyAll(
 	names []string,
 	input string,
 ) (string, error) {

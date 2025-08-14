@@ -10,6 +10,6 @@ func StripExtension(s string) (string, error) {
 }
 
 func init() {
-	GetTransformerRegistry().
+	GetRegistry().
 		Register("stripExtension", StripExtension)
 }

@@ -6,24 +6,25 @@ import (
 	"github.com/mrizkifadil26/medix/utils"
 )
 
-type TransformerRegistry struct {
+type Transformer func(string) (string, error)
+type Registry struct {
 	*utils.Registry[Transformer]
 }
 
-var transformerSingleton *TransformerRegistry
+var singleton *Registry
 
-func GetTransformerRegistry() *TransformerRegistry {
-	if transformerSingleton == nil {
-		transformerSingleton = &TransformerRegistry{
+func GetRegistry() *Registry {
+	if singleton == nil {
+		singleton = &Registry{
 			Registry: utils.NewRegistry[Transformer](),
 		}
 	}
 
-	return transformerSingleton
+	return singleton
 }
 
 // ApplyByName applies a transformer by name to a value
-func (r *TransformerRegistry) Apply(
+func (r *Registry) Apply(
 	name, input string,
 ) (string, error) {
 	fn, ok := r.Get(name)
@@ -35,7 +36,7 @@ func (r *TransformerRegistry) Apply(
 }
 
 // ApplyByName applies a transformer by name to a value
-func (r *TransformerRegistry) ApplyAll(
+func (r *Registry) ApplyAll(
 	names []string,
 	input string,
 ) (string, error) {

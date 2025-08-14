@@ -57,6 +57,6 @@ func UnicodeNormalizer(input string) (string, error) {
 }
 
 func init() {
-	GetTransformerRegistry().
+	GetRegistry().
 		Register("unicode", UnicodeNormalizer)
 }

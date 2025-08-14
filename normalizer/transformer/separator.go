@@ -13,6 +13,6 @@ func NormalizeSeparators(input string) (string, error) {
 }
 
 func init() {
-	GetTransformerRegistry().
+	GetRegistry().
 		Register("separator", NormalizeSeparators)
 }

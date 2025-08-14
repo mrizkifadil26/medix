@@ -19,6 +19,6 @@ func SanitizeSymbols(input string) (string, error) {
 }
 
 func init() {
-	GetTransformerRegistry().
+	GetRegistry().
 		Register("sanitize", SanitizeSymbols)
 }

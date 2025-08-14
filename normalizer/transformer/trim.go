@@ -8,6 +8,6 @@ func Trim(input string) (string, error) {
 }
 
 func init() {
-	GetTransformerRegistry().
+	GetRegistry().
 		Register("trim", Trim)
 }

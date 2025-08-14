@@ -15,6 +15,6 @@ func Slugify(input string) (string, error) {
 }
 
 func init() {
-	GetTransformerRegistry().
+	GetRegistry().
 		Register("slugify", Slugify)
 }
