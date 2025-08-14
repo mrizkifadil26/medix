@@ -1,9 +1,11 @@
-package normalizer
+package normalizer_test
 
 import (
 	"encoding/json"
 	"os"
 	"testing"
+
+	"github.com/mrizkifadil26/medix/normalizer"
 )
 
 // Load and cache JSON once for benchmark
@@ -23,7 +25,7 @@ func init() {
 
 func BenchmarkResolvePath_ItemsName(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, err := ResolvePath(testData, "items.#.itemName")
+		_, err := normalizer.ResolvePath(testData, "items.#.itemName")
 		if err != nil {
 			b.Fatal(err)
 		}
