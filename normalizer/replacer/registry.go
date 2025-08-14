@@ -11,16 +11,16 @@ type Registry struct {
 	*utils.Registry[Replacer]
 }
 
-var replacerSingleton *Registry
+var singleton *Registry
 
 func GetRegistry() *Registry {
-	if replacerSingleton == nil {
-		replacerSingleton = &Registry{
+	if singleton == nil {
+		singleton = &Registry{
 			Registry: utils.NewRegistry[Replacer](),
 		}
 	}
 
-	return replacerSingleton
+	return singleton
 }
 
 // ApplyByName applies a transformer by name to a value
