@@ -1,4 +1,4 @@
-package normalizer
+package extractor
 
 import (
 	"errors"
@@ -14,4 +14,9 @@ func ExtractYear(input string) (string, error) {
 	}
 
 	return match[1], nil
+}
+
+func init() {
+	GetExtractorRegistry().
+		Register("year", ExtractYear)
 }
