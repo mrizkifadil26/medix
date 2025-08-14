@@ -28,3 +28,16 @@ func GetActions() *ActionRegistry {
 
 	return singleton
 }
+
+type ActionContext struct {
+	Type   string                 // replace, transform, extract, format
+	Name   string                 // which function in the registry to use
+	Field  string                 // source field
+	Target string                 // optional save location
+	Params map[string]interface{} // action-specific params
+}
+
+type NormalizationContext struct {
+	CurrentValue string
+	Fields       map[string]interface{}
+}
