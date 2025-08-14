@@ -28,18 +28,18 @@ import (
 // 	transformers.RemoveBrackets(),
 // )
 
-type ActionsRegistry struct {
+type ActionRegistry struct {
 	Transformers *transformer.Registry
 	Extractors   *extractor.Registry
 	Replacers    *replacer.Registry
 	Formatters   *formatter.Registry
 }
 
-var actionsSingleton *ActionsRegistry
+var singleton *ActionRegistry
 
-func GetActions() *ActionsRegistry {
-	if actionsSingleton == nil {
-		actionsSingleton = &ActionsRegistry{
+func GetActions() *ActionRegistry {
+	if singleton == nil {
+		singleton = &ActionRegistry{
 			Transformers: transformer.GetRegistry(),
 			Extractors:   extractor.GetRegistry(),
 			Replacers:    replacer.GetRegistry(),
@@ -47,5 +47,5 @@ func GetActions() *ActionsRegistry {
 		}
 	}
 
-	return actionsSingleton
+	return singleton
 }
