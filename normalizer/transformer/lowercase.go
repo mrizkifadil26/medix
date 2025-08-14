@@ -7,6 +7,6 @@ func Lowercase(input string) (string, error) {
 }
 
 func init() {
-	GetTransformerRegistry().
+	GetRegistry().
 		Register("lowercase", Lowercase)
 }

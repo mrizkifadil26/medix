@@ -1,0 +1,36 @@
+package replacer
+
+import (
+	"fmt"
+
+	"github.com/mrizkifadil26/medix/utils"
+)
+
+type Replacer func(string, map[string]string) (string, error)
+type Registry struct {
+	*utils.Registry[Replacer]
+}
+
+var replacerSingleton *Registry
+
+func GetRegistry() *Registry {
+	if replacerSingleton == nil {
+		replacerSingleton = &Registry{
+			Registry: utils.NewRegistry[Replacer](),
+		}
+	}
+
+	return replacerSingleton
+}
+
+// ApplyByName applies a transformer by name to a value
+func (r *Registry) Apply(
+	name, input string, params map[string]string,
+) (string, error) {
+	fn, ok := r.Get(name)
+	if !ok {
+		return input, fmt.Errorf("replacer %q not found", name)
+	}
+
+	return fn(input, params)
+}

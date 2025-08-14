@@ -7,29 +7,29 @@ import (
 )
 
 type Formatter func(string, map[string]string) (string, error)
-type FormatterRegistry struct {
+type Registry struct {
 	*utils.Registry[Formatter]
 }
 
-var formatterSingleton *FormatterRegistry
+var singleton *Registry
 
-func GetFormatterRegistry() *FormatterRegistry {
-	if formatterSingleton == nil {
-		formatterSingleton = &FormatterRegistry{
+func GetRegistry() *Registry {
+	if singleton == nil {
+		singleton = &Registry{
 			Registry: utils.NewRegistry[Formatter](),
 		}
 	}
 
-	return formatterSingleton
+	return singleton
 }
 
 // ApplyByName applies a transformer by name to a value
-func (r *FormatterRegistry) Apply(
-	name, template string, params map[string]string
+func (r *Registry) Apply(
+	name, template string, params map[string]string,
 ) (string, error) {
 	fn, ok := r.Get(name)
 	if !ok {
-		return input, fmt.Errorf("formatter %q not found", name)
+		return template, fmt.Errorf("formatter %q not found", name)
 	}
 
 	return fn(template, params)

@@ -16,6 +16,6 @@ func RemoveBrackets(input string) (string, error) {
 }
 
 func init() {
-	GetTransformerRegistry().
+	GetRegistry().
 		Register("removeBrackets", RemoveBrackets)
 }

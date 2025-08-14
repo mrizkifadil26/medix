@@ -17,6 +17,6 @@ func ExtractYear(input string) (string, error) {
 }
 
 func init() {
-	GetExtractorRegistry().
+	GetRegistry().
 		Register("year", ExtractYear)
 }

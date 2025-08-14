@@ -17,6 +17,6 @@ func DefaultFormatter(template string, from map[string]string) (string, error) {
 }
 
 func init() {
-	GetFormatterRegistry().
+	GetRegistry().
 		Register("default", DefaultFormatter)
 }
