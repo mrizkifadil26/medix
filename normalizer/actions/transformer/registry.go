@@ -26,7 +26,7 @@ func GetRegistry() *Registry {
 
 // ApplyByName applies a transformer by name to a value
 func (r *Registry) Apply(
-	name, input string,
+	name, input string, params map[string]string,
 ) (string, error) {
 	fn, ok := r.Get(name)
 	if !ok {
