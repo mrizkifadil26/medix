@@ -1,14 +1,15 @@
-package extractor
+package transformer
 
 import (
 	"fmt"
 
+	"github.com/mrizkifadil26/medix/normalizer/registries"
 	"github.com/mrizkifadil26/medix/utils"
 )
 
-type Extractor func(string) (string, error)
+type Transformer func(string) (string, error)
 type Registry struct {
-	*utils.Registry[Extractor]
+	*utils.Registry[Transformer]
 }
 
 var singleton *Registry
@@ -16,7 +17,7 @@ var singleton *Registry
 func GetRegistry() *Registry {
 	if singleton == nil {
 		singleton = &Registry{
-			Registry: utils.NewRegistry[Extractor](),
+			Registry: utils.NewRegistry[Transformer](),
 		}
 	}
 
@@ -54,4 +55,9 @@ func (r *Registry) ApplyAll(
 	}
 
 	return input, nil
+}
+
+func init() {
+	registries.GetRegistry().
+		Register("transform", GetRegistry())
 }

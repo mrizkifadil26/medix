@@ -3,6 +3,7 @@ package replacer
 import (
 	"fmt"
 
+	"github.com/mrizkifadil26/medix/normalizer/registries"
 	"github.com/mrizkifadil26/medix/utils"
 )
 
@@ -33,4 +34,9 @@ func (r *Registry) Apply(
 	}
 
 	return fn(input, params)
+}
+
+func init() {
+	registries.GetRegistry().
+		Register("replace", GetRegistry())
 }

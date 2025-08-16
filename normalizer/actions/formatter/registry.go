@@ -3,6 +3,7 @@ package formatter
 import (
 	"fmt"
 
+	"github.com/mrizkifadil26/medix/normalizer/registries"
 	"github.com/mrizkifadil26/medix/utils"
 )
 
@@ -33,4 +34,9 @@ func (r *Registry) Apply(
 	}
 
 	return fn(template, params)
+}
+
+func init() {
+	registries.GetRegistry().
+		Register("format", GetRegistry())
 }
