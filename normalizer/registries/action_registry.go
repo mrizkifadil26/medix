@@ -5,7 +5,7 @@ import (
 )
 
 type ActionTypeRegistry interface {
-	Apply(name string, input string, params map[string]string) (string, error)
+	Apply(input string, params map[string]any) (string, error)
 }
 
 type ActionRegistry struct {
@@ -38,14 +38,15 @@ func (r *ActionRegistry) All() map[string]ActionTypeRegistry {
 }
 
 func (r *ActionRegistry) Apply(
-	actionType, name string,
+	actionType string,
 	input string,
-	params map[string]string,
+	params map[string]any,
 ) (any, error) {
+	// fmt.Println(actionType)
 	reg, ok := r.Get(actionType)
 	if !ok {
 		return nil, fmt.Errorf("action type %q not found", actionType)
 	}
 
-	return reg.Apply(name, input, params)
+	return reg.Apply(input, params)
 }

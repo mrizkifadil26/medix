@@ -24,37 +24,54 @@ func GetRegistry() *Registry {
 	return singleton
 }
 
-// ApplyByName applies a transformer by name to a value
 func (r *Registry) Apply(
-	name, input string, params map[string]string,
+	input string, params map[string]any,
 ) (string, error) {
-	fn, ok := r.Get(name)
+	// Get methods
+	methodsVal, ok := params["methods"]
 	if !ok {
-		return input, fmt.Errorf("transformer %q not found", name)
+		return input, fmt.Errorf("methods not provided")
 	}
 
-	return fn(input)
+	var methods []string
+	switch v := methodsVal.(type) {
+	case string:
+		methods = []string{v}
+	case []any:
+		for _, item := range v {
+			s, ok := item.(string)
+			if !ok {
+				return input, fmt.Errorf("methods contains non-string value: %v", item)
+			}
+
+			methods = append(methods, s)
+		}
+	default:
+		return input, fmt.Errorf("invalid methods type: %T", methodsVal)
+	}
+
+	return r.applyAll(input, methods)
 }
 
-// ApplyByName applies a transformer by name to a value
-func (r *Registry) ApplyAll(
-	names []string,
+func (r *Registry) applyAll(
 	input string,
+	methods []string,
 ) (string, error) {
-	var err error
-	for _, name := range names {
+	result := input
+	for _, name := range methods {
 		fn, ok := r.Get(name)
 		if !ok {
 			return "", fmt.Errorf("transformer %q not found", name)
 		}
 
+		var err error
 		input, err = fn(input)
 		if err != nil {
-			return "", nil
+			return input, fmt.Errorf("error applying transformer %q: %w", name, err)
 		}
 	}
 
-	return input, nil
+	return result, nil
 }
 
 func init() {

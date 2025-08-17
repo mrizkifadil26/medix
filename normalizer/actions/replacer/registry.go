@@ -7,7 +7,7 @@ import (
 	"github.com/mrizkifadil26/medix/utils"
 )
 
-type Replacer func(string, map[string]string) (string, error)
+type Replacer func(string, map[string]any) (string, error)
 type Registry struct {
 	*utils.Registry[Replacer]
 }
@@ -26,8 +26,9 @@ func GetRegistry() *Registry {
 
 // ApplyByName applies a transformer by name to a value
 func (r *Registry) Apply(
-	name, input string, params map[string]string,
+	input string, params map[string]any,
 ) (string, error) {
+	name := "default"
 	fn, ok := r.Get(name)
 	if !ok {
 		return input, fmt.Errorf("replacer %q not found", name)
