@@ -4,7 +4,12 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/iancoleman/orderedmap"
 	"github.com/mrizkifadil26/medix/normalizer"
+	_ "github.com/mrizkifadil26/medix/normalizer/actions/extractor"
+	_ "github.com/mrizkifadil26/medix/normalizer/actions/formatter"
+	_ "github.com/mrizkifadil26/medix/normalizer/actions/replacer"
+	_ "github.com/mrizkifadil26/medix/normalizer/actions/transformer"
 	"github.com/mrizkifadil26/medix/utils"
 )
 
@@ -29,20 +34,36 @@ func main() {
 		log.Fatalf("Failed to merge CLI config: %v", err)
 	}
 
-	var input any
-	utils.LoadJSON(config.Root, &input)
+	data := orderedmap.New()
+	// err = utils.LoadJSON(config.Root, &raw)
+	if err := utils.LoadJSONOrdered(config.Root, data); err != nil {
+		panic(err)
+	}
 
-	ContinueOnError := false
-	registry := normalizer.NewOperators()
-	result, err := normalizer.Process(
-		input,
-		config.Fields,
-		registry,
-		normalizer.ErrorHandlingOptions{
-			ContinueOnError: ContinueOnError,
-			CollectErrors:   true,
-		},
+	// fmt.Println(data)
+
+	// for _, key := range obj.Keys() {
+	// 	val, _ := obj.Get(key)
+	// 	println(key, val.(string))
+	// }
+
+	// fmt.Println(data)
+
+	// data := utils.ToOrderedMap(raw)
+	normalizer := normalizer.New(
+		config.Root,
 	)
+	result, err := normalizer.Normalize(data, &config)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// ContinueOnError := false
+	// result, err := normalizer.Process(
+	// data,
+	// config,
+	// )
+	// result := []string{}
 
 	// Always try to write output, even if errors occurred
 	if config.OutputPath != "" {
@@ -51,13 +72,13 @@ func main() {
 		}
 	}
 
-	if err != nil {
-		if ContinueOnError {
-			fmt.Println("✅ Process completed with errors. Check output for details.")
-		} else {
-			log.Fatalf("❌ Process failed: %v", err)
-		}
-	} else {
-		fmt.Println("✅ Process completed")
-	}
+	// if err != nil {
+	// 	if ContinueOnError {
+	// 		fmt.Println("✅ Process completed with errors. Check output for details.")
+	// 	} else {
+	// 		log.Fatalf("❌ Process failed: %v", err)
+	// 	}
+	// } else {
+	// 	fmt.Println("✅ Process completed")
+	// }
 }
