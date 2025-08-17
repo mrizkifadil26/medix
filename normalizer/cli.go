@@ -51,7 +51,7 @@ func ParseCLI() (*CLIArgs, error) {
 		args.Config = cfg
 	}
 
-	fmt.Println(*args.ConfigPath)
+	// fmt.Println(*args.ConfigPath)
 
 	return args, nil
 

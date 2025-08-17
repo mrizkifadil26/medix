@@ -13,6 +13,7 @@ package normalizer
 type Config struct {
 	Root       string  `json:"root"`   // Path to input data file
 	Fields     []Field `json:"fields"` // List of normalization rules
+	Options    Options `json:"options"`
 	Verbose    bool    `json:"verbose,omitempty"`
 	OutputPath string  `json:"outputPath,omitempty"`
 }
@@ -23,19 +24,21 @@ type Field struct {
 	Actions []Action `json:"actions"` // List of actions to apply
 }
 
+type Options struct{}
+
 // Action types
-type Action struct {
-	Type string `json:"type"` // "replace", "transform", "save", "extract", "template", etc.
+// type Action struct {
+// 	Type string `json:"type"` // "replace", "transform", "save", "extract", "template", etc.
 
-	// For replace
-	From string `json:"from,omitempty"`
-	To   string `json:"to,omitempty"`
+// 	// For replace
+// 	From string `json:"from,omitempty"`
+// 	To   string `json:"to,omitempty"`
 
-	// For transform
-	Methods []string `json:"methods,omitempty"`
+// 	// For transform
+// 	Methods []string `json:"methods,omitempty"`
 
-	// For save / extract / template
-	Target   string `json:"target,omitempty"`
-	Pattern  string `json:"pattern,omitempty"`
-	Template string `json:"template,omitempty"`
-}
+// 	// For save / extract / template
+// 	Target   string `json:"target,omitempty"`
+// 	Pattern  string `json:"pattern,omitempty"`
+// 	Template string `json:"template,omitempty"`
+// }

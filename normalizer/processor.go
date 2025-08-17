@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+/*
 type ErrorHandlingOptions struct {
 	ContinueOnError bool
 	CollectErrors   bool
@@ -266,7 +267,7 @@ func applyConstructor(
 	}
 
 	return errs
-}
+} */
 
 func SetPath(
 	root map[string]any,
