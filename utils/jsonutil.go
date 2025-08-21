@@ -10,8 +10,6 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
-
-	"github.com/iancoleman/orderedmap"
 )
 
 // LoadJSON reads a JSON file from the given path and decodes it into the provided value.
@@ -31,20 +29,13 @@ func LoadJSON(path string, v any) error {
 	return json.NewDecoder(f).Decode(v)
 }
 
-func LoadJSONOrdered(path string, v *orderedmap.OrderedMap) error {
+func LoadJSONOrdered(path string, om *OrderedMap[string, any]) error {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return err
 	}
 
-	// var tmp map[string]any
-	// if err := json.Unmarshal(data, &tmp); err != nil {
-	// 	return err
-	// }
-
-	// convertIntoOrderedMap(tmp, v)
-	// return nil
-	return v.UnmarshalJSON(data)
+	return om.UnmarshalJSON(data)
 }
 
 // WriteJSON writes the given data as pretty-formatted JSON to the specified file path.
@@ -69,26 +60,18 @@ func WriteJSON(path string, data any) error {
 	return enc.Encode(data)
 }
 
-// convertIntoOrderedMap fills dst with the contents of src, recursively converting maps
-func convertIntoOrderedMap(src map[string]any, dst *orderedmap.OrderedMap) {
-	for k, val := range src {
-		dst.Set(k, convertValue(val))
+/* func WriteJSONOrdered(path string, data *OrderedMap[string, any]) error {
+	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
+		return err
 	}
-}
 
-// convertValue converts maps to OrderedMap recursively, arrays to []any containing OrderedMaps if needed
-func convertValue(val any) any {
-	switch v := val.(type) {
-	case map[string]any:
-		omap := orderedmap.New()
-		convertIntoOrderedMap(v, omap)
-		return omap
-	case []any:
-		for i := range v {
-			v[i] = convertValue(v[i])
-		}
-		return v
-	default:
-		return v
+	file, err := os.Create(path)
+	if err != nil {
+		return err
 	}
-}
+	defer file.Close()
+
+	enc := json.NewEncoder(file)
+	enc.SetIndent("", "  ")
+	return enc.Encode(data)
+} */
