@@ -20,6 +20,16 @@ import (
 //	var config Config
 //	err := utils.LoadJSON("config.json", &config)
 func LoadJSON(path string, v any) error {
+	// Check if v is *OrderedMap[string, any]
+	if om, ok := v.(*OrderedMap[string, any]); ok {
+		// OrderedMap requires full byte slice, so read entire file
+		data, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		return om.UnmarshalJSON(data)
+	}
+
 	f, err := os.Open(path)
 	if err != nil {
 		return err
@@ -27,15 +37,6 @@ func LoadJSON(path string, v any) error {
 	defer f.Close()
 
 	return json.NewDecoder(f).Decode(v)
-}
-
-func LoadJSONOrdered(path string, om *OrderedMap[string, any]) error {
-	data, err := os.ReadFile(path)
-	if err != nil {
-		return err
-	}
-
-	return om.UnmarshalJSON(data)
 }
 
 // WriteJSON writes the given data as pretty-formatted JSON to the specified file path.
@@ -59,19 +60,3 @@ func WriteJSON(path string, data any) error {
 	enc.SetIndent("", "  ")
 	return enc.Encode(data)
 }
-
-/* func WriteJSONOrdered(path string, data *OrderedMap[string, any]) error {
-	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
-		return err
-	}
-
-	file, err := os.Create(path)
-	if err != nil {
-		return err
-	}
-	defer file.Close()
-
-	enc := json.NewEncoder(file)
-	enc.SetIndent("", "  ")
-	return enc.Encode(data)
-} */

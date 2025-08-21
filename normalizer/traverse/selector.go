@@ -1,45 +1,67 @@
 package traverse
 
 import (
-	"strconv"
 	"strings"
 )
 
 // Selector is a compiled selector pattern
 type Selector struct {
-	parts []string
+	// parts []string
+	Tokens    []string // e.g., ["items", "#", "name"]
+	HashIndex []int    // precompute positions of `#`
 }
 
 // CompileSelector creates a new Selector from string
-func CompileSelector(pattern string) Selector {
-	return Selector{parts: strings.Split(pattern, ".")}
+func CompileSelector(path string) Selector {
+	tokens := strings.Split(path, ".")
+	hashIdx := []int{}
+	for i, t := range tokens {
+		if t == "#" {
+			hashIdx = append(hashIdx, i)
+		}
+	}
+
+	return Selector{
+		Tokens:    tokens,
+		HashIndex: hashIdx,
+	}
 }
 
 // Match checks if a JSON path matches this selector
 func (s Selector) Match(path []string) bool {
-	if len(s.parts) != len(path) {
+	if len(path) != len(s.Tokens) {
 		return false
 	}
 
-	for i := range s.parts {
-		switch s.parts[i] {
-		case "#": // wildcard for array index
-			if _, err := strconv.Atoi(path[i]); err != nil {
-				return false // only match if path[i] is a number
-			}
-
-			// accept any numeric string
-			continue
-		case "*": // wildcard for any key
-			continue
-		default:
-			if s.parts[i] != path[i] {
-				return false
-			}
+	for i, tok := range s.Tokens {
+		if tok != "#" && tok != path[i] {
+			return false
 		}
 	}
 
 	return true
+
+	/*
+		for i := range s.parts {
+			switch s.parts[i] {
+			case "#": // wildcard for array index
+				if _, err := strconv.Atoi(path[i]); err != nil {
+					return false // only match if path[i] is a number
+				}
+
+				// accept any numeric string
+				continue
+			case "*": // wildcard for any key
+				continue
+			default:
+				if s.parts[i] != path[i] {
+					return false
+				}
+			}
+		}
+
+		return true
+	*/
 }
 
 // SelectorSet holds multiple selectors

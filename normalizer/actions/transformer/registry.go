@@ -57,8 +57,8 @@ func (r *Registry) applyAll(
 	input string,
 	methods []string,
 ) (string, error) {
-	result := input
 	for _, name := range methods {
+		// fmt.Println("transapply", name)
 		fn, ok := r.Get(name)
 		if !ok {
 			return "", fmt.Errorf("transformer %q not found", name)
@@ -71,7 +71,7 @@ func (r *Registry) applyAll(
 		}
 	}
 
-	return result, nil
+	return input, nil
 }
 
 func init() {

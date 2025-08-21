@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/iancoleman/orderedmap"
 	"github.com/mrizkifadil26/medix/normalizer"
 	_ "github.com/mrizkifadil26/medix/normalizer/actions/extractor"
 	_ "github.com/mrizkifadil26/medix/normalizer/actions/formatter"
@@ -34,26 +33,13 @@ func main() {
 		log.Fatalf("Failed to merge CLI config: %v", err)
 	}
 
-	data := orderedmap.New()
-	// err = utils.LoadJSON(config.Root, &raw)
-	if err := utils.LoadJSONOrdered(config.Root, data); err != nil {
+	data := utils.NewOrderedMap[string, any]()
+	if err := utils.LoadJSON(config.Root, data); err != nil {
 		panic(err)
 	}
 
-	// fmt.Println(data)
-
-	// for _, key := range obj.Keys() {
-	// 	val, _ := obj.Get(key)
-	// 	println(key, val.(string))
-	// }
-
-	// fmt.Println(data)
-
-	// data := utils.ToOrderedMap(raw)
-	normalizer := normalizer.New(
-		config.Root,
-	)
-	result, err := normalizer.Normalize(data, &config)
+	n := normalizer.New(&config)
+	result, err := n.Normalize(data)
 	if err != nil {
 		fmt.Println(err)
 	}

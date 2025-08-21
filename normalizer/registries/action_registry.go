@@ -42,7 +42,6 @@ func (r *ActionRegistry) Apply(
 	input string,
 	params map[string]any,
 ) (any, error) {
-	// fmt.Println(actionType)
 	reg, ok := r.Get(actionType)
 	if !ok {
 		return nil, fmt.Errorf("action type %q not found", actionType)
