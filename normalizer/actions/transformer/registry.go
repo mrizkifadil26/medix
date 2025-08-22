@@ -25,12 +25,18 @@ func GetRegistry() *Registry {
 }
 
 func (r *Registry) Apply(
-	input string, params map[string]any,
+	input any, params map[string]any,
 ) (string, error) {
+	// Convert input to string at the boundary
+	strInput, ok := input.(string)
+	if !ok {
+		return "", fmt.Errorf("expected string input, got %T", input)
+	}
+
 	// Get methods
 	methodsVal, ok := params["methods"]
 	if !ok {
-		return input, fmt.Errorf("methods not provided")
+		return strInput, fmt.Errorf("methods not provided")
 	}
 
 	var methods []string
@@ -41,16 +47,16 @@ func (r *Registry) Apply(
 		for _, item := range v {
 			s, ok := item.(string)
 			if !ok {
-				return input, fmt.Errorf("methods contains non-string value: %v", item)
+				return strInput, fmt.Errorf("methods contains non-string value: %v", item)
 			}
 
 			methods = append(methods, s)
 		}
 	default:
-		return input, fmt.Errorf("invalid methods type: %T", methodsVal)
+		return strInput, fmt.Errorf("invalid methods type: %T", methodsVal)
 	}
 
-	return r.applyAll(input, methods)
+	return r.applyAll(strInput, methods)
 }
 
 func (r *Registry) applyAll(

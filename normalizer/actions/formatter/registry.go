@@ -7,7 +7,7 @@ import (
 	"github.com/mrizkifadil26/medix/utils"
 )
 
-type Formatter func(string, map[string]any) (string, error)
+type Formatter func(any, string) (string, error)
 type Registry struct {
 	*utils.Registry[Formatter]
 }
@@ -26,20 +26,20 @@ func GetRegistry() *Registry {
 
 // ApplyByName applies a transformer by name to a value
 func (r *Registry) Apply(
-	input string, params map[string]any,
+	input any, params map[string]any,
 ) (string, error) {
 	template, ok := params["template"].(string)
 	if !ok || template == "" {
-		return input, fmt.Errorf("template not provided")
+		return "", fmt.Errorf("input not provided")
 	}
 
 	name := "default"
 	fn, ok := r.Get(name)
 	if !ok {
-		return template, fmt.Errorf("formatter %q not found", name)
+		return "", fmt.Errorf("formatter %q not found", name)
 	}
 
-	return fn(template, params)
+	return fn(input, template)
 }
 
 func init() {

@@ -5,7 +5,7 @@ import (
 )
 
 type ActionTypeRegistry interface {
-	Apply(input string, params map[string]any) (string, error)
+	Apply(input any, params map[string]any) (string, error)
 }
 
 type ActionRegistry struct {
@@ -39,7 +39,7 @@ func (r *ActionRegistry) All() map[string]ActionTypeRegistry {
 
 func (r *ActionRegistry) Apply(
 	actionType string,
-	input string,
+	input any,
 	params map[string]any,
 ) (any, error) {
 	reg, ok := r.Get(actionType)

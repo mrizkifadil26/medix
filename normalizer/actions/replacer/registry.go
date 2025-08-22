@@ -26,15 +26,21 @@ func GetRegistry() *Registry {
 
 // ApplyByName applies a transformer by name to a value
 func (r *Registry) Apply(
-	input string, params map[string]any,
+	input any, params map[string]any,
 ) (string, error) {
+	// Convert input to string at the boundary
+	strInput, ok := input.(string)
+	if !ok {
+		return "", fmt.Errorf("expected string input, got %T", input)
+	}
+
 	name := "default"
 	fn, ok := r.Get(name)
 	if !ok {
-		return input, fmt.Errorf("replacer %q not found", name)
+		return strInput, fmt.Errorf("replacer %q not found", name)
 	}
 
-	return fn(input, params)
+	return fn(strInput, params)
 }
 
 func init() {
