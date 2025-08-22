@@ -1,73 +1,83 @@
 package normalizer
 
 import (
+	"fmt"
+	"strconv"
+	"strings"
+
 	"github.com/mrizkifadil26/medix/normalizer/registries"
 	"github.com/mrizkifadil26/medix/normalizer/traverse"
 )
 
-type compiledField struct {
-	Selector     traverse.Selector
-	TargetChains map[string][]Action
-}
-
 type Normalizer struct {
-	Fields []compiledField
+	Fields []Field
 }
 
 func New(config *Config) *Normalizer {
-	var fields []compiledField
-	for _, f := range config.Fields {
-		tc := make(map[string][]Action)
-		for _, action := range f.Actions {
-			tc[action.Target] = append(
-				tc[action.Target],
-				action,
-			)
-
-			fields = append(fields, compiledField{
-				Selector:     traverse.CompileSelector(f.Name),
-				TargetChains: tc,
-			})
-		}
+	return &Normalizer{
+		Fields: config.Fields,
 	}
-
-	return &Normalizer{Fields: fields}
 }
 
 func (n *Normalizer) Normalize(data any) (any, error) {
 	registry := registries.GetRegistry()
 
-	// engine := traverse.Engine{}
-	// engine.OnHit = func(hit traverse.Hit) any {
-	// 	path := hit.Path
-	// 	for _, field := range n.Fields {
-	// 		if !field.Selector.Match(path) {
-	// 			continue
-	// 		}
+	engine := traverse.NewRoot(data)
+	for _, field := range n.Fields {
+		value, err := engine.Get(field.Name)
+		if err != nil {
+			return nil, fmt.Errorf("value not found for field %q", field.Name)
+		}
 
-	// 		for _, actions := range field.TargetChains {
-	// 			value := fmt.Sprint(hit.Value)
+		switch v := value.(type) {
+		case []any:
+			for i, val := range v {
+				strVal, ok := val.(string)
+				if !ok {
+					strVal = "" // fallback for non-string values
+				}
 
-	// 			for _, action := range actions {
-	// 				result, err := registry.Apply(action.Type, value, action.Params)
-	// 				if err != nil {
-	// 					break // skip this chain on error
-	// 				}
+				for _, action := range field.Actions {
+					result, err := registry.Apply(
+						action.Type, strVal, action.Params)
 
-	// 				value = result.(string)
-	// 			}
+					if err != nil {
+						if action.Type == "extract" {
+							continue
+						}
 
-	// fmt.Printf("%v - %v\n", target, value)
-	// 		}
-	// 	}
+						return nil, fmt.Errorf("error in transforming arr: %v", err)
+					}
 
-	// 	return nil
-	// }
+					resultStr, ok := result.(string)
+					if !ok {
+						resultStr = ""
+					}
 
-	// err := engine.Walk()
-	// if err != nil {
-	// 	return nil, err
-	// }
+					target := strings.ReplaceAll(action.Target, "#", strconv.Itoa(i))
+					if err := engine.Set(target, resultStr); err != nil {
+						return nil, fmt.Errorf("error while saving")
+					}
+				}
+			}
 
-	return data, nil
+		default:
+			for _, action := range field.Actions {
+				newVal := v.(string)
+				result, err := registry.Apply(
+					action.Type, newVal, action.Params)
+
+				if err != nil {
+					return nil, fmt.Errorf("error in transforming prim: %v", err)
+				}
+
+				result = result.(string)
+				if err := engine.Set(action.Target, result); err != nil {
+					return nil, fmt.Errorf("error while saving")
+				}
+			}
+		}
+	}
+
+	return engine.GetRoot(), nil
 }
