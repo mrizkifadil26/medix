@@ -1,12 +1,12 @@
 package traverse
 
 import (
+	"strconv"
 	"strings"
 )
 
 // Selector is a compiled selector pattern
 type Selector struct {
-	// parts []string
 	Tokens    []string // e.g., ["items", "#", "name"]
 	HashIndex []int    // precompute positions of `#`
 }
@@ -15,8 +15,8 @@ type Selector struct {
 func CompileSelector(path string) Selector {
 	tokens := strings.Split(path, ".")
 	hashIdx := []int{}
-	for i, t := range tokens {
-		if t == "#" {
+	for i, token := range tokens {
+		if token == "#" {
 			hashIdx = append(hashIdx, i)
 		}
 	}
@@ -33,35 +33,13 @@ func (s Selector) Match(path []string) bool {
 		return false
 	}
 
-	for i, tok := range s.Tokens {
-		if tok != "#" && tok != path[i] {
+	for i, token := range s.Tokens {
+		if !matchToken(token, path[i]) {
 			return false
 		}
 	}
 
 	return true
-
-	/*
-		for i := range s.parts {
-			switch s.parts[i] {
-			case "#": // wildcard for array index
-				if _, err := strconv.Atoi(path[i]); err != nil {
-					return false // only match if path[i] is a number
-				}
-
-				// accept any numeric string
-				continue
-			case "*": // wildcard for any key
-				continue
-			default:
-				if s.parts[i] != path[i] {
-					return false
-				}
-			}
-		}
-
-		return true
-	*/
 }
 
 // SelectorSet holds multiple selectors
@@ -70,7 +48,7 @@ type SelectorSet struct {
 }
 
 // NewSelectorSet compiles many patterns
-func NewSelectorSet(patterns []string) SelectorSet {
+func NewSelectorSet(patterns ...string) SelectorSet {
 	set := SelectorSet{}
 	for _, p := range patterns {
 		set.selectors = append(set.selectors, CompileSelector(p))
@@ -88,4 +66,16 @@ func (ss SelectorSet) Match(path []string) bool {
 	}
 
 	return false
+}
+
+func matchToken(token, value string) bool {
+	switch token {
+	case "#": // numeric index
+		_, err := strconv.Atoi(value)
+		return err == nil
+	case "*": // wildcard
+		return true
+	default: // exact match
+		return token == value
+	}
 }
