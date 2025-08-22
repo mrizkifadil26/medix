@@ -11,12 +11,56 @@ import (
 
 type Normalizer struct {
 	Fields []Field
+	Meta   map[string]any
 }
 
 func New(config *Config) *Normalizer {
 	return &Normalizer{
 		Fields: config.Fields,
 	}
+}
+
+// GetMeta retrieves a value from the Meta map by key
+func (n *Normalizer) GetMeta(key string) (any, bool) {
+	if n.Meta == nil {
+		return nil, false
+	}
+
+	val, ok := n.Meta[key]
+	return val, ok
+}
+
+// SetMeta sets a value in the Meta map by key
+func (n *Normalizer) SetMeta(key string, value any) {
+	if n.Meta == nil {
+		n.Meta = map[string]any{}
+	}
+
+	n.Meta[key] = value
+}
+
+func (n *Normalizer) setIntermediate(key string, value any) {
+	if n.Meta == nil {
+		n.Meta = map[string]any{}
+	}
+	interm, ok := n.Meta["intermediate"].(map[string]any)
+	if !ok || interm == nil {
+		interm = map[string]any{}
+		n.Meta["intermediate"] = interm
+	}
+	interm[key] = value
+}
+
+func (n *Normalizer) getIntermediate(key string) (any, bool) {
+	if n.Meta == nil {
+		return nil, false
+	}
+	interm, ok := n.Meta["intermediate"].(map[string]any)
+	if !ok || interm == nil {
+		return nil, false
+	}
+	val, exists := interm[key]
+	return val, exists
 }
 
 func (n *Normalizer) Normalize(data any) (any, error) {
@@ -32,43 +76,69 @@ func (n *Normalizer) Normalize(data any) (any, error) {
 		switch v := value.(type) {
 		case []any:
 			for i, val := range v {
-				for _, action := range field.Actions {
-					result, err := registry.Apply(
-						action.Type, val, action.Params)
+				original := val
 
-					if err != nil {
-						if action.Type == "extract" {
-							continue
+				for _, action := range field.Actions {
+					if action.Type == "transform" {
+						key := field.Name
+						if strings.Contains(field.Name, "#") {
+							key = strings.ReplaceAll(field.Name, "#", strconv.Itoa(i))
+						}
+						if cached, ok := n.getIntermediate(key); ok {
+							val = cached
 						}
 
-						return nil, fmt.Errorf("error in transforming arr: %v", err)
+						result, err := registry.Apply(action.Type, val, action.Params)
+						if err != nil {
+							return nil, fmt.Errorf("error transforming array: %v", err)
+						}
+						val = result
+
+						n.setIntermediate(key, val)
+					} else {
+						val = original
+
+						// Non-transform actions just apply normally
+						result, err := registry.Apply(action.Type, val, action.Params)
+						if err != nil {
+							return nil, fmt.Errorf("error applying action %q: %v", action.Type, err)
+						}
+						val = result
 					}
 
-					resultStr, ok := result.(string)
-					if !ok {
-						resultStr = ""
-					}
-
-					target := strings.ReplaceAll(action.Target, "#", strconv.Itoa(i))
-					if err := engine.Set(target, resultStr); err != nil {
-						return nil, fmt.Errorf("error while saving")
+					// Skip set if target is empty
+					if action.Target != "" {
+						target := strings.ReplaceAll(action.Target, "#", strconv.Itoa(i))
+						if err := engine.Set(target, val); err != nil {
+							return nil, fmt.Errorf("error setting value for field %q: %v", field.Name, err)
+						}
 					}
 				}
 			}
 
 		default:
+			key := field.Name
 			for _, action := range field.Actions {
-				newVal := v.(string)
+				// Use cached intermediate
+				if cached, ok := n.getIntermediate(key); ok {
+					v = cached
+				}
+
 				result, err := registry.Apply(
-					action.Type, newVal, action.Params)
+					action.Type, v, action.Params)
 
 				if err != nil {
 					return nil, fmt.Errorf("error in transforming prim: %v", err)
 				}
+				v = result
 
-				result = result.(string)
-				if err := engine.Set(action.Target, result); err != nil {
-					return nil, fmt.Errorf("error while saving")
+				n.setIntermediate(key, v)
+
+				// Skip set if target is empty
+				if action.Target != "" {
+					if err := engine.Set(action.Target, v); err != nil {
+						return nil, fmt.Errorf("error setting value for field %q: %v", field.Name, err)
+					}
 				}
 			}
 		}
