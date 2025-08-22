@@ -32,14 +32,9 @@ func (n *Normalizer) Normalize(data any) (any, error) {
 		switch v := value.(type) {
 		case []any:
 			for i, val := range v {
-				strVal, ok := val.(string)
-				if !ok {
-					strVal = "" // fallback for non-string values
-				}
-
 				for _, action := range field.Actions {
 					result, err := registry.Apply(
-						action.Type, strVal, action.Params)
+						action.Type, val, action.Params)
 
 					if err != nil {
 						if action.Type == "extract" {
