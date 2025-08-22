@@ -17,7 +17,7 @@
           "params": {
             "methods": [
               "removeBrackets",
-              "lowercase"
+              "trim"
             ]
           },
           "target": "items.#.metadata.title"
@@ -37,7 +37,7 @@
         {
           "type": "format",
           "params": {
-            "template": "{{metadata.title}}"
+            "template": "{{metadata.title}} ({{metadata.year}})"
           },
           "target": "items.#.displayName"
         }
