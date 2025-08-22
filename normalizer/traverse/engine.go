@@ -36,7 +36,6 @@ func (e *Engine) GetRoot() any {
 
 func (e *Engine) Get(path string) (any, error) {
 	selector := CompileSelector(path)
-
 	return getPath(e.root, selector)
 }
 
