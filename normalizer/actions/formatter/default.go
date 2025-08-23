@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/mrizkifadil26/medix/normalizer/traverse"
+	"github.com/mrizkifadil26/medix/utils/jsonpath"
 )
 
 func DefaultFormatter(input any, template string) (string, error) {
@@ -13,8 +13,7 @@ func DefaultFormatter(input any, template string) (string, error) {
 
 	keys := extractPlaceholders(template)
 	for _, key := range keys {
-		engine := traverse.NewRoot(input)
-		val, err := engine.Get(key)
+		val, err := jsonpath.Get(input, key)
 		if err != nil || val == nil || !isPrimitive(val) {
 			// Use placeholder for unknown values
 			val = "[unknown]"
