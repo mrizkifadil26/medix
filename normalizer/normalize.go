@@ -6,19 +6,25 @@ import (
 	"strings"
 
 	"github.com/mrizkifadil26/medix/normalizer/registries"
-	"github.com/mrizkifadil26/medix/normalizer/traverse"
+	"github.com/mrizkifadil26/medix/utils/jsonpath"
 )
 
 type Normalizer struct {
-	Fields []Field
-	Meta   map[string]any
+	Fields  []Field
+	Meta    map[string]any
+	Targets map[string]any
 }
 
 func New(config *Config) *Normalizer {
 	return &Normalizer{
-		Fields: config.Fields,
+		Fields:  config.Fields,
+		Meta:    make(map[string]any),
+		Targets: make(map[string]any),
 	}
 }
+
+func originalKey(key string) string { return key + ":original" }
+func currentKey(key string) string  { return key + ":current" }
 
 // GetMeta retrieves a value from the Meta map by key
 func (n *Normalizer) GetMeta(key string) (any, bool) {
@@ -39,110 +45,108 @@ func (n *Normalizer) SetMeta(key string, value any) {
 	n.Meta[key] = value
 }
 
-func (n *Normalizer) setIntermediate(key string, value any) {
-	if n.Meta == nil {
-		n.Meta = map[string]any{}
-	}
-	interm, ok := n.Meta["intermediate"].(map[string]any)
-	if !ok || interm == nil {
-		interm = map[string]any{}
-		n.Meta["intermediate"] = interm
-	}
-	interm[key] = value
-}
-
-func (n *Normalizer) getIntermediate(key string) (any, bool) {
-	if n.Meta == nil {
-		return nil, false
-	}
-	interm, ok := n.Meta["intermediate"].(map[string]any)
-	if !ok || interm == nil {
-		return nil, false
-	}
-	val, exists := interm[key]
-	return val, exists
-}
-
 func (n *Normalizer) Normalize(data any) (any, error) {
-	registry := registries.GetRegistry()
-
-	engine := traverse.NewRoot(data)
 	for _, field := range n.Fields {
-		value, err := engine.Get(field.Name)
+		value, err := jsonpath.Get(data, field.Name)
 		if err != nil {
-			return nil, fmt.Errorf("value not found for field %q", field.Name)
+			return nil, fmt.Errorf("field %q not found: %v", field.Name, err)
 		}
 
 		switch v := value.(type) {
 		case []any:
 			for i, val := range v {
-				original := val
-
-				for _, action := range field.Actions {
-					if action.Type == "transform" {
-						key := field.Name
-						if strings.Contains(field.Name, "#") {
-							key = strings.ReplaceAll(field.Name, "#", strconv.Itoa(i))
-						}
-						if cached, ok := n.getIntermediate(key); ok {
-							val = cached
-						}
-
-						result, err := registry.Apply(action.Type, val, action.Params)
-						if err != nil {
-							return nil, fmt.Errorf("error transforming array: %v", err)
-						}
-						val = result
-
-						n.setIntermediate(key, val)
-					} else {
-						val = original
-
-						// Non-transform actions just apply normally
-						result, err := registry.Apply(action.Type, val, action.Params)
-						if err != nil {
-							return nil, fmt.Errorf("error applying action %q: %v", action.Type, err)
-						}
-						val = result
-					}
-
-					// Skip set if target is empty
-					if action.Target != "" {
-						target := strings.ReplaceAll(action.Target, "#", strconv.Itoa(i))
-						if err := engine.Set(target, val); err != nil {
-							return nil, fmt.Errorf("error setting value for field %q: %v", field.Name, err)
-						}
-					}
+				key := strings.ReplaceAll(field.Name, "#", strconv.Itoa(i))
+				if err := n.processField(field, key, val, &i); err != nil {
+					return nil, err
 				}
 			}
 
 		default:
-			key := field.Name
-			for _, action := range field.Actions {
-				// Use cached intermediate
-				if cached, ok := n.getIntermediate(key); ok {
-					v = cached
-				}
-
-				result, err := registry.Apply(
-					action.Type, v, action.Params)
-
-				if err != nil {
-					return nil, fmt.Errorf("error in transforming prim: %v", err)
-				}
-				v = result
-
-				n.setIntermediate(key, v)
-
-				// Skip set if target is empty
-				if action.Target != "" {
-					if err := engine.Set(action.Target, v); err != nil {
-						return nil, fmt.Errorf("error setting value for field %q: %v", field.Name, err)
-					}
-				}
+			if err := n.processField(field, field.Name, v, nil); err != nil {
+				return nil, err
 			}
 		}
 	}
 
-	return engine.GetRoot(), nil
+	if err := n.applyTargets(data); err != nil {
+		return nil, err
+	}
+
+	return data, nil
+}
+
+// processField handles storing vars and updating targets
+func (n *Normalizer) processField(
+	field Field,
+	key string,
+	val any,
+	idx *int,
+) error {
+	// store original once
+	if _, ok := n.GetMeta(originalKey(key)); !ok {
+		n.SetMeta(originalKey(key), val)
+	}
+
+	// run actions
+	_, err := n.applyActions(key, field.Actions, idx)
+	if err != nil {
+		return fmt.Errorf("failed on field %q: %v", key, err)
+	}
+
+	return nil
+}
+
+func (n *Normalizer) applyActions(key string, actions []Action, idx *int) (any, error) {
+	registry := registries.GetRegistry()
+
+	original, _ := n.GetMeta(originalKey(key))
+	current := original
+
+	for _, action := range actions {
+		var input any
+
+		if action.Type == "transform" {
+			input = current // chain from current (original for the first transform)
+		} else {
+			input = original // other actions always see original
+		}
+
+		result, err := registry.Apply(action.Type, input, action.Params)
+		// if err != nil {
+		// 	return nil, fmt.Errorf("action %q failed: %v", action.Type, err)
+		// }
+		if err != nil {
+			// just log and continue
+			fmt.Printf("action %q failed, skipping: %v\n", action.Type, err)
+			continue
+		}
+
+		// update current only if it's a transform
+		if action.Type == "transform" {
+			current = result
+			n.SetMeta(currentKey(key), current)
+		}
+
+		// update target immediately if defined
+		if action.Target != "" {
+			target := action.Target
+			if idx != nil {
+				target = strings.ReplaceAll(target, "#", strconv.Itoa(*idx))
+			}
+
+			n.Targets[target] = result
+		}
+	}
+
+	return current, nil
+}
+
+func (n *Normalizer) applyTargets(data any) error {
+	for path, value := range n.Targets {
+		if err := jsonpath.Set(data, path, value); err != nil {
+			return fmt.Errorf("set %q failed: %v", path, err)
+		}
+	}
+
+	return nil
 }
