@@ -132,8 +132,19 @@ icon:
 
 normalize:
 	@$(GO) run $(NORMALIZE_CMD) \
-		--config="config/normalizer/movies.json" \
-		--output="out/movies.normalized.json"
+		--config="config/normalizer/$(media)/$(type).$(label).json" \
+		--output="output/normalized/$(media)/$(type).$(label).json"
+
+normalize-all:
+	@shopt -s globstar; \
+	for config in config/normalizer/media/**/*.json; do \
+		[ -f "$$config" ] || continue; \
+		name=$$(basename $$config .json); \
+		out="output/normalized/media/$$name.json"; \
+		echo "Normalizing: $$config → $$out"; \
+		mkdir -p "$$(dirname $$out)"; \
+		$(GO) run $(NORMALIZE_CMD) --config "$$config" --output "$$out"; \
+	done
 
 # --- Sync media and icons logically ---
 sync:
