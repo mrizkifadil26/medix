@@ -1,33 +1,35 @@
 {
-  "root": "output/scanned/media/movies.final.json",
+  "root": "data/scanner/media/movies.torrent.json",
   "fields": [
     {
-      "name": "items.#.name",
+      "name": "items.#.itemName",
       "actions": [
         {
           "type": "replace",
           "params": {
             "from": " - ",
             "to": ": "
-          },
-          "target": "items.#.metadata.title"
+          }
         },
         {
           "type": "transform",
           "params": {
-            "methods": [
-              "removeBrackets",
-              "trim"
-            ]
-          },
-          "target": "items.#.metadata.title"
+            "methods": "removeSquareBrackets"
+          }
         },
         {
           "type": "extract",
           "params": {
-            "pattern": "year"
+            "pattern": "bracketYear"
           },
           "target": "items.#.metadata.year"
+        },
+        {
+          "type": "extract",
+          "params": {
+            "pattern": "title"
+          },
+          "target": "items.#.metadata.title"
         }
       ]
     },

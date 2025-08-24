@@ -1,0 +1,35 @@
+{
+  "root": "output/scanned/media/movies.unfoldered.json",
+  "fields": [
+    {
+      "name": "items.#.name",
+      "actions": [
+        {
+          "type": "transform",
+          "params": {
+            "methods": [
+              "stripExtension",
+              "separator",
+              "trim"
+            ]
+          },
+          "target": "items.#.transformed"
+        },
+        {
+          "type": "extract",
+          "params": {
+            "pattern": "title"
+          },
+          "target": "items.#.metadata.title"
+        },
+        {
+          "type": "extract",
+          "params": {
+            "pattern": "year"
+          },
+          "target": "items.#.metadata.year"
+        }
+      ]
+    }
+  ]
+}

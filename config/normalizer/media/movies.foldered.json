@@ -1,5 +1,5 @@
 {
-  "root": "output/scanned/media/movies.final.json",
+  "root": "output/scanned/media/movies.foldered.json",
   "fields": [
     {
       "name": "items.#.name",
@@ -9,25 +9,21 @@
           "params": {
             "from": " - ",
             "to": ": "
-          },
-          "target": "items.#.metadata.title"
-        },
-        {
-          "type": "transform",
-          "params": {
-            "methods": [
-              "removeBrackets",
-              "trim"
-            ]
-          },
-          "target": "items.#.metadata.title"
+          }
         },
         {
           "type": "extract",
           "params": {
-            "pattern": "year"
+            "pattern": "bracketYear"
           },
           "target": "items.#.metadata.year"
+        },
+        {
+          "type": "extract",
+          "params": {
+            "pattern": "title"
+          },
+          "target": "items.#.metadata.title"
         }
       ]
     },

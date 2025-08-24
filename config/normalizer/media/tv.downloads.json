@@ -1,0 +1,17 @@
+{
+  "root": "output/scanned/media/tv.downloads.json",
+  "fields": [
+    {
+      "name": "items.#.name",
+      "actions": [
+        {
+          "type": "transform",
+          "params": {
+            "methods": "trim"
+          },
+          "target": "items.#.metadata.title"
+        }
+      ]
+    }
+  ]
+}
