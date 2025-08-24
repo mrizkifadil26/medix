@@ -1,7 +1,7 @@
 package extractor
 
 import (
-	"errors"
+	"fmt"
 	"regexp"
 )
 
@@ -18,7 +18,7 @@ func ExtractYear(input string) (string, error) {
 		return match[1], nil
 	}
 
-	return "", errors.New("year not found")
+	return "", fmt.Errorf("year not found in input: %q", input)
 }
 
 func init() {

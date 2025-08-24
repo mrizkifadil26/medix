@@ -15,7 +15,20 @@ func RemoveBrackets(input string) (string, error) {
 	return pattern.ReplaceAllString(input, ""), nil
 }
 
+func RemoveSquareBrackets(input string) (string, error) {
+	pattern := regexp.MustCompile(`\[[^\[\]]*\]`)
+
+	if pattern == nil {
+		return input, fmt.Errorf("removeSquareBrackets: pattern is nil")
+	}
+
+	return pattern.ReplaceAllString(input, ""), nil
+}
+
 func init() {
 	GetRegistry().
 		Register("removeBrackets", RemoveBrackets)
+
+	GetRegistry().
+		Register("removeSquareBrackets", RemoveSquareBrackets)
 }
