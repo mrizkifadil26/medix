@@ -99,17 +99,9 @@ func (n *Normalizer) processField(
 func (n *Normalizer) applyActions(key string, actions []Action, idx *int) (any, error) {
 	registry := registries.GetRegistry()
 
-	original, _ := n.GetMeta(originalKey(key))
-	current := original
-
+	current, _ := n.GetMeta(originalKey(key))
 	for _, action := range actions {
-		var input any
-
-		if action.Type == "transform" {
-			input = current // chain from current (original for the first transform)
-		} else {
-			input = original // other actions always see original
-		}
+		input := current
 
 		result, err := registry.Apply(action.Type, input, action.Params)
 		// if err != nil {
@@ -121,8 +113,8 @@ func (n *Normalizer) applyActions(key string, actions []Action, idx *int) (any, 
 			continue
 		}
 
-		// update current only if it's a transform
-		if action.Type == "transform" {
+		// Only mutate current for Transform or Replacer
+		if action.Type == "transform" || action.Type == "replace" {
 			current = result
 			n.SetMeta(currentKey(key), current)
 		}
