@@ -1,0 +1,43 @@
+{
+  "root": "output/scanned/media/movies.final.json",
+  "fields": [
+    {
+      "name": "items.#.name",
+      "actions": [
+        {
+          "type": "replace",
+          "params": {
+            "from": " - ",
+            "to": ": "
+          }
+        },
+        {
+          "type": "extract",
+          "params": {
+            "pattern": "bracketYear"
+          },
+          "target": "items.#.metadata.year"
+        },
+        {
+          "type": "extract",
+          "params": {
+            "pattern": "title"
+          },
+          "target": "items.#.metadata.title"
+        }
+      ]
+    },
+    {
+      "name": "items.#",
+      "actions": [
+        {
+          "type": "format",
+          "params": {
+            "template": "{{metadata.title}} ({{metadata.year}})"
+          },
+          "target": "items.#.displayName"
+        }
+      ]
+    }
+  ]
+}

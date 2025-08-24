@@ -1,0 +1,49 @@
+{
+  "root": "data/scanner/media/movies.torrent.json",
+  "fields": [
+    {
+      "name": "items.#.itemName",
+      "actions": [
+        {
+          "type": "replace",
+          "params": {
+            "from": " - ",
+            "to": ": "
+          }
+        },
+        {
+          "type": "transform",
+          "params": {
+            "methods": "removeSquareBrackets"
+          }
+        },
+        {
+          "type": "extract",
+          "params": {
+            "pattern": "bracketYear"
+          },
+          "target": "items.#.metadata.year"
+        },
+        {
+          "type": "extract",
+          "params": {
+            "pattern": "title"
+          },
+          "target": "items.#.metadata.title"
+        }
+      ]
+    },
+    {
+      "name": "items.#",
+      "actions": [
+        {
+          "type": "format",
+          "params": {
+            "template": "{{metadata.title}} ({{metadata.year}})"
+          },
+          "target": "items.#.displayName"
+        }
+      ]
+    }
+  ]
+}

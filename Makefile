@@ -21,6 +21,7 @@ BIN_DIR			:= bin
 # --- Executable Commands ---
 SCANNER_CMD		:= ./cmd/scan
 SCANNER_V2_CMD	:= ./cmd/scan-v2
+NORMALIZE_CMD	:= ./cmd/normalize
 PROGRESS_CMD	:= ./cmd/progress
 SERVER_CMD		:= ./cmd/server
 ICONMAP_CMD		:= ./cmd/iconmap
@@ -128,6 +129,22 @@ icon:
 # 	$(MAKE) icon type=movies name=raw
 # 	$(MAKE) icon type=movies name=final
 # 	$(MAKE) icon type=tv name=final
+
+normalize:
+	@$(GO) run $(NORMALIZE_CMD) \
+		--config="config/normalizer/$(media)/$(type).$(label).json" \
+		--output="output/normalized/$(media)/$(type).$(label).json"
+
+normalize-all:
+	@shopt -s globstar; \
+	for config in config/normalizer/media/**/*.json; do \
+		[ -f "$$config" ] || continue; \
+		name=$$(basename $$config .json); \
+		out="output/normalized/media/$$name.json"; \
+		echo "Normalizing: $$config → $$out"; \
+		mkdir -p "$$(dirname $$out)"; \
+		$(GO) run $(NORMALIZE_CMD) --config "$$config" --output "$$out"; \
+	done
 
 # --- Sync media and icons logically ---
 sync:

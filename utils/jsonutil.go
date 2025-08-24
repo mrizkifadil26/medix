@@ -20,6 +20,16 @@ import (
 //	var config Config
 //	err := utils.LoadJSON("config.json", &config)
 func LoadJSON(path string, v any) error {
+	// Check if v is *OrderedMap[string, any]
+	if om, ok := v.(*OrderedMap[string, any]); ok {
+		// OrderedMap requires full byte slice, so read entire file
+		data, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		return om.UnmarshalJSON(data)
+	}
+
 	f, err := os.Open(path)
 	if err != nil {
 		return err
