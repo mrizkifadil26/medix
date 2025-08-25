@@ -4,26 +4,23 @@ import (
 	"fmt"
 
 	"github.com/mrizkifadil26/medix/enricher/tmdb"
-	"github.com/mrizkifadil26/medix/model"
 )
 
-// TODO: fix this
 func Enrich(
-	entries []model.MediaEntry,
+	data any,
 	config *Config,
 ) (any, error) {
 	client := tmdb.NewClient(config.APIKey)
-	// scorer := NewScorer(config.Scoring)
 
 	var enriched []any
-	for _, entry := range entries {
-		// normalize title
-		// normalized := NormalizeTitle(entry.Title)
-
+	dt := data.(map[string]any)
+	items := dt["items"].([]any)
+	for _, entry := range items {
 		results, err := client.Search("movie", tmdb.SearchQuery{
 			Query:       entry.Name,
 			PrimaryYear: string(entry.ContentType), // should be Year
 		})
+
 		if err != nil {
 			fmt.Printf("⚠️  Failed to search TMDb for %q: %v\n", entry.Name, err)
 			enriched = append(enriched, entry)

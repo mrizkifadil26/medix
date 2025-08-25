@@ -1,49 +1,50 @@
 package enricher
 
 import (
-	"encoding/json"
 	"flag"
-	"os"
+	"fmt"
 )
 
 type CLIArgs struct {
-	ConfigPath string
-	Input      string
-	Output     string
-	Kind       string
+	ConfigPath *string
+	Config     Config
 }
 
-func ParseCLI() (*Config, error) {
-	var args CLIArgs
-	flag.StringVar(&args.ConfigPath, "config", "", "Path to config JSON")
+func ParseCLI() (*CLIArgs, error) {
+	var (
+		configPath = flag.String("config", "", "Path to config file (JSON or YAML)")
+		outputPath = flag.String("output", "", "Output result path")
+		root       = flag.String("root", "", "Root directory to scan")
+	)
 
-	flag.StringVar(&args.Input, "input", "", "Override: input file path")
-	flag.StringVar(&args.Output, "output", "", "Override: output file path")
-	flag.StringVar(&args.Kind, "kind", "", "Override: only kind (movie|tv)")
 	flag.Parse()
 
+	// Ensure config file is provided
+	if configPath == nil || *configPath == "" {
+		return nil, fmt.Errorf("missing required -config argument")
+	}
+
 	// Start with config file if provided
-	cfg := &Config{}
-	if args.ConfigPath != "" {
-		data, err := os.ReadFile(args.ConfigPath)
-		if err != nil {
-			return nil, err
-		}
-		if err := json.Unmarshal(data, cfg); err != nil {
-			return nil, err
-		}
+	var cfg Config
+	shouldPopulate := false
+
+	if root != nil && *root != "" {
+		cfg.Root = *root
+		shouldPopulate = true
 	}
 
-	// Apply CLI overrides
-	if args.Input != "" {
-		cfg.InputFile = args.Input
-	}
-	if args.Output != "" {
-		cfg.OutputFile = args.Output
-	}
-	if args.Kind != "" {
-		cfg.OnlyKind = args.Kind
+	if outputPath != nil && *outputPath != "" {
+		cfg.Output = *outputPath
+		shouldPopulate = true
 	}
 
-	return cfg, nil
+	args := &CLIArgs{
+		ConfigPath: configPath,
+	}
+
+	if shouldPopulate {
+		args.Config = cfg
+	}
+
+	return args, nil
 }

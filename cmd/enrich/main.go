@@ -9,28 +9,33 @@ import (
 )
 
 func main() {
-	cfg, err := enricher.ParseCLI()
+	args, err := enricher.ParseCLI()
 	if err != nil {
-		log.Fatalf("❌ Failed to parse config: %v", err)
+		log.Fatalf("Error parsing CLI: %v", err)
 	}
 
-	fmt.Println("🔍 Loading input:", cfg.InputFile)
-	entries, err := utils.LoadJSONPtr[enricher.Config](cfg.InputFile)
-	if err != nil {
-		log.Fatalf("❌ Failed to load entries: %v", err)
+	var config enricher.Config
+	if args.ConfigPath != nil {
+		if err := utils.LoadJSON(*args.ConfigPath, &config); err != nil {
+			log.Fatalf("Failed to load config file: %v", err)
+		}
 	}
-	// fmt.Printf("📦 Loaded %d entries\n", len(entries))
 
-	// fmt.Println("✨ Enriching entries via TMDb...")
-	// enriched, err := Enrich(entries, cfg)
-	// if err != nil {
-	// 	log.Fatalf("❌ Enrichment failed: %v", err)
-	// }
+	fmt.Println("✨ Enriching entries via TMDb...")
+	var data any
+	if err := utils.LoadJSON(config.Root, &data); err != nil {
+		panic(err)
+	}
 
-	// fmt.Println("💾 Writing output to:", cfg.OutputFile)
-	// if err := utils.WriteJSON(cfg.OutputFile, enriched); err != nil {
-	// 	log.Fatalf("❌ Failed to save output: %v", err)
-	// }
+	enriched, err := enricher.Enrich(data, config)
+	if err != nil {
+		log.Fatalf("❌ Enrichment failed: %v", err)
+	}
+
+	fmt.Println("💾 Writing output to:", config.Output)
+	if err := utils.WriteJSON(config.Output, enriched); err != nil {
+		log.Fatalf("❌ Failed to save output: %v", err)
+	}
 
 	fmt.Println("✅ Done enriching.")
 }
