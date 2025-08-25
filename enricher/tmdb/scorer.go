@@ -1,7 +1,6 @@
 package tmdb
 
 import (
-	"log"
 	"strconv"
 	"strings"
 )
@@ -55,7 +54,7 @@ func scoreMovie(item SearchItem, expectedTitle string, expectedYear int) int {
 	score += int(item.Popularity)      // 0-100 scale
 	score += int(item.VoteAverage * 2) // 0-20 max
 
-	log.Printf("  📊 Final Score (%s): %d", item.OriginalTitle, score)
+	// log.Printf("  📊 Final Score (%s): %d", item.OriginalTitle, score)
 
 	return score
 }

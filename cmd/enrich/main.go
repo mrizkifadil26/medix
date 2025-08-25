@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/mrizkifadil26/medix/enricher"
 	"github.com/mrizkifadil26/medix/utils"
@@ -21,13 +22,24 @@ func main() {
 		}
 	}
 
-	fmt.Println("✨ Enriching entries via TMDb...")
 	var data any
-	if err := utils.LoadJSON(config.Root, &data); err != nil {
-		panic(err)
+
+	// Use existing output as main data if it exists
+	if _, err := os.Stat(config.Output); err == nil {
+		fmt.Println("⚡ Loading existing enriched data from:", config.Output)
+		if err := utils.LoadJSON(config.Output, &data); err != nil {
+			log.Fatalf("❌ Failed to load existing output: %v", err)
+		}
+	} else if os.IsNotExist(err) {
+		fmt.Println("✨ No existing output found. Loading root data for enrichment...")
+		if err := utils.LoadJSON(config.Root, &data); err != nil {
+			log.Fatalf("❌ Failed to load root data: %v", err)
+		}
+	} else {
+		log.Fatalf("❌ Failed to check output file: %v", err)
 	}
 
-	enriched, err := enricher.Enrich(data, config)
+	enriched, err := enricher.Enrich(data, &config)
 	if err != nil {
 		log.Fatalf("❌ Enrichment failed: %v", err)
 	}

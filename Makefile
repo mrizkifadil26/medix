@@ -22,6 +22,7 @@ BIN_DIR			:= bin
 SCANNER_CMD		:= ./cmd/scan
 SCANNER_V2_CMD	:= ./cmd/scan-v2
 NORMALIZE_CMD	:= ./cmd/normalize
+ENRICH_CMD		:= ./cmd/enrich
 PROGRESS_CMD	:= ./cmd/progress
 SERVER_CMD		:= ./cmd/server
 ICONMAP_CMD		:= ./cmd/iconmap
@@ -145,6 +146,11 @@ normalize-all:
 		mkdir -p "$$(dirname $$out)"; \
 		$(GO) run $(NORMALIZE_CMD) --config "$$config" --output "$$out"; \
 	done
+
+enrich:
+	@$(GO) run $(ENRICH_CMD) \
+		--config="config/enricher/$(media)/$(type).$(label).json" \
+		--output="output/enriched/$(media)/$(type).$(label).json"
 
 # --- Sync media and icons logically ---
 sync:

@@ -38,10 +38,12 @@ func (q SearchQuery) ToParams() url.Values {
 			if val.String() != "" {
 				values.Set(key, val.String())
 			}
+
 		case reflect.Int, reflect.Int64:
 			if val.Int() != 0 {
 				values.Set(key, strconv.FormatInt(val.Int(), 10))
 			}
+
 		}
 	}
 
@@ -87,6 +89,7 @@ func isValidYear(s string) bool {
 	if len(s) != 4 {
 		return false
 	}
+
 	_, err := strconv.Atoi(s)
 	return err == nil
 }

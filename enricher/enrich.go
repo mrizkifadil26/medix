@@ -1,44 +1,156 @@
 package enricher
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
+	"strconv"
+	"strings"
 
 	"github.com/mrizkifadil26/medix/enricher/tmdb"
+	"github.com/mrizkifadil26/medix/utils/jsonpath"
 )
 
 func Enrich(
 	data any,
 	config *Config,
 ) (any, error) {
-	client := tmdb.NewClient(config.APIKey)
+	// client := tmdb.NewClient(config.APIKey)
+	var cache map[string]bool
+	cacheFile := "cache.json"
 
-	var enriched []any
+	// initialize
+	cache = make(map[string]bool)
+
+	if cacheData, err := os.ReadFile(cacheFile); err == nil {
+		json.Unmarshal(cacheData, &cache)
+	}
+
+	client := tmdb.NewClient("eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3N2QxNGJiN2JkODYyY2E0ZTE4MzBiZWNiODgxNGU3NyIsIm5iZiI6MTU2MzYzMjEyOC43NzUsInN1YiI6IjVkMzMyMjAwYWU2ZjA5MDAwZTdiNWJlZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZpKTx-psLaWjwS-zRvpDLO7QKmoNJnF_xubbb8vn-48")
+
+	resultGenres, err := client.GetGenres("movie")
+	if err != nil {
+		return nil, fmt.Errorf("failed to get genres: %w", err)
+	}
+
+	fmt.Println("ok")
+	genreMap := make(map[int]string)
+	for _, g := range resultGenres {
+		genreMap[g.ID] = g.Name
+	}
+
+	// var enriched []any
 	dt := data.(map[string]any)
 	items := dt["items"].([]any)
-	for _, entry := range items {
+
+	errors := make(map[string]string)
+	for idx, item := range items {
+		var errs []string
+
+		entry := item.(map[string]any)
+		metadata, ok := entry["metadata"].(map[string]any)
+		if !ok {
+			name := entry["name"].(string)
+			errors[name] = "missing metadata"
+
+			fmt.Println("No metadata found for entry:", entry)
+			continue
+		}
+
+		title := metadata["title"].(string)
+		// fmt.Printf("title: %v | cached: %v | enriched: %v\n", title, cache[title], entry["enriched"] != nil)
+
+		// if cached, ok := cache[title]; ok && cached && entry["enriched"] != nil {
+		// 	fmt.Println("Skipping cached and already enriched entry:", title)
+		// 	continue
+		// }
+
+		if entry["enriched"] != nil {
+			// fmt.Println("Skipping cached and already enriched entry:", title)
+			continue
+		}
+
+		year, _ := metadata["year"].(string)
+		if year == "" {
+			errs = append(errs, "missing year")
+
+			fmt.Println("Year not found in metadata for:", title)
+			year = ""
+		}
+
+		if len(errs) > 0 {
+			errors[title] = strings.Join(errs, ", ")
+			continue
+		}
+
 		results, err := client.Search("movie", tmdb.SearchQuery{
-			Query:       entry.Name,
-			PrimaryYear: string(entry.ContentType), // should be Year
+			Query: title, // should be Name
+			Year:  year,  // should be Year
 		})
 
 		if err != nil {
-			fmt.Printf("⚠️  Failed to search TMDb for %q: %v\n", entry.Name, err)
-			enriched = append(enriched, entry)
+			errors[title] = "tmdb search failed: " + err.Error()
+			fmt.Printf("⚠️ Failed to search TMDb for %q: %v\n", title, err)
 			continue
 		}
 
-		// best := scorer.BestMatch(entry, results)
-		best := tmdb.PickBestMovieMatch(results, entry.Name, 2010) // should be derived from Year
-		if best == nil {
-			fmt.Printf("❌ No good match found for %q (%d)\n", entry.Name, 2010)
-			enriched = append(enriched, entry)
+		// fallback using alternate_title
+		if len(results) == 0 && metadata["alternate_title"] != "" {
+			alternateTitle, _ := metadata["alternate_title"].(string)
+			fmt.Printf("ℹ️ No results for %q, trying alternate title %q\n", title, alternateTitle)
+
+			results, err = client.Search("movie", tmdb.SearchQuery{
+				Query: alternateTitle,
+				Year:  year,
+			})
+
+			if err != nil {
+				errors[title] = "tmdb search failed on alternate title: " + err.Error()
+				fmt.Printf("⚠️ Failed to search TMDb for alternate title %q: %v\n", alternateTitle, err)
+				continue
+			}
+		}
+
+		if len(results) == 0 {
+			errors[title] = "tmdb no results found"
+			fmt.Printf("⚠️ No result found for %q\n", title)
 			continue
 		}
 
-		// entry.TMDB = best.ToTMDBMeta()
-		// enriched = append(enriched, entry)
-		// fmt.Printf("✅ Enriched: %s → %s (%d)\n", entry.Name, best.Title(), best.Year())
+		yearInt, _ := strconv.Atoi(year)
+		bestResult := tmdb.PickBestMovieMatch(results, title, yearInt) // should be derived from Year
+		if bestResult == nil {
+			errors[title] = "no good match found"
+			fmt.Printf("❌ No good match found for %q\n", title)
+			continue
+		}
+
+		var genres []string
+		for _, id := range bestResult.GenreIDs {
+			if g, ok := genreMap[id]; ok {
+				genres = append(genres, g)
+			}
+		}
+
+		if len(results) > 0 {
+			targetTitle := strings.ReplaceAll("items.#.enriched.title", "#", strconv.Itoa(idx))
+			targetReleaseDate := strings.ReplaceAll("items.#.enriched.release_date", "#", strconv.Itoa(idx))
+			targetGenres := strings.ReplaceAll("items.#.enriched.genres", "#", strconv.Itoa(idx))
+
+			jsonpath.Set(data, targetTitle, bestResult.Title)
+			jsonpath.Set(data, targetReleaseDate, bestResult.ReleaseDate)
+			jsonpath.Set(data, targetGenres, genres)
+		} else {
+			fmt.Println("No results found for:", title)
+		}
+
+		cache[title] = true
 	}
 
-	return enriched, nil
+	cacheData, _ := json.Marshal(cache)
+	os.WriteFile(cacheFile, cacheData, 0644)
+
+	jsonpath.Set(data, "errors", errors)
+
+	return data, nil
 }
