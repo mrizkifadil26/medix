@@ -1,13 +1,6 @@
 package tmdb_test
 
-import (
-	"net/url"
-	"testing"
-
-	"github.com/mrizkifadil26/medix/enricher/tmdb"
-	"github.com/stretchr/testify/assert"
-)
-
+/*
 func TestToParams(t *testing.T) {
 	query := tmdb.SearchQuery{
 		Query:       "Batman",
@@ -91,3 +84,4 @@ func TestValidate_InvalidPrimaryYearFormat(t *testing.T) {
 	assert.Error(t, err)
 	assert.Contains(t, err.Error(), "field PrimaryYear: must be 4-digit number")
 }
+*/

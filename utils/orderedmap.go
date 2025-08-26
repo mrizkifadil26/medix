@@ -78,6 +78,7 @@ func (om *OrderedMap[K, V]) UnmarshalJSON(data []byte) error {
 	if err != nil {
 		return err
 	}
+
 	if delim, ok := tok.(json.Delim); !ok || delim != '{' {
 		return fmt.Errorf("OrderedMap: expected object")
 	}

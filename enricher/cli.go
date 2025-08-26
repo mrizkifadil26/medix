@@ -7,6 +7,7 @@ import (
 
 type CLIArgs struct {
 	ConfigPath *string
+	Refresh    *bool
 	Config     Config
 }
 
@@ -15,6 +16,7 @@ func ParseCLI() (*CLIArgs, error) {
 		configPath = flag.String("config", "", "Path to config file (JSON or YAML)")
 		outputPath = flag.String("output", "", "Output result path")
 		root       = flag.String("root", "", "Root directory to scan")
+		refresh    = flag.Bool("refresh", false, "Force enrichment by ignoring cache")
 	)
 
 	flag.Parse()
@@ -40,6 +42,7 @@ func ParseCLI() (*CLIArgs, error) {
 
 	args := &CLIArgs{
 		ConfigPath: configPath,
+		Refresh:    refresh,
 	}
 
 	if shouldPopulate {

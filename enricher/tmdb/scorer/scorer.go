@@ -4,21 +4,7 @@ import (
 	"strings"
 )
 
-var minorGenres = map[string]bool{
-	"Music":       true,
-	"Documentary": true,
-	"Short":       true,
-	"TV Movie":    true,
-}
-
-type Scorer struct {
-	Weights map[string]float64
-}
-
-func NewScorer(weights map[string]float64) *Scorer {
-	return &Scorer{Weights: weights}
-}
-
+/*
 func scoreMedia(
 	item MediaItem,
 	expectedTitle string,
@@ -27,6 +13,7 @@ func scoreMedia(
 ) int {
 	return scoreMediaWithConfig(item, expectedTitle, expectedYear, genreMap, DefaultConfig)
 }
+*/
 
 func scoreMediaWithConfig(
 	item MediaItem,

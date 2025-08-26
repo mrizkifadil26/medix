@@ -1,26 +1,32 @@
 package scorer
 
+type TitleWeights struct {
+	ExactMatch    int
+	OriginalMatch int
+	PartialMatch  int
+	PartialOrig   int
+}
+
+type YearWeights struct {
+	Exact   int
+	OffBy1  int
+	OffBy2  int
+	Penalty int
+}
+
+type GenreWeights struct {
+	Primary     int
+	Secondary   int
+	Minor       int
+	MinorGenres map[string]bool
+}
+
 type ScoreConfig struct {
-	TitleWeights struct {
-		ExactMatch    int
-		OriginalMatch int
-		PartialMatch  int
-		PartialOrig   int
-	}
-	YearWeights struct {
-		Exact   int
-		OffBy1  int
-		OffBy2  int
-		Penalty int
-	}
+	TitleWeights     TitleWeights
+	YearWeights      YearWeights
+	GenreWeights     GenreWeights
 	PopularityWeight int
 	VoteWeight       int
-	GenreWeights     struct {
-		Primary     int
-		Secondary   int
-		Minor       int
-		MinorGenres map[string]bool
-	}
 }
 
 type MediaItem interface {

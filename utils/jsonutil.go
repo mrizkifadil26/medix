@@ -27,6 +27,7 @@ func LoadJSON(path string, v any) error {
 		if err != nil {
 			return err
 		}
+
 		return om.UnmarshalJSON(data)
 	}
 

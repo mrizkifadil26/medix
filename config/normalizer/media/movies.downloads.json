@@ -25,6 +25,13 @@
         {
           "type": "extract",
           "params": {
+            "pattern": "alternateTitle"
+          },
+          "target": "items.#.metadata.alternate_title"
+        },
+        {
+          "type": "extract",
+          "params": {
             "pattern": "year"
           },
           "target": "items.#.metadata.year"
