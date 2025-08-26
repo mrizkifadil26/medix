@@ -152,6 +152,12 @@ enrich:
 		--config="config/enricher/$(media)/$(type).$(label).json" \
 		--output="output/enriched/$(media)/$(type).$(label).json"
 
+enrich-refresh:
+	@$(GO) run $(ENRICH_CMD) \
+		--config="config/enricher/$(media)/$(type).$(label).json" \
+		--output="output/enriched/$(media)/$(type).$(label).json" \
+		--refresh
+
 # --- Sync media and icons logically ---
 sync:
 	@$(GO) run $(SYNC_CMD) \
