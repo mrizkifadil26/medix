@@ -25,7 +25,8 @@ type Enricher struct {
 	genreMap map[int]string
 	errors   map[string]string
 
-	mu sync.Mutex // protects cache and errors
+	mu     sync.Mutex   // protects cache and errors
+	jsonMu sync.RWMutex // protects jsonpath.Get/Set
 }
 
 type Progress struct {
@@ -64,26 +65,25 @@ func Enrich(
 	}
 	e.genreMap = genreMap
 
-	// root, ok := data.(map[string]any)
-	// if !ok {
-	// 	return nil, fmt.Errorf("invalid input: must be map[string]any")
-	// }
-	// items, _ := root["items"].([]any)
 	root, err := AsObject(data)
 	if err != nil {
 		return nil, err
 	}
 
+	e.jsonMu.RLock()
 	itemsVal, _ := root.Get("items")
+	e.jsonMu.RUnlock()
 	items, _ := itemsVal.([]any)
 
 	// item_count (from JSON)
 	itemCount := 0
+	e.jsonMu.RLock()
 	if v, ok := root.Get("item_count"); ok {
 		if f, ok := v.(float64); ok {
 			itemCount = int(f)
 		}
 	}
+	e.jsonMu.RUnlock()
 
 	if itemCount == 0 {
 		itemCount = len(items)
@@ -108,7 +108,7 @@ func Enrich(
 			sem <- struct{}{} // acquire slot
 			defer func() { <-sem }()
 
-			title, isError := e.enrichItem(root, item, idx)
+			title, isError := e.enrichItem(data, item, idx)
 			if title != "" {
 				progress.Inc(title, isError)
 			}
@@ -119,7 +119,11 @@ func Enrich(
 	// --- End parallel ---
 
 	saveCache(cacheFile, e.cache)
+
+	e.jsonMu.Lock()
 	jsonpath.Set(data, "errors", e.errors)
+	e.jsonMu.Unlock()
+
 	return data, nil
 }
 
@@ -129,7 +133,9 @@ func (e *Enricher) enrichItem(root any, item any, idx int) (string, bool) {
 		return "", true
 	}
 
+	e.jsonMu.RLock()
 	metadata, ok := entry.Get("metadata")
+	e.jsonMu.RUnlock()
 	if !ok {
 		name := getString(entry, "name")
 		e.setError(name, "missing metadata")
@@ -137,7 +143,11 @@ func (e *Enricher) enrichItem(root any, item any, idx int) (string, bool) {
 	}
 
 	title := getString(metadata, "title")
-	if _, ok := entry.Get("enriched"); !ok {
+
+	e.jsonMu.RLock()
+	_, alreadyEnriched := entry.Get("enriched")
+	e.jsonMu.RUnlock()
+	if alreadyEnriched {
 		return title, false
 	}
 
@@ -203,9 +213,15 @@ func (e *Enricher) enrichItem(root any, item any, idx int) (string, bool) {
 	}
 
 	// Write results back
+	e.jsonMu.Lock()
 	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.title", idx), best.Title)
+	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.original_title", idx), best.OriginalTitle)
 	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.release_date", idx), best.ReleaseDate)
 	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.genres", idx), genres)
+	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.language", idx), best.OriginalLanguage)
+	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.poster_path", idx), best.PosterPath)
+	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.overview", idx), best.Overview)
+	e.jsonMu.Unlock()
 
 	e.setCache(title, true)
 
