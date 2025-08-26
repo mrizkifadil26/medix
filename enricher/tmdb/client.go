@@ -1,7 +1,10 @@
 package tmdb
 
 import (
+	"encoding/json"
+	"fmt"
 	"net/http"
+	"net/url"
 	"time"
 )
 
@@ -37,82 +40,38 @@ func NewClient(apiKey string) *Client {
 	}
 }
 
-// func (e *TMDBClient) Run(
-// 	ctx context.Context,
-// 	job enricher.Config,
-// ) (enricher.EnrichResult, error) {
-// 	start := time.Now()
+func (c *Client) doRequest(
+	endpoint string,
+	params url.Values,
+	result any,
+) error {
+	reqURL, err := url.Parse(endpoint)
+	if err != nil {
+		return err
+	}
 
-// 	if e.apiKey == "" {
-// 		return enricher.EnrichResult{}, fmt.Errorf("TMDB_API_KEY not set")
-// 	}
+	if params != nil {
+		reqURL.RawQuery = params.Encode()
+	}
 
-// 	raw, err := os.ReadFile(job.InputPath)
-// 	if err != nil {
-// 		return enricher.EnrichResult{}, fmt.Errorf("read error: %w", err)
-// 	}
+	req, err := http.NewRequest("GET", reqURL.String(), nil)
+	if err != nil {
+		return err
+	}
 
-// 	var entries []model.MediaEntry
-// 	if err := json.Unmarshal(raw, &entries); err != nil {
-// 		return enricher.EnrichResult{}, fmt.Errorf("unmarshal error: %w", err)
-// 	}
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return fmt.Errorf("request failed: %w", err)
+	}
+	defer resp.Body.Close()
 
-// 	var enrichedCount int
-// 	for i := range entries {
-// 		meta, err := e.fetch(entries[i].Title, entries[i].Year)
-// 		if err != nil {
-// 			continue // skip if not found or failed
-// 		}
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("bad status: %d", resp.StatusCode)
+	}
 
-// 		entries[i].Metadata.Enriched = true
-// 		entries[i].Metadata.Source = "TMDB"
-// 		entries[i].Metadata.Overview = meta.Overview
-// 		entries[i].Metadata.PosterPath = meta.PosterPath
-// 		entries[i].Metadata.ReleaseDate = meta.ReleaseDate
-// 		enrichedCount++
-// 	}
+	if err := json.NewDecoder(resp.Body).Decode(result); err != nil {
+		return fmt.Errorf("decode error: %w", err)
+	}
 
-// 	out, _ := json.MarshalIndent(entries, "", "  ")
-// 	if err := os.WriteFile(job.Output, out, 0644); err != nil {
-// 		return enricher.EnrichResult{}, fmt.Errorf("write error: %w", err)
-// 	}
-
-// 	return enricher.EnrichResult{
-// 		Type:     "media",
-// 		JobName:  job.Name,
-// 		Items:    entries,
-// 		Count:    enrichedCount,
-// 		Duration: time.Since(start).String(),
-// 	}, nil
-// }
-
-// func (e *TMDBEnricher) fetch(
-// 	title string,
-// 	year int,
-// ) (*TMDBSearchItem, error) {
-// 	baseURL := "https://api.themoviedb.org/3/search/movie"
-// 	params := url.Values{}
-// 	params.Set("api_key", e.apiKey)
-// 	params.Set("query", title)
-// 	params.Set("year", fmt.Sprintf("%d", year))
-
-// 	resp, err := e.client.Get(fmt.Sprintf("%s?%s", baseURL, params.Encode()))
-// 	if err != nil {
-// 		return nil, err
-// 	}
-// 	defer resp.Body.Close()
-
-// 	if resp.StatusCode != http.StatusOK {
-// 		return nil, fmt.Errorf("TMDB error: status %d", resp.StatusCode)
-// 	}
-
-// 	var result TMDBSearchResult
-// 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-// 		return nil, err
-// 	}
-// 	if len(result.Results) == 0 {
-// 		return nil, fmt.Errorf("no result")
-// 	}
-
-// 	return &result.Results[0], nil
-// }
+	return nil
+}

@@ -18,7 +18,7 @@ func TestToParams(t *testing.T) {
 		Page:        2,
 	}
 
-	params := query.ToParams()
+	params := query.Params()
 
 	expected := url.Values{}
 	expected.Set("query", "Batman")
@@ -37,7 +37,7 @@ func TestToParams_OmitsEmptyFields(t *testing.T) {
 		Page:  1,
 	}
 
-	params := query.ToParams()
+	params := query.Params()
 
 	assert.Equal(t, "Interstellar", params.Get("query"))
 	assert.Equal(t, "1", params.Get("page"))

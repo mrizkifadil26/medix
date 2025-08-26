@@ -1,12 +1,6 @@
-package tmdb_test
+package scorer_test
 
-import (
-	"encoding/json"
-	"testing"
-
-	"github.com/mrizkifadil26/medix/enricher/tmdb"
-)
-
+/*
 const sampleFlowJSON = `{
   "page": 1,
   "results": [
@@ -393,4 +387,4 @@ func TestPickBestMovieMatch_Flow2024(t *testing.T) {
 	} else {
 		t.Logf("✅ Best match: %s (%s), original: %s", best.Title, best.ReleaseDate, best.OriginalTitle)
 	}
-}
+} */

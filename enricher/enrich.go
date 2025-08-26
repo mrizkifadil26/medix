@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/mrizkifadil26/medix/enricher/tmdb"
+	"github.com/mrizkifadil26/medix/enricher/tmdb/scorer"
 	"github.com/mrizkifadil26/medix/utils/jsonpath"
 )
 
@@ -15,7 +16,6 @@ func Enrich(
 	data any,
 	config *Config,
 ) (any, error) {
-	// client := tmdb.NewClient(config.APIKey)
 	var cache map[string]bool
 	cacheFile := "cache.json"
 
@@ -26,17 +26,11 @@ func Enrich(
 		json.Unmarshal(cacheData, &cache)
 	}
 
+	// client := tmdb.NewClient(config.APIKey)
 	client := tmdb.NewClient("eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3N2QxNGJiN2JkODYyY2E0ZTE4MzBiZWNiODgxNGU3NyIsIm5iZiI6MTU2MzYzMjEyOC43NzUsInN1YiI6IjVkMzMyMjAwYWU2ZjA5MDAwZTdiNWJlZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZpKTx-psLaWjwS-zRvpDLO7QKmoNJnF_xubbb8vn-48")
-
-	resultGenres, err := client.GetGenres("movie")
+	genreMap, err := loadGenreCache(client, "movie")
 	if err != nil {
-		return nil, fmt.Errorf("failed to get genres: %w", err)
-	}
-
-	fmt.Println("ok")
-	genreMap := make(map[int]string)
-	for _, g := range resultGenres {
-		genreMap[g.ID] = g.Name
+		return nil, fmt.Errorf("failed to load genres: %w", err)
 	}
 
 	// var enriched []any
@@ -90,38 +84,45 @@ func Enrich(
 
 		if err != nil {
 			errors[title] = "tmdb search failed: " + err.Error()
-			fmt.Printf("⚠️ Failed to search TMDb for %q: %v\n", title, err)
+			fmt.Printf("Failed to search TMDb for %q: %v\n", title, err)
 			continue
 		}
 
 		// fallback using alternate_title
 		if len(results) == 0 && metadata["alternate_title"] != "" {
-			alternateTitle, _ := metadata["alternate_title"].(string)
-			fmt.Printf("ℹ️ No results for %q, trying alternate title %q\n", title, alternateTitle)
+			if altVal, ok := metadata["alternate_title"]; ok {
+				if altStr, ok := altVal.(string); ok && altStr != "" {
+					alternateTitle, _ := metadata["alternate_title"].(string)
+					fmt.Printf("No results for %q, trying alternate title %q\n", title, alternateTitle)
 
-			results, err = client.Search("movie", tmdb.SearchQuery{
-				Query: alternateTitle,
-				Year:  year,
-			})
+					results, err = client.Search("movie", tmdb.SearchQuery{
+						Query: alternateTitle,
+						Year:  year,
+					})
 
-			if err != nil {
-				errors[title] = "tmdb search failed on alternate title: " + err.Error()
-				fmt.Printf("⚠️ Failed to search TMDb for alternate title %q: %v\n", alternateTitle, err)
-				continue
+					if err != nil {
+						errors[title] = "tmdb search failed on alternate title: " + err.Error()
+						fmt.Printf("Failed to search TMDb for alternate title %q: %v\n", alternateTitle, err)
+						continue
+					}
+
+				}
 			}
 		}
 
 		if len(results) == 0 {
 			errors[title] = "tmdb no results found"
-			fmt.Printf("⚠️ No result found for %q\n", title)
+			fmt.Printf("No result found for %q\n", title)
 			continue
 		}
 
 		yearInt, _ := strconv.Atoi(year)
-		bestResult := tmdb.PickBestMovieMatch(results, title, yearInt) // should be derived from Year
+		bestResult := scorer.PickBestMatch[tmdb.SearchItem](
+			results, title, yearInt, genreMap) // should be derived from Year
+
 		if bestResult == nil {
 			errors[title] = "no good match found"
-			fmt.Printf("❌ No good match found for %q\n", title)
+			fmt.Printf("No good match found for %q\n", title)
 			continue
 		}
 
@@ -153,4 +154,46 @@ func Enrich(
 	jsonpath.Set(data, "errors", errors)
 
 	return data, nil
+}
+
+const genreCacheFile = "genres.cache.json"
+
+func loadGenreCache(client *tmdb.Client, kind string) (map[int]string, error) {
+	const genreCacheFile = "genres.cache.json"
+
+	// Try from file
+	if data, err := os.ReadFile(genreCacheFile); err == nil {
+		var genres map[string]map[int]string
+		if err := json.Unmarshal(data, &genres); err == nil {
+			if g, ok := genres[kind]; ok {
+				return g, nil
+			}
+		}
+	}
+
+	// If not found, fetch from TMDb
+	resultGenres, err := client.GetGenres(kind)
+	if err != nil {
+		return nil, err
+	}
+
+	genreMap := make(map[int]string)
+	for _, g := range resultGenres {
+		genreMap[g.ID] = g.Name
+	}
+
+	// Save to file
+	var genres map[string]map[int]string
+	if data, err := os.ReadFile(genreCacheFile); err == nil {
+		json.Unmarshal(data, &genres)
+	}
+	if genres == nil {
+		genres = make(map[string]map[int]string)
+	}
+	genres[kind] = genreMap
+
+	enc, _ := json.MarshalIndent(genres, "", "  ")
+	_ = os.WriteFile(genreCacheFile, enc, 0644)
+
+	return genreMap, nil
 }

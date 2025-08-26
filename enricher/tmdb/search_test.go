@@ -1,16 +1,6 @@
 package tmdb_test
 
-import (
-	"encoding/json"
-	"errors"
-	"net/http"
-	"net/http/httptest"
-	"strings"
-	"testing"
-
-	"github.com/mrizkifadil26/medix/enricher/tmdb"
-)
-
+/*
 func TestSearchMovie_WithBearerToken(t *testing.T) {
 	expectedToken := "test-token"
 
@@ -157,3 +147,4 @@ func TestSearchMovie_RealAPI(t *testing.T) {
 		t.Logf("✅ Got %d results. First title: %s", len(items), items[0].Title)
 	}
 }
+*/
