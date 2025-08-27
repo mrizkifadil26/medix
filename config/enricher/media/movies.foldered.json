@@ -1,0 +1,4 @@
+{
+  "root": "output/normalized/media/movies.foldered.json",
+  "output": "output/enriched/media/movies.foldered.json"
+}
