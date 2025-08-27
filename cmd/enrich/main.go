@@ -22,34 +22,28 @@ func main() {
 		}
 	}
 
-	data := utils.NewOrderedMap[string, any]()
+	var rawData = utils.NewOrderedMap[string, any]()
+	loadPath := config.Root
 
 	// Decide data source
-	if *args.Refresh {
-		// Always load from root
-		fmt.Println("🔄 Refresh mode: ignoring existing output, loading root data...")
-		if err := utils.LoadJSON(config.Root, data); err != nil {
-			log.Fatalf("❌ Failed to load root data: %v", err)
+	if !*args.Refresh {
+		if _, err := os.Stat(config.Output); err == nil {
+			loadPath = config.Output
+			fmt.Println("⚡ Loading existing enriched data from:", loadPath)
+		} else if os.IsNotExist(err) {
+			fmt.Println("✨ No existing output found. Loading root data for enrichment...")
+		} else {
+			log.Fatalf("❌ Failed to check output file: %v", err)
 		}
-	} else if _, err := os.Stat(config.Output); err == nil {
-		// Use existing output
-		fmt.Println("⚡ Loading existing enriched data from:", config.Output)
-		if err := utils.LoadJSON(config.Output, data); err != nil {
-			log.Fatalf("❌ Failed to load existing output: %v", err)
-		}
-
-	} else if os.IsNotExist(err) {
-		// First run, load root
-		fmt.Println("✨ No existing output found. Loading root data for enrichment...")
-		if err := utils.LoadJSON(config.Root, data); err != nil {
-			log.Fatalf("❌ Failed to load root data: %v", err)
-		}
-
 	} else {
-		log.Fatalf("❌ Failed to check output file: %v", err)
+		fmt.Println("🔄 Refresh mode: ignoring existing output, loading root data...")
 	}
 
-	enriched, err := enricher.Enrich(data, &config)
+	if err := utils.LoadJSON(loadPath, rawData); err != nil {
+		log.Fatalf("❌ Failed to load data from %s: %v", loadPath, err)
+	}
+
+	enriched, err := enricher.Enrich(rawData, &config)
 	if err != nil {
 		log.Fatalf("❌ Enrichment failed: %v", err)
 	}
