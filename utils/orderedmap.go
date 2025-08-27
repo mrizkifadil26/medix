@@ -98,48 +98,53 @@ func (om *OrderedMap[K, V]) UnmarshalJSON(data []byte) error {
 		}
 
 		// decide type
-		var v any
-		if len(raw) > 0 && raw[0] == '{' {
-			child := NewOrderedMap[string, any]()
-			if err := json.Unmarshal(raw, child); err != nil {
-				return err
-			}
-
-			v = child
-		} else if len(raw) > 0 && raw[0] == '[' {
-			var arr []json.RawMessage
-			if err := json.Unmarshal(raw, &arr); err != nil {
-				return err
-			}
-
-			newArr := make([]any, 0, len(arr))
-			for _, item := range arr {
-				if len(item) > 0 && item[0] == '{' {
-					child := NewOrderedMap[string, any]()
-					if err := json.Unmarshal(item, child); err != nil {
-						return err
-					}
-					newArr = append(newArr, child)
-				} else {
-					var prim any
-					if err := json.Unmarshal(item, &prim); err != nil {
-						return err
-					}
-					newArr = append(newArr, prim)
+		// safe assignment
+		var val V
+		if raw != nil && string(raw) != "null" {
+			switch {
+			case raw[0] == '{':
+				child := NewOrderedMap[string, any]()
+				if err := json.Unmarshal(raw, child); err != nil {
+					return err
 				}
+				val = any(child).(V)
+			case raw[0] == '[':
+				var arr []json.RawMessage
+				if err := json.Unmarshal(raw, &arr); err != nil {
+					return err
+				}
+				newArr := make([]any, 0, len(arr))
+				for _, item := range arr {
+					if len(item) > 0 && item[0] == '{' {
+						child := NewOrderedMap[string, any]()
+						if err := json.Unmarshal(item, child); err != nil {
+							return err
+						}
+						newArr = append(newArr, child)
+					} else {
+						var prim any
+						if err := json.Unmarshal(item, &prim); err != nil {
+							return err
+						}
+						newArr = append(newArr, prim)
+					}
+				}
+				val = any(newArr).(V)
+			default:
+				var prim any
+				if err := json.Unmarshal(raw, &prim); err != nil {
+					return err
+				}
+				val = any(prim).(V)
 			}
-
-			v = newArr
 		} else {
-			// primitive
-			var prim any
-			if err := json.Unmarshal(raw, &prim); err != nil {
-				return err
-			}
-			v = prim
+			// assign zero value of V if JSON is null
+			var zero V
+			val = zero
 		}
 
-		om.Set(any(key).(K), any(v).(V))
+		om.Set(any(key).(K), val)
+		// om.Set(any(key).(K), any(v).(V))
 	}
 
 	// read closing '}'
