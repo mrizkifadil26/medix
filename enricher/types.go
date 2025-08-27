@@ -1,6 +1,8 @@
 package enricher
 
-// type Enricher interface {
-// 	Name() string
-// 	Enrich(entry any) error
-// }
+import "github.com/mrizkifadil26/medix/utils/datawrapper"
+
+type Enricher interface {
+	Name() string
+	Enrich(data datawrapper.Data) (any, error)
+}
