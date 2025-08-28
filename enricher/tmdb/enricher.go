@@ -301,24 +301,28 @@ func extractQueries(data any) ([]QueryInput, error) {
 
 	var queries []QueryInput
 	for _, node := range arr {
-		if meta, ok := node.(map[string]any); ok {
-			q := QueryInput{}
-			if v, ok := meta["title"].(string); ok {
-				q.Title = v
+		q := QueryInput{}
+		if v, err := jsonpath.Get(node, "title"); err == nil {
+			if s, ok := v.(string); ok {
+				q.Title = s
 			}
+		}
 
-			// optional
-			if v, ok := meta["year"].(string); ok {
-				q.Year = v
+		if v, err := jsonpath.Get(node, "year"); err == nil {
+			if s, ok := v.(string); ok {
+				q.Year = s
 			}
-			if v, ok := meta["alternate_title"].(string); ok {
-				q.AlternateTitle = v
-			}
+		}
 
-			// only append if title exists
-			if q.Title != "" {
-				queries = append(queries, q)
+		if v, err := jsonpath.Get(node, "alternate_title"); err == nil {
+			if s, ok := v.(string); ok {
+				q.AlternateTitle = s
 			}
+		}
+
+		// only append if title exists
+		if q.Title != "" {
+			queries = append(queries, q)
 		}
 	}
 
