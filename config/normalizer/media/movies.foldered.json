@@ -38,6 +38,33 @@
           "target": "items.#.displayName"
         }
       ]
+    },
+    {
+      "name": "items.#",
+      "actions": [
+        {
+          "type": "format",
+          "params": {
+            "template": "{{metadata.title}}-{{metadata.year}}"
+          },
+          "target": "items.#.slug"
+        }
+      ]
+    },
+    {
+      "name": "items.#.slug",
+      "actions": [
+        {
+          "type": "transform",
+          "params": {
+            "methods": [
+              "lowercase",
+              "slugify"
+            ]
+          },
+          "target": "items.#.slug"
+        }
+      ]
     }
   ]
 }
