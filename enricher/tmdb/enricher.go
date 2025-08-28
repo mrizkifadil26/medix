@@ -20,16 +20,10 @@ const (
 	langCacheFile  = "languages.cache.json"
 )
 
-// type Enricher struct {
-// 	client   *tmdb.Client
-// 	cache    map[string]bool
-// 	genreMap map[int]string
-// 	langMap  map[string]string
-// 	errors   map[string]string
-
-// 	mu     sync.Mutex   // protects cache and errors
-// 	jsonMu sync.RWMutex // protects jsonpath.Get/Set
-// }
+type QueryInput struct {
+	title string
+	year  string
+}
 
 type TMDbEnricher struct {
 	client *Client
@@ -71,28 +65,45 @@ func (t *TMDbEnricher) Enrich(
 	e.langs = langMap
 
 	e.jsonMu.RLock()
-	itemsNode, ok := data.Get("items")
-	if !ok {
-		itemsNode = datawrapper.WrapData([]any{}) // fallback to empty array
+	// itemsNode, ok := data.Get("items")
+	// if !ok {
+	// 	itemsNode = datawrapper.WrapData([]any{}) // fallback to empty array
+	// }
+	titles, _ := jsonpath.Get(data, "items.#.metadata.title")
+	titleArr := titles.([]string)
+
+	years, _ := jsonpath.Get(data, "items.#.metadata.year")
+	yearsArr := years.([]string)
+
+	var pairs []QueryInput
+	for idx, _ := range titleArr {
+		pairs = append(pairs, QueryInput{
+			title: titleArr[idx],
+			year:  yearsArr[idx],
+		})
 	}
 	e.jsonMu.RUnlock()
 
 	// item_count (from JSON)
-	itemCount := 0
+	// itemCount := 0
 	e.jsonMu.RLock()
-	if vNode, ok := data.Get("item_count"); ok {
-		// vNode is Data (could be ValueData)
-		raw := vNode.Raw()
-		if f, ok := raw.(float64); ok {
-			itemCount = int(f)
-		}
+	itemCount, err := jsonpath.Get(data, "item_count")
+	if err != nil {
+		panic("item count not found: " + err.Error())
 	}
+	// if vNode, ok := data.Get("item_count"); ok {
+	// 	// vNode is Data (could be ValueData)
+	// 	raw := vNode.Raw()
+	// 	if f, ok := raw.(float64); ok {
+	// 		itemCount = int(f)
+	// 	}
+	// }
 	e.jsonMu.RUnlock()
 
 	// fallback if item_count is missing or zero
-	if itemCount == 0 && itemsNode.Type() == "array" {
-		itemCount = len(itemsNode.Keys())
-	}
+	// if itemCount == 0 && itemsNode.Type() == "array" {
+	// 	itemCount = len(itemsNode.Keys())
+	// }
 
 	progress := &Progress{total: int32(itemCount)}
 
@@ -106,8 +117,7 @@ func (t *TMDbEnricher) Enrich(
 	var wg sync.WaitGroup
 	sem := make(chan struct{}, concurrency)
 
-	for _, idx := range itemsNode.Keys() {
-		itemNode, _ := itemsNode.Get(idx)
+	for idx, pair := range pairs {
 		wg.Add(1)
 
 		go func(idx any, itemNode datawrapper.Data) {
@@ -115,7 +125,7 @@ func (t *TMDbEnricher) Enrich(
 			sem <- struct{}{} // acquire slot
 			defer func() { <-sem }()
 
-			title, err := e.enrichItem(root, itemNode, idx)
+			title, err := e.enrichItem(root, itemNode, pair, idx)
 			if title != "" {
 				progress.Inc(title, err)
 			}
@@ -164,37 +174,38 @@ func (p *Progress) Inc(title string, errMessage error) {
 func (e *TMDbEnricher) enrichItem(
 	root any,
 	itemNode datawrapper.Data,
+	queryInput QueryInput,
 	idx any,
 ) (string, error) {
-	entry, ok := itemNode.(*datawrapper.OrderedMapData)
-	if !ok {
-		return "", fmt.Errorf("item at index %v is not an object", idx)
-	}
+	// entry, ok := itemNode.(*datawrapper.OrderedMapData)
+	// if !ok {
+	// 	return "", fmt.Errorf("item at index %v is not an object", idx)
+	// }
 
-	e.jsonMu.RLock()
-	metadataNode, ok := entry.Get("metadata")
-	e.jsonMu.RUnlock()
-	if !ok {
-		name := getString(entry, "name")
-		e.setError(name, "missing metadata")
-		return name, fmt.Errorf("missing metadata for %q", name)
-	}
+	// e.jsonMu.RLock()
+	// metadataNode, ok := entry.Get("metadata")
+	// e.jsonMu.RUnlock()
+	// if !ok {
+	// 	name := getString(entry, "name")
+	// 	e.setError(name, "missing metadata")
+	// 	return name, fmt.Errorf("missing metadata for %q", name)
+	// }
 
-	title := getString(metadataNode, "title")
-	if title == "" {
-		name := getString(entry, "name")
-		e.setError("", "missing title")
-		return name, fmt.Errorf("missing title in metadata")
-	}
+	// title := getString(metadataNode, "title")
+	// if title == "" {
+	// 	name := getString(entry, "name")
+	// 	e.setError("", "missing title")
+	// 	return name, fmt.Errorf("missing title in metadata")
+	// }
 
-	e.jsonMu.RLock()
-	_, alreadyEnriched := entry.Get("enriched")
-	e.jsonMu.RUnlock()
-	if alreadyEnriched {
-		return title, nil
-	}
+	// e.jsonMu.RLock()
+	// _, alreadyEnriched := entry.Get("enriched")
+	// e.jsonMu.RUnlock()
+	// if alreadyEnriched {
+	// 	return title, nil
+	// }
 
-	year := getString(metadataNode, "year") // optional
+	// year := getString(metadataNode, "year") // optional
 
 	// Build query
 	query := SearchQuery{Query: title}
@@ -260,6 +271,7 @@ func (e *TMDbEnricher) enrichItem(
 
 	// Write results back
 	e.jsonMu.Lock()
+	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.tmdb_id", idx), best.ID)
 	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.title", idx), best.Title)
 	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.original_title", idx), best.OriginalTitle)
 	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.release_date", idx), best.ReleaseDate)

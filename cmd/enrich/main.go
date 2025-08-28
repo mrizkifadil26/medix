@@ -43,7 +43,7 @@ func main() {
 		log.Fatalf("❌ Failed to load data from %s: %v", loadPath, err)
 	}
 
-	enriched, err := enricher.Enrich(rawData, &config)
+	// enriched, err := enricher.Enrich(rawData, &config)
 	if err != nil {
 		log.Fatalf("❌ Enrichment failed: %v", err)
 	}
