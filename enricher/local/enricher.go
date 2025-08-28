@@ -2,9 +2,10 @@ package local
 
 import (
 	"errors"
+	"fmt"
 	"strings"
 
-	"github.com/mrizkifadil26/medix/utils/datawrapper"
+	"github.com/mrizkifadil26/medix/utils/jsonpath"
 )
 
 type LocalEnricher struct{}
@@ -21,10 +22,16 @@ var filters = []Filter{
 }
 
 func (e *LocalEnricher) Enrich(
-	root datawrapper.Data,
-	filterArg string,
-) (datawrapper.Data, error) {
+	data any,
+	options map[string]string,
+) (any, error) {
 	var errs []error
+
+	// Get optional filter argument from options
+	filterArg := ""
+	if options != nil {
+		filterArg = options["filters"]
+	}
 
 	// Build allowed map
 	allowed := map[string]bool{}
@@ -41,23 +48,31 @@ func (e *LocalEnricher) Enrich(
 		}
 	}
 
-	// Traverse root items
-	items, ok := root.Get("items")
-	if !ok {
-		return root, nil
+	// Get items using your Get helper
+	nodes, err := jsonpath.Get(data, "items.#")
+	if err != nil {
+		// items key not found, nothing to enrich
+		return data, nil
 	}
 
-	for _, idx := range items.Keys() {
-		itemNode, _ := items.Get(idx)
+	items, ok := nodes.([]any)
+	if !ok {
+		return data, fmt.Errorf("items is not an array, got %T", nodes)
+	}
 
+	for _, item := range items {
 		for _, f := range filters {
 			if allowed[f.Name()] {
-				f.Apply(itemNode, &errs)
+				f.Apply(item, &errs)
 			}
 		}
 	}
 
-	return root, errors.Join(errs...)
+	if len(errs) > 0 {
+		return data, errors.Join(errs...)
+	}
+
+	return data, nil
 }
 
 // func (e *LocalEnricher) Enrich(

@@ -1,9 +1,8 @@
 package local
 
 import (
-	"path/filepath"
+	"fmt"
 
-	"github.com/mrizkifadil26/medix/utils/datawrapper"
 	"github.com/mrizkifadil26/medix/utils/jsonpath"
 )
 
@@ -14,50 +13,44 @@ func (f CollectionFilter) Name() string {
 }
 
 func (f CollectionFilter) Apply(
-	data datawrapper.Data,
+	data any,
 	errs *[]error,
 ) {
-	groupNode, ok := data.Get("group")
-	if !ok {
+	groupNode, err := jsonpath.Get(data, "group_label")
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("directory has no group label"))
 		return
 	}
 
-	groupRaw, ok := groupNode.Raw().([]any)
+	groupRaw, ok := groupNode.([]any)
 	if !ok || len(groupRaw) == 0 {
 		return
 	}
 
+	// enforce length rules
+	if len(groupRaw) > 2 {
+		*errs = append(*errs, fmt.Errorf("invalid group_label length: %d (must be 1 or 2)", len(groupRaw)))
+		return
+	}
+
 	// build group objects
-	var groups []Group
-	for _, g := range groupRaw {
-		label, _ := g.(string)
+	if len(groupRaw) == 2 {
+		// build groups (only the first is group)
+		var groups []Group
+		firstLabel, _ := groupRaw[0].(string)
 		groups = append(groups, Group{
-			Label: label,
-			Path:  filepath.Join(groupsPath(groups), label),
+			Label: firstLabel,
+			Path:  firstLabel,
 		})
-	}
 
-	var collectionName string
-	if len(groups) > 1 {
-		// last becomes collection
-		collectionName = groups[len(groups)-1].Label
-		groups = groups[:len(groups)-1]
-	}
+		collectionName, _ := groupRaw[1].(string)
 
-	collection := Collection{
-		Name:  collectionName,
-		Group: groups,
-	}
+		collection := Collection{
+			Name:  collectionName,
+			Group: groups,
+		}
 
-	// attach to child
-	_ = jsonpath.Set(data, "collection", collection)
-}
-
-// helper: build path for previous groups
-func groupsPath(groups []Group) string {
-	var parts []string
-	for _, g := range groups {
-		parts = append(parts, g.Label)
+		// attach to child
+		_ = jsonpath.Set(data, "collection", collection)
 	}
-	return filepath.Join(parts...)
 }

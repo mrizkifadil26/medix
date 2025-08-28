@@ -1,9 +1,9 @@
 package local
 
 import (
+	"fmt"
 	"strings"
 
-	"github.com/mrizkifadil26/medix/utils/datawrapper"
 	"github.com/mrizkifadil26/medix/utils/jsonpath"
 )
 
@@ -14,25 +14,62 @@ func (f IconFilter) Name() string {
 }
 
 func (f IconFilter) Apply(
-	item datawrapper.Data,
+	item any,
 	errs *[]error,
 ) {
-	children, ok := item.Get("children")
-	if !ok {
-		return
+	var sources []any
+
+	// Determine if item is a directory
+	typeVal, _ := jsonpath.Get(item, "type")
+	if t, ok := typeVal.(string); ok && t == "directory" {
+		childrenNode, err := jsonpath.Get(item, "children")
+		if err != nil {
+			*errs = append(*errs, fmt.Errorf("directory has no children"))
+			return
+		}
+
+		if childrenArr, ok := childrenNode.([]any); ok {
+			sources = childrenArr
+		} else {
+			*errs = append(*errs, fmt.Errorf("children is not an array"))
+			return
+		}
+	} else {
+		// Single file or no type
+		sources = []any{item}
 	}
 
-	for _, idx := range children.Keys() {
-		childNode, _ := children.Get(idx)
+	var icon *IconSource
+	for _, node := range sources {
+		nameVal, _ := jsonpath.Get(node, "name")
+		extVal, _ := jsonpath.Get(node, "ext")
+		pathVal, _ := jsonpath.Get(node, "path")
+		sizeVal, _ := jsonpath.Get(node, "size")
 
-		ext := safeString(childNode, "ext", errs)
-		if ext == ".mkv" {
-			_ = jsonpath.Set(item, "media", childNode.Raw())
+		name, _ := nameVal.(string)
+		ext, _ := extVal.(string)
+		path, _ := pathVal.(string)
+		size, _ := sizeVal.(float64)
+
+		if name == "" || ext == "" {
+			*errs = append(*errs, fmt.Errorf("invalid media source, missing name or ext"))
+			continue
 		}
 
-		name := safeString(childNode, "name", errs)
-		if strings.Contains(strings.ToLower(name), "imax") {
-			_ = jsonpath.Set(item, "extras.imax", childNode.Raw())
+		if !strings.EqualFold(ext, ".ico") {
+			continue
 		}
+
+		icon = &IconSource{
+			Name:      name,
+			Extension: ext,
+			Path:      path,
+			Size:      int64(size),
+		}
+	}
+
+	// Only set if we actually found one
+	if icon != nil {
+		_ = jsonpath.Set(item, "icon", icon)
 	}
 }
