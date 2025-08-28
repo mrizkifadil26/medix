@@ -73,3 +73,23 @@ func indirectValue(i any) reflect.Value {
 
 	return v
 }
+
+// convert map[int]string → map[string]string (for JSON/cache safety)
+func toStringMap(m map[int]string) map[string]string {
+	res := make(map[string]string, len(m))
+	for id, name := range m {
+		res[strconv.Itoa(id)] = name
+	}
+	return res
+}
+
+// convert map[string]string → map[int]string
+func fromStringMap(m map[string]string) map[int]string {
+	res := make(map[int]string, len(m))
+	for k, v := range m {
+		if id, err := strconv.Atoi(k); err == nil {
+			res[id] = v
+		}
+	}
+	return res
+}

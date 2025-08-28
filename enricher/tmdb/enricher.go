@@ -1,114 +1,115 @@
 package tmdb
 
 import (
-	"encoding/json"
 	"fmt"
-	"os"
+	"log"
 	"strconv"
 	"sync"
-	"sync/atomic"
 
 	"github.com/mrizkifadil26/medix/enricher/tmdb/scorer"
-	"github.com/mrizkifadil26/medix/utils"
-	"github.com/mrizkifadil26/medix/utils/datawrapper"
+	"github.com/mrizkifadil26/medix/utils/cache"
 	"github.com/mrizkifadil26/medix/utils/jsonpath"
 )
 
 const (
-	cacheFile      = "cache.json"
-	genreCacheFile = "genres.cache.json"
-	langCacheFile  = "languages.cache.json"
+	tmdbCache = "tmdb.cache.json"
+	dataCache = "data.cache.json"
+	apiKey    = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3N2QxNGJiN2JkODYyY2E0ZTE4MzBiZWNiODgxNGU3NyIsIm5iZiI6MTU2MzYzMjEyOC43NzUsInN1YiI6IjVkMzMyMjAwYWU2ZjA5MDAwZTdiNWJlZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZpKTx-psLaWjwS-zRvpDLO7QKmoNJnF_xubbb8vn-48"
 )
 
 type QueryInput struct {
-	title string
-	year  string
+	Title          string
+	Year           string
+	AlternateTitle string
+}
+
+type EnrichedData struct {
+	TMDBID        int      `json:"tmdb_id,omitempty"`
+	MatchedTitle  string   `json:"matched_title,omitempty"`
+	OriginalTitle string   `json:"original_title,omitempty"`
+	ReleaseDate   string   `json:"release_date,omitempty"`
+	Genres        []string `json:"genres,omitempty"`
+	Language      string   `json:"language,omitempty"`
+	PosterPath    string   `json:"poster_path,omitempty"`
+	Overview      string   `json:"overview,omitempty"`
+}
+
+type EnrichedItem struct {
+	Slug           string
+	Index          int
+	Title          string
+	Year           string
+	AlternateTitle string
+	Error          string
+
+	// TMDb result (written to JSON under .enriched)
+	Enriched EnrichedData
 }
 
 type TMDbEnricher struct {
-	client *Client
+	client    *Client
+	tmdbCache *cache.Manager
+	dataCache *cache.Manager
 
 	genres map[int]string
 	langs  map[string]string
-
-	cache  map[string]bool
-	errors map[string]string
-	mu     sync.Mutex
-	jsonMu sync.RWMutex
 }
 
 func (t *TMDbEnricher) Name() string { return "tmdb" }
 
 func (t *TMDbEnricher) Enrich(
-	data datawrapper.Data,
-	params map[string]string,
+	data any,
+	options map[string]string,
 ) (any, error) {
-	root := data.Raw()
-	client := NewClient("eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3N2QxNGJiN2JkODYyY2E0ZTE4MzBiZWNiODgxNGU3NyIsIm5iZiI6MTU2MzYzMjEyOC43NzUsInN1YiI6IjVkMzMyMjAwYWU2ZjA5MDAwZTdiNWJlZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZpKTx-psLaWjwS-zRvpDLO7QKmoNJnF_xubbb8vn-48")
+	client := NewClient(apiKey)
 
-	e := &TMDbEnricher{
-		client: client,
-		cache:  loadCache(cacheFile),
-		errors: make(map[string]string),
+	tmdbCM := cache.NewManager("tmdb.cache.json")
+	if err := tmdbCM.Load(); err != nil {
+		log.Fatalf("failed to load TMDb cache: %v", err)
 	}
 
-	genreMap, err := loadGenreCache(client, "movie")
+	dataCM := cache.NewManager("data.cache.json")
+	if err := dataCM.Load(); err != nil {
+		log.Printf("warning: failed to load data cache: %v", err)
+	}
+
+	e := &TMDbEnricher{
+		client:    client,
+		tmdbCache: tmdbCM,
+		dataCache: dataCM,
+	}
+
+	// load genres for movies
+	genreMap, err := LoadGenreMap(client, tmdbCM, "movie")
 	if err != nil {
-		return nil, fmt.Errorf("failed to load genres: %w", err)
+		log.Fatalf("failed to load genres: %v", err)
 	}
 	e.genres = genreMap
 
-	langMap, err := loadLangCache(client, langCacheFile)
+	// load languages
+	langMap, err := LoadLanguageMap(client, tmdbCM)
 	if err != nil {
-		return nil, fmt.Errorf("failed to load languages: %w", err)
+		log.Fatalf("failed to load languages: %v", err)
 	}
 	e.langs = langMap
 
-	e.jsonMu.RLock()
-	// itemsNode, ok := data.Get("items")
-	// if !ok {
-	// 	itemsNode = datawrapper.WrapData([]any{}) // fallback to empty array
-	// }
-	titles, _ := jsonpath.Get(data, "items.#.metadata.title")
-	titleArr := titles.([]string)
-
-	years, _ := jsonpath.Get(data, "items.#.metadata.year")
-	yearsArr := years.([]string)
-
-	var pairs []QueryInput
-	for idx, _ := range titleArr {
-		pairs = append(pairs, QueryInput{
-			title: titleArr[idx],
-			year:  yearsArr[idx],
-		})
+	// --- Build query inputs ---
+	queries, err := extractQueries(data)
+	if err != nil {
+		return nil, err
 	}
-	e.jsonMu.RUnlock()
 
 	// item_count (from JSON)
-	// itemCount := 0
-	e.jsonMu.RLock()
 	itemCount, err := jsonpath.Get(data, "item_count")
 	if err != nil {
 		panic("item count not found: " + err.Error())
 	}
-	// if vNode, ok := data.Get("item_count"); ok {
-	// 	// vNode is Data (could be ValueData)
-	// 	raw := vNode.Raw()
-	// 	if f, ok := raw.(float64); ok {
-	// 		itemCount = int(f)
-	// 	}
-	// }
-	e.jsonMu.RUnlock()
 
-	// fallback if item_count is missing or zero
-	// if itemCount == 0 && itemsNode.Type() == "array" {
-	// 	itemCount = len(itemsNode.Keys())
-	// }
-
-	progress := &Progress{total: int32(itemCount)}
+	count, _ := itemCount.(float64)
+	progress := &Progress{total: int32(count)}
 
 	// --- Parallel enrichment ---
-	c := params["concurrency"]
+	c := options["concurrency"]
 	concurrency, _ := strconv.Atoi(c)
 	if concurrency <= 0 {
 		concurrency = 5 // default
@@ -117,135 +118,138 @@ func (t *TMDbEnricher) Enrich(
 	var wg sync.WaitGroup
 	sem := make(chan struct{}, concurrency)
 
-	for idx, pair := range pairs {
+	var mu sync.Mutex
+	var jsonmu sync.RWMutex
+	errorsMap := make(map[string]string)
+
+	for idx, _ := range queries {
 		wg.Add(1)
 
-		go func(idx any, itemNode datawrapper.Data) {
+		go func(idx int) {
 			defer wg.Done()
 			sem <- struct{}{} // acquire slot
 			defer func() { <-sem }()
 
-			title, err := e.enrichItem(root, itemNode, pair, idx)
-			if title != "" {
-				progress.Inc(title, err)
+			// Get slug for caching
+			slugNode, _ := jsonpath.Get(data, fmt.Sprintf("items.%d.slug", idx))
+			slug, _ := slugNode.(string)
+
+			var q QueryInput
+			if slug != "" {
+				if cached, ok := e.dataCache.Get("movie", slug); ok {
+					q, _ = cached.(QueryInput)
+				} else {
+					q = queries[idx]
+					e.dataCache.Put("movie", slug, q)
+				}
+			} else {
+				q = queries[idx]
 			}
-		}(idx, itemNode)
+
+			enriched := e.enrichItem(q, idx, slug)
+
+			// Set JSON for enriched data
+			jsonmu.Lock()
+			jsonpath.Set(data, fmt.Sprintf("items.%d.enriched", idx), enriched.Enriched)
+			jsonmu.Unlock()
+
+			// Collect errors
+			if enriched.Error != "" {
+				mu.Lock()
+				errorsMap[enriched.Title] = enriched.Error
+				mu.Unlock()
+			}
+
+			display := enriched.Title
+			if enriched.Year != "" {
+				display = fmt.Sprintf("%s (%s)", enriched.Title, enriched.Year)
+			}
+
+			progress.Inc(display, enriched.Error)
+		}(idx)
 	}
 
 	wg.Wait()
-	// --- End parallel ---
 
-	saveCache(cacheFile, e.cache)
+	jsonpath.Set(data, "errors", errorsMap)
 
-	e.jsonMu.Lock()
-	jsonpath.Set(root, "errors", e.errors)
-	e.jsonMu.Unlock()
-
-	return root, nil
-}
-
-type Progress struct {
-	total   int32
-	current int32
-}
-
-func (p *Progress) Inc(title string, errMessage error) {
-	newVal := atomic.AddInt32(&p.current, 1)
-	status := "✅"
-	displayTitle := title
-	if errMessage != nil && errMessage.Error() != "" {
-		status = "❌"
-		displayTitle = fmt.Sprintf("%s (%s)", title, errMessage.Error())
+	// Save caches
+	if err := tmdbCM.Save(); err != nil {
+		log.Printf("failed to save TMDb cache: %v", err)
 	}
 
-	percent := float64(newVal) / float64(p.total) * 100
+	if err := dataCM.Save(); err != nil {
+		log.Printf("failed to save data cache: %v", err)
+	}
 
-	fmt.Printf("[%d/%d %.1f%%] %s %s\n",
-		newVal, p.total, percent, status, displayTitle)
+	return data, nil
 }
 
-// func Enrich(
-// 	data datawrapper.Data,
-// 	config *Config,
-// ) (any, error) {
-
-// }
-
 func (e *TMDbEnricher) enrichItem(
-	root any,
-	itemNode datawrapper.Data,
-	queryInput QueryInput,
-	idx any,
-) (string, error) {
-	// entry, ok := itemNode.(*datawrapper.OrderedMapData)
-	// if !ok {
-	// 	return "", fmt.Errorf("item at index %v is not an object", idx)
-	// }
+	query QueryInput,
+	idx int,
+	slug string,
+) *EnrichedItem {
+	title := query.Title
+	year := query.Year
+	alt := query.AlternateTitle
 
-	// e.jsonMu.RLock()
-	// metadataNode, ok := entry.Get("metadata")
-	// e.jsonMu.RUnlock()
-	// if !ok {
-	// 	name := getString(entry, "name")
-	// 	e.setError(name, "missing metadata")
-	// 	return name, fmt.Errorf("missing metadata for %q", name)
-	// }
+	item := &EnrichedItem{
+		Index:          idx,
+		Title:          title,
+		Year:           year,
+		AlternateTitle: alt,
+	}
 
-	// title := getString(metadataNode, "title")
-	// if title == "" {
-	// 	name := getString(entry, "name")
-	// 	e.setError("", "missing title")
-	// 	return name, fmt.Errorf("missing title in metadata")
-	// }
+	if title == "" {
+		item.Error = "missing title"
+		return item
+	}
 
-	// e.jsonMu.RLock()
-	// _, alreadyEnriched := entry.Get("enriched")
-	// e.jsonMu.RUnlock()
-	// if alreadyEnriched {
-	// 	return title, nil
-	// }
+	// Try cache first
+	if slug != "" {
+		if cached, ok := e.tmdbCache.Get("movie", slug); ok {
+			if cachedItem, ok := cached.(EnrichedData); ok {
+				item.Enriched = cachedItem
+				return item
+			}
+		}
+	}
 
-	// year := getString(metadataNode, "year") // optional
-
-	// Build query
-	query := SearchQuery{Query: title}
+	search := SearchQuery{Query: title}
 	if year != "" {
-		query.Year = year
+		search.Year = year
 	}
 
 	// Search TMDb
-	results, err := e.client.Search("movie", query)
+	results, err := e.client.Search("movie", search)
 	if err != nil {
-		e.setError(title, "tmdb search failed: "+err.Error())
-		return title, fmt.Errorf("tmdb search failed for %q: %w", title, err)
+		item.Error = fmt.Sprintf("tmdb search failed: %v", err)
+		return item
 	}
 
 	// Fallback with alternate_title
-	if len(results) == 0 {
-		alt := getString(metadataNode, "alternate_title")
-		if alt != "" {
-			altQuery := SearchQuery{Query: alt}
-			if year != "" {
-				altQuery.Year = year
-			}
+	if len(results) == 0 && alt != "" {
+		altQuery := SearchQuery{Query: alt}
+		if year != "" {
+			altQuery.Year = year
+		}
 
-			results, err = e.client.Search("movie", altQuery)
-			if err != nil {
-				e.setError(title, "tmdb search failed (alt): "+err.Error())
-				return title, fmt.Errorf("tmdb alt search failed for %q: %w", title, err)
-			}
+		results, err = e.client.Search("movie", altQuery)
+		if err != nil {
+			item.Error = fmt.Sprintf("tmdb alt search failed: %v", err)
+			return item
 		}
 	}
 
 	if len(results) == 0 {
 		if year == "" {
-			e.setError(title, "missing year, no results found")
-			return title, fmt.Errorf("missing year, no results found for %q", title)
-
+			item.Error = "missing year, no results found"
 		} else {
-			e.setError(title, "tmdb no results found")
-			return title, fmt.Errorf("tmdb no results found for %q", title)
+			item.Error = "tmdb no results found"
 		}
+
+		return item
 	}
 
 	var yearInt int
@@ -255,8 +259,8 @@ func (e *TMDbEnricher) enrichItem(
 
 	best := scorer.PickBestMatch(results, title, yearInt, e.genres)
 	if best == nil {
-		e.setError(title, "no good match found")
-		return title, fmt.Errorf("no good match found for %q", title)
+		item.Error = "no good match found"
+		return item
 	}
 
 	// Map genre IDs → names
@@ -269,146 +273,54 @@ func (e *TMDbEnricher) enrichItem(
 
 	langName := e.langs[best.OriginalLanguage]
 
-	// Write results back
-	e.jsonMu.Lock()
-	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.tmdb_id", idx), best.ID)
-	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.title", idx), best.Title)
-	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.original_title", idx), best.OriginalTitle)
-	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.release_date", idx), best.ReleaseDate)
-	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.genres", idx), genres)
-	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.language", idx), langName)
-	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.poster_path", idx), best.PosterPath)
-	jsonpath.Set(root, fmt.Sprintf("items.%d.enriched.overview", idx), best.Overview)
-	e.jsonMu.Unlock()
-
-	e.setCache(title, true)
-
-	return fmt.Sprintf("%v (%v)", title, year), nil
-}
-
-// loadLangCache loads the language list and returns a map[iso_code]name
-func loadLangCache(client *Client, cachePath string) (map[string]string, error) {
-	langMap := make(map[string]string)
-
-	// try reading existing cache
-	if _, err := os.Stat(cachePath); err == nil {
-		if err := utils.LoadJSON(cachePath, &langMap); err == nil {
-			return langMap, nil
-		}
+	// Fill enriched data
+	item.Enriched = EnrichedData{
+		TMDBID:        best.ID,
+		MatchedTitle:  best.Title,
+		OriginalTitle: best.OriginalTitle,
+		ReleaseDate:   best.ReleaseDate,
+		Genres:        genres,
+		Language:      langName,
+		PosterPath:    best.PosterPath,
+		Overview:      best.Overview,
 	}
 
-	// fallback: fetch from TMDb API
-	languages, err := client.GetLanguages()
+	return item
+}
+
+func extractQueries(data any) ([]QueryInput, error) {
+	nodes, err := jsonpath.Get(data, "items.#.metadata")
 	if err != nil {
-		return nil, fmt.Errorf("failed to fetch languages from TMDb: %w", err)
+		return nil, fmt.Errorf("failed to get metadata: %w", err)
 	}
 
-	for _, l := range languages {
-		code := l.ISO639_1
-		name := l.EnglishName
-		if name == "" {
-			name = l.Name
-			if name == "" {
-				name = "Unknown"
-			}
-		}
-		if code != "" {
-			langMap[code] = name
-		}
-	}
-
-	// save cache for future runs
-	if err := utils.WriteJSON(cachePath, langMap); err != nil {
-		return nil, fmt.Errorf("failed to save language cache: %w", err)
-	}
-
-	return langMap, nil
-}
-
-func loadGenreCache(client *Client, kind string) (map[int]string, error) {
-	const genreCacheFile = "genres.cache.json"
-
-	// Try from file
-	if data, err := os.ReadFile(genreCacheFile); err == nil {
-		var genres map[string]map[int]string
-		if err := json.Unmarshal(data, &genres); err == nil {
-			if g, ok := genres[kind]; ok {
-				return g, nil
-			}
-		}
-	}
-
-	// If not found, fetch from TMDb
-	resultGenres, err := client.GetGenres(kind)
-	if err != nil {
-		return nil, err
-	}
-
-	genreMap := make(map[int]string)
-	for _, g := range resultGenres {
-		genreMap[g.ID] = g.Name
-	}
-
-	// Save to file
-	var genres map[string]map[int]string
-	if data, err := os.ReadFile(genreCacheFile); err == nil {
-		json.Unmarshal(data, &genres)
-	}
-	if genres == nil {
-		genres = make(map[string]map[int]string)
-	}
-	genres[kind] = genreMap
-
-	enc, _ := json.MarshalIndent(genres, "", "  ")
-	_ = os.WriteFile(genreCacheFile, enc, 0644)
-
-	return genreMap, nil
-}
-
-func (e *TMDbEnricher) setError(key, msg string) {
-	e.mu.Lock()
-	defer e.mu.Unlock()
-	e.errors[key] = msg
-}
-
-func (e *TMDbEnricher) setCache(title string, val bool) {
-	e.mu.Lock()
-	defer e.mu.Unlock()
-	e.cache[title] = val
-}
-
-// --- helpers ---
-func loadCache(path string) map[string]bool {
-	cache := make(map[string]bool)
-	if data, err := os.ReadFile(path); err == nil {
-		_ = json.Unmarshal(data, &cache)
-	}
-
-	return cache
-}
-
-func saveCache(path string, cache map[string]bool) {
-	if data, err := json.Marshal(cache); err == nil {
-		_ = os.WriteFile(path, data, 0644)
-	}
-}
-
-func getString(node any, key string) string {
-	dataNode, ok := node.(datawrapper.Data)
+	arr, ok := nodes.([]any)
 	if !ok {
-		return ""
+		return nil, fmt.Errorf("expected array of metadata, got %T", nodes)
 	}
 
-	valueNode, ok := dataNode.Get(key)
-	if !ok || valueNode == nil {
-		return ""
+	var queries []QueryInput
+	for _, node := range arr {
+		if meta, ok := node.(map[string]any); ok {
+			q := QueryInput{}
+			if v, ok := meta["title"].(string); ok {
+				q.Title = v
+			}
+
+			// optional
+			if v, ok := meta["year"].(string); ok {
+				q.Year = v
+			}
+			if v, ok := meta["alternate_title"].(string); ok {
+				q.AlternateTitle = v
+			}
+
+			// only append if title exists
+			if q.Title != "" {
+				queries = append(queries, q)
+			}
+		}
 	}
 
-	// unwrap raw value
-	raw := valueNode.Raw()
-	if s, ok := raw.(string); ok {
-		return s
-	}
-
-	return ""
+	return queries, nil
 }
