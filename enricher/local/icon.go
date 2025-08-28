@@ -1,87 +1,38 @@
 package local
 
 import (
-	"path/filepath"
 	"strings"
 
 	"github.com/mrizkifadil26/medix/utils/datawrapper"
 	"github.com/mrizkifadil26/medix/utils/jsonpath"
 )
 
-type IconSourceEnricher struct{}
+type IconFilter struct{}
 
-type IconSource struct {
-	Name      string
-	Path      string
-	Extension string
-	Size      int64
-}
-
-func (s *IconSourceEnricher) Name() string {
+func (f IconFilter) Name() string {
 	return "icon"
 }
 
-func (s *IconSourceEnricher) Enrich(
-	data datawrapper.Data,
-	params map[string]string,
-) (any, error) {
-	root := data.Raw()
-
-	itemsNode, ok := data.Get("items")
+func (f IconFilter) Apply(
+	item datawrapper.Data,
+	errs *[]error,
+) {
+	children, ok := item.Get("children")
 	if !ok {
-		panic("items not found")
+		return
 	}
 
-	for _, idx := range itemsNode.Keys() {
-		itemNode, _ := itemsNode.Get(idx)
+	for _, idx := range children.Keys() {
+		childNode, _ := children.Get(idx)
 
-		childrenNode, ok := itemNode.Get("children")
-		if !ok {
-			panic("children not found")
+		ext := safeString(childNode, "ext", errs)
+		if ext == ".mkv" {
+			_ = jsonpath.Set(item, "media", childNode.Raw())
 		}
 
-		var selected datawrapper.Data
-		for _, cidx := range childrenNode.Keys() {
-			childNode, _ := childrenNode.Get(cidx)
-
-			typ, _ := childNode.Get("type")
-			ext, _ := childNode.Get("ext")
-			name, _ := childNode.Get("name")
-
-			extStr, _ := ext.Raw().(string)
-			nameStr, _ := name.Raw().(string)
-			if strings.EqualFold(extStr, ".ico") &&
-				typ.Raw() == "file" &&
-				nameStr != "" {
-				selected = childNode
-				break
-			}
+		name := safeString(childNode, "name", errs)
+		if strings.Contains(strings.ToLower(name), "imax") {
+			_ = jsonpath.Set(item, "extras.imax", childNode.Raw())
 		}
-
-		if selected == nil {
-			// no valid .mkv found → skip
-			continue
-		}
-
-		name, _ := selected.Get("name")
-		path, _ := selected.Get("path")
-		ext, _ := selected.Get("ext")
-		size, _ := selected.Get("size")
-
-		nameStr := name.Raw().(string)
-		pathStr := path.Raw().(string)
-		extStr := ext.Raw().(string)
-		sizeStr := size.Raw().(int64)
-
-		icon := IconSource{
-			Name:      strings.TrimSuffix(nameStr, filepath.Ext(nameStr)),
-			Path:      pathStr,
-			Extension: extStr,
-			Size:      sizeStr,
-		}
-
-		jsonpath.Set(root, "items."+idx.(string)+".icon", icon)
 	}
-
-	return root, nil
 }
