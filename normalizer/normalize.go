@@ -2,6 +2,7 @@ package normalizer
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 	"strings"
 
@@ -27,7 +28,7 @@ func originalKey(key string) string { return key + ":original" }
 func currentKey(key string) string  { return key + ":current" }
 
 // GetMeta retrieves a value from the Meta map by key
-func (n *Normalizer) GetMeta(key string) (any, bool) {
+func (n *Normalizer) getMeta(key string) (any, bool) {
 	if n.Meta == nil {
 		return nil, false
 	}
@@ -37,12 +38,25 @@ func (n *Normalizer) GetMeta(key string) (any, bool) {
 }
 
 // SetMeta sets a value in the Meta map by key
-func (n *Normalizer) SetMeta(key string, value any) {
+func (n *Normalizer) setMeta(key string, value any) {
 	if n.Meta == nil {
 		n.Meta = map[string]any{}
 	}
 
 	n.Meta[key] = value
+}
+
+func (n *Normalizer) ensureOriginal(key string, val any) any {
+	if existing, ok := n.getMeta(originalKey(key)); ok {
+		return existing
+	}
+
+	n.setMeta(originalKey(key), val)
+	return val
+}
+
+func (n *Normalizer) setCurrent(key string, val any) {
+	n.setMeta(currentKey(key), val)
 }
 
 func (n *Normalizer) Normalize(data any) (any, error) {
@@ -56,20 +70,16 @@ func (n *Normalizer) Normalize(data any) (any, error) {
 		case []any:
 			for i, val := range v {
 				key := strings.ReplaceAll(field.Name, "#", strconv.Itoa(i))
-				if err := n.processField(field, key, val, &i); err != nil {
+				if err := n.processField(data, field, key, val, i); err != nil {
 					return nil, err
 				}
 			}
 
 		default:
-			if err := n.processField(field, field.Name, v, nil); err != nil {
+			if err := n.processField(data, field, field.Name, v, -1); err != nil {
 				return nil, err
 			}
 		}
-	}
-
-	if err := n.applyTargets(data); err != nil {
-		return nil, err
 	}
 
 	return data, nil
@@ -77,68 +87,66 @@ func (n *Normalizer) Normalize(data any) (any, error) {
 
 // processField handles storing vars and updating targets
 func (n *Normalizer) processField(
+	data any,
 	field Field,
 	key string,
 	val any,
-	idx *int,
+	idx int,
 ) error {
 	// store original once
-	if _, ok := n.GetMeta(originalKey(key)); !ok {
-		n.SetMeta(originalKey(key), val)
-	}
+	orig := n.ensureOriginal(key, val)
 
 	// run actions
-	_, err := n.applyActions(key, field.Actions, idx)
-	if err != nil {
-		return fmt.Errorf("failed on field %q: %v", key, err)
-	}
-
-	return nil
-}
-
-func (n *Normalizer) applyActions(key string, actions []Action, idx *int) (any, error) {
-	registry := registries.GetRegistry()
-
-	current, _ := n.GetMeta(originalKey(key))
-	for _, action := range actions {
-		input := current
-
-		result, err := registry.Apply(action.Type, input, action.Params)
-		// if err != nil {
-		// 	return nil, fmt.Errorf("action %q failed: %v", action.Type, err)
-		// }
+	current := orig
+	for _, action := range field.Actions {
+		result, err := n.applyAction(data, action, current, idx)
 		if err != nil {
-			// just log and continue
-			fmt.Printf("action %q failed, skipping: %v\n", action.Type, err)
+			log.Printf("field %q action %q skipped: %v", key, action.Type, err)
 			continue
 		}
 
-		// Only mutate current for Transform or Replacer
-		if action.Type == "transform" || action.Type == "replace" {
-			current = result
-			n.SetMeta(currentKey(key), current)
-		}
+		current = result
+	}
 
-		// update target immediately if defined
-		if action.Target != "" {
+	n.setCurrent(key, current)
+	return nil
+}
+
+func (n *Normalizer) applyAction(
+	data any,
+	action Action,
+	input any,
+	idx int,
+) (any, error) {
+	registry := registries.GetRegistry()
+
+	result, err := registry.Apply(action.Type, input, action.Params)
+	if err != nil {
+		return nil, err
+	}
+
+	// update target immediately if defined
+	if action.Target != "" {
+		// omit if result is "empty"
+		if result != nil && result != "" {
+
 			target := action.Target
-			if idx != nil {
-				target = strings.ReplaceAll(target, "#", strconv.Itoa(*idx))
+			if idx >= 0 {
+				target = strings.ReplaceAll(target, "#", strconv.Itoa(idx))
+			}
+
+			if err := jsonpath.Set(data, target, result); err != nil {
+				return nil, fmt.Errorf("set %q failed: %v", target, err)
 			}
 
 			n.Targets[target] = result
 		}
-	}
 
-	return current, nil
-}
-
-func (n *Normalizer) applyTargets(data any) error {
-	for path, value := range n.Targets {
-		if err := jsonpath.Set(data, path, value); err != nil {
-			return fmt.Errorf("set %q failed: %v", path, err)
+		// Only mutate current for Transform or Replacer
+		if action.Type == "transform" || action.Type == "replace" {
+			return result, nil
 		}
 	}
 
-	return nil
+	return input, nil
 }
