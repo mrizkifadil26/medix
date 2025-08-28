@@ -22,7 +22,7 @@ func main() {
 		}
 	}
 
-	var rawData = utils.NewOrderedMap[string, any]()
+	var data = utils.NewOrderedMap[string, any]()
 	loadPath := config.Root
 
 	// Decide data source
@@ -39,11 +39,11 @@ func main() {
 		fmt.Println("🔄 Refresh mode: ignoring existing output, loading root data...")
 	}
 
-	if err := utils.LoadJSON(loadPath, rawData); err != nil {
+	if err := utils.LoadJSON(loadPath, data); err != nil {
 		log.Fatalf("❌ Failed to load data from %s: %v", loadPath, err)
 	}
 
-	// enriched, err := enricher.Enrich(rawData, &config)
+	enriched, err := enricher.Enrich(data, &config)
 	if err != nil {
 		log.Fatalf("❌ Enrichment failed: %v", err)
 	}
