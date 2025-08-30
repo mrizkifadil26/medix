@@ -15,7 +15,7 @@ type SearchResult struct {
 }
 
 type SearchItem struct {
-	ID               int     `json:"tmdb_id"`           // Unique TMDb ID
+	ID               int     `json:"id"`                // Unique TMDb ID
 	Title            string  `json:"title"`             // From movie.title or tv.name
 	OriginalTitle    string  `json:"original_title"`    // For fallback or search matching
 	Overview         string  `json:"overview"`          // Summary

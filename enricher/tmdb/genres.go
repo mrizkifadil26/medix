@@ -2,8 +2,6 @@ package tmdb
 
 import (
 	"fmt"
-
-	"github.com/mrizkifadil26/medix/utils/cache"
 )
 
 type GenreResult struct {
@@ -13,6 +11,36 @@ type GenreResult struct {
 type GenreItem struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
+}
+
+type GenreService struct {
+	client *Client
+	cache  *genreCache
+}
+
+func NewGenreService(client *Client, cache *genreCache) *GenreService {
+	return &GenreService{client: client, cache: cache}
+}
+
+func (s *GenreService) Get(kind string) (map[int]string, error) {
+	// Try cache first
+	if m, ok := s.cache.Get("genres", kind); ok {
+		return m, nil
+	}
+
+	// Remote fetch
+	resultGenres, err := s.client.GetGenres(kind)
+	if err != nil {
+		return nil, err
+	}
+
+	genreMap := toGenreMap(resultGenres)
+
+	// Store into cache
+	s.cache.Put("genres", kind, genreMap)
+	_ = s.cache.Save() // best-effort save
+
+	return genreMap, nil
 }
 
 func (c *Client) GetGenres(mediaType string) ([]GenreItem, error) {
@@ -26,52 +54,20 @@ func (c *Client) GetGenres(mediaType string) ([]GenreItem, error) {
 	return result.Genres, nil
 }
 
-// GetGenreMap fetches genres directly from TMDb and returns them as map[id]name.
-func (c *Client) GetGenreMap(mediaType string) (map[int]string, error) {
-	genres, err := c.GetGenres(mediaType)
+func (s *GenreService) Resolve(kind string, ids []int) ([]string, error) {
+	genreMap, err := s.Get(kind)
 	if err != nil {
 		return nil, err
 	}
 
-	return toGenreMap(genres), nil
-}
-
-func LoadGenreMap(client *Client, cm *cache.Manager, kind string) (map[int]string, error) {
-	// try from cache
-	if raw, ok := cm.Get("genres", kind); ok {
-		if m, ok := raw.(map[int]string); ok {
-			return m, nil
-		}
-
-		// if it's stored as map[string]string, convert
-		if sm, ok := raw.(map[string]string); ok {
-			converted := make(map[int]string, len(sm))
-			for k, v := range sm {
-				var id int
-				fmt.Sscanf(k, "%d", &id)
-				converted[id] = v
-			}
-
-			return converted, nil
+	var genres []string
+	for _, id := range ids {
+		if g, ok := genreMap[id]; ok {
+			genres = append(genres, g)
 		}
 	}
 
-	// fallback: fetch remote
-	resultGenres, err := client.GetGenres(kind)
-	if err != nil {
-		return nil, err
-	}
-
-	genreMap := make(map[int]string, len(resultGenres))
-	for _, g := range resultGenres {
-		genreMap[g.ID] = g.Name
-	}
-
-	// store in cache manager (lazy save later)
-	cm.Put("genres", kind, genreMap)
-	_ = cm.Save() // save best-effort
-
-	return genreMap, nil
+	return genres, nil
 }
 
 // build map[int]string from []GenreItem

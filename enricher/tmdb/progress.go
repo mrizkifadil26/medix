@@ -10,14 +10,21 @@ type Progress struct {
 	current int32
 }
 
-func (p *Progress) Inc(title string, errMessage string) {
+func (p *Progress) Inc(title, errMessage, source string) {
 	newVal := atomic.AddInt32(&p.current, 1)
+
 	status := "✅"
-	displayTitle := title
 	if errMessage != "" {
 		status = "❌"
+	}
+
+	displayTitle := title
+	if errMessage != "" {
 		displayTitle = fmt.Sprintf("%s (%s)", title, errMessage)
 	}
+
+	// always include source
+	displayTitle = fmt.Sprintf("%s [%s]", displayTitle, source)
 
 	percent := float64(newVal) / float64(p.total) * 100
 

@@ -2,14 +2,56 @@ package tmdb
 
 import (
 	"fmt"
-
-	"github.com/mrizkifadil26/medix/utils/cache"
 )
 
 type TMDBLanguage struct {
 	ISO639_1    string `json:"iso_639_1"`
 	EnglishName string `json:"english_name"`
 	Name        string `json:"name"`
+}
+
+type LanguageService struct {
+	client *Client
+	cache  *langCache
+}
+
+func NewLanguageService(client *Client, cache *langCache) *LanguageService {
+	return &LanguageService{client: client, cache: cache}
+}
+
+func (s *LanguageService) Get() (map[string]string, error) {
+	// Try cache first
+	if m, ok := s.cache.Get("languages", "iso-639"); ok {
+		return m, nil
+	}
+
+	// Fallback → remote fetch
+	result, err := s.client.GetLanguages()
+	if err != nil {
+		return nil, err
+	}
+
+	langMap := toLanguageMap(result)
+
+	// Store into cache
+	s.cache.Put("languages", "iso-639", langMap)
+	_ = s.cache.Save() // best-effort save
+
+	return langMap, nil
+}
+
+// Resolve takes ISO-639-1 code and returns the human-readable name.
+func (s *LanguageService) Resolve(code string) (string, error) {
+	langMap, err := s.Get()
+	if err != nil {
+		return "", err
+	}
+
+	if name, ok := langMap[code]; ok {
+		return name, nil
+	}
+
+	return code, nil // fallback: return code if unknown
 }
 
 func (c *Client) GetLanguages() ([]TMDBLanguage, error) {
@@ -21,30 +63,6 @@ func (c *Client) GetLanguages() ([]TMDBLanguage, error) {
 	}
 
 	return results, nil
-}
-
-// LoadLanguageMap loads language map from cache, fallback to TMDb if missing
-func LoadLanguageMap(client *Client, cm *cache.Manager) (map[string]string, error) {
-	// try from cache
-	if raw, ok := cm.Get("languages", "iso-639"); ok {
-		if sm, ok := raw.(map[string]string); ok {
-			return sm, nil
-		}
-	}
-
-	// fetch from TMDb
-	langs, err := client.GetLanguages()
-	if err != nil {
-		return nil, err
-	}
-
-	langMap := toLanguageMap(langs)
-
-	// save to cache
-	cm.Put("languages", "iso-639", langMap)
-	_ = cm.Save() // best-effort
-
-	return langMap, nil
 }
 
 // build map[code]name from []TMDBLanguage
