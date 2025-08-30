@@ -158,6 +158,19 @@ enrich-refresh:
 		--output="output/enriched/$(media)/$(type).$(label).json" \
 		--refresh
 
+enrich-all:
+	@for type in $(TYPES); do \
+		shopt -s globstar; \
+		for config in config/enricher/media/**/*.json; do \
+			[ -f "$$config" ] || continue; \
+			name=$$(basename $$config .json); \
+			out="output/enriched/media/$$name.json"; \
+			echo "Enriching $$type: $$config → $$out"; \
+			mkdir -p "$$(dirname $$out)"; \
+			$(GO) run $(ENRICH_CMD) --config "$$config" --output "$$out"; \
+		done \
+	done
+
 # --- Sync media and icons logically ---
 sync:
 	@$(GO) run $(SYNC_CMD) \
