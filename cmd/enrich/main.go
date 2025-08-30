@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"os"
 
 	"github.com/mrizkifadil26/medix/enricher"
 	"github.com/mrizkifadil26/medix/utils"
@@ -25,22 +24,9 @@ func main() {
 	var data = utils.NewOrderedMap[string, any]()
 	loadPath := config.Root
 
-	// Decide data source
-	if !*args.Refresh {
-		if _, err := os.Stat(config.Output); err == nil {
-			loadPath = config.Output
-			fmt.Println("⚡ Loading existing enriched data from:", loadPath)
-		} else if os.IsNotExist(err) {
-			fmt.Println("✨ No existing output found. Loading root data for enrichment...")
-		} else {
-			log.Fatalf("❌ Failed to check output file: %v", err)
-		}
-	} else {
-		fmt.Println("🔄 Refresh mode: ignoring existing output, loading root data...")
-	}
-
+	fmt.Println("⚡ Loading root data for enrichment from:", loadPath)
 	if err := utils.LoadJSON(loadPath, data); err != nil {
-		log.Fatalf("❌ Failed to load data from %s: %v", loadPath, err)
+		log.Fatalf("❌ Failed to load root data from %s: %v", loadPath, err)
 	}
 
 	enriched, err := enricher.Enrich(data, &config)
