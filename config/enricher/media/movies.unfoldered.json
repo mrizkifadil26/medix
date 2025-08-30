@@ -1,0 +1,12 @@
+{
+  "root": "output/normalized/media/movies.unfoldered.json",
+  "output": "output/enriched/media/movies.unfoldered.json",
+  "options": {
+    "enrichers": [
+      "tmdb",
+      "local"
+    ],
+    "concurrency": 4,
+    "filters": "media"
+  }
+}

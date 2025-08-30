@@ -1,0 +1,12 @@
+{
+  "root": "output/normalized/media/movies.year.json",
+  "output": "output/enriched/media/movies.year.json",
+  "options": {
+    "enrichers": [
+      "tmdb",
+      "local"
+    ],
+    "concurrency": 4,
+    "filters": "media"
+  }
+}

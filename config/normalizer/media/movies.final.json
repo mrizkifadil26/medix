@@ -59,6 +59,8 @@
           "params": {
             "methods": [
               "lowercase",
+              "unicode",
+              "sanitize",
               "slugify"
             ]
           },
