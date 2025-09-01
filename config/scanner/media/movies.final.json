@@ -8,7 +8,7 @@
   ],
   "options": {
     "mode": "dirs",
-    "depth": 2,
+    "depth": 3,
     "onlyLeaf": true,
     "skipEmpty": true,
     "includeChildren": true,
