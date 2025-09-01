@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/mrizkifadil26/medix/validation"
+	"github.com/mrizkifadil26/medix/utils/validation"
 )
 
 type SearchQuery struct {
