@@ -3,7 +3,7 @@ package webgen
 import (
 	"path/filepath"
 
-	"github.com/mrizkifadil26/medix/logger"
+	"github.com/mrizkifadil26/medix/utils/logger"
 )
 
 func GenerateSite(inputDir, outputDir string) error {

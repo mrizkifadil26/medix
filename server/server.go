@@ -3,7 +3,7 @@ package server
 import (
 	"net/http"
 
-	"github.com/mrizkifadil26/medix/logger"
+	"github.com/mrizkifadil26/medix/utils/logger"
 )
 
 func logRequest(handler http.Handler) http.Handler {

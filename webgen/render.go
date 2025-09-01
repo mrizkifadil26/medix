@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/mrizkifadil26/medix/logger"
+	"github.com/mrizkifadil26/medix/utils/logger"
 	"github.com/tdewolff/minify"
 	"github.com/tdewolff/minify/html"
 )

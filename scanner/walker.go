@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/mrizkifadil26/medix/logger"
+	"github.com/mrizkifadil26/medix/utils/logger"
 )
 
 type Walker struct {

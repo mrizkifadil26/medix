@@ -7,8 +7,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/mrizkifadil26/medix/logger"
 	"github.com/mrizkifadil26/medix/server"
+	"github.com/mrizkifadil26/medix/utils/logger"
 	"github.com/mrizkifadil26/medix/webgen"
 )
 

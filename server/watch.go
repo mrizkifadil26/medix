@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/fsnotify/fsnotify"
-	"github.com/mrizkifadil26/medix/logger"
+	"github.com/mrizkifadil26/medix/utils/logger"
 	"github.com/mrizkifadil26/medix/webgen"
 )
 

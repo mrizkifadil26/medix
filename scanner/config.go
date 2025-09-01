@@ -12,8 +12,6 @@ type Config struct {
 
 	Options *ScanOptions   `json:"options,omitempty" yaml:"options,omitempty"`
 	Output  *OutputOptions `json:"output,omitempty" yaml:"output,omitempty"` // Output format and options
-	// FileRules []Rule      `json:"fileRules,omitempty"`
-	// DirRules  []Rule      `json:"dirRules,omitempty"`
 }
 
 type ScanOptions struct {

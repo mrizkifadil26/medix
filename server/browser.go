@@ -5,7 +5,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/mrizkifadil26/medix/logger"
+	"github.com/mrizkifadil26/medix/utils/logger"
 )
 
 func OpenBrowser(url string) {
