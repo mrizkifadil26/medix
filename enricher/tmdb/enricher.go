@@ -10,26 +10,33 @@ import (
 )
 
 type TMDbEnricher struct {
-	client       *Client
-	dataCache    *dataCache
-	genreService *GenreService
-	langService  *LanguageService
+	client    *Client
+	dataCache *dataCache
+
+	genreService  *GenreService
+	langService   *LanguageService
+	creditService *CreditService
+	config        *Config
 }
 
 func NewTMDbEnricher(cfg *Config) *TMDbEnricher {
 	client := NewClient(cfg.APIKey)
 	dataCache, genreCache, langCache := newCaches()
+	creditsCache := newCreditsCache()
 
 	// Load caches at startup (best effort)
 	_ = dataCache.Load()
 	_ = genreCache.Load()
 	_ = langCache.Load()
+	_ = creditsCache.Load()
 
 	return &TMDbEnricher{
-		client:       client,
-		dataCache:    dataCache,
-		genreService: NewGenreService(client, genreCache),
-		langService:  NewLanguageService(client, langCache),
+		client:        client,
+		dataCache:     dataCache,
+		genreService:  NewGenreService(client, genreCache),
+		langService:   NewLanguageService(client, langCache),
+		creditService: NewCreditService(client, creditsCache),
+		config:        cfg,
 	}
 }
 
@@ -73,9 +80,13 @@ func (t *TMDbEnricher) Enrich(
 			result := t.enrichItem(queries[idx], idx)
 
 			// Set JSON for enriched data
-			jsonMu.Lock()
-			_ = jsonpath.Set(data, fmt.Sprintf("items.%d.enriched", idx), result.Enriched)
-			jsonMu.Unlock()
+			// Only set enriched if not nil
+			if result.Enriched != nil {
+				jsonMu.Lock()
+				// _ = jsonpath.Set(data, fmt.Sprintf("items.%d.enriched", idx), result.Enriched)
+				_ = jsonpath.Set(data, fmt.Sprintf("items.%d.enriched", idx), result.Enriched)
+				jsonMu.Unlock()
+			}
 
 			// Collect errors
 			if result.Error != "" {
@@ -106,7 +117,6 @@ func (t *TMDbEnricher) Enrich(
 func (e *TMDbEnricher) enrichItem(
 	query QueryInput,
 	idx int,
-	// slug string,
 ) *EnrichedItem {
 	title := query.Title
 	year := query.Year
@@ -200,15 +210,21 @@ func (e *TMDbEnricher) enrichItem(
 	}
 
 	// Fill enriched data
-	item.Enriched = EnrichedData{
-		TMDBID:        best.ID,
-		MatchedTitle:  best.Title,
+	item.Enriched = &EnrichedData{
+		TMDbID:        best.ID,
+		Title:         best.Title,
 		OriginalTitle: best.OriginalTitle,
 		ReleaseDate:   best.ReleaseDate,
 		Genres:        genres,
 		Language:      langName,
 		PosterPath:    best.PosterPath,
 		Overview:      best.Overview,
+	}
+
+	if e.config.FetchCredits {
+		if credits, err := e.creditService.FetchCredits(best.ID); err == nil {
+			item.Enriched.Credits = &credits
+		}
 	}
 
 	item.Source = "remote" // mark it came from remote fetch

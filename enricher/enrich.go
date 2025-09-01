@@ -50,14 +50,26 @@ func buildEnricher(eCfg EnricherConfig) (core.Enricher, error) {
 		if !ok {
 			return nil, fmt.Errorf("invalid tmdb config")
 		}
-		apiKey, _ := cfgMap["api_key"].(string)
-		return tmdb.NewTMDbEnricher(&tmdb.Config{APIKey: apiKey}), nil
+
+		cfg := &tmdb.Config{}
+		if apiKey, ok := cfgMap["api_key"].(string); ok {
+			cfg.APIKey = apiKey
+		}
+
+		// Optional fetch flags
+		if fetchCredits, ok := cfgMap["fetch_credits"].(bool); ok {
+			cfg.FetchCredits = fetchCredits
+		}
+
+		return tmdb.NewTMDbEnricher(cfg), nil
 
 	case "local":
 		cfgMap, ok := eCfg.Config.(map[string]interface{})
 		if !ok {
-			return nil, fmt.Errorf("invalid local config")
+			// no config provided, just use default (all filters)
+			return local.NewLocalEnricher(&local.Config{}), nil
 		}
+
 		var cfg local.Config
 		if f, exists := cfgMap["filters"]; exists {
 			for _, v := range f.([]any) {

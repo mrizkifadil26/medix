@@ -13,3 +13,9 @@ func newCaches() (*dataCache, *genreCache, *langCache) {
 		cache.NewManager[map[int]string]("tmdb.genres.cache.json"),
 		cache.NewManager[map[string]string]("tmdb.languages.cache.json")
 }
+
+type creditsCache = cache.Manager[TMDbCredits]
+
+func newCreditsCache() *creditsCache {
+	return cache.NewManager[TMDbCredits]("tmdb.credits.cache.json")
+}
