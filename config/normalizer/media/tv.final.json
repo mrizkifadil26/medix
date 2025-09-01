@@ -12,6 +12,33 @@
           "target": "items.#.metadata.title"
         }
       ]
+    },
+    {
+      "name": "items.#",
+      "actions": [
+        {
+          "type": "format",
+          "params": {
+            "template": "{{metadata.title}}"
+          },
+          "target": "items.#.slug"
+        }
+      ]
+    },
+    {
+      "name": "items.#.slug",
+      "actions": [
+        {
+          "type": "transform",
+          "params": {
+            "methods": [
+              "lowercase",
+              "slugify"
+            ]
+          },
+          "target": "items.#.slug"
+        }
+      ]
     }
   ]
 }

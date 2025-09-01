@@ -1,0 +1,24 @@
+{
+  "root": "output/normalized/media/movies.year.json",
+  "output": "output/enriched/media/movies.year.json",
+  "options": {
+    "concurrency": 4,
+    "enrichers": [
+      {
+        "name": "tmdb",
+        "config": {
+          "api_key": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3N2QxNGJiN2JkODYyY2E0ZTE4MzBiZWNiODgxNGU3NyIsIm5iZiI6MTU2MzYzMjEyOC43NzUsInN1YiI6IjVkMzMyMjAwYWU2ZjA5MDAwZTdiNWJlZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZpKTx-psLaWjwS-zRvpDLO7QKmoNJnF_xubbb8vn-48",
+          "fetch_credits": true
+        }
+      },
+      {
+        "name": "local",
+        "config": {
+          "filters": [
+            "media"
+          ]
+        }
+      }
+    ]
+  }
+}

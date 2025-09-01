@@ -22,6 +22,7 @@ BIN_DIR			:= bin
 SCANNER_CMD		:= ./cmd/scan
 SCANNER_V2_CMD	:= ./cmd/scan-v2
 NORMALIZE_CMD	:= ./cmd/normalize
+ENRICH_CMD		:= ./cmd/enrich
 PROGRESS_CMD	:= ./cmd/progress
 SERVER_CMD		:= ./cmd/server
 ICONMAP_CMD		:= ./cmd/iconmap
@@ -144,6 +145,30 @@ normalize-all:
 		echo "Normalizing: $$config → $$out"; \
 		mkdir -p "$$(dirname $$out)"; \
 		$(GO) run $(NORMALIZE_CMD) --config "$$config" --output "$$out"; \
+	done
+
+enrich:
+	@$(GO) run $(ENRICH_CMD) \
+		--config="config/enricher/$(media)/$(type).$(label).json" \
+		--output="output/enriched/$(media)/$(type).$(label).json"
+
+enrich-refresh:
+	@$(GO) run $(ENRICH_CMD) \
+		--config="config/enricher/$(media)/$(type).$(label).json" \
+		--output="output/enriched/$(media)/$(type).$(label).json" \
+		--refresh
+
+enrich-all:
+	@for type in $(TYPES); do \
+		shopt -s globstar; \
+		for config in config/enricher/media/**/*.json; do \
+			[ -f "$$config" ] || continue; \
+			name=$$(basename $$config .json); \
+			out="output/enriched/media/$$name.json"; \
+			echo "Enriching $$type: $$config → $$out"; \
+			mkdir -p "$$(dirname $$out)"; \
+			$(GO) run $(ENRICH_CMD) --config "$$config" --output "$$out"; \
+		done \
 	done
 
 # --- Sync media and icons logically ---

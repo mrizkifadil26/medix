@@ -25,9 +25,45 @@
         {
           "type": "extract",
           "params": {
+            "pattern": "alternateTitle"
+          },
+          "target": "items.#.metadata.alternate_title"
+        },
+        {
+          "type": "extract",
+          "params": {
             "pattern": "year"
           },
           "target": "items.#.metadata.year"
+        }
+      ]
+    },
+    {
+      "name": "items.#",
+      "actions": [
+        {
+          "type": "format",
+          "params": {
+            "template": "{{metadata.title}}-{{metadata.year}}"
+          },
+          "target": "items.#.slug"
+        }
+      ]
+    },
+    {
+      "name": "items.#.slug",
+      "actions": [
+        {
+          "type": "transform",
+          "params": {
+            "methods": [
+              "lowercase",
+              "unicode",
+              "sanitize",
+              "slugify"
+            ]
+          },
+          "target": "items.#.slug"
         }
       ]
     }

@@ -15,12 +15,23 @@ func Get(root any, path string) (any, error) {
 
 	for i, token := range tokens {
 		isLast := i == len(tokens)-1
-
 		if token == "#" {
 			arr, ok := node.([]any)
+
 			if !ok {
 				return nil, fmt.Errorf("cannot use '#' at %d on type %T", i, node)
 			}
+
+			if i == len(tokens)-1 {
+				if len(arr) == 0 {
+					return nil, nil // empty slice → nil
+				} else if len(arr) == 1 {
+					return arr[0], nil // single element → return it
+				} else {
+					return arr, nil // multiple elements → return the slice
+				}
+			}
+
 			results := make([]any, 0, len(arr))
 			for _, elem := range arr {
 				val, err := Get(elem, strings.Join(tokens[i+1:], "."))
@@ -28,10 +39,14 @@ func Get(root any, path string) (any, error) {
 					results = append(results, val)
 				}
 			}
-			if len(results) == 1 {
+
+			if len(results) == 0 {
+				return nil, nil
+			} else if len(results) == 1 {
 				return results[0], nil
+			} else {
+				return results, nil
 			}
-			return results, nil
 		}
 
 		switch n := node.(type) {
@@ -40,19 +55,25 @@ func Get(root any, path string) (any, error) {
 			if !ok {
 				return nil, fmt.Errorf("key %q not found", token)
 			}
+
 			node = val
+
 		case *utils.OrderedMap[string, any]:
 			val, ok := n.Get(token)
 			if !ok {
 				return nil, fmt.Errorf("key %q not found", token)
 			}
+
 			node = val
+
 		case []any:
 			idx, err := strconv.Atoi(token)
 			if err != nil || idx < 0 || idx >= len(n) {
 				return nil, fmt.Errorf("invalid index %q", token)
 			}
+
 			node = n[idx]
+
 		default:
 			if !isLast {
 				return nil, fmt.Errorf("cannot descend into type %T with %q", node, token)

@@ -27,6 +27,7 @@ func LoadJSON(path string, v any) error {
 		if err != nil {
 			return err
 		}
+
 		return om.UnmarshalJSON(data)
 	}
 
@@ -37,6 +38,21 @@ func LoadJSON(path string, v any) error {
 	defer f.Close()
 
 	return json.NewDecoder(f).Decode(v)
+}
+
+func LoadJSONPtr[T any](path string) (*T, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+
+	var result T
+	if err := json.NewDecoder(f).Decode(&result); err != nil {
+		return nil, err
+	}
+
+	return &result, nil
 }
 
 // WriteJSON writes the given data as pretty-formatted JSON to the specified file path.

@@ -14,16 +14,16 @@
         {
           "type": "extract",
           "params": {
-            "pattern": "bracketYear"
+            "pattern": "title"
           },
-          "target": "items.#.metadata.year"
+          "target": "items.#.metadata.title"
         },
         {
           "type": "extract",
           "params": {
-            "pattern": "title"
+            "pattern": "bracketYear"
           },
-          "target": "items.#.metadata.title"
+          "target": "items.#.metadata.year"
         }
       ]
     },
@@ -36,6 +36,35 @@
             "template": "{{metadata.title}} ({{metadata.year}})"
           },
           "target": "items.#.displayName"
+        }
+      ]
+    },
+    {
+      "name": "items.#",
+      "actions": [
+        {
+          "type": "format",
+          "params": {
+            "template": "{{metadata.title}}-{{metadata.year}}"
+          },
+          "target": "items.#.slug"
+        }
+      ]
+    },
+    {
+      "name": "items.#.slug",
+      "actions": [
+        {
+          "type": "transform",
+          "params": {
+            "methods": [
+              "lowercase",
+              "unicode",
+              "sanitize",
+              "slugify"
+            ]
+          },
+          "target": "items.#.slug"
         }
       ]
     }
