@@ -1,11 +1,10 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
-	"fmt"
 	"log"
 
+	"github.com/mrizkifadil26/medix/db"
 	"github.com/mrizkifadil26/medix/scanner"
 	"github.com/mrizkifadil26/medix/utils"
 )
@@ -51,11 +50,12 @@ func main() {
 		log.Fatal("Error: --root is required (or must be in config file)")
 	}
 
-	// Fill missing defaults
-	// if err := config.ApplyDefaults(); err != nil {
-	// 	log.Fatalf("Error applying defaults: %v", err)
-	// }
-	// config.PrettyPrint()
+	// Open DB
+	database, err := db.Open("media.db")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer database.Close()
 
 	results, err := scanner.Scan(
 		config.Root,
@@ -74,9 +74,4 @@ func main() {
 			log.Fatalf("Failed to write output: %v", err)
 		}
 	}
-}
-
-func PrettyJSON(v any) {
-	data, _ := json.MarshalIndent(v, "", "  ")
-	fmt.Println(string(data))
 }
