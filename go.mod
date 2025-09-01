@@ -6,7 +6,7 @@ toolchain go1.23.10
 
 require (
 	github.com/fsnotify/fsnotify v1.9.0
-	github.com/iancoleman/orderedmap v0.3.0
+	github.com/mattn/go-sqlite3 v1.14.32
 	github.com/schollz/progressbar/v3 v3.18.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.9.0
