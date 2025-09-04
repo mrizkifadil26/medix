@@ -1,0 +1,5009 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2025-08-13T15:35:59+07:00",
+  "source_path": "/mnt/c/Users/Rizki/Downloads/Media/Movies",
+  "mode": "files",
+  "item_count": 419,
+  "duration_ms": 1736,
+  "tags": [
+    "media",
+    "movies",
+    "downloads"
+  ],
+  "stats": {
+    "StartTime": "2025-08-13T15:35:59.820063499+07:00",
+    "EndTime": "2025-08-13T15:36:01.555350268+07:00",
+    "Duration": 1735286760,
+    "EntriesVisited": 463,
+    "FilesVisited": 419,
+    "DirsVisited": 35,
+    "Matches": 454,
+    "Skipped": 0,
+    "ErrorsCount": 0,
+    "TotalSize": 305820060081,
+    "AvgFileSize": 729880811,
+    "MinFileSize": 49033,
+    "MaxFileSize": 1675555232,
+    "DataRate": 176236036101.03033,
+    "Errors": [],
+    "EntriesPerSec": 266.8146906163221,
+    "FilesPerSec": 241.45865090332387,
+    "Custom": {}
+  },
+  "items": [
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/1.Kakak.7.Ponakan.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "1.Kakak.7.Ponakan.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "1.Kakak.7.Ponakan.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 819906147,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/28.Years.Later.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "28.Years.Later.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "28.Years.Later.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 842653436,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/40.Acres.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "40.Acres.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "40.Acres.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 729191460,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/A.Normal.Woman.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "A.Normal.Woman.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "A.Normal.Woman.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 703608016,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Across.110th.Street.1972.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Across.110th.Street.1972.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Across.110th.Street.1972.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 740987710,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Bubble.2022.720p.NF.WEB-DL.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Bubble.2022.720p.NF.WEB-DL.x264.650MB-Pahe.in.mkv",
+      "name": "Bubble.2022.720p.NF.WEB-DL.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682635741,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Children.of.the.Sea.2019.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Children.of.the.Sea.2019.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Children.of.the.Sea.2019.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 722381571,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Gridman.Universe.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Gridman.Universe.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Gridman.Universe.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 760893157,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Haikyu.The.Dumpster.Battle.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Haikyu.The.Dumpster.Battle.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Haikyu.The.Dumpster.Battle.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 426628011,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Josee.to.Tora.to.Sakana-tachi.2020.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Josee.to.Tora.to.Sakana-tachi.2020.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Josee.to.Tora.to.Sakana-tachi.2020.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 715561877,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Look.Back.2024.720p.WEB-DL.x264.450MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Look.Back.2024.720p.WEB-DL.x264.450MB-Pahe.in.mkv",
+      "name": "Look.Back.2024.720p.WEB-DL.x264.450MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 472617541,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Lost.in.Starlight.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Lost.in.Starlight.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Lost.in.Starlight.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 532132150,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Nagagutsu.o.Haita.Neko-80.Nichikan.Sekai.Isshuu.AKA.Puss.in.Boots.Travels.Around.the.World.in.80.Days.1976.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Nagagutsu.o.Haita.Neko-80.Nichikan.Sekai.Isshuu.AKA.Puss.in.Boots.Travels.Around.the.World.in.80.Days.1976.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Nagagutsu.o.Haita.Neko-80.Nichikan.Sekai.Isshuu.AKA.Puss.in.Boots.Travels.Around.the.World.in.80.Days.1976.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 402775231,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/Boruto.the.Movie.2015.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/Boruto.the.Movie.2015.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "name": "Boruto.the.Movie.2015.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 735014100,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/Naruto Shippuden Movie 05 Blood Prison 2011 720p BluRay x264 600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/Naruto Shippuden Movie 05 Blood Prison 2011 720p BluRay x264 600MB-Pahe.in.mkv",
+      "name": "Naruto Shippuden Movie 05 Blood Prison 2011 720p BluRay x264 600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 629266411,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/Naruto Shippuden Movie 4 The Lost Tower 2010 720p Bluray x264 600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/Naruto Shippuden Movie 4 The Lost Tower 2010 720p Bluray x264 600MB-Pahe.in.mkv",
+      "name": "Naruto Shippuden Movie 4 The Lost Tower 2010 720p Bluray x264 600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 629264463,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/Naruto.Shippuden.The.Movie.3.The.Will.Of.Fire.2009.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/Naruto.Shippuden.The.Movie.3.The.Will.Of.Fire.2009.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Naruto.Shippuden.The.Movie.3.The.Will.Of.Fire.2009.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 681991248,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/Naruto.The.Movie.2.Bonds.2008.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/Naruto.The.Movie.2.Bonds.2008.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "Naruto.The.Movie.2.Bonds.2008.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682003421,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/Naruto.The.Movie.Shippuden.2007.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/Naruto.The.Movie.Shippuden.2007.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "name": "Naruto.The.Movie.Shippuden.2007.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 734471357,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/Naruto.the.Movie.2.Legend.of.the.Stone.of.Gelel.2005.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/Naruto.the.Movie.2.Legend.of.the.Stone.of.Gelel.2005.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "name": "Naruto.the.Movie.2.Legend.of.the.Stone.of.Gelel.2005.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 840967454,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/Naruto.the.Movie.Guardians.of.the.Crescent.Moon.Kingdom.2006.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/Naruto.the.Movie.Guardians.of.the.Crescent.Moon.Kingdom.2006.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Naruto.the.Movie.Guardians.of.the.Crescent.Moon.Kingdom.2006.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 785728175,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/Naruto.the.Movie.Ninja.Clash.in.the.Land.of.Snow.2004.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/Naruto.the.Movie.Ninja.Clash.in.the.Land.of.Snow.2004.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "name": "Naruto.the.Movie.Ninja.Clash.in.the.Land.of.Snow.2004.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 734290245,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/Road.to.Ninja.Naruto.the.Movie.2012.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/Road.to.Ninja.Naruto.the.Movie.2012.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Road.to.Ninja.Naruto.the.Movie.2012.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 892289731,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Naruto Movie Collection/The.Last.Naruto.The.Movie.2014.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Naruto Movie Collection/The.Last.Naruto.The.Movie.2014.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "The.Last.Naruto.The.Movie.2014.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 891862857,
+      "group_label": [
+        "Animation",
+        "Anime",
+        "Naruto Movie Collection"
+      ],
+      "group_path": "Animation/Anime/Naruto Movie Collection"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Professor.Layton.and.the.Eternal.Diva.2009.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Professor.Layton.and.the.Eternal.Diva.2009.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Professor.Layton.and.the.Eternal.Diva.2009.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786916107,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Psycho-Pass.The.Movie.AKA.Gekijouban.Psycho-Pass.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Psycho-Pass.The.Movie.AKA.Gekijouban.Psycho-Pass.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Psycho-Pass.The.Movie.AKA.Gekijouban.Psycho-Pass.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 570825421,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Psycho.Pass.Providence.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Psycho.Pass.Providence.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Psycho.Pass.Providence.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 689047277,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Sword.of.the.Stranger.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Sword.of.the.Stranger.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Sword.of.the.Stranger.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 576316527,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/The.Deer.King.2021.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/The.Deer.King.2021.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "name": "The.Deer.King.2021.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 997046368,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/The.First.Slam.Dunk.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/The.First.Slam.Dunk.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.First.Slam.Dunk.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 895341147,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/The.Tunnel.to.Summer.the.Exit.of.Goodbyes.2022.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/The.Tunnel.to.Summer.the.Exit.of.Goodbyes.2022.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "The.Tunnel.to.Summer.the.Exit.of.Goodbyes.2022.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 822185425,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Totto-Chan.The.Little.Girl.at.the.Window.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Totto-Chan.The.Little.Girl.at.the.Window.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Totto-Chan.The.Little.Girl.at.the.Window.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 631004535,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Anime/Vampire.Hunter.D.Bloodlust.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Anime/Vampire.Hunter.D.Bloodlust.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Vampire.Hunter.D.Bloodlust.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 620641945,
+      "group_label": [
+        "Animation",
+        "Anime"
+      ],
+      "group_path": "Animation/Anime"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/All.Dogs.Go.To.Heaven.2.1996.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/All.Dogs.Go.To.Heaven.2.1996.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "name": "All.Dogs.Go.To.Heaven.2.1996.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 734308624,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/An.American.Tail.1986.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/An.American.Tail.1986.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "An.American.Tail.1986.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 683040144,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/An.American.Tail.Fievel.Goes.West.1991.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/An.American.Tail.Fievel.Goes.West.1991.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "name": "An.American.Tail.Fievel.Goes.West.1991.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 577793003,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Anastasia.1997.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Anastasia.1997.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "name": "Anastasia.1997.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 734843819,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Bugs.Bunnys.3rd.Movie.1001.Rabbit.Tales.1982.720p.WEB-HD.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Bugs.Bunnys.3rd.Movie.1001.Rabbit.Tales.1982.720p.WEB-HD.x264.650MB-Pahe.in.mkv",
+      "name": "Bugs.Bunnys.3rd.Movie.1001.Rabbit.Tales.1982.720p.WEB-HD.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 681974856,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Charlottes.Web.1973.720p.WEB-HD.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Charlottes.Web.1973.720p.WEB-HD.x264.650MB-Pahe.in.mkv",
+      "name": "Charlottes.Web.1973.720p.WEB-HD.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682226298,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Daffy.Ducks.Movie.Fantastic.Island.1983.720p.WEB-HD.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Daffy.Ducks.Movie.Fantastic.Island.1983.720p.WEB-HD.x264.650MB-Pahe.in.mkv",
+      "name": "Daffy.Ducks.Movie.Fantastic.Island.1983.720p.WEB-HD.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682554448,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/FernGully.The.Last.Rainforest.1992.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/FernGully.The.Last.Rainforest.1992.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "FernGully.The.Last.Rainforest.1992.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682407731,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Fire.and.Ice.1983.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Fire.and.Ice.1983.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "name": "Fire.and.Ice.1983.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 734803639,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Fun.and.Fancy.Free.1947.720p.BluRay.X264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Fun.and.Fancy.Free.1947.720p.BluRay.X264.550MB-Pahe.in.mkv",
+      "name": "Fun.and.Fancy.Free.1947.720p.BluRay.X264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 578030132,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/G.I.Joe.The.Movie.1987.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/G.I.Joe.The.Movie.1987.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "G.I.Joe.The.Movie.1987.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682250932,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Heavy.Metal.1981.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Heavy.Metal.1981.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "name": "Heavy.Metal.1981.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 839525401,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/How.the.Grinch.Stole.Christmas.1966.720p.BluRay.x264.250MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/How.the.Grinch.Stole.Christmas.1966.720p.BluRay.x264.250MB-Pahe.in.mkv",
+      "name": "How.the.Grinch.Stole.Christmas.1966.720p.BluRay.x264.250MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 263373571,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Once.Upon.a.Forest.1993.720p.WEB-HD.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Once.Upon.a.Forest.1993.720p.WEB-HD.x264.600MB-Pahe.in.mkv",
+      "name": "Once.Upon.a.Forest.1993.720p.WEB-HD.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 629722269,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Recess.Schools.Out.2001.720p.WEB-HD.x264.500MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Recess.Schools.Out.2001.720p.WEB-HD.x264.500MB-Pahe.in.mkv",
+      "name": "Recess.Schools.Out.2001.720p.WEB-HD.x264.500MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 525424367,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Rock-A-Doodle.1991.720p.BluRay.X264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Rock-A-Doodle.1991.720p.BluRay.X264.600MB-Pahe.in.mkv",
+      "name": "Rock-A-Doodle.1991.720p.BluRay.X264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 630216277,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/Snoopy.Come.Home.1972.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/Snoopy.Come.Home.1972.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "Snoopy.Come.Home.1972.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682264301,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Adventures.of.Mark.Twain.1985.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Adventures.of.Mark.Twain.1985.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "The.Adventures.of.Mark.Twain.1985.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 892477328,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Care.Bears.Movie.1985.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Care.Bears.Movie.1985.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "The.Care.Bears.Movie.1985.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 791501849,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Flight.of.Dragons.1982.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Flight.of.Dragons.1982.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "name": "The.Flight.of.Dragons.1982.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 839962067,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Good.the.Bad.and.Huckleberry.Hound.1988.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Good.the.Bad.and.Huckleberry.Hound.1988.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+      "name": "The.Good.the.Bad.and.Huckleberry.Hound.1988.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787544754,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Jetsons.Meet.the.Flintstones.1987.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Jetsons.Meet.the.Flintstones.1987.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "The.Jetsons.Meet.the.Flintstones.1987.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786968926,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Land.Before.Time.1988.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Land.Before.Time.1988.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "The.Land.Before.Time.1988.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 629553514,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Last.Unicorn.1982.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Last.Unicorn.1982.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "name": "The.Last.Unicorn.1982.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 996720613,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Lorax.1972.720p.BluRay.x264.150MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Lorax.1972.720p.BluRay.x264.150MB-Pahe.in.mkv",
+      "name": "The.Lorax.1972.720p.BluRay.x264.150MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 157856993,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Lord.of.the.Rings.1978.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Lord.of.the.Rings.1978.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "name": "The.Lord.of.the.Rings.1978.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 1047481432,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Transformers.The.Movie.1986.REMASTERED.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Transformers.The.Movie.1986.REMASTERED.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "The.Transformers.The.Movie.1986.REMASTERED.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 892388773,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Classic/The.Year.Without.a.Santa.Claus.1974.720p.BluRay.x264.400MB-Pahe.in.mkv",
+      "rel_path": "Animation/Classic/The.Year.Without.a.Santa.Claus.1974.720p.BluRay.x264.400MB-Pahe.in.mkv",
+      "name": "The.Year.Without.a.Santa.Claus.1974.720p.BluRay.x264.400MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 420811400,
+      "group_label": [
+        "Animation",
+        "Classic"
+      ],
+      "group_path": "Animation/Classic"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/A.Goofy.Movie.1995.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/A.Goofy.Movie.1995.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "name": "A.Goofy.Movie.1995.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 578275331,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/An.Extremely.Goofy.Movie.2000.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/An.Extremely.Goofy.Movie.2000.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "name": "An.Extremely.Goofy.Movie.2000.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 525888247,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Atlantis.Milos.Return.2003.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Atlantis.Milos.Return.2003.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Atlantis.Milos.Return.2003.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 741336948,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Beauty.and.the.Beast.The.Enchanted.Christmas.1997.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Beauty.and.the.Beast.The.Enchanted.Christmas.1997.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Beauty.and.the.Beast.The.Enchanted.Christmas.1997.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 578199158,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Bedknobs.and.Broomsticks.1971.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Bedknobs.and.Broomsticks.1971.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Bedknobs.and.Broomsticks.1971.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1177194626,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Cinderella.3.A.Twist.in.Time.2007.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Cinderella.3.A.Twist.in.Time.2007.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "name": "Cinderella.3.A.Twist.in.Time.2007.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 577851586,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Cinderella.II.Dreams.Come.True.2002.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Cinderella.II.Dreams.Come.True.2002.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "name": "Cinderella.II.Dreams.Come.True.2002.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 525069423,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/DuckTales.the.Movie.Treasure.of.the.Lost.Lamp.1990.720p.WEB-DL.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/DuckTales.the.Movie.Treasure.of.the.Lost.Lamp.1990.720p.WEB-DL.x264.650MB-Pahe.in.mkv",
+      "name": "DuckTales.the.Movie.Treasure.of.the.Lost.Lamp.1990.720p.WEB-DL.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682623980,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Fantasia.1940.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Fantasia.1940.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "name": "Fantasia.1940.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 1047999294,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Fantasia.2000.1999.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Fantasia.2000.1999.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "Fantasia.2000.1999.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 629913752,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Home.On.The.Range.2004.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Home.On.The.Range.2004.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "name": "Home.On.The.Range.2004.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 577967992,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Joseph.King.of.Dreams.2000.720p.BluRay.X264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Joseph.King.of.Dreams.2000.720p.BluRay.X264.550MB-Pahe.in.mkv",
+      "name": "Joseph.King.of.Dreams.2000.720p.BluRay.X264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 577974451,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Lady.And.The.Tramp.II.Scamps.Adventure.2001.720p.BluRay.x264.450MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Lady.And.The.Tramp.II.Scamps.Adventure.2001.720p.BluRay.x264.450MB-Pahe.in.mkv",
+      "name": "Lady.And.The.Tramp.II.Scamps.Adventure.2001.720p.BluRay.x264.450MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 471895151,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Mulan.II.2004.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Mulan.II.2004.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "Mulan.II.2004.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 630293215,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Oliver.and.Company.1988.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Oliver.and.Company.1988.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "name": "Oliver.and.Company.1988.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 577592589,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Piglets.Big.Movie.2003.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Piglets.Big.Movie.2003.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "Piglets.Big.Movie.2003.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 630403224,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Pocahontas.2.Journey.To.the.New.World.1998.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Pocahontas.2.Journey.To.the.New.World.1998.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "name": "Pocahontas.2.Journey.To.the.New.World.1998.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 577942121,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Robin.Hood.1973.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Robin.Hood.1973.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "Robin.Hood.1973.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 630325428,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Saludos.Amigos.1942.720p.BluRay.x264.350MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Saludos.Amigos.1942.720p.BluRay.x264.350MB-Pahe.in.mkv",
+      "name": "Saludos.Amigos.1942.720p.BluRay.x264.350MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 367495658,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/Sinbad.Legend.of.the.Seven.Seas.2003.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/Sinbad.Legend.of.the.Seven.Seas.2003.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "name": "Sinbad.Legend.of.the.Seven.Seas.2003.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 734677060,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/The.Emperors.New.Groove.2.Kronks.New.Groove.2005.720p.BluRay.X264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/The.Emperors.New.Groove.2.Kronks.New.Groove.2005.720p.BluRay.X264.550MB-Pahe.in.mkv",
+      "name": "The.Emperors.New.Groove.2.Kronks.New.Groove.2005.720p.BluRay.X264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 578145369,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/The.Fox.And.The.Hound.2.2006.720p.BluRay.X264.500MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/The.Fox.And.The.Hound.2.2006.720p.BluRay.X264.500MB-Pahe.in.mkv",
+      "name": "The.Fox.And.The.Hound.2.2006.720p.BluRay.X264.500MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 524394195,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/The.Lion.Guard.Return.of.The.Roar.720p.WEB-DL.x264.300MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/The.Lion.Guard.Return.of.The.Roar.720p.WEB-DL.x264.300MB-Pahe.in.mkv",
+      "name": "The.Lion.Guard.Return.of.The.Roar.720p.WEB-DL.x264.300MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 315256245,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/The.Lion.King.3.2004.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/The.Lion.King.3.2004.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "name": "The.Lion.King.3.2004.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 577622013,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/The.Lion.King.II.Simbas.Pride.1998.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/The.Lion.King.II.Simbas.Pride.1998.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "The.Lion.King.II.Simbas.Pride.1998.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682257409,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/The.Little.Mermaid.II.Return.To.The.Sea.2000.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/The.Little.Mermaid.II.Return.To.The.Sea.2000.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "name": "The.Little.Mermaid.II.Return.To.The.Sea.2000.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 578092945,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/The.Many.Adventures.of.Winnie.the.Pooh.1977.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/The.Many.Adventures.of.Winnie.the.Pooh.1977.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "name": "The.Many.Adventures.of.Winnie.the.Pooh.1977.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 578051717,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/The.Return.Of.Jafar.1994.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/The.Return.Of.Jafar.1994.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "name": "The.Return.Of.Jafar.1994.720p.BluRay.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 577966472,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/The.Sword.in.the.Stone.1963.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/The.Sword.in.the.Stone.1963.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "The.Sword.in.the.Stone.1963.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682538662,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Disney/The.Three.Caballeros.1944.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "rel_path": "Animation/Disney/The.Three.Caballeros.1944.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "name": "The.Three.Caballeros.1944.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 525577802,
+      "group_label": [
+        "Animation",
+        "Disney"
+      ],
+      "group_path": "Animation/Disney"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Indie/Ballerina.2016.REPACK.720p.BluRay.HEVC.x265-Pahe.in.mkv",
+      "rel_path": "Animation/Indie/Ballerina.2016.REPACK.720p.BluRay.HEVC.x265-Pahe.in.mkv",
+      "name": "Ballerina.2016.REPACK.720p.BluRay.HEVC.x265-Pahe.in.mkv",
+      "type": "file",
+      "size": 541272536,
+      "group_label": [
+        "Animation",
+        "Indie"
+      ],
+      "group_path": "Animation/Indie"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Indie/Deep.2017.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Indie/Deep.2017.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Deep.2017.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786246051,
+      "group_label": [
+        "Animation",
+        "Indie"
+      ],
+      "group_path": "Animation/Indie"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Indie/Donkey.Xote.2007.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Indie/Donkey.Xote.2007.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "Donkey.Xote.2007.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 629597054,
+      "group_label": [
+        "Animation",
+        "Indie"
+      ],
+      "group_path": "Animation/Indie"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Indie/Ernest.and.Celestine.2012.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Indie/Ernest.and.Celestine.2012.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "Ernest.and.Celestine.2012.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 630244983,
+      "group_label": [
+        "Animation",
+        "Indie"
+      ],
+      "group_path": "Animation/Indie"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Indie/Justin.and.the.Knights.of.Valour.2013.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Indie/Justin.and.the.Knights.of.Valour.2013.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "name": "Justin.and.the.Knights.of.Valour.2013.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 734460542,
+      "group_label": [
+        "Animation",
+        "Indie"
+      ],
+      "group_path": "Animation/Indie"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Indie/Le.tableau.2013.720p.BluRay.x264.600MB-pahe.in.mkv",
+      "rel_path": "Animation/Indie/Le.tableau.2013.720p.BluRay.x264.600MB-pahe.in.mkv",
+      "name": "Le.tableau.2013.720p.BluRay.x264.600MB-pahe.in.mkv",
+      "type": "file",
+      "size": 630374141,
+      "group_label": [
+        "Animation",
+        "Indie"
+      ],
+      "group_path": "Animation/Indie"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Indie/The.Star.2017.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "rel_path": "Animation/Indie/The.Star.2017.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "name": "The.Star.2017.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "type": "file",
+      "size": 581755695,
+      "group_label": [
+        "Animation",
+        "Indie"
+      ],
+      "group_path": "Animation/Indie"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Indie/Trolled.2018.720p.WEB-DL.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Indie/Trolled.2018.720p.WEB-DL.x264.650MB-Pahe.in.mkv",
+      "name": "Trolled.2018.720p.WEB-DL.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682256555,
+      "group_label": [
+        "Animation",
+        "Indie"
+      ],
+      "group_path": "Animation/Indie"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Indie/UglyDolls.2019.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Indie/UglyDolls.2019.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "UglyDolls.2019.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787266546,
+      "group_label": [
+        "Animation",
+        "Indie"
+      ],
+      "group_path": "Animation/Indie"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2000s/Beowulf.2007.DC.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2000s/Beowulf.2007.DC.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "name": "Beowulf.2007.DC.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 944137324,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2000s"
+      ],
+      "group_path": "Animation/Modern/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2000s/Curious.George.2006.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2000s/Curious.George.2006.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "Curious.George.2006.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 683015881,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2000s"
+      ],
+      "group_path": "Animation/Modern/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2000s/Geng.Pengembaraan.Bermula.2009.720p.NF.WEB-DL.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2000s/Geng.Pengembaraan.Bermula.2009.720p.NF.WEB-DL.x264.700MB-Pahe.in.mkv",
+      "name": "Geng.Pengembaraan.Bermula.2009.720p.NF.WEB-DL.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 734790086,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2000s"
+      ],
+      "group_path": "Animation/Modern/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2000s/The.Animatrix.2003.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2000s/The.Animatrix.2003.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "The.Animatrix.2003.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787225797,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2000s"
+      ],
+      "group_path": "Animation/Modern/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2000s/The.Secret.of.Kells.2009.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2000s/The.Secret.of.Kells.2009.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "The.Secret.of.Kells.2009.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 630213250,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2000s"
+      ],
+      "group_path": "Animation/Modern/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/Bigfoot.Family.2020.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/Bigfoot.Family.2020.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Bigfoot.Family.2020.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787246855,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/Bilal.A.New.Breed.of.Hero.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/Bilal.A.New.Breed.of.Hero.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Bilal.A.New.Breed.of.Hero.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 741786435,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/Duck.Duck.Goose.2018.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/Duck.Duck.Goose.2018.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+      "name": "Duck.Duck.Goose.2018.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+      "type": "file",
+      "size": 511467400,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/Gnome.Alone.2017.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/Gnome.Alone.2017.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "name": "Gnome.Alone.2017.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "type": "file",
+      "size": 458984981,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/Gnomeo.and.Juliet.2011.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/Gnomeo.and.Juliet.2011.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "Gnomeo.and.Juliet.2011.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682474857,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/Quackerz.2016.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/Quackerz.2016.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Quackerz.2016.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 696229521,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/Ratchet.and.Clank.2016.720p.BluRay.x265.400MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/Ratchet.and.Clank.2016.720p.BluRay.x265.400MB-Pahe.in.mkv",
+      "name": "Ratchet.and.Clank.2016.720p.BluRay.x265.400MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 420864284,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/Sherlock.Gnomes.2018.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/Sherlock.Gnomes.2018.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "name": "Sherlock.Gnomes.2018.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "type": "file",
+      "size": 480384870,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/Storks.2016.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/Storks.2016.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "name": "Storks.2016.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "type": "file",
+      "size": 534008135,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/The.Son.Of.Bigfoot.2017.720p.BluRay.x265.500MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/The.Son.Of.Bigfoot.2017.720p.BluRay.x265.500MB-Pahe.in.mkv",
+      "name": "The.Son.Of.Bigfoot.2017.720p.BluRay.x265.500MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 524801895,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2010s/Zambezia.2012.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2010s/Zambezia.2012.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "name": "Zambezia.2012.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 733416961,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2010s"
+      ],
+      "group_path": "Animation/Modern/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2020s/A.Greyhound.of.a.Girl.2023.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2020s/A.Greyhound.of.a.Girl.2023.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "A.Greyhound.of.a.Girl.2023.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682527574,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2020s"
+      ],
+      "group_path": "Animation/Modern/2020s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2020s/Justice.League.x.RWBY.Super.Heroes.and.Huntsmen.Part.Two.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2020s/Justice.League.x.RWBY.Super.Heroes.and.Huntsmen.Part.Two.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Justice.League.x.RWBY.Super.Heroes.and.Huntsmen.Part.Two.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 497106424,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2020s"
+      ],
+      "group_path": "Animation/Modern/2020s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Modern/2020s/KPop.Demon.Hunters.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Modern/2020s/KPop.Demon.Hunters.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "KPop.Demon.Hunters.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 632170079,
+      "group_label": [
+        "Animation",
+        "Modern",
+        "2020s"
+      ],
+      "group_path": "Animation/Modern/2020s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Shorts/Ice.Age.The.Great.Egg-Scapade.2016.720p.WEB-DL.650MB-PAHE.in.mkv",
+      "rel_path": "Animation/Shorts/Ice.Age.The.Great.Egg-Scapade.2016.720p.WEB-DL.650MB-PAHE.in.mkv",
+      "name": "Ice.Age.The.Great.Egg-Scapade.2016.720p.WEB-DL.650MB-PAHE.in.mkv",
+      "type": "file",
+      "size": 681467178,
+      "group_label": [
+        "Animation",
+        "Shorts"
+      ],
+      "group_path": "Animation/Shorts"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Shorts/Madly.Madagascar.2013.720p.WEB-DL.x264.500MB-Pahe.in.mkv",
+      "rel_path": "Animation/Shorts/Madly.Madagascar.2013.720p.WEB-DL.x264.500MB-Pahe.in.mkv",
+      "name": "Madly.Madagascar.2013.720p.WEB-DL.x264.500MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 524451951,
+      "group_label": [
+        "Animation",
+        "Shorts"
+      ],
+      "group_path": "Animation/Shorts"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Shorts/Open.Season.Scared.Silly.2015.720p.BluRay.x264.700MB-PAHE.in.mkv",
+      "rel_path": "Animation/Shorts/Open.Season.Scared.Silly.2015.720p.BluRay.x264.700MB-PAHE.in.mkv",
+      "name": "Open.Season.Scared.Silly.2015.720p.BluRay.x264.700MB-PAHE.in.mkv",
+      "type": "file",
+      "size": 734688596,
+      "group_label": [
+        "Animation",
+        "Shorts"
+      ],
+      "group_path": "Animation/Shorts"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Shorts/Puss.in.Boots.The.Three.Diablos.2011.720p.BluRay.x264.100MB-Pahe.in.mkv",
+      "rel_path": "Animation/Shorts/Puss.in.Boots.The.Three.Diablos.2011.720p.BluRay.x264.100MB-Pahe.in.mkv",
+      "name": "Puss.in.Boots.The.Three.Diablos.2011.720p.BluRay.x264.100MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 105723314,
+      "group_label": [
+        "Animation",
+        "Shorts"
+      ],
+      "group_path": "Animation/Shorts"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Tinker Bell Series/Pixie.Hollow.Games.2011.720p.BluRay.x264.200MB-Pahe.in.mkv",
+      "rel_path": "Animation/Tinker Bell Series/Pixie.Hollow.Games.2011.720p.BluRay.x264.200MB-Pahe.in.mkv",
+      "name": "Pixie.Hollow.Games.2011.720p.BluRay.x264.200MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 210651857,
+      "group_label": [
+        "Animation",
+        "Tinker Bell Series"
+      ],
+      "group_path": "Animation/Tinker Bell Series"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Tinker Bell Series/Secret.Of.The.Wings.2012.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Tinker Bell Series/Secret.Of.The.Wings.2012.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "Secret.Of.The.Wings.2012.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 630355659,
+      "group_label": [
+        "Animation",
+        "Tinker Bell Series"
+      ],
+      "group_path": "Animation/Tinker Bell Series"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Tinker Bell Series/The.Pirate.Fairy.2014.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Animation/Tinker Bell Series/The.Pirate.Fairy.2014.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Pirate.Fairy.2014.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 527814988,
+      "group_label": [
+        "Animation",
+        "Tinker Bell Series"
+      ],
+      "group_path": "Animation/Tinker Bell Series"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Tinker Bell Series/Tinker.Bell.2008.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Animation/Tinker Bell Series/Tinker.Bell.2008.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "Tinker.Bell.2008.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 630080755,
+      "group_label": [
+        "Animation",
+        "Tinker Bell Series"
+      ],
+      "group_path": "Animation/Tinker Bell Series"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Tinker Bell Series/Tinker.Bell.And.The.Great.Fairy.Rescue.2010.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Animation/Tinker Bell Series/Tinker.Bell.And.The.Great.Fairy.Rescue.2010.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "name": "Tinker.Bell.And.The.Great.Fairy.Rescue.2010.720p.BluRay.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 734589169,
+      "group_label": [
+        "Animation",
+        "Tinker Bell Series"
+      ],
+      "group_path": "Animation/Tinker Bell Series"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Tinker Bell Series/Tinker.Bell.and.the.Legend.of.the.Neverbeast.2014.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Tinker Bell Series/Tinker.Bell.and.the.Legend.of.the.Neverbeast.2014.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Tinker.Bell.and.the.Legend.of.the.Neverbeast.2014.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787405331,
+      "group_label": [
+        "Animation",
+        "Tinker Bell Series"
+      ],
+      "group_path": "Animation/Tinker Bell Series"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Tinker Bell Series/Tinker.Bell.and.the.Lost.Treasure.2009.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Animation/Tinker Bell Series/Tinker.Bell.and.the.Lost.Treasure.2009.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Tinker.Bell.and.the.Lost.Treasure.2009.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786288699,
+      "group_label": [
+        "Animation",
+        "Tinker Bell Series"
+      ],
+      "group_path": "Animation/Tinker Bell Series"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Tom and Jerry Series/Tom.and.Jerry.The.Wizard.of.Oz.2011.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "rel_path": "Animation/Tom and Jerry Series/Tom.and.Jerry.The.Wizard.of.Oz.2011.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "name": "Tom.and.Jerry.The.Wizard.of.Oz.2011.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 525823396,
+      "group_label": [
+        "Animation",
+        "Tom and Jerry Series"
+      ],
+      "group_path": "Animation/Tom and Jerry Series"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Animation/Tom and Jerry Series/Tom.and.Jerrys.Giant.Adventure.2013.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "rel_path": "Animation/Tom and Jerry Series/Tom.and.Jerrys.Giant.Adventure.2013.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "name": "Tom.and.Jerrys.Giant.Adventure.2013.720p.BluRay.x264.500MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 525869626,
+      "group_label": [
+        "Animation",
+        "Tom and Jerry Series"
+      ],
+      "group_path": "Animation/Tom and Jerry Series"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Arthur.1981.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Arthur.1981.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Arthur.1981.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 891951431,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Backcountry.2014.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Backcountry.2014.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Backcountry.2014.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 682643958,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Brick.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Brick.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Brick.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 648640907,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Clash.of.the.Titans.1981.720p.Bluray.X264.950MB-Pahe.in.mkv",
+      "rel_path": "Clash.of.the.Titans.1981.720p.Bluray.X264.950MB-Pahe.in.mkv",
+      "name": "Clash.of.the.Titans.1981.720p.Bluray.X264.950MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 996899978,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Code.Name.The.Cleaner.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Code.Name.The.Cleaner.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Code.Name.The.Cleaner.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 582072903,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Dangerous.Animals.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Dangerous.Animals.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Dangerous.Animals.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 619573052,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Danny.Collins.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Danny.Collins.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Danny.Collins.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 622131370,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Depan.Bisa.Belakang.Bisa.1987.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Depan.Bisa.Belakang.Bisa.1987.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Depan.Bisa.Belakang.Bisa.1987.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 591210011,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Detective.Chinatown.1900.2025.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Detective.Chinatown.1900.2025.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Detective.Chinatown.1900.2025.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 893814981,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Devilman.2004.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Devilman.2004.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Devilman.2004.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 744118917,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Documentary/Metallica.Pride.Passion.and.Glory.Three.Nights.in.Mexico.City.2009.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Documentary/Metallica.Pride.Passion.and.Glory.Three.Nights.in.Mexico.City.2009.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Metallica.Pride.Passion.and.Glory.Three.Nights.in.Mexico.City.2009.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1675555232,
+      "group_label": [
+        "Documentary"
+      ],
+      "group_path": "Documentary"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Documentary/Metallica.Some.Kind.of.Monster.2004.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Documentary/Metallica.Some.Kind.of.Monster.2004.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Metallica.Some.Kind.of.Monster.2004.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1279276477,
+      "group_label": [
+        "Documentary"
+      ],
+      "group_path": "Documentary"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Dont.Worry.He.Wont.Get.Far.on.Foot.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Dont.Worry.He.Wont.Get.Far.on.Foot.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Dont.Worry.He.Wont.Get.Far.on.Foot.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 684205964,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Eden.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Eden.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Eden.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 809855508,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Executive.Suite.1954.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "rel_path": "Executive.Suite.1954.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "name": "Executive.Suite.1954.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 996820467,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Fade.to.Black.1980.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Fade.to.Black.1980.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Fade.to.Black.1980.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 664357774,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Fight.or.Flight.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Fight.or.Flight.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Fight.or.Flight.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 736921873,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Cantonese/Doctor.Vampire.1990.720p.BluRay.x265-Pahe.in.mkv",
+      "rel_path": "Foreign/Cantonese/Doctor.Vampire.1990.720p.BluRay.x265-Pahe.in.mkv",
+      "name": "Doctor.Vampire.1990.720p.BluRay.x265-Pahe.in.mkv",
+      "type": "file",
+      "size": 785311558,
+      "group_label": [
+        "Foreign",
+        "Cantonese"
+      ],
+      "group_path": "Foreign/Cantonese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Cantonese/Seven.Warriors.1989.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Cantonese/Seven.Warriors.1989.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Seven.Warriors.1989.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 787730386,
+      "group_label": [
+        "Foreign",
+        "Cantonese"
+      ],
+      "group_path": "Foreign/Cantonese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Cantonese/What.a.Hero.1992.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Cantonese/What.a.Hero.1992.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "What.a.Hero.1992.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 631730731,
+      "group_label": [
+        "Foreign",
+        "Cantonese"
+      ],
+      "group_path": "Foreign/Cantonese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Chinese/The.Sadness.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Chinese/The.Sadness.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Sadness.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 629693737,
+      "group_label": [
+        "Foreign",
+        "Chinese"
+      ],
+      "group_path": "Foreign/Chinese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Dala.qasqiri.AKA.Steppenwolf.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Dala.qasqiri.AKA.Steppenwolf.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Dala.qasqiri.AKA.Steppenwolf.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 590294482,
+      "group_label": [
+        "Foreign"
+      ],
+      "group_path": "Foreign"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Finnish/Heavier.Trip.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Finnish/Heavier.Trip.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Heavier.Trip.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 647308442,
+      "group_label": [
+        "Foreign",
+        "Finnish"
+      ],
+      "group_path": "Foreign/Finnish"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Finnish/Heavy.Trip.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Finnish/Heavy.Trip.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Heavy.Trip.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 544271942,
+      "group_label": [
+        "Foreign",
+        "Finnish"
+      ],
+      "group_path": "Foreign/Finnish"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/French/In.My.Skin.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/French/In.My.Skin.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "In.My.Skin.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 609299585,
+      "group_label": [
+        "Foreign",
+        "French"
+      ],
+      "group_path": "Foreign/French"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/French/Safari.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/French/Safari.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Safari.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 679788553,
+      "group_label": [
+        "Foreign",
+        "French"
+      ],
+      "group_path": "Foreign/French"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Hindi/Jalebi.2018.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Hindi/Jalebi.2018.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Jalebi.2018.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 608233752,
+      "group_label": [
+        "Foreign",
+        "Hindi"
+      ],
+      "group_path": "Foreign/Hindi"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Hungarian/Hukkle.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Hungarian/Hukkle.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Hukkle.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 513291059,
+      "group_label": [
+        "Foreign",
+        "Hungarian"
+      ],
+      "group_path": "Foreign/Hungarian"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Indonesian/Barang.Terlarang.AKA.I.Want.to.Get.Even.1983.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Indonesian/Barang.Terlarang.AKA.I.Want.to.Get.Even.1983.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Barang.Terlarang.AKA.I.Want.to.Get.Even.1983.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 661963566,
+      "group_label": [
+        "Foreign",
+        "Indonesian"
+      ],
+      "group_path": "Foreign/Indonesian"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Indonesian/My.Annoying.Brother.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Indonesian/My.Annoying.Brother.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "My.Annoying.Brother.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 621554002,
+      "group_label": [
+        "Foreign",
+        "Indonesian"
+      ],
+      "group_path": "Foreign/Indonesian"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Indonesian/Special.Silencers.1982.720p.Bluray.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Foreign/Indonesian/Special.Silencers.1982.720p.Bluray.x264.850MB-Pahe.in.mkv",
+      "name": "Special.Silencers.1982.720p.Bluray.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 892422997,
+      "group_label": [
+        "Foreign",
+        "Indonesian"
+      ],
+      "group_path": "Foreign/Indonesian"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Indonesian/The.Deceased.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Indonesian/The.Deceased.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Deceased.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 631986478,
+      "group_label": [
+        "Foreign",
+        "Indonesian"
+      ],
+      "group_path": "Foreign/Indonesian"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Indonesian/The.Devils.Bride.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Indonesian/The.Devils.Bride.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Devils.Bride.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 476206772,
+      "group_label": [
+        "Foreign",
+        "Indonesian"
+      ],
+      "group_path": "Foreign/Indonesian"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Indonesian/Till.Then.Hanna.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Indonesian/Till.Then.Hanna.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Till.Then.Hanna.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 618620256,
+      "group_label": [
+        "Foreign",
+        "Indonesian"
+      ],
+      "group_path": "Foreign/Indonesian"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Indonesian/Wanita.Ahli.Neraka.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Indonesian/Wanita.Ahli.Neraka.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Wanita.Ahli.Neraka.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 590844860,
+      "group_label": [
+        "Foreign",
+        "Indonesian"
+      ],
+      "group_path": "Foreign/Indonesian"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/13 Assassins (2010)/13.Assassins.2010.EXTENDED.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/13 Assassins (2010)/13.Assassins.2010.EXTENDED.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "13.Assassins.2010.EXTENDED.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1279675346,
+      "group_label": [
+        "Foreign",
+        "Japanese",
+        "13 Assassins (2010)"
+      ],
+      "group_path": "Foreign/Japanese/13 Assassins (2010)"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/13 Assassins (2010)/13.Assassins.AKA.Jusannin.no.shikaku.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/13 Assassins (2010)/13.Assassins.AKA.Jusannin.no.shikaku.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "13.Assassins.AKA.Jusannin.no.shikaku.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 785742506,
+      "group_label": [
+        "Foreign",
+        "Japanese",
+        "13 Assassins (2010)"
+      ],
+      "group_path": "Foreign/Japanese/13 Assassins (2010)"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/Demon.City.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/Demon.City.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Demon.City.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 639437202,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/I.Am.Waiting.1957.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/I.Am.Waiting.1957.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "I.Am.Waiting.1957.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 652368803,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/Invitation Only (2009)/Jue.ming.pai.dui.AKA.Invitation.Only.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/Invitation Only (2009)/Jue.ming.pai.dui.AKA.Invitation.Only.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Jue.ming.pai.dui.AKA.Invitation.Only.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 658439640,
+      "group_label": [
+        "Foreign",
+        "Japanese",
+        "Invitation Only (2009)"
+      ],
+      "group_path": "Foreign/Japanese/Invitation Only (2009)"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/Never.Give.Up.1978.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/Never.Give.Up.1978.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Never.Give.Up.1978.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 990598783,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/Shin.Kamen.Rider.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/Shin.Kamen.Rider.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Shin.Kamen.Rider.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 755649480,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/Tamagotchi.1997.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/Tamagotchi.1997.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Tamagotchi.1997.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 786564404,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/The.Bad.Sleep.Well.1960.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/The.Bad.Sleep.Well.1960.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Bad.Sleep.Well.1960.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 1148108140,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/The.Land.of.Rain.Trees.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/The.Land.of.Rain.Trees.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Land.of.Rain.Trees.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 683981916,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/The.Mourning.Forest.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/The.Mourning.Forest.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Mourning.Forest.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 639765611,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/The.Virgin.Psychics.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/The.Virgin.Psychics.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Virgin.Psychics.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 778410772,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/Three.Outlaw.Samurai.1964.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/Three.Outlaw.Samurai.1964.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Three.Outlaw.Samurai.1964.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787149504,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/Tokyo.Tribe.2014.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/Tokyo.Tribe.2014.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Tokyo.Tribe.2014.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 839344408,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/Violent.Panic.The.Big.Crash.1976.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/Violent.Panic.The.Big.Crash.1976.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Violent.Panic.The.Big.Crash.1976.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 568848217,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Japanese/Yagate.umi.e.to.todoku.AKA.One.Day.You.Will.Reach.the.Sea.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Japanese/Yagate.umi.e.to.todoku.AKA.One.Day.You.Will.Reach.the.Sea.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Yagate.umi.e.to.todoku.AKA.One.Day.You.Will.Reach.the.Sea.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 707805036,
+      "group_label": [
+        "Foreign",
+        "Japanese"
+      ],
+      "group_path": "Foreign/Japanese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Jie.dao.sha.ren.1981.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Foreign/Jie.dao.sha.ren.1981.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Jie.dao.sha.ren.1981.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 892269315,
+      "group_label": [
+        "Foreign"
+      ],
+      "group_path": "Foreign"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Korean/3-Iron.2004.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Foreign/Korean/3-Iron.2004.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "3-Iron.2004.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 682533492,
+      "group_label": [
+        "Foreign",
+        "Korean"
+      ],
+      "group_path": "Foreign/Korean"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Le.Trou.1960.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Le.Trou.1960.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Le.Trou.1960.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 866101507,
+      "group_label": [
+        "Foreign"
+      ],
+      "group_path": "Foreign"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/My.Annoying.Brother.2016.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/My.Annoying.Brother.2016.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "My.Annoying.Brother.2016.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 665854486,
+      "group_label": [
+        "Foreign"
+      ],
+      "group_path": "Foreign"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Persian/Khorshid.2020.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Persian/Khorshid.2020.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Khorshid.2020.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 662310963,
+      "group_label": [
+        "Foreign",
+        "Persian"
+      ],
+      "group_path": "Foreign/Persian"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Polish/The.Saragossa.Manuscript.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Polish/The.Saragossa.Manuscript.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Saragossa.Manuscript.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 1263515324,
+      "group_label": [
+        "Foreign",
+        "Polish"
+      ],
+      "group_path": "Foreign/Polish"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Senegalese/Journey.of.the.Hyena.AKA.Touki.Bouki.1973.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Foreign/Senegalese/Journey.of.the.Hyena.AKA.Touki.Bouki.1973.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Journey.of.the.Hyena.AKA.Touki.Bouki.1973.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 892413597,
+      "group_label": [
+        "Foreign",
+        "Senegalese"
+      ],
+      "group_path": "Foreign/Senegalese"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/Steekspel.aka.Tricked.2012.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/Steekspel.aka.Tricked.2012.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Steekspel.aka.Tricked.2012.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 374706447,
+      "group_label": [
+        "Foreign"
+      ],
+      "group_path": "Foreign"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/The.Innocents.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/The.Innocents.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Innocents.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 746790846,
+      "group_label": [
+        "Foreign"
+      ],
+      "group_path": "Foreign"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/The.Rapacious.Jailbreaker.1974.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/The.Rapacious.Jailbreaker.1974.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Rapacious.Jailbreaker.1974.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 647304143,
+      "group_label": [
+        "Foreign"
+      ],
+      "group_path": "Foreign"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Foreign/The.Twilight.Samurai.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Foreign/The.Twilight.Samurai.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Twilight.Samurai.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 858199489,
+      "group_label": [
+        "Foreign"
+      ],
+      "group_path": "Foreign"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Girl.in.the.Basement.2021.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Girl.in.the.Basement.2021.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Girl.in.the.Basement.2021.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 602971923,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Griff.the.Invisible.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Griff.the.Invisible.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Griff.the.Invisible.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 642376263,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Hang.Em.High.1968.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Hang.Em.High.1968.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Hang.Em.High.1968.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 783200184,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Hannah.Montana.The.Movie.2009.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Hannah.Montana.The.Movie.2009.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Hannah.Montana.The.Movie.2009.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 891495635,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Happy.Gilmore.2.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Happy.Gilmore.2.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Happy.Gilmore.2.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 739886327,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Heldin.AKA.Late.Shift.2025.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Heldin.AKA.Late.Shift.2025.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Heldin.AKA.Late.Shift.2025.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 610973852,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Hot.Milk.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Hot.Milk.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Hot.Milk.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 630527479,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/How.to.Train.Your.Dragon.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "How.to.Train.Your.Dragon.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "How.to.Train.Your.Dragon.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 887769829,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/IMAX/Ant-Man.and.the.Wasp.2018.REMASTERED.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "IMAX/Ant-Man.and.the.Wasp.2018.REMASTERED.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Ant-Man.and.the.Wasp.2018.REMASTERED.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1125659299,
+      "group_label": [
+        "IMAX"
+      ],
+      "group_path": "IMAX"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/IMAX/Ant.Man.and.the.Wasp.2018.IMAX.720p.WEB-DL.x264.950MB-Pahe.in.mkv",
+      "rel_path": "IMAX/Ant.Man.and.the.Wasp.2018.IMAX.720p.WEB-DL.x264.950MB-Pahe.in.mkv",
+      "name": "Ant.Man.and.the.Wasp.2018.IMAX.720p.WEB-DL.x264.950MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 996220360,
+      "group_label": [
+        "IMAX"
+      ],
+      "group_path": "IMAX"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/IMAX/Black.Panther.2018.IMAX.720p.WEB-DL.x264-Pahe.in.mkv",
+      "rel_path": "IMAX/Black.Panther.2018.IMAX.720p.WEB-DL.x264-Pahe.in.mkv",
+      "name": "Black.Panther.2018.IMAX.720p.WEB-DL.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1281435961,
+      "group_label": [
+        "IMAX"
+      ],
+      "group_path": "IMAX"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/IMAX/Captain.America.Brave.New.World.2025.IMAX.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "IMAX/Captain.America.Brave.New.World.2025.IMAX.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Captain.America.Brave.New.World.2025.IMAX.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 899498611,
+      "group_label": [
+        "IMAX"
+      ],
+      "group_path": "IMAX"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Infested.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Infested.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Infested.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 716429899,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Joe.Somebody.2001.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Joe.Somebody.2001.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Joe.Somebody.2001.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 657472327,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Justice.League.X.RWBY.Super.Heroes.and.Huntsmen.Part.One.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Justice.League.X.RWBY.Super.Heroes.and.Huntsmen.Part.One.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Justice.League.X.RWBY.Super.Heroes.and.Huntsmen.Part.One.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 545217803,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Karate.Kid.Legends.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Karate.Kid.Legends.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Karate.Kid.Legends.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 689866374,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/La.Casa.Dalle.Finestre.Che.Ridono.1976.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "La.Casa.Dalle.Finestre.Che.Ridono.1976.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "La.Casa.Dalle.Finestre.Che.Ridono.1976.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 748845969,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/LiIo.and.Sticth.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "LiIo.and.Sticth.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "LiIo.and.Sticth.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 716032416,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/M3G4N.2.0.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "M3G4N.2.0.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "M3G4N.2.0.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 762010893,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Made.in.Abyss.Dawn.of.the.Deep.Soul.2020.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Made.in.Abyss.Dawn.of.the.Deep.Soul.2020.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Made.in.Abyss.Dawn.of.the.Deep.Soul.2020.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 892773475,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Masters.of.the.Universe.1987.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Masters.of.the.Universe.1987.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Masters.of.the.Universe.1987.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 726615294,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Materialists.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Materialists.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Materialists.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 781645657,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Midnight.in.the.Garden.of.Good.and.Evil.1997.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Midnight.in.the.Garden.of.Good.and.Evil.1997.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Midnight.in.the.Garden.of.Good.and.Evil.1997.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 1014500649,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/My.Girl.2003.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "My.Girl.2003.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "My.Girl.2003.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 731039778,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/My.Oxford.Year.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "My.Oxford.Year.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "My.Oxford.Year.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 687958194,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/NeZha.2.2025.720p.WEB-DL.x265-Pahe.in.mkv",
+      "rel_path": "NeZha.2.2025.720p.WEB-DL.x265-Pahe.in.mkv",
+      "name": "NeZha.2.2025.720p.WEB-DL.x265-Pahe.in.mkv",
+      "type": "file",
+      "size": 1059979839,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2024/Friendship.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2024/Friendship.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Friendship.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 649779227,
+      "group_label": [
+        "New",
+        "2024"
+      ],
+      "group_path": "New/2024"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2024/In.the.Summers.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2024/In.the.Summers.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "In.the.Summers.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 588872744,
+      "group_label": [
+        "New",
+        "2024"
+      ],
+      "group_path": "New/2024"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2024/La.cocina.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2024/La.cocina.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "La.cocina.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 945389006,
+      "group_label": [
+        "New",
+        "2024"
+      ],
+      "group_path": "New/2024"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2024/The.Assessment.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2024/The.Assessment.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Assessment.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 796057765,
+      "group_label": [
+        "New",
+        "2024"
+      ],
+      "group_path": "New/2024"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2024/The.Friend.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2024/The.Friend.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Friend.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 714373923,
+      "group_label": [
+        "New",
+        "2024"
+      ],
+      "group_path": "New/2024"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2024/The.Girl.in.the.Pool.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2024/The.Girl.in.the.Pool.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Girl.in.the.Pool.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 542763266,
+      "group_label": [
+        "New",
+        "2024"
+      ],
+      "group_path": "New/2024"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2024/The.Surfer.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2024/The.Surfer.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Surfer.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 657440810,
+      "group_label": [
+        "New",
+        "2024"
+      ],
+      "group_path": "New/2024"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2024/Wicked.Little.Letters.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2024/Wicked.Little.Letters.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Wicked.Little.Letters.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 601293897,
+      "group_label": [
+        "New",
+        "2024"
+      ],
+      "group_path": "New/2024"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/A.Widows.Game.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/A.Widows.Game.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "A.Widows.Game.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 772893414,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Ballerina.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Ballerina.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Ballerina.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 794370174,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Bring.Her.Back.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Bring.Her.Back.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Bring.Her.Back.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 697705215,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Clown.in.a.Cornfield.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Clown.in.a.Cornfield.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Clown.in.a.Cornfield.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 639703285,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Deep.Cover.2025.720p.WEB-Dl.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Deep.Cover.2025.720p.WEB-Dl.x265.10Bit-Pahe.in.mkv",
+      "name": "Deep.Cover.2025.720p.WEB-Dl.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 631709228,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Diablo.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Diablo.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Diablo.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 615998791,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Dora.and.the.Search.for.Sol.Dorado.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Dora.and.the.Search.for.Sol.Dorado.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Dora.and.the.Search.for.Sol.Dorado.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 723700158,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Echo.Valley.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Echo.Valley.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Echo.Valley.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 643768474,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Exterritorial.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Exterritorial.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Exterritorial.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 671197538,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Fear.Street.Prom.Queen.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Fear.Street.Prom.Queen.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Fear.Street.Prom.Queen.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 590416049,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Fountain.of.Youth.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Fountain.of.Youth.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Fountain.of.Youth.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 780803573,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Heads.of.State.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Heads.of.State.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Heads.of.State.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 758137426,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Hurry.Up.Tomorrow.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Hurry.Up.Tomorrow.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Hurry.Up.Tomorrow.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 699710049,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Ice.Road.Vengeance.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Ice.Road.Vengeance.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Ice.Road.Vengeance.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 720731039,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Predator.Killer.of.Killers.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Predator.Killer.of.Killers.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Predator.Killer.of.Killers.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 620494492,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/Straw.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/Straw.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Straw.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 675805474,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/The.Accountant.2.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/The.Accountant.2.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Accountant.2.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 881161826,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/The.Ballad.of.Wallis.Island.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/The.Ballad.of.Wallis.Island.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Ballad.of.Wallis.Island.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 587549654,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/The.Last.Rodeo.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/The.Last.Rodeo.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Last.Rodeo.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 759816423,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/The.Old.Guard.2.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/The.Old.Guard.2.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Old.Guard.2.2025.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 669891072,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/The.Phoenician.Scheme.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/The.Phoenician.Scheme.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Phoenician.Scheme.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 619175208,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/The.Ritual.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/The.Ritual.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Ritual.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 580209100,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/New/2025/The.Wedding.Banquet.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "New/2025/The.Wedding.Banquet.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Wedding.Banquet.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 574357120,
+      "group_label": [
+        "New",
+        "2025"
+      ],
+      "group_path": "New/2025"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Nosferatu.the.Vampyre.1979.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "rel_path": "Nosferatu.the.Vampyre.1979.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "name": "Nosferatu.the.Vampyre.1979.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 944214514,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/21.Grams.2003.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/21.Grams.2003.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "name": "21.Grams.2003.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 1046818684,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/A.Knights.Tale.2001.Extended.720p.UHD.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/A.Knights.Tale.2001.Extended.720p.UHD.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "A.Knights.Tale.2001.Extended.720p.UHD.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 1013770934,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Battlefield.Earth.2000.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Battlefield.Earth.2000.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "name": "Battlefield.Earth.2000.720p.BluRay.x264.999MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 1047847611,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Bitch.Slap.2009.Unrated.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Bitch.Slap.2009.Unrated.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Bitch.Slap.2009.Unrated.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 862833798,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Bring.It.On.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Bring.It.On.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Bring.It.On.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 863536161,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Dead.Snow.2009.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Dead.Snow.2009.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Dead.Snow.2009.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786947804,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Death.to.Smoochy.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Death.to.Smoochy.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Death.to.Smoochy.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 776735939,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Dorm.Daze.2003.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Dorm.Daze.2003.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Dorm.Daze.2003.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 892021478,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Dracula.2000.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Dracula.2000.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Dracula.2000.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 679306471,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Dragonball.Evolution.2009.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Dragonball.Evolution.2009.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "name": "Dragonball.Evolution.2009.720p.BluRay.x264.650MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 681266687,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Eden.Lake.2008.720p.UHD.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Eden.Lake.2008.720p.UHD.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Eden.Lake.2008.720p.UHD.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 666023416,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Everything.Must.Go.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Everything.Must.Go.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Everything.Must.Go.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 565761032,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Fired.Up.2009.Unrated.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Fired.Up.2009.Unrated.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Fired.Up.2009.Unrated.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 642798629,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/In.The.Loop.2009.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/In.The.Loop.2009.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "name": "In.The.Loop.2009.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 839323497,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Ink.2009.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Ink.2009.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "name": "Ink.2009.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 839057541,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Jay.and.Silent.Bob.Strike.Back.2001.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Jay.and.Silent.Bob.Strike.Back.2001.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Jay.and.Silent.Bob.Strike.Back.2001.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786655676,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Leaves.of.Grass.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Leaves.of.Grass.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Leaves.of.Grass.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 612894008,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Miracle.2004.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Miracle.2004.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Miracle.2004.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 982237822,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Miss.Potter.2006.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Miss.Potter.2006.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Miss.Potter.2006.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 504080969,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Nicholas.Nickleby.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Nicholas.Nickleby.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Nicholas.Nickleby.2002.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 752707889,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Night.of.the.Demons.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Night.of.the.Demons.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Night.of.the.Demons.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 620163968,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Observe.and.Report.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Observe.and.Report.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Observe.and.Report.2009.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 541079011,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Prince.of.Broadway.2008.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Prince.of.Broadway.2008.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Prince.of.Broadway.2008.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 716700502,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Ray.2004.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Ray.2004.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Ray.2004.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1465320137,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Rollerball.2002.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Rollerball.2002.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+      "name": "Rollerball.2002.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 707334943,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Smiley.Face.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Smiley.Face.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Smiley.Face.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 588442285,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Stander.2003.720p.WEB-DL.x264.950MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Stander.2003.720p.WEB-DL.x264.950MB-Pahe.in.mkv",
+      "name": "Stander.2003.720p.WEB-DL.x264.950MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 995648872,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Survival.Island.2005.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/Survival.Island.2005.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+      "name": "Survival.Island.2005.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786620316,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/The.Brothers.Grimm.2005.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "rel_path": "Old/2000s/The.Brothers.Grimm.2005.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "name": "The.Brothers.Grimm.2005.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 996405986,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/The.Girl.Next.Door.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/The.Girl.Next.Door.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Girl.Next.Door.2007.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 595648668,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/The.Man.Who.Wasnt.There.2001.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2000s/The.Man.Who.Wasnt.There.2001.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Man.Who.Wasnt.There.2001.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 810367921,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2000s/Tremors_3_Back_to_Perfection_2001_PROPER_720p_BluRay_x264_950MB.mkv",
+      "rel_path": "Old/2000s/Tremors_3_Back_to_Perfection_2001_PROPER_720p_BluRay_x264_950MB.mkv",
+      "name": "Tremors_3_Back_to_Perfection_2001_PROPER_720p_BluRay_x264_950MB.mkv",
+      "type": "file",
+      "size": 997156752,
+      "group_label": [
+        "Old",
+        "2000s"
+      ],
+      "group_path": "Old/2000s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/A.Dark.Song.2016.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2010s/A.Dark.Song.2016.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "A.Dark.Song.2016.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 527440378,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Accident.Man.2018.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Accident.Man.2018.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Accident.Man.2018.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786478066,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Accident.Man.Hitmans.Holiday.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Accident.Man.Hitmans.Holiday.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+      "name": "Accident.Man.Hitmans.Holiday.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 618995669,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Action.Point.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Action.Point.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Action.Point.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 535377838,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Brawl.in.Cell.Block.99.2017.720p.BluRay.x265.750MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Brawl.in.Cell.Block.99.2017.720p.BluRay.x265.750MB-Pahe.in.mkv",
+      "name": "Brawl.in.Cell.Block.99.2017.720p.BluRay.x265.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786869939,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Chasing.Mavericks.2012.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Chasing.Mavericks.2012.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "name": "Chasing.Mavericks.2012.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 944044395,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Crimson.Peak.2015.720p.UHD.BluRay.x264.6CH-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Crimson.Peak.2015.720p.UHD.BluRay.x264.6CH-Pahe.in.mkv",
+      "name": "Crimson.Peak.2015.720p.UHD.BluRay.x264.6CH-Pahe.in.mkv",
+      "type": "file",
+      "size": 1332676205,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Dead Snow 2 (2014)/Dead.Snow.2.2014.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Dead Snow 2 (2014)/Dead.Snow.2.2014.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Dead.Snow.2.2014.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786785242,
+      "group_label": [
+        "Old",
+        "2010s",
+        "Dead Snow 2 (2014)"
+      ],
+      "group_path": "Old/2010s/Dead Snow 2 (2014)"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Dead Snow 2 (2014)/Dead.Snow.2.2014.720p.BluRay.x264.750MB-Pahe.in.srt",
+      "rel_path": "Old/2010s/Dead Snow 2 (2014)/Dead.Snow.2.2014.720p.BluRay.x264.750MB-Pahe.in.srt",
+      "name": "Dead.Snow.2.2014.720p.BluRay.x264.750MB-Pahe.in.srt",
+      "type": "file",
+      "size": 49033,
+      "group_label": [
+        "Old",
+        "2010s",
+        "Dead Snow 2 (2014)"
+      ],
+      "group_path": "Old/2010s/Dead Snow 2 (2014)"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Experimenter.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Experimenter.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Experimenter.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 598953838,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/From.Paris.with.Love.2010.720p.Bluray.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/From.Paris.with.Love.2010.720p.Bluray.x264.750MB-Pahe.in.mkv",
+      "name": "From.Paris.with.Love.2010.720p.Bluray.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787184527,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Guns.Akimbo.2019.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Guns.Akimbo.2019.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "name": "Guns.Akimbo.2019.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "type": "file",
+      "size": 635638529,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Hell.Fest.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Hell.Fest.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Hell.Fest.2018.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 589978230,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/His.House.2020.720p.NF.WEB-DL.x264.700MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/His.House.2020.720p.NF.WEB-DL.x264.700MB-Pahe.in.mkv",
+      "name": "His.House.2020.720p.NF.WEB-DL.x264.700MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 735309876,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Hotel.Artemis.2018.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Hotel.Artemis.2018.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "name": "Hotel.Artemis.2018.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+      "type": "file",
+      "size": 375814169,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Inside.Llewyn.Davis.2013.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Inside.Llewyn.Davis.2013.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Inside.Llewyn.Davis.2013.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 786767805,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Jay.and.Silent.Bob.Reboot.2019.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Jay.and.Silent.Bob.Reboot.2019.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Jay.and.Silent.Bob.Reboot.2019.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 891695152,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Jug.Face.2013.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Jug.Face.2013.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "name": "Jug.Face.2013.720p.BluRay.x264.600MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 628986041,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Legend.2015.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Legend.2015.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "name": "Legend.2015.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 943624313,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Let.Yourself.Go.2017.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Let.Yourself.Go.2017.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Let.Yourself.Go.2017.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 711706869,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Man.Down.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Man.Down.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Man.Down.2015.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 599368616,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Mary.Shelley.2017.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Mary.Shelley.2017.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Mary.Shelley.2017.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 680361032,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/No.Escape.2015.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/No.Escape.2015.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "No.Escape.2015.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 891524892,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Possum.2018.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Possum.2018.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+      "name": "Possum.2018.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+      "type": "file",
+      "size": 362130021,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Red.State.2011.UNRATED.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Red.State.2011.UNRATED.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Red.State.2011.UNRATED.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 785432532,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/Thanatomorphose.2012.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/Thanatomorphose.2012.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Thanatomorphose.2012.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 891706894,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/The.Congress.2013.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/2010s/The.Congress.2013.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Congress.2013.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 727146635,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/The.Head.Hunter.2018.720p.WEB-HD.x264.550MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/The.Head.Hunter.2018.720p.WEB-HD.x264.550MB-Pahe.in.mkv",
+      "name": "The.Head.Hunter.2018.720p.WEB-HD.x264.550MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 577030519,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/2010s/True.Grit.2010.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Old/2010s/True.Grit.2010.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "True.Grit.2010.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 891779790,
+      "group_label": [
+        "Old",
+        "2010s"
+      ],
+      "group_path": "Old/2010s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/40s/Black.Narcissus.1947.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "rel_path": "Old/40s/Black.Narcissus.1947.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "name": "Black.Narcissus.1947.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 839655734,
+      "group_label": [
+        "Old",
+        "40s"
+      ],
+      "group_path": "Old/40s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/40s/The.Big.Sleep.1946.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/40s/The.Big.Sleep.1946.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Big.Sleep.1946.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 657456796,
+      "group_label": [
+        "Old",
+        "40s"
+      ],
+      "group_path": "Old/40s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/50s/Jack.the.Ripper.1959.European.Cut.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Old/50s/Jack.the.Ripper.1959.European.Cut.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Jack.the.Ripper.1959.European.Cut.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 786766973,
+      "group_label": [
+        "Old",
+        "50s"
+      ],
+      "group_path": "Old/50s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/50s/Pickup.on.South.Street.1953.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/50s/Pickup.on.South.Street.1953.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Pickup.on.South.Street.1953.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787598151,
+      "group_label": [
+        "Old",
+        "50s"
+      ],
+      "group_path": "Old/50s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/60s/Battle.of.the.Bulge.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/60s/Battle.of.the.Bulge.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Battle.of.the.Bulge.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 1083282540,
+      "group_label": [
+        "Old",
+        "60s"
+      ],
+      "group_path": "Old/60s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/60s/Crack.in.the.World.1965.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Old/60s/Crack.in.the.World.1965.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Crack.in.the.World.1965.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 891720912,
+      "group_label": [
+        "Old",
+        "60s"
+      ],
+      "group_path": "Old/60s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/60s/Django.1966.REMASTERED.720p.BluRay.X264.800MB-Pahe.in.mkv",
+      "rel_path": "Old/60s/Django.1966.REMASTERED.720p.BluRay.X264.800MB-Pahe.in.mkv",
+      "name": "Django.1966.REMASTERED.720p.BluRay.X264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 839488324,
+      "group_label": [
+        "Old",
+        "60s"
+      ],
+      "group_path": "Old/60s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/60s/El.Cid.1961.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Old/60s/El.Cid.1961.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "El.Cid.1961.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1675056547,
+      "group_label": [
+        "Old",
+        "60s"
+      ],
+      "group_path": "Old/60s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/60s/How.To.Murder.Your.Wife.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/60s/How.To.Murder.Your.Wife.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "How.To.Murder.Your.Wife.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 728611813,
+      "group_label": [
+        "Old",
+        "60s"
+      ],
+      "group_path": "Old/60s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/60s/Point.Blank.1967.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/60s/Point.Blank.1967.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Point.Blank.1967.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 572857406,
+      "group_label": [
+        "Old",
+        "60s"
+      ],
+      "group_path": "Old/60s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/60s/The.Innocents.1961.REMASTERED.720p.BluRay.X264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/60s/The.Innocents.1961.REMASTERED.720p.BluRay.X264.750MB-Pahe.in.mkv",
+      "name": "The.Innocents.1961.REMASTERED.720p.BluRay.X264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787415383,
+      "group_label": [
+        "Old",
+        "60s"
+      ],
+      "group_path": "Old/60s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/70s/A.Bridge.Too.Far.1977.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/70s/A.Bridge.Too.Far.1977.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "A.Bridge.Too.Far.1977.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 1297476210,
+      "group_label": [
+        "Old",
+        "70s"
+      ],
+      "group_path": "Old/70s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/70s/Hardcore.1979.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/70s/Hardcore.1979.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+      "name": "Hardcore.1979.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 670734524,
+      "group_label": [
+        "Old",
+        "70s"
+      ],
+      "group_path": "Old/70s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/70s/Long.Weekend.1978.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/70s/Long.Weekend.1978.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Long.Weekend.1978.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 679185197,
+      "group_label": [
+        "Old",
+        "70s"
+      ],
+      "group_path": "Old/70s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/70s/Oh.God.1977.720p.WEB-HD.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Old/70s/Oh.God.1977.720p.WEB-HD.x264.850MB-Pahe.in.mkv",
+      "name": "Oh.God.1977.720p.WEB-HD.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 892073452,
+      "group_label": [
+        "Old",
+        "70s"
+      ],
+      "group_path": "Old/70s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/70s/Radio.On.1979.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Old/70s/Radio.On.1979.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "name": "Radio.On.1979.720p.BluRay.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 892239234,
+      "group_label": [
+        "Old",
+        "70s"
+      ],
+      "group_path": "Old/70s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/70s/The.Black.Windmill.1974.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/70s/The.Black.Windmill.1974.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Black.Windmill.1974.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 585239457,
+      "group_label": [
+        "Old",
+        "70s"
+      ],
+      "group_path": "Old/70s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/70s/The.Goodbye.Girl.1977.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "rel_path": "Old/70s/The.Goodbye.Girl.1977.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "name": "The.Goodbye.Girl.1977.720p.BluRay.x264.900MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 944214093,
+      "group_label": [
+        "Old",
+        "70s"
+      ],
+      "group_path": "Old/70s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/70s/The.Muppet.Movie.1979.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "rel_path": "Old/70s/The.Muppet.Movie.1979.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "name": "The.Muppet.Movie.1979.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 840127731,
+      "group_label": [
+        "Old",
+        "70s"
+      ],
+      "group_path": "Old/70s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/70s/The.Wiz.1978.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/70s/The.Wiz.1978.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Wiz.1978.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 997631330,
+      "group_label": [
+        "Old",
+        "70s"
+      ],
+      "group_path": "Old/70s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/70s/Up.1976.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "rel_path": "Old/70s/Up.1976.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "name": "Up.1976.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 840011109,
+      "group_label": [
+        "Old",
+        "70s"
+      ],
+      "group_path": "Old/70s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Battle.Beyond.the.Stars.1980.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Battle.Beyond.the.Stars.1980.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Battle.Beyond.the.Stars.1980.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 626800902,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Class.of.1984.1982.720p.BluRay.X264.800MB-Pahe.in.mkv",
+      "rel_path": "Old/80s/Class.of.1984.1982.720p.BluRay.X264.800MB-Pahe.in.mkv",
+      "name": "Class.of.1984.1982.720p.BluRay.X264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 839374792,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Clean.and.Sober.1988.720p.BluRay.x265-Pahe.in.mkv",
+      "rel_path": "Old/80s/Clean.and.Sober.1988.720p.BluRay.x265-Pahe.in.mkv",
+      "name": "Clean.and.Sober.1988.720p.BluRay.x265-Pahe.in.mkv",
+      "type": "file",
+      "size": 841658740,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Colors.1988.Unrated.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Colors.1988.Unrated.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Colors.1988.Unrated.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 863381385,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Cutter's.Way.1981.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Old/80s/Cutter's.Way.1981.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Cutter's.Way.1981.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1081515936,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Falling.in.Love.1984.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Falling.in.Love.1984.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Falling.in.Love.1984.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 808065561,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Flesh.and.Blood.1985.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Flesh.and.Blood.1985.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Flesh.and.Blood.1985.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 937362379,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Galaxy.of.Terror.1981.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Galaxy.of.Terror.1981.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Galaxy.of.Terror.1981.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 522545457,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Heartbreak.Ridge.1986.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Heartbreak.Ridge.1986.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Heartbreak.Ridge.1986.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 914878185,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Hot.Pursuit.1987.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Hot.Pursuit.1987.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Hot.Pursuit.1987.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 686386192,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Howling.II.-.Your.Sister.Is.a.Werewolf.1985.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Howling.II.-.Your.Sister.Is.a.Werewolf.1985.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Howling.II.-.Your.Sister.Is.a.Werewolf.1985.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 588864288,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Jack.the.Ripper.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Jack.the.Ripper.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Jack.the.Ripper.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 1100492731,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Little.Shop.of.Horrors.1986.DC.720p.BluRay.X264.850MB-Pahe.in.mkv",
+      "rel_path": "Old/80s/Little.Shop.of.Horrors.1986.DC.720p.BluRay.X264.850MB-Pahe.in.mkv",
+      "name": "Little.Shop.of.Horrors.1986.DC.720p.BluRay.X264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 891547417,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Salvador.1986.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Salvador.1986.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Salvador.1986.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 869097440,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Shocker.1989.Uncut.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Shocker.1989.Uncut.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Shocker.1989.Uncut.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 803614287,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Spetters.1980.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Spetters.1980.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Spetters.1980.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 730841745,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Swamp.Thing.1982.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Swamp.Thing.1982.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Swamp.Thing.1982.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 594941994,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Talk.Radio.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Talk.Radio.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Talk.Radio.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 696683584,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/The.Beyond.1981.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/80s/The.Beyond.1981.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "The.Beyond.1981.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787908419,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/The.Hitcher.1986.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/The.Hitcher.1986.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Hitcher.1986.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 611965626,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/The.Last.American.Virgin.1982.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/The.Last.American.Virgin.1982.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Last.American.Virgin.1982.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 583411949,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Thief.1981.Directors.Cut.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Thief.1981.Directors.Cut.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Thief.1981.Directors.Cut.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 832463866,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Throw.Momma.from.the.Train.1987.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Throw.Momma.from.the.Train.1987.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Throw.Momma.from.the.Train.1987.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 552731231,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/Tower.of.Death.1981.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/80s/Tower.of.Death.1981.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Tower.of.Death.1981.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 682168222,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/80s/slugs.1988.720p.bluray.x264.700mb-pahe.in.mkv",
+      "rel_path": "Old/80s/slugs.1988.720p.bluray.x264.700mb-pahe.in.mkv",
+      "name": "slugs.1988.720p.bluray.x264.700mb-pahe.in.mkv",
+      "type": "file",
+      "size": 734650794,
+      "group_label": [
+        "Old",
+        "80s"
+      ],
+      "group_path": "Old/80s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Benny.and.Joon.1993.720p.BluRay.X264.800MB-Pahe.in.mkv",
+      "rel_path": "Old/90s/Benny.and.Joon.1993.720p.BluRay.X264.800MB-Pahe.in.mkv",
+      "name": "Benny.and.Joon.1993.720p.BluRay.X264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 839612719,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Brainscan.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Brainscan.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Brainscan.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 553548146,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Curdled.1996.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "rel_path": "Old/90s/Curdled.1996.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "name": "Curdled.1996.720p.BluRay.x264.750MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 787569877,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Dark.Angel.1990.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "rel_path": "Old/90s/Dark.Angel.1990.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "name": "Dark.Angel.1990.720p.BluRay.x264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 839527715,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Dead.Presidents.1995.Open.Matte.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Dead.Presidents.1995.Open.Matte.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Dead.Presidents.1995.Open.Matte.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 732282635,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Dracula.Dead.and.Loving.It.1995.720p.WEB-HD.x264.800MB-Pahe.in.mkv",
+      "rel_path": "Old/90s/Dracula.Dead.and.Loving.It.1995.720p.WEB-HD.x264.800MB-Pahe.in.mkv",
+      "name": "Dracula.Dead.and.Loving.It.1995.720p.WEB-HD.x264.800MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 839205229,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Drop.Zone.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Drop.Zone.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Drop.Zone.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 698596301,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Female.Perversions.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Female.Perversions.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Female.Perversions.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 732661168,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Happiness.1998.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Happiness.1998.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Happiness.1998.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 822437030,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Heaven.and.Earth.1993.720p.BluRay.X264.999MB-Pahe.in.mkv",
+      "rel_path": "Old/90s/Heaven.and.Earth.1993.720p.BluRay.X264.999MB-Pahe.in.mkv",
+      "name": "Heaven.and.Earth.1993.720p.BluRay.X264.999MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 1047940962,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Homeward.Bound.The.Incredible.Journey.1993.720p.WEB-DL.x265-Pahe.in.mkv",
+      "rel_path": "Old/90s/Homeward.Bound.The.Incredible.Journey.1993.720p.WEB-DL.x265-Pahe.in.mkv",
+      "name": "Homeward.Bound.The.Incredible.Journey.1993.720p.WEB-DL.x265-Pahe.in.mkv",
+      "type": "file",
+      "size": 682184523,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/House.on.Haunted.Hill.1999.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/House.on.Haunted.Hill.1999.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "House.on.Haunted.Hill.1999.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 652160245,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Jennifer.8.1992.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Jennifer.8.1992.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Jennifer.8.1992.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 964021559,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Love.and.Other.Catastrophes.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Love.and.Other.Catastrophes.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Love.and.Other.Catastrophes.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 556793686,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Man.Bites.Dog.1992.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Man.Bites.Dog.1992.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Man.Bites.Dog.1992.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 734175838,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Matilda.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Matilda.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Matilda.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 624287436,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Miller's.Crossing.1990.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "rel_path": "Old/90s/Miller's.Crossing.1990.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "name": "Miller's.Crossing.1990.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 997680635,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Mystery.Men.1999.REMASTERED.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Mystery.Men.1999.REMASTERED.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Mystery.Men.1999.REMASTERED.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 811402884,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Narrow.Margin.1990.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Narrow.Margin.1990.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Narrow.Margin.1990.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 572197771,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Ronin.1998.720p.UHD.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Old/90s/Ronin.1998.720p.UHD.BluRay.x264-Pahe.in.mkv",
+      "name": "Ronin.1998.720p.UHD.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1223923849,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Steel.1997.720p.WEB-DL.x264.850MB-Pahe.in.mkv",
+      "rel_path": "Old/90s/Steel.1997.720p.WEB-DL.x264.850MB-Pahe.in.mkv",
+      "name": "Steel.1997.720p.WEB-DL.x264.850MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 891977956,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/The.Glimmer.Man.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/The.Glimmer.Man.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Glimmer.Man.1996.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 612119365,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/The.Hudsucker.Proxy.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/The.Hudsucker.Proxy.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Hudsucker.Proxy.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 688472756,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/The.Peacemaker.1997.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/The.Peacemaker.1997.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Peacemaker.1997.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 901241986,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/The.Silence.of.the.Hams.1994.720p BluRay x265 10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/The.Silence.of.the.Hams.1994.720p BluRay x265 10Bit-Pahe.in.mkv",
+      "name": "The.Silence.of.the.Hams.1994.720p BluRay x265 10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 570137854,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Timecop.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Timecop.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Timecop.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 737048700,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/Trust.1990.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/Trust.1990.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Trust.1990.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 797974851,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Old/90s/When.Night.Is.Falling.1995.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Old/90s/When.Night.Is.Falling.1995.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "When.Night.Is.Falling.1995.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 632844122,
+      "group_label": [
+        "Old",
+        "90s"
+      ],
+      "group_path": "Old/90s"
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Private.2003.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Private.2003.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Private.2003.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 654805686,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Pure.Love.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Pure.Love.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Pure.Love.2024.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 651256630,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Sitaare.Zameen.Par.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Sitaare.Zameen.Par.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Sitaare.Zameen.Par.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 1110794062,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Sorry.Baby.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Sorry.Baby.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Sorry.Baby.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 621586502,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Sovereign.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Sovereign.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Sovereign.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 601285089,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Splendor.in.the.Grass.1961.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Splendor.in.the.Grass.1961.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Splendor.in.the.Grass.1961.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 823797430,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Straightheads 2007 720p BluRay x265 10Bit-Pahe.in.mkv",
+      "rel_path": "Straightheads 2007 720p BluRay x265 10Bit-Pahe.in.mkv",
+      "name": "Straightheads 2007 720p BluRay x265 10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 492725815,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Su.Ki.Da.2005.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Su.Ki.Da.2005.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Su.Ki.Da.2005.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 611519057,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Awakening.2011.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "The.Awakening.2011.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Awakening.2011.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 717966148,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Critic.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "The.Critic.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Critic.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 589008154,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Flight.of.the.Phoenix.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "The.Flight.of.the.Phoenix.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Flight.of.the.Phoenix.1965.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 977762781,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Greatest.Game.Ever.Played.2005.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "The.Greatest.Game.Ever.Played.2005.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Greatest.Game.Ever.Played.2005.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 807341007,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Kid.2000.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "The.Kid.2000.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Kid.2000.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 646034028,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Life.of.Chuck.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "The.Life.of.Chuck.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Life.of.Chuck.2024.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 676388595,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Roundup.Punishment.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "The.Roundup.Punishment.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Roundup.Punishment.2024.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 745990573,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Scout.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "The.Scout.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Scout.1994.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 707860154,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Secret.of.Moonacre.2008.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "The.Secret.of.Moonacre.2008.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Secret.of.Moonacre.2008.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 613723600,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Unbelievable.Truth.1989.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "rel_path": "The.Unbelievable.Truth.1989.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "name": "The.Unbelievable.Truth.1989.720p.BluRay.x264.950MB-Pahe.in.mkv",
+      "type": "file",
+      "size": 995746686,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/The.Unholy.Trinity.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "The.Unholy.Trinity.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "The.Unholy.Trinity.2025.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 637802325,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Thirteen.Days.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Thirteen.Days.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Thirteen.Days.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 1013602800,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Tommy.1975.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Tommy.1975.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Tommy.1975.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 860924453,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Triple.Dog.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Triple.Dog.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Triple.Dog.2010.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 683133806,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Truck.Turner.1974.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Truck.Turner.1974.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Truck.Turner.1974.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 682733168,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Ular.Tangga.2017.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Ular.Tangga.2017.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Ular.Tangga.2017.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 574241834,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Village.of.the.Damned.1995.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Village.of.the.Damned.1995.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "Village.of.the.Damned.1995.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 628631935,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Virgin.Ketika.Keperawanan.Dipertanyakan.2004.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Virgin.Ketika.Keperawanan.Dipertanyakan.2004.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Virgin.Ketika.Keperawanan.Dipertanyakan.2004.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 829130046,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Warisan.Olga.2015.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Warisan.Olga.2015.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Warisan.Olga.2015.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 745123246,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Yi.yi.2000.720p.BluRay.x264-Pahe.in.mkv",
+      "rel_path": "Yi.yi.2000.720p.BluRay.x264-Pahe.in.mkv",
+      "name": "Yi.yi.2000.720p.BluRay.x264-Pahe.in.mkv",
+      "type": "file",
+      "size": 1466916346,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/You.Can.Count.on.Me.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "You.Can.Count.on.Me.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "name": "You.Can.Count.on.Me.2000.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 678792059,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Youtubers.2015.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Youtubers.2015.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Youtubers.2015.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 603932876,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/Zombies.2018.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "rel_path": "Zombies.2018.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "name": "Zombies.2018.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+      "type": "file",
+      "size": 736499389,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/Downloads/Media/Movies/pahein-jwr.hd.265.mkv",
+      "rel_path": "pahein-jwr.hd.265.mkv",
+      "name": "pahein-jwr.hd.265.mkv",
+      "type": "file",
+      "size": 997186934,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    }
+  ]
+}

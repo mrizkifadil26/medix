@@ -1,71 +1,79 @@
 package scanner
 
 import (
+	"fmt"
+	"os"
+	"path/filepath"
 	"sync"
-
-	"github.com/schollz/progressbar/v3"
+	"time"
 )
 
-type ProgressTracker struct {
-	bar  *progressbar.ProgressBar
-	mu   sync.Mutex
-	done bool
+type Spinner struct {
+	mu      sync.Mutex
+	count   int
+	desc    string
+	current string
+	done    bool
+	stopCh  chan struct{}
 }
 
-// NewProgress initializes a new progress bar if enabled.
-func NewProgressTracker(
-	total int,
-	enabled bool,
-	desc string,
-) *ProgressTracker {
-	if !enabled {
-		return nil
+// NewInlineSpinner starts a spinner that shows "desc n"
+func NewSpinner(desc string) *Spinner {
+	s := &Spinner{
+		desc:   desc,
+		stopCh: make(chan struct{}),
 	}
 
-	if desc == "" {
-		desc = "Processing"
-	}
-
-	bar := progressbar.NewOptions(total,
-		progressbar.OptionSetDescription(desc),
-		progressbar.OptionShowCount(),
-		progressbar.OptionSetWidth(20),
-		// progressbar.OptionClearOnFinish(),
-		progressbar.OptionFullWidth(),
-	)
-
-	return &ProgressTracker{bar: bar}
+	go s.loop()
+	return s
 }
 
-// Add increments the progress bar by n steps, thread-safe.
-func (p *ProgressTracker) Increment(n int) {
-	if p == nil || p.bar == nil || p.done {
+func (s *Spinner) loop() {
+	frames := []rune{'⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'}
+	i := 0
+	ticker := time.NewTicker(100 * time.Millisecond)
+	defer ticker.Stop()
+
+	for {
+		select {
+		case <-s.stopCh:
+			return
+		case <-ticker.C:
+			s.mu.Lock()
+			prefix := s.current
+			// keep path short
+			if len(prefix) > 50 {
+				prefix = "..." + prefix[len(prefix)-47:]
+			}
+
+			fmt.Fprintf(os.Stderr, "\r%s %s %d files: %s", string(frames[i]), s.desc, s.count, prefix)
+			s.mu.Unlock()
+			i = (i + 1) % len(frames)
+		}
+	}
+}
+
+// Increment increases the count.
+func (s *Spinner) Increment(path string) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.count++
+	s.current = filepath.ToSlash(path)
+}
+
+// Finish stops the spinner and prints final count.
+func (s *Spinner) Finish() {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	if s.done {
 		return
 	}
+	s.done = true
+	close(s.stopCh)
 
-	p.mu.Lock()
-	defer p.mu.Unlock()
-	_ = p.bar.Add(n)
-}
-
-func (p *ProgressTracker) Set(value int) {
-	if p == nil || p.bar == nil || p.done {
-		return
+	prefix := s.current
+	if len(prefix) > 50 {
+		prefix = "..." + prefix[len(prefix)-47:]
 	}
-
-	p.mu.Lock()
-	defer p.mu.Unlock()
-	_ = p.bar.Set(value)
-}
-
-// Finish finalizes the bar display. Optional.
-func (p *ProgressTracker) Finish() {
-	if p == nil || p.bar == nil || p.done {
-		return
-	}
-
-	p.mu.Lock()
-	defer p.mu.Unlock()
-	_ = p.bar.Finish()
-	p.done = true
+	fmt.Fprintf(os.Stderr, "\r✓ %s %d files (last: %s)\n", s.desc, s.count, prefix)
 }

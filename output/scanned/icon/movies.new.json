@@ -1,0 +1,838 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2025-08-13T15:39:33+07:00",
+  "source_path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New",
+  "mode": "files",
+  "item_count": 73,
+  "duration_ms": 205,
+  "tags": [
+    "movies",
+    "icon",
+    "new"
+  ],
+  "stats": {
+    "StartTime": "2025-08-13T15:39:33.266061989+07:00",
+    "EndTime": "2025-08-13T15:39:33.468629178+07:00",
+    "Duration": 202567188,
+    "EntriesVisited": 74,
+    "FilesVisited": 73,
+    "DirsVisited": 1,
+    "Matches": 74,
+    "Skipped": 0,
+    "ErrorsCount": 0,
+    "TotalSize": 6781890,
+    "AvgFileSize": 92902,
+    "MinFileSize": 47472,
+    "MaxFileSize": 120703,
+    "DataRate": 33479706.4961972,
+    "Errors": [],
+    "EntriesPerSec": 365.3108913176995,
+    "FilesPerSec": 360.3742576512441,
+    "Custom": {}
+  },
+  "items": [
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/A Haunting in Venice.ico",
+      "rel_path": "A Haunting in Venice.ico",
+      "name": "A Haunting in Venice.ico",
+      "type": "file",
+      "size": 96217,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Anyone But You.ico",
+      "rel_path": "Anyone But You.ico",
+      "name": "Anyone But You.ico",
+      "type": "file",
+      "size": 93793,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Arcadian.ico",
+      "rel_path": "Arcadian.ico",
+      "name": "Arcadian.ico",
+      "type": "file",
+      "size": 95186,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Arthur the King.ico",
+      "rel_path": "Arthur the King.ico",
+      "name": "Arthur the King.ico",
+      "type": "file",
+      "size": 103142,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Barbie.ico",
+      "rel_path": "Barbie.ico",
+      "name": "Barbie.ico",
+      "type": "file",
+      "size": 71006,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Beverly Hills Cop - Axel F.ico",
+      "rel_path": "Beverly Hills Cop - Axel F.ico",
+      "name": "Beverly Hills Cop - Axel F.ico",
+      "type": "file",
+      "size": 102257,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Bottle Rocket.ico",
+      "rel_path": "Bottle Rocket.ico",
+      "name": "Bottle Rocket.ico",
+      "type": "file",
+      "size": 96152,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Bound.ico",
+      "rel_path": "Bound.ico",
+      "name": "Bound.ico",
+      "type": "file",
+      "size": 80152,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Cabrini.ico",
+      "rel_path": "Cabrini.ico",
+      "name": "Cabrini.ico",
+      "type": "file",
+      "size": 88146,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Civil War.ico",
+      "rel_path": "Civil War.ico",
+      "name": "Civil War.ico",
+      "type": "file",
+      "size": 90543,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Cowboys.ico",
+      "rel_path": "Cowboys.ico",
+      "name": "Cowboys.ico",
+      "type": "file",
+      "size": 97128,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Deja Vu.ico",
+      "rel_path": "Deja Vu.ico",
+      "name": "Deja Vu.ico",
+      "type": "file",
+      "size": 92908,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Flight Risk.ico",
+      "rel_path": "Flight Risk.ico",
+      "name": "Flight Risk.ico",
+      "type": "file",
+      "size": 101643,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Freelance.ico",
+      "rel_path": "Freelance.ico",
+      "name": "Freelance.ico",
+      "type": "file",
+      "size": 101347,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Ghostbusters - Frozen Empire.ico",
+      "rel_path": "Ghostbusters - Frozen Empire.ico",
+      "name": "Ghostbusters - Frozen Empire.ico",
+      "type": "file",
+      "size": 120703,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Gladiator II.ico",
+      "rel_path": "Gladiator II.ico",
+      "name": "Gladiator II.ico",
+      "type": "file",
+      "size": 114085,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Godzilla Minus One.ico",
+      "rel_path": "Godzilla Minus One.ico",
+      "name": "Godzilla Minus One.ico",
+      "type": "file",
+      "size": 103210,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Good Will Hunting.ico",
+      "rel_path": "Good Will Hunting.ico",
+      "name": "Good Will Hunting.ico",
+      "type": "file",
+      "size": 87883,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Haunted Mansion.ico",
+      "rel_path": "Haunted Mansion.ico",
+      "name": "Haunted Mansion.ico",
+      "type": "file",
+      "size": 113751,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Heat.ico",
+      "rel_path": "Heat.ico",
+      "name": "Heat.ico",
+      "type": "file",
+      "size": 70579,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Hudson Hawk.ico",
+      "rel_path": "Hudson Hawk.ico",
+      "name": "Hudson Hawk.ico",
+      "type": "file",
+      "size": 76671,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Hypnotic.ico",
+      "rel_path": "Hypnotic.ico",
+      "name": "Hypnotic.ico",
+      "type": "file",
+      "size": 84360,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/In the Land of Saints and Sinners.ico",
+      "rel_path": "In the Land of Saints and Sinners.ico",
+      "name": "In the Land of Saints and Sinners.ico",
+      "type": "file",
+      "size": 91619,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Indiana Jones and the Dial of Destiny.ico",
+      "rel_path": "Indiana Jones and the Dial of Destiny.ico",
+      "name": "Indiana Jones and the Dial of Destiny.ico",
+      "type": "file",
+      "size": 109942,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Jules.ico",
+      "rel_path": "Jules.ico",
+      "name": "Jules.ico",
+      "type": "file",
+      "size": 83409,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Kraven the Hunter.ico",
+      "rel_path": "Kraven the Hunter.ico",
+      "name": "Kraven the Hunter.ico",
+      "type": "file",
+      "size": 101992,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/LaRoy, Texas.ico",
+      "rel_path": "LaRoy, Texas.ico",
+      "name": "LaRoy, Texas.ico",
+      "type": "file",
+      "size": 93884,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Leave the World Behind.ico",
+      "rel_path": "Leave the World Behind.ico",
+      "name": "Leave the World Behind.ico",
+      "type": "file",
+      "size": 99549,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Leo.ico",
+      "rel_path": "Leo.ico",
+      "name": "Leo.ico",
+      "type": "file",
+      "size": 110123,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Love Hurts.ico",
+      "rel_path": "Love Hurts.ico",
+      "name": "Love Hurts.ico",
+      "type": "file",
+      "size": 79975,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Madame Web.ico",
+      "rel_path": "Madame Web.ico",
+      "name": "Madame Web.ico",
+      "type": "file",
+      "size": 110488,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Miami Vice.ico",
+      "rel_path": "Miami Vice.ico",
+      "name": "Miami Vice.ico",
+      "type": "file",
+      "size": 94414,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/My Penguin Friend.ico",
+      "rel_path": "My Penguin Friend.ico",
+      "name": "My Penguin Friend.ico",
+      "type": "file",
+      "size": 98002,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Once Upon a Crime.ico",
+      "rel_path": "Once Upon a Crime.ico",
+      "name": "Once Upon a Crime.ico",
+      "type": "file",
+      "size": 112875,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/One Life.ico",
+      "rel_path": "One Life.ico",
+      "name": "One Life.ico",
+      "type": "file",
+      "size": 92489,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Oppenheimer.ico",
+      "rel_path": "Oppenheimer.ico",
+      "name": "Oppenheimer.ico",
+      "type": "file",
+      "size": 96079,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Ordinary Angels.ico",
+      "rel_path": "Ordinary Angels.ico",
+      "name": "Ordinary Angels.ico",
+      "type": "file",
+      "size": 100453,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Out of Time.ico",
+      "rel_path": "Out of Time.ico",
+      "name": "Out of Time.ico",
+      "type": "file",
+      "size": 96223,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Pain Hustlers.ico",
+      "rel_path": "Pain Hustlers.ico",
+      "name": "Pain Hustlers.ico",
+      "type": "file",
+      "size": 95348,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Pleasantville.ico",
+      "rel_path": "Pleasantville.ico",
+      "name": "Pleasantville.ico",
+      "type": "file",
+      "size": 88726,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Rat Race (alt).ico",
+      "rel_path": "Rat Race (alt).ico",
+      "name": "Rat Race (alt).ico",
+      "type": "file",
+      "size": 111001,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Reagan.ico",
+      "rel_path": "Reagan.ico",
+      "name": "Reagan.ico",
+      "type": "file",
+      "size": 82387,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Retribution.ico",
+      "rel_path": "Retribution.ico",
+      "name": "Retribution.ico",
+      "type": "file",
+      "size": 85415,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Rushmore.ico",
+      "rel_path": "Rushmore.ico",
+      "name": "Rushmore.ico",
+      "type": "file",
+      "size": 71787,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Shortcut to Happiness.ico",
+      "rel_path": "Shortcut to Happiness.ico",
+      "name": "Shortcut to Happiness.ico",
+      "type": "file",
+      "size": 61722,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Sleeping Dogs.ico",
+      "rel_path": "Sleeping Dogs.ico",
+      "name": "Sleeping Dogs.ico",
+      "type": "file",
+      "size": 88135,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Snack Shack.ico",
+      "rel_path": "Snack Shack.ico",
+      "name": "Snack Shack.ico",
+      "type": "file",
+      "size": 112815,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Sound of Freedom.ico",
+      "rel_path": "Sound of Freedom.ico",
+      "name": "Sound of Freedom.ico",
+      "type": "file",
+      "size": 66545,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Spaceman.ico",
+      "rel_path": "Spaceman.ico",
+      "name": "Spaceman.ico",
+      "type": "file",
+      "size": 113516,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Speak No Evil.ico",
+      "rel_path": "Speak No Evil.ico",
+      "name": "Speak No Evil.ico",
+      "type": "file",
+      "size": 59651,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Strange Darling.ico",
+      "rel_path": "Strange Darling.ico",
+      "name": "Strange Darling.ico",
+      "type": "file",
+      "size": 76489,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Stripes.ico",
+      "rel_path": "Stripes.ico",
+      "name": "Stripes.ico",
+      "type": "file",
+      "size": 84582,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Banshees of Inisherin.ico",
+      "rel_path": "The Banshees of Inisherin.ico",
+      "name": "The Banshees of Inisherin.ico",
+      "type": "file",
+      "size": 98295,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Beekeeper.ico",
+      "rel_path": "The Beekeeper.ico",
+      "name": "The Beekeeper.ico",
+      "type": "file",
+      "size": 97487,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Bricklayer.ico",
+      "rel_path": "The Bricklayer.ico",
+      "name": "The Bricklayer.ico",
+      "type": "file",
+      "size": 89603,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Cider House Rules.ico",
+      "rel_path": "The Cider House Rules.ico",
+      "name": "The Cider House Rules.ico",
+      "type": "file",
+      "size": 84902,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Equalizer 3.ico",
+      "rel_path": "The Equalizer 3.ico",
+      "name": "The Equalizer 3.ico",
+      "type": "file",
+      "size": 55922,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Fall Guy.ico",
+      "rel_path": "The Fall Guy.ico",
+      "name": "The Fall Guy.ico",
+      "type": "file",
+      "size": 97016,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Family Plan.ico",
+      "rel_path": "The Family Plan.ico",
+      "name": "The Family Plan.ico",
+      "type": "file",
+      "size": 95133,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Firm.ico",
+      "rel_path": "The Firm.ico",
+      "name": "The Firm.ico",
+      "type": "file",
+      "size": 100071,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Gorge.ico",
+      "rel_path": "The Gorge.ico",
+      "name": "The Gorge.ico",
+      "type": "file",
+      "size": 79538,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Great Outdoors.ico",
+      "rel_path": "The Great Outdoors.ico",
+      "name": "The Great Outdoors.ico",
+      "type": "file",
+      "size": 106911,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Hunger Games - The Ballad of Songbirds and Snakes.ico",
+      "rel_path": "The Hunger Games - The Ballad of Songbirds and Snakes.ico",
+      "name": "The Hunger Games - The Ballad of Songbirds and Snakes.ico",
+      "type": "file",
+      "size": 99703,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Ministry of Ungentlemanly Warfare.ico",
+      "rel_path": "The Ministry of Ungentlemanly Warfare.ico",
+      "name": "The Ministry of Ungentlemanly Warfare.ico",
+      "type": "file",
+      "size": 110189,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Princess Diaries 2 - Royal Engagement.ico",
+      "rel_path": "The Princess Diaries 2 - Royal Engagement.ico",
+      "name": "The Princess Diaries 2 - Royal Engagement.ico",
+      "type": "file",
+      "size": 100826,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Princess Diaries.ico",
+      "rel_path": "The Princess Diaries.ico",
+      "name": "The Princess Diaries.ico",
+      "type": "file",
+      "size": 86707,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/The Tomorrow War.ico",
+      "rel_path": "The Tomorrow War.ico",
+      "name": "The Tomorrow War.ico",
+      "type": "file",
+      "size": 100121,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/True Lies.ico",
+      "rel_path": "True Lies.ico",
+      "name": "True Lies.ico",
+      "type": "file",
+      "size": 77599,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Twisters.ico",
+      "rel_path": "Twisters.ico",
+      "name": "Twisters.ico",
+      "type": "file",
+      "size": 89829,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/What Happens Later.ico",
+      "rel_path": "What Happens Later.ico",
+      "name": "What Happens Later.ico",
+      "type": "file",
+      "size": 93959,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Who Framed Roger Rabbit.ico",
+      "rel_path": "Who Framed Roger Rabbit.ico",
+      "name": "Who Framed Roger Rabbit.ico",
+      "type": "file",
+      "size": 105445,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Wolfs.ico",
+      "rel_path": "Wolfs.ico",
+      "name": "Wolfs.ico",
+      "type": "file",
+      "size": 47472,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    },
+    {
+      "path": "/mnt/c/Users/Rizki/OneDrive/Pictures/Icons/Downloaded Icon Pack/Movie Icon Pack/New/Wonka.ico",
+      "rel_path": "Wonka.ico",
+      "name": "Wonka.ico",
+      "type": "file",
+      "size": 114665,
+      "group_label": [
+        "."
+      ],
+      "group_path": "."
+    }
+  ]
+}

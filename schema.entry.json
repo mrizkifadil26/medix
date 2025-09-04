@@ -1,0 +1,61 @@
+{
+  "name": "13 Hours - The Secret Soldiers of Benghazi (2016)",
+  "type": "directory",
+  "path": "/mnt/e/Media/Movies/Action/13 Hours - The Secret Soldiers of Benghazi (2016)",
+  "rel_path": "Action/13 Hours - The Secret Soldiers of Benghazi (2016)",
+  "group": {
+    "name": "Action",
+    "path": "Action"
+  },
+  "collection": "13 Hours - The Secret Soldiers of Benghazi (2016)",
+  "metadata": {
+    "title": "13 Hours: The Secret Soldiers of Benghazi",
+    "original_title": "13 Hours: The Secret Soldiers of Benghazi",
+    "year": "2016",
+    "imdb_id": "tt2178470",
+    "tmdb_id": 308132,
+    "release_date": "2016-01-14",
+    "genres": [
+      "War",
+      "Action",
+      "History",
+      "Drama",
+      "Thriller"
+    ],
+    "language": "English",
+    "overview": "An American Ambassador is killed during an attack at a U.S. compound in Libya as a security team struggles to make sense out of the chaos.",
+    "poster_path": "/AskDcQ6Sa6jImyt2KDQbgRuPebH.jpg"
+  },
+  "media": {
+    "name": "13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.UHD.720p.BluRay.x264-Pahe.in.mkv",
+    "path": "Action/13 Hours - The Secret Soldiers of Benghazi (2016)/13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.UHD.720p.BluRay.x264-Pahe.in.mkv",
+    "ext": ".mkv",
+    "size": 1395176945
+  },
+  "extras": [
+    {
+      "name": "13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.IMAX.mkv",
+      "path": "Action/13 Hours - The Secret Soldiers of Benghazi (2016)/13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.IMAX.mkv",
+      "ext": ".mkv",
+      "size": 1450000000,
+      "type": "IMAX"
+    }
+  ],
+  "subtitles": {
+    "en": {
+      "name": "13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.eng.srt",
+      "path": "Action/13 Hours - The Secret Soldiers of Benghazi (2016)/13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.eng.srt",
+      "ext": ".srt"
+    },
+    "id": {
+      "name": "13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.id.srt",
+      "path": "Action/13 Hours - The Secret Soldiers of Benghazi (2016)/13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.id.srt",
+      "ext": ".srt"
+    }
+  },
+  "icon": {
+    "name": "13 Hours - The Secret Soldiers of Benghazi.ico",
+    "path": "Action/13 Hours - The Secret Soldiers of Benghazi (2016)/13 Hours - The Secret Soldiers of Benghazi.ico",
+    "ext": ".ico"
+  }
+}

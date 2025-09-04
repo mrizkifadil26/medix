@@ -4,7 +4,7 @@ import (
 	"flag"
 	"log"
 
-	"github.com/mrizkifadil26/medix/db"
+	"github.com/mrizkifadil26/medix/internal/db"
 	"github.com/mrizkifadil26/medix/scanner"
 	"github.com/mrizkifadil26/medix/utils"
 )
@@ -51,27 +51,25 @@ func main() {
 	}
 
 	// Open DB
-	database, err := db.Open("media.db")
-	if err != nil {
-		log.Fatal(err)
-	}
+	database := db.Open("db/sqlite/media.db")
 	defer database.Close()
 
-	results, err := scanner.Scan(
-		config.Root,
-		*config.Options,
-		*config.Output,
-		config.Tags,
-	)
+	// results, err := scanner.Scan(
+	// 	config.Root,
+	// 	*config.Options,
+	// 	*config.Output,
+	// 	config.Tags,
+	// )
+	err = scanner.ScanDirectory(database, config.Root, "movie")
 	if err != nil {
 		log.Fatalf("Scan failed: %v", err)
 	}
 
 	// Output results
-	outputPath := config.Output.OutputPath
-	if outputPath != "" {
-		if err := utils.WriteJSON(outputPath, results); err != nil {
-			log.Fatalf("Failed to write output: %v", err)
-		}
-	}
+	// outputPath := config.Output.OutputPath
+	// if outputPath != "" {
+	// 	if err := utils.WriteJSON(outputPath, results); err != nil {
+	// 		log.Fatalf("Failed to write output: %v", err)
+	// 	}
+	// }
 }

@@ -1,0 +1,2847 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2025-08-13T15:37:02+07:00",
+  "source_path": "/mnt/e/TODO/Movies/Foldered",
+  "mode": "dirs",
+  "item_count": 62,
+  "duration_ms": 19006,
+  "tags": [
+    "media",
+    "movies",
+    "foldered"
+  ],
+  "stats": {
+    "StartTime": "2025-08-13T15:37:19.195819845+07:00",
+    "EndTime": "2025-08-13T15:37:21.2790164+07:00",
+    "Duration": 2083196555,
+    "EntriesVisited": 139,
+    "FilesVisited": 0,
+    "DirsVisited": 62,
+    "Matches": 62,
+    "Skipped": 8,
+    "ErrorsCount": 0,
+    "TotalSize": 0,
+    "AvgFileSize": 0,
+    "MinFileSize": 0,
+    "MaxFileSize": 0,
+    "DataRate": 0,
+    "Errors": [],
+    "EntriesPerSec": 66.72438069580046,
+    "FilesPerSec": 0,
+    "Custom": {}
+  },
+  "items": [
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Action/Blacklight (2022)",
+      "rel_path": "Action/Blacklight (2022)",
+      "name": "Blacklight (2022)",
+      "type": "directory",
+      "group_label": [
+        "Action"
+      ],
+      "group_path": "Action",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Action/Blacklight (2022)/Blacklight.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Action/Blacklight (2022)/Blacklight.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Blacklight.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 625808769,
+          "mod_time": "2023-07-21T07:45:42+07:00",
+          "group_label": [
+            "Action",
+            "Blacklight (2022)"
+          ],
+          "group_path": "Action/Blacklight (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "Blacklight"
+      },
+      "displayName": "Blacklight (2022)",
+      "slug": "blacklight-2022",
+      "enriched": {
+        "matched_title": "Blacklight",
+        "original_title": "Blacklight",
+        "release_date": "2022-02-10",
+        "poster_path": "/bv9dy8mnwftdY2j6gG39gCfSFpV.jpg",
+        "overview": "Travis Block is a shadowy Government agent who specializes in removing operatives whose covers have been exposed. He then has to uncover a deadly conspiracy within his own ranks that reaches the highest echelons of power."
+      },
+      "media": {
+        "name": "Blacklight.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Action/Blacklight (2022)/Blacklight.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 625808769
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Action/Double Impact (1991)",
+      "rel_path": "Action/Double Impact (1991)",
+      "name": "Double Impact (1991)",
+      "type": "directory",
+      "group_label": [
+        "Action"
+      ],
+      "group_path": "Action",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Action/Double Impact (1991)/Double.Impact.1991.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Action/Double Impact (1991)/Double.Impact.1991.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Double.Impact.1991.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 716909080,
+          "mod_time": "2024-09-22T01:12:36+07:00",
+          "group_label": [
+            "Action",
+            "Double Impact (1991)"
+          ],
+          "group_path": "Action/Double Impact (1991)"
+        }
+      ],
+      "metadata": {
+        "year": "1991",
+        "title": "Double Impact"
+      },
+      "displayName": "Double Impact (1991)",
+      "slug": "double-impact-1991",
+      "enriched": {
+        "matched_title": "Double Impact",
+        "original_title": "Double Impact",
+        "release_date": "1991-07-31",
+        "poster_path": "/tmzwvSqoMC37Tgqwj4mA2dHNSmw.jpg",
+        "overview": "Jean Claude Van Damme plays a dual role as Alex and Chad, twins separated at the death of their parents. Chad is raised by a family retainer in Paris, Alex becomes a petty crook in Hong Kong. Seeing a picture of Alex, Chad rejoins him and convinces him that his rival in Hong Kong is also the man who killed their parents. Alex is suspicious of Chad, especially when it comes to his girlfriend."
+      },
+      "media": {
+        "name": "Double.Impact.1991.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Action/Double Impact (1991)/Double.Impact.1991.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 716909080
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Action/Extraction 2 (2023)",
+      "rel_path": "Action/Extraction 2 (2023)",
+      "name": "Extraction 2 (2023)",
+      "type": "directory",
+      "group_label": [
+        "Action"
+      ],
+      "group_path": "Action",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Action/Extraction 2 (2023)/Extraction.2.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Action/Extraction 2 (2023)/Extraction.2.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "name": "Extraction.2.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 825628939,
+          "mod_time": "2023-07-25T22:13:00+07:00",
+          "group_label": [
+            "Action",
+            "Extraction 2 (2023)"
+          ],
+          "group_path": "Action/Extraction 2 (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Extraction 2"
+      },
+      "displayName": "Extraction 2 (2023)",
+      "slug": "extraction-2-2023",
+      "enriched": {
+        "matched_title": "Extraction 2",
+        "original_title": "Extraction 2",
+        "release_date": "2023-06-09",
+        "poster_path": "/7gKI9hpEMcZUQpNgKrkDzJpbnNS.jpg",
+        "overview": "Back from the brink of death, highly skilled commando Tyler Rake takes on another dangerous mission: saving the imprisoned family of a ruthless gangster."
+      },
+      "media": {
+        "name": "Extraction.2.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Action/Extraction 2 (2023)/Extraction.2.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 825628939
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Action/Hard Target (1993)",
+      "rel_path": "Action/Hard Target (1993)",
+      "name": "Hard Target (1993)",
+      "type": "directory",
+      "group_label": [
+        "Action"
+      ],
+      "group_path": "Action",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Action/Hard Target (1993)/Hard.Target.1993.REMASTERED.720p.BluRay.x264.950MB-Pahe.in.mkv",
+          "rel_path": "Action/Hard Target (1993)/Hard.Target.1993.REMASTERED.720p.BluRay.x264.950MB-Pahe.in.mkv",
+          "name": "Hard.Target.1993.REMASTERED.720p.BluRay.x264.950MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 996317026,
+          "mod_time": "2023-09-26T11:40:04+07:00",
+          "group_label": [
+            "Action",
+            "Hard Target (1993)"
+          ],
+          "group_path": "Action/Hard Target (1993)"
+        }
+      ],
+      "metadata": {
+        "year": "1993",
+        "title": "Hard Target"
+      },
+      "displayName": "Hard Target (1993)",
+      "slug": "hard-target-1993",
+      "enriched": {
+        "matched_title": "Hard Target",
+        "original_title": "Hard Target",
+        "release_date": "1993-04-27",
+        "poster_path": "/mXCM7pmUFUGp7QzSmare3RITe6n.jpg",
+        "overview": "When a woman's father goes missing, she enlists a local to aid in her search.  The pair soon discover that her father has died at the hands of a wealthy sportsman who hunts homeless men as a form of recreation."
+      },
+      "media": {
+        "name": "Hard.Target.1993.REMASTERED.720p.BluRay.x264.950MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Action/Hard Target (1993)/Hard.Target.1993.REMASTERED.720p.BluRay.x264.950MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 996317026
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Action/Hidden Strike (2023)",
+      "rel_path": "Action/Hidden Strike (2023)",
+      "name": "Hidden Strike (2023)",
+      "type": "directory",
+      "group_label": [
+        "Action"
+      ],
+      "group_path": "Action",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Action/Hidden Strike (2023)/Hidden.Strike.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Action/Hidden Strike (2023)/Hidden.Strike.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "name": "Hidden.Strike.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 732841665,
+          "mod_time": "2023-07-30T14:04:58+07:00",
+          "group_label": [
+            "Action",
+            "Hidden Strike (2023)"
+          ],
+          "group_path": "Action/Hidden Strike (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Hidden Strike"
+      },
+      "displayName": "Hidden Strike (2023)",
+      "slug": "hidden-strike-2023",
+      "enriched": {
+        "matched_title": "Hidden Strike",
+        "original_title": "Hidden Strike",
+        "release_date": "2023-07-06",
+        "poster_path": "/zsbolOkw8RhTU4DKOrpf4M7KCmi.jpg",
+        "overview": "Two elite soldiers must escort civilians through a gauntlet of gunfire and explosions."
+      },
+      "media": {
+        "name": "Hidden.Strike.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Action/Hidden Strike (2023)/Hidden.Strike.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 732841665
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Action/Kandahar (2023)",
+      "rel_path": "Action/Kandahar (2023)",
+      "name": "Kandahar (2023)",
+      "type": "directory",
+      "group_label": [
+        "Action"
+      ],
+      "group_path": "Action",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Action/Kandahar (2023)/Kandahar.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Action/Kandahar (2023)/Kandahar.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Kandahar.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 886704412,
+          "mod_time": "2023-07-23T11:23:18+07:00",
+          "group_label": [
+            "Action",
+            "Kandahar (2023)"
+          ],
+          "group_path": "Action/Kandahar (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Kandahar"
+      },
+      "displayName": "Kandahar (2023)",
+      "slug": "kandahar-2023",
+      "enriched": {
+        "matched_title": "Kandahar",
+        "original_title": "Kandahar",
+        "release_date": "2023-05-25",
+        "poster_path": "/lCanGgsqF4xD2WA5NF8PWeT3IXd.jpg",
+        "overview": "After his mission is exposed, an undercover CIA operative stuck deep in hostile territory in Afghanistan must fight his way out, alongside his Afghan translator, to an extraction point in Kandahar, all whilst avoiding elite enemy forces and foreign spies tasked with hunting them down."
+      },
+      "media": {
+        "name": "Kandahar.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Action/Kandahar (2023)/Kandahar.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 886704412
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Action/Sisu (2022)",
+      "rel_path": "Action/Sisu (2022)",
+      "name": "Sisu (2022)",
+      "type": "directory",
+      "group_label": [
+        "Action"
+      ],
+      "group_path": "Action",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Action/Sisu (2022)/Sisu.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Action/Sisu (2022)/Sisu.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Sisu.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 653922927,
+          "mod_time": "2023-07-26T06:51:26+07:00",
+          "group_label": [
+            "Action",
+            "Sisu (2022)"
+          ],
+          "group_path": "Action/Sisu (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "Sisu"
+      },
+      "displayName": "Sisu (2022)",
+      "slug": "sisu-2022",
+      "enriched": {
+        "matched_title": "Sisu",
+        "original_title": "Sisu",
+        "release_date": "2022-09-09",
+        "poster_path": "/zehhtcLHnTOE0lw9rLTIRsJeeW2.jpg",
+        "overview": "When an ex-soldier who discovers gold in the Lapland wilderness tries to take the loot into the city, German soldiers led by a brutal SS officer battle him."
+      },
+      "media": {
+        "name": "Sisu.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Action/Sisu (2022)/Sisu.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 653922927
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Action/The Mother (2023)",
+      "rel_path": "Action/The Mother (2023)",
+      "name": "The Mother (2023)",
+      "type": "directory",
+      "group_label": [
+        "Action"
+      ],
+      "group_path": "Action",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Action/The Mother (2023)/The.Mother.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Action/The Mother (2023)/The.Mother.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "name": "The.Mother.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 794664585,
+          "mod_time": "2023-07-21T15:43:14+07:00",
+          "group_label": [
+            "Action",
+            "The Mother (2023)"
+          ],
+          "group_path": "Action/The Mother (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "The Mother"
+      },
+      "displayName": "The Mother (2023)",
+      "slug": "the-mother-2023",
+      "enriched": {
+        "matched_title": "The Mother",
+        "original_title": "The Mother",
+        "release_date": "2023-05-04",
+        "poster_path": "/o8tL9HtheHXHzRMolrFvpyiLOSg.jpg",
+        "overview": "A deadly female assassin comes out of hiding to protect the daughter that she gave up years before, while on the run from dangerous men."
+      },
+      "media": {
+        "name": "The.Mother.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Action/The Mother (2023)/The.Mother.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 794664585
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Action/Without Remorse (2021)",
+      "rel_path": "Action/Without Remorse (2021)",
+      "name": "Without Remorse (2021)",
+      "type": "directory",
+      "group_label": [
+        "Action"
+      ],
+      "group_path": "Action",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Action/Without Remorse (2021)/Without.Remorse.2021.720p.BluRay.x265-Pahe.in.mkv",
+          "rel_path": "Action/Without Remorse (2021)/Without.Remorse.2021.720p.BluRay.x265-Pahe.in.mkv",
+          "name": "Without.Remorse.2021.720p.BluRay.x265-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 660172358,
+          "mod_time": "2023-07-25T06:35:32+07:00",
+          "group_label": [
+            "Action",
+            "Without Remorse (2021)"
+          ],
+          "group_path": "Action/Without Remorse (2021)"
+        }
+      ],
+      "metadata": {
+        "year": "2021",
+        "title": "Without Remorse"
+      },
+      "displayName": "Without Remorse (2021)",
+      "slug": "without-remorse-2021",
+      "enriched": {
+        "matched_title": "Tom Clancy's Without Remorse",
+        "original_title": "Tom Clancy's Without Remorse",
+        "release_date": "2021-04-29",
+        "poster_path": "/6GCOpT8QcNzup09TAMmvvk22LTR.jpg",
+        "overview": "An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife."
+      },
+      "media": {
+        "name": "Without.Remorse.2021.720p.BluRay.x265-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Action/Without Remorse (2021)/Without.Remorse.2021.720p.BluRay.x265-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 660172358
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Action/Wrath of Man (2021)",
+      "rel_path": "Action/Wrath of Man (2021)",
+      "name": "Wrath of Man (2021)",
+      "type": "directory",
+      "group_label": [
+        "Action"
+      ],
+      "group_path": "Action",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Action/Wrath of Man (2021)/Wrath.Of.Man.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Action/Wrath of Man (2021)/Wrath.Of.Man.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Wrath.Of.Man.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 793113597,
+          "mod_time": "2023-08-06T22:07:46+07:00",
+          "group_label": [
+            "Action",
+            "Wrath of Man (2021)"
+          ],
+          "group_path": "Action/Wrath of Man (2021)"
+        }
+      ],
+      "metadata": {
+        "year": "2021",
+        "title": "Wrath of Man"
+      },
+      "displayName": "Wrath of Man (2021)",
+      "slug": "wrath-of-man-2021",
+      "enriched": {
+        "matched_title": "Wrath of Man",
+        "original_title": "Wrath of Man",
+        "release_date": "2021-04-22",
+        "poster_path": "/M7SUK85sKjaStg4TKhlAVyGlz3.jpg",
+        "overview": "A cold and mysterious new security guard for a Los Angeles cash truck company surprises his co-workers when he unleashes precision skills during a heist. The crew is left wondering who he is and where he came from. Soon, the marksman's ultimate motive becomes clear as he takes dramatic and irrevocable steps to settle a score."
+      },
+      "media": {
+        "name": "Wrath.Of.Man.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Action/Wrath of Man (2021)/Wrath.Of.Man.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 793113597
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Fatherhood (2021)",
+      "rel_path": "Comedy/Fatherhood (2021)",
+      "name": "Fatherhood (2021)",
+      "type": "directory",
+      "group_label": [
+        "Comedy"
+      ],
+      "group_path": "Comedy",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Fatherhood (2021)/Fatherhood.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Comedy/Fatherhood (2021)/Fatherhood.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Fatherhood.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 668130585,
+          "mod_time": "2023-07-28T05:51:06+07:00",
+          "group_label": [
+            "Comedy",
+            "Fatherhood (2021)"
+          ],
+          "group_path": "Comedy/Fatherhood (2021)"
+        }
+      ],
+      "metadata": {
+        "year": "2021",
+        "title": "Fatherhood"
+      },
+      "displayName": "Fatherhood (2021)",
+      "slug": "fatherhood-2021",
+      "enriched": {
+        "matched_title": "Fatherhood",
+        "original_title": "Fatherhood",
+        "release_date": "2021-06-18",
+        "poster_path": "/wvqO1gTAMZIFGi3Ioq1BN6KV95R.jpg",
+        "overview": "A widowed new dad copes with doubts, fears, heartache and dirty diapers as he sets out to raise his daughter on his own. Inspired by a true story."
+      },
+      "media": {
+        "name": "Fatherhood.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Fatherhood (2021)/Fatherhood.2021.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 668130585
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Honor Society (2022)",
+      "rel_path": "Comedy/Honor Society (2022)",
+      "name": "Honor Society (2022)",
+      "type": "directory",
+      "group_label": [
+        "Comedy"
+      ],
+      "group_path": "Comedy",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Honor Society (2022)/Honor.Society.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Comedy/Honor Society (2022)/Honor.Society.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "name": "Honor.Society.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 567172960,
+          "mod_time": "2023-07-28T05:50:48+07:00",
+          "group_label": [
+            "Comedy",
+            "Honor Society (2022)"
+          ],
+          "group_path": "Comedy/Honor Society (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "Honor Society"
+      },
+      "displayName": "Honor Society (2022)",
+      "slug": "honor-society-2022",
+      "enriched": {
+        "matched_title": "Honor Society",
+        "original_title": "Honor Society",
+        "release_date": "2022-07-23",
+        "poster_path": "/61CZ4JxyaI462sFfLPhtyzRg4vv.jpg",
+        "overview": "Honor is an ambitious high school senior whose sole focus is getting into Harvard, assuming she can first score the coveted recommendation from her guidance counselor, Mr. Calvin. Willing to do whatever it takes, Honor concocts a Machiavellian-like plan to take down her top three student competitors, until things take a turn when she unexpectedly falls for her biggest competition, Michael."
+      },
+      "media": {
+        "name": "Honor.Society.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Honor Society (2022)/Honor.Society.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 567172960
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Joy Ride (2023)",
+      "rel_path": "Comedy/Joy Ride (2023)",
+      "name": "Joy Ride (2023)",
+      "type": "directory",
+      "group_label": [
+        "Comedy"
+      ],
+      "group_path": "Comedy",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Joy Ride (2023)/Joy.Ride.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Comedy/Joy Ride (2023)/Joy.Ride.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "name": "Joy.Ride.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 598359720,
+          "mod_time": "2023-08-06T21:28:10+07:00",
+          "group_label": [
+            "Comedy",
+            "Joy Ride (2023)"
+          ],
+          "group_path": "Comedy/Joy Ride (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Joy Ride"
+      },
+      "displayName": "Joy Ride (2023)",
+      "slug": "joy-ride-2023",
+      "enriched": {
+        "matched_title": "Joy Ride",
+        "original_title": "Joy Ride",
+        "release_date": "2023-06-22",
+        "poster_path": "/6Ii88ZqNMmBgLVuSrnLkLENhgcd.jpg",
+        "overview": "When Audrey's business trip to Asia goes sideways, she enlists the aid of Lolo, her irreverent, childhood best friend who also happens to be a hot mess; Kat, her college friend turned Chinese soap star; and Deadeye, Lolo's eccentric cousin. Their no-holds-barred, epic experience becomes a journey of bonding, friendship, belonging, and wild debauchery that reveals the universal truth of what it means to know and love who you are."
+      },
+      "media": {
+        "name": "Joy.Ride.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Joy Ride (2023)/Joy.Ride.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 598359720
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Linoleum (2022)",
+      "rel_path": "Comedy/Linoleum (2022)",
+      "name": "Linoleum (2022)",
+      "type": "directory",
+      "group_label": [
+        "Comedy"
+      ],
+      "group_path": "Comedy",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Linoleum (2022)/Linoleum.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Comedy/Linoleum (2022)/Linoleum.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Linoleum.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 582829167,
+          "mod_time": "2023-07-31T21:55:06+07:00",
+          "group_label": [
+            "Comedy",
+            "Linoleum (2022)"
+          ],
+          "group_path": "Comedy/Linoleum (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "Linoleum"
+      },
+      "displayName": "Linoleum (2022)",
+      "slug": "linoleum-2022",
+      "enriched": {
+        "matched_title": "Linoleum",
+        "original_title": "Linoleum",
+        "release_date": "2023-03-17",
+        "poster_path": "/lAdPsBMnP5ctvKavQY9y8JazygK.jpg",
+        "overview": "When the host of a failing children’s science show tries to fulfill his childhood dream of becoming an astronaut by building a rocket ship in his garage, a series of bizarre events occur that cause him to question his own reality."
+      },
+      "media": {
+        "name": "Linoleum.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Linoleum (2022)/Linoleum.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 582829167
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Mafia Mamma (2023)",
+      "rel_path": "Comedy/Mafia Mamma (2023)",
+      "name": "Mafia Mamma (2023)",
+      "type": "directory",
+      "group_label": [
+        "Comedy"
+      ],
+      "group_path": "Comedy",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Mafia Mamma (2023)/Mafia.Mamma.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Comedy/Mafia Mamma (2023)/Mafia.Mamma.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "name": "Mafia.Mamma.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 680826944,
+          "mod_time": "2023-07-25T18:09:30+07:00",
+          "group_label": [
+            "Comedy",
+            "Mafia Mamma (2023)"
+          ],
+          "group_path": "Comedy/Mafia Mamma (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Mafia Mamma"
+      },
+      "displayName": "Mafia Mamma (2023)",
+      "slug": "mafia-mamma-2023",
+      "enriched": {
+        "matched_title": "Mafia Mamma",
+        "original_title": "Mafia Mamma",
+        "release_date": "2023-04-13",
+        "poster_path": "/x83FFyGGux31l7OiF9NZHeq6ZWv.jpg",
+        "overview": "A suburban American woman inherits her grandfather’s Mafia empire and, guided by the Firm’s trusted consigliere, defies everyone’s expectations, including her own, as the new head of the family business."
+      },
+      "media": {
+        "name": "Mafia.Mamma.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Mafia Mamma (2023)/Mafia.Mamma.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 680826944
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Polite Society (2023)",
+      "rel_path": "Comedy/Polite Society (2023)",
+      "name": "Polite Society (2023)",
+      "type": "directory",
+      "group_label": [
+        "Comedy"
+      ],
+      "group_path": "Comedy",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Polite Society (2023)/Polite.Society.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Comedy/Polite Society (2023)/Polite.Society.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Polite.Society.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 671787688,
+          "mod_time": "2023-07-23T11:32:16+07:00",
+          "group_label": [
+            "Comedy",
+            "Polite Society (2023)"
+          ],
+          "group_path": "Comedy/Polite Society (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Polite Society"
+      },
+      "displayName": "Polite Society (2023)",
+      "slug": "polite-society-2023",
+      "enriched": {
+        "matched_title": "Polite Society",
+        "original_title": "Polite Society",
+        "release_date": "2023-04-27",
+        "poster_path": "/Af1izSvHbGu6JiFTVzgfKxWQOfs.jpg",
+        "overview": "Martial artist-in-training Ria Khan believes she must save her older sister Lena from her impending marriage. After enlisting the help of her friends, Ria attempts to pull off the most ambitious of all wedding heists in the name of independence and sisterhood."
+      },
+      "media": {
+        "name": "Polite.Society.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Polite Society (2023)/Polite.Society.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 671787688
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Spread (2009)",
+      "rel_path": "Comedy/Spread (2009)",
+      "name": "Spread (2009)",
+      "type": "directory",
+      "group_label": [
+        "Comedy"
+      ],
+      "group_path": "Comedy",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Spread (2009)/Spread.2009.720p.BluRay.x264.850MB-Pahe.in (1).mkv",
+          "rel_path": "Comedy/Spread (2009)/Spread.2009.720p.BluRay.x264.850MB-Pahe.in (1).mkv",
+          "name": "Spread.2009.720p.BluRay.x264.850MB-Pahe.in (1).mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 892806954,
+          "mod_time": "2023-08-06T13:59:48+07:00",
+          "group_label": [
+            "Comedy",
+            "Spread (2009)"
+          ],
+          "group_path": "Comedy/Spread (2009)"
+        }
+      ],
+      "metadata": {
+        "year": "2009",
+        "title": "Spread"
+      },
+      "displayName": "Spread (2009)",
+      "slug": "spread-2009",
+      "enriched": {
+        "matched_title": "Spread",
+        "original_title": "Spread",
+        "release_date": "2009-01-16",
+        "poster_path": "/hCA9jeOrVWYyK4bCO55hvDmT2Z3.jpg",
+        "overview": "A gigolo must contend with the prospect that he has found true love."
+      },
+      "media": {
+        "name": "Spread.2009.720p.BluRay.x264.850MB-Pahe.in (1).mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Comedy/Spread (2009)/Spread.2009.720p.BluRay.x264.850MB-Pahe.in (1).mkv",
+        "ext": ".mkv",
+        "size": 892806954
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Comedy/The In-Laws (1979)",
+      "rel_path": "Comedy/The In-Laws (1979)",
+      "name": "The In-Laws (1979)",
+      "type": "directory",
+      "group_label": [
+        "Comedy"
+      ],
+      "group_path": "Comedy",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Comedy/The In-Laws (1979)/The.In-Laws.1979.720p.BluRay.X264.900MB-Pahe.in.mkv",
+          "rel_path": "Comedy/The In-Laws (1979)/The.In-Laws.1979.720p.BluRay.X264.900MB-Pahe.in.mkv",
+          "name": "The.In-Laws.1979.720p.BluRay.X264.900MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 944587980,
+          "mod_time": "2023-07-26T06:46:10+07:00",
+          "group_label": [
+            "Comedy",
+            "The In-Laws (1979)"
+          ],
+          "group_path": "Comedy/The In-Laws (1979)"
+        }
+      ],
+      "metadata": {
+        "year": "1979",
+        "title": "The In-Laws"
+      },
+      "displayName": "The In-Laws (1979)",
+      "slug": "the-in-laws-1979",
+      "enriched": {
+        "matched_title": "The In-Laws",
+        "original_title": "The In-Laws",
+        "release_date": "1979-06-15",
+        "poster_path": "/dt82c6NAqBgENPiy7LHNwYiBKkY.jpg",
+        "overview": "In preparation for his daughter's wedding, dentist Sheldon Kornpett meets Vince Ricardo, the groom's father. Vince, a manic fellow who claims to be a government agent, then proceeds to drag Sheldon into a series of chases and misadventures from New York to Central America."
+      },
+      "media": {
+        "name": "The.In-Laws.1979.720p.BluRay.X264.900MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Comedy/The In-Laws (1979)/The.In-Laws.1979.720p.BluRay.X264.900MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 944587980
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Comedy/The Machine (2023)",
+      "rel_path": "Comedy/The Machine (2023)",
+      "name": "The Machine (2023)",
+      "type": "directory",
+      "group_label": [
+        "Comedy"
+      ],
+      "group_path": "Comedy",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Comedy/The Machine (2023)/The.Machine.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Comedy/The Machine (2023)/The.Machine.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "The.Machine.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 766248306,
+          "mod_time": "2023-08-16T15:06:32+07:00",
+          "group_label": [
+            "Comedy",
+            "The Machine (2023)"
+          ],
+          "group_path": "Comedy/The Machine (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "The Machine"
+      },
+      "displayName": "The Machine (2023)",
+      "slug": "the-machine-2023",
+      "enriched": {
+        "matched_title": "The Machine",
+        "original_title": "The Machine",
+        "release_date": "2023-05-25",
+        "poster_path": "/x9dGI7LIOMMlFzyIBUta1svft2Y.jpg",
+        "overview": "Bert Kreischer faces a familial crisis and the arrival of his estranged father when the ghost of his booze-soaked past arrives: a murderous mobster hellbent on kidnapping Bert back to the motherland to atone for his crimes. Together, he and his father must retrace the steps of his younger self in the midst of a war between a sociopathic crime family while they attempt to find common ground."
+      },
+      "media": {
+        "name": "The.Machine.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Comedy/The Machine (2023)/The.Machine.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 766248306
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Comedy/The Man from Toronto (2022)",
+      "rel_path": "Comedy/The Man from Toronto (2022)",
+      "name": "The Man from Toronto (2022)",
+      "type": "directory",
+      "group_label": [
+        "Comedy"
+      ],
+      "group_path": "Comedy",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Comedy/The Man from Toronto (2022)/The.Man.from.Toronto.2022.720p.NF.WEB-DL.x264.850MB-Pahe.in.mkv",
+          "rel_path": "Comedy/The Man from Toronto (2022)/The.Man.from.Toronto.2022.720p.NF.WEB-DL.x264.850MB-Pahe.in.mkv",
+          "name": "The.Man.from.Toronto.2022.720p.NF.WEB-DL.x264.850MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 891239142,
+          "mod_time": "2023-07-28T08:09:04+07:00",
+          "group_label": [
+            "Comedy",
+            "The Man from Toronto (2022)"
+          ],
+          "group_path": "Comedy/The Man from Toronto (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "The Man from Toronto"
+      },
+      "displayName": "The Man from Toronto (2022)",
+      "slug": "the-man-from-toronto-2022",
+      "enriched": {
+        "matched_title": "The Man from Toronto",
+        "original_title": "The Man from Toronto",
+        "release_date": "2022-12-23",
+        "poster_path": "/uTCfTibqtk4f90cC59bLPMOmsfc.jpg",
+        "overview": "In a case of mistaken identity, the world’s deadliest assassin, known as the Man from Toronto, and a New York City screw-up are forced to team up after being confused for each other at a rental cabin."
+      },
+      "media": {
+        "name": "The.Man.from.Toronto.2022.720p.NF.WEB-DL.x264.850MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Comedy/The Man from Toronto (2022)/The.Man.from.Toronto.2022.720p.NF.WEB-DL.x264.850MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 891239142
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Are You There God. It's Me, Margaret. (2023)",
+      "rel_path": "Drama/Are You There God. It's Me, Margaret. (2023)",
+      "name": "Are You There God. It's Me, Margaret. (2023)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Are You There God. It's Me, Margaret. (2023)/Are.You.There.God.Its.Me.Margaret.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Drama/Are You There God. It's Me, Margaret. (2023)/Are.You.There.God.Its.Me.Margaret.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Are.You.There.God.Its.Me.Margaret.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 701994802,
+          "mod_time": "2023-07-21T13:39:32+07:00",
+          "group_label": [
+            "Drama",
+            "Are You There God. It's Me, Margaret. (2023)"
+          ],
+          "group_path": "Drama/Are You There God. It's Me, Margaret. (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Are You There God. It's Me, Margaret."
+      },
+      "displayName": "Are You There God. It's Me, Margaret. (2023)",
+      "slug": "are-you-there-god-its-me-margaret-2023",
+      "enriched": {
+        "matched_title": "Are You There God? It's Me, Margaret.",
+        "original_title": "Are You There God? It's Me, Margaret.",
+        "release_date": "2023-03-29",
+        "poster_path": "/yb6UB4WC3znlwU0L4AqMnjR9G9S.jpg",
+        "overview": "When her family moves from New York City to New Jersey, an 11-year-old girl navigates new friends, feelings, and the beginning of adolescence."
+      },
+      "media": {
+        "name": "Are.You.There.God.Its.Me.Margaret.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Are You There God. It's Me, Margaret. (2023)/Are.You.There.God.Its.Me.Margaret.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 701994802
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/BlackBerry (2023)",
+      "rel_path": "Drama/BlackBerry (2023)",
+      "name": "BlackBerry (2023)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/BlackBerry (2023)/BlackBerry.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Drama/BlackBerry (2023)/BlackBerry.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "BlackBerry.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 694640992,
+          "mod_time": "2023-08-14T12:46:58+07:00",
+          "group_label": [
+            "Drama",
+            "BlackBerry (2023)"
+          ],
+          "group_path": "Drama/BlackBerry (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "BlackBerry"
+      },
+      "displayName": "BlackBerry (2023)",
+      "slug": "blackberry-2023",
+      "enriched": {
+        "matched_title": "BlackBerry",
+        "original_title": "BlackBerry",
+        "release_date": "2023-02-13",
+        "poster_path": "/ePWKQzOnwabMcJsWYWIiy5p1Ofr.jpg",
+        "overview": "Two mismatched entrepreneurs – egghead innovator Mike Lazaridis and cut-throat businessman Jim Balsillie – joined forces in an endeavour that was to become a worldwide hit in little more than a decade. The story of the meteoric rise and catastrophic demise of the world's first smartphone."
+      },
+      "media": {
+        "name": "BlackBerry.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/BlackBerry (2023)/BlackBerry.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 694640992
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Boston Strangler (2023)",
+      "rel_path": "Drama/Boston Strangler (2023)",
+      "name": "Boston Strangler (2023)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Boston Strangler (2023)/Boston.Strangler.2023.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Drama/Boston Strangler (2023)/Boston.Strangler.2023.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "name": "Boston.Strangler.2023.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 507047249,
+          "mod_time": "2023-08-03T23:55:48+07:00",
+          "group_label": [
+            "Drama",
+            "Boston Strangler (2023)"
+          ],
+          "group_path": "Drama/Boston Strangler (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Boston Strangler"
+      },
+      "displayName": "Boston Strangler (2023)",
+      "slug": "boston-strangler-2023",
+      "enriched": {
+        "matched_title": "Boston Strangler",
+        "original_title": "Boston Strangler",
+        "release_date": "2023-03-16",
+        "poster_path": "/oZJfw78ZyPmgNJ0YJ8070nKEF4Y.jpg",
+        "overview": "Reporters Loretta McLaughlin and Jean Cole bravely pursue the story of the Boston Strangler at great personal risk, putting their own lives on the line in their quest to uncover the truth."
+      },
+      "media": {
+        "name": "Boston.Strangler.2023.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Boston Strangler (2023)/Boston.Strangler.2023.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 507047249
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Dear Zoe (2022)",
+      "rel_path": "Drama/Dear Zoe (2022)",
+      "name": "Dear Zoe (2022)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Dear Zoe (2022)/Dear.Zoe.2022.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Drama/Dear Zoe (2022)/Dear.Zoe.2022.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "name": "Dear.Zoe.2022.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 609710217,
+          "mod_time": "2023-07-28T00:39:14+07:00",
+          "group_label": [
+            "Drama",
+            "Dear Zoe (2022)"
+          ],
+          "group_path": "Drama/Dear Zoe (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "Dear Zoe"
+      },
+      "displayName": "Dear Zoe (2022)",
+      "slug": "dear-zoe-2022",
+      "enriched": {
+        "matched_title": "Dear Zoe",
+        "original_title": "Dear Zoe",
+        "release_date": "2022-11-04",
+        "poster_path": "/rqAhYRbOjgPSVzxKYXV9t6gm5fi.jpg",
+        "overview": "Tess enlists her biological father – a lovable slacker from the wrong side of the tracks – and the charming juvenile delinquent next door to help her come to grips with the death of her little sister."
+      },
+      "media": {
+        "name": "Dear.Zoe.2022.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Dear Zoe (2022)/Dear.Zoe.2022.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 609710217
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Dream (2023)",
+      "rel_path": "Drama/Dream (2023)",
+      "name": "Dream (2023)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Dream (2023)/Dream.2023.720p.WEB-DL.x265-Pahe.in.mkv",
+          "rel_path": "Drama/Dream (2023)/Dream.2023.720p.WEB-DL.x265-Pahe.in.mkv",
+          "name": "Dream.2023.720p.WEB-DL.x265-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 880931538,
+          "mod_time": "2023-07-30T14:17:44+07:00",
+          "group_label": [
+            "Drama",
+            "Dream (2023)"
+          ],
+          "group_path": "Drama/Dream (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Dream"
+      },
+      "displayName": "Dream (2023)",
+      "slug": "dream-2023",
+      "enriched": {
+        "matched_title": "Dream",
+        "original_title": "드림",
+        "release_date": "2023-04-26",
+        "poster_path": "/11sqMYQRbfafStAoa2JpXDJWrF6.jpg",
+        "overview": "With hard work and dedication on lock, a group of homeless men trains to compete in a global tournament — despite a cranky coach."
+      },
+      "media": {
+        "name": "Dream.2023.720p.WEB-DL.x265-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Dream (2023)/Dream.2023.720p.WEB-DL.x265-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 880931538
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Father Stu (2022)",
+      "rel_path": "Drama/Father Stu (2022)",
+      "name": "Father Stu (2022)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Father Stu (2022)/Father.Stu.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Drama/Father Stu (2022)/Father.Stu.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Father.Stu.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 648478909,
+          "mod_time": "2023-07-28T08:09:10+07:00",
+          "group_label": [
+            "Drama",
+            "Father Stu (2022)"
+          ],
+          "group_path": "Drama/Father Stu (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "Father Stu"
+      },
+      "displayName": "Father Stu (2022)",
+      "slug": "father-stu-2022",
+      "enriched": {
+        "matched_title": "Father Stu",
+        "original_title": "Father Stu",
+        "release_date": "2022-04-13",
+        "poster_path": "/pLAeWgqXbTeJ2gQtNvRmdIncYsk.jpg",
+        "overview": "The true-life story of boxer-turned-priest. When an injury ends his amateur boxing career, Stuart Long moves to Los Angeles to find money and fame. While scraping by as a supermarket clerk, he meets Carmen, a Sunday school teacher who seems immune to his bad-boy charm. Determined to win her over, the longtime agnostic starts going to church to impress her. However, a motorcycle accident leaves him wondering if he can use his second chance to help others, leading to the surprising realization that he's meant to be a Catholic priest."
+      },
+      "media": {
+        "name": "Father.Stu.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Father Stu (2022)/Father.Stu.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 648478909
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Guy Ritchie's The Covenant (2023)",
+      "rel_path": "Drama/Guy Ritchie's The Covenant (2023)",
+      "name": "Guy Ritchie's The Covenant (2023)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Guy Ritchie's The Covenant (2023)/Guy.Ritchies.The.Covenant.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Drama/Guy Ritchie's The Covenant (2023)/Guy.Ritchies.The.Covenant.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Guy.Ritchies.The.Covenant.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 814102740,
+          "mod_time": "2023-07-25T08:39:48+07:00",
+          "group_label": [
+            "Drama",
+            "Guy Ritchie's The Covenant (2023)"
+          ],
+          "group_path": "Drama/Guy Ritchie's The Covenant (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Guy Ritchie's The Covenant"
+      },
+      "displayName": "Guy Ritchie's The Covenant (2023)",
+      "slug": "guy-ritchies-the-covenant-2023",
+      "enriched": {
+        "matched_title": "Guy Ritchie's The Covenant",
+        "original_title": "Guy Ritchie's The Covenant",
+        "release_date": "2023-04-19",
+        "poster_path": "/kVG8zFFYrpyYLoHChuEeOGAd6Ru.jpg",
+        "overview": "During the war in Afghanistan, a local interpreter risks his own life to carry an injured sergeant across miles of grueling terrain."
+      },
+      "media": {
+        "name": "Guy.Ritchies.The.Covenant.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Guy Ritchie's The Covenant (2023)/Guy.Ritchies.The.Covenant.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 814102740
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/How Green Was My Valley (1941)",
+      "rel_path": "Drama/How Green Was My Valley (1941)",
+      "name": "How Green Was My Valley (1941)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/How Green Was My Valley (1941)/How.Green.Was.My.Valley.1941.720p.BluRay.x264.950MB-Pahe.in.mkv",
+          "rel_path": "Drama/How Green Was My Valley (1941)/How.Green.Was.My.Valley.1941.720p.BluRay.x264.950MB-Pahe.in.mkv",
+          "name": "How.Green.Was.My.Valley.1941.720p.BluRay.x264.950MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 997074892,
+          "mod_time": "2023-07-25T22:34:24+07:00",
+          "group_label": [
+            "Drama",
+            "How Green Was My Valley (1941)"
+          ],
+          "group_path": "Drama/How Green Was My Valley (1941)"
+        }
+      ],
+      "metadata": {
+        "year": "1941",
+        "title": "How Green Was My Valley"
+      },
+      "displayName": "How Green Was My Valley (1941)",
+      "slug": "how-green-was-my-valley-1941",
+      "enriched": {
+        "matched_title": "How Green Was My Valley",
+        "original_title": "How Green Was My Valley",
+        "release_date": "1941-10-28",
+        "poster_path": "/8N7OmxBqjRVUrqergUduGgr6exy.jpg",
+        "overview": "A man in his fifties reminisces about his childhood growing up in a Welsh mining village at the turn of the 20th century."
+      },
+      "media": {
+        "name": "How.Green.Was.My.Valley.1941.720p.BluRay.x264.950MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/How Green Was My Valley (1941)/How.Green.Was.My.Valley.1941.720p.BluRay.x264.950MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 997074892
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Lamborghini - The Man Behind the Legend (2022)",
+      "rel_path": "Drama/Lamborghini - The Man Behind the Legend (2022)",
+      "name": "Lamborghini - The Man Behind the Legend (2022)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Lamborghini - The Man Behind the Legend (2022)/Lamborghini.The.Man.Behind.the.Legend.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Drama/Lamborghini - The Man Behind the Legend (2022)/Lamborghini.The.Man.Behind.the.Legend.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Lamborghini.The.Man.Behind.the.Legend.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 608506985,
+          "mod_time": "2023-08-13T09:10:46+07:00",
+          "group_label": [
+            "Drama",
+            "Lamborghini - The Man Behind the Legend (2022)"
+          ],
+          "group_path": "Drama/Lamborghini - The Man Behind the Legend (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "Lamborghini - The Man Behind the Legend"
+      },
+      "displayName": "Lamborghini - The Man Behind the Legend (2022)",
+      "slug": "lamborghini-the-man-behind-the-legend-2022",
+      "enriched": {
+        "matched_title": "Lamborghini: The Man Behind the Legend",
+        "original_title": "Lamborghini: The Man Behind the Legend",
+        "release_date": "2022-11-17",
+        "poster_path": "/RKgnYLhCNGCUkrhiCRrs40rEHe.jpg",
+        "overview": "Follow the launch of Lamborghini’s career as a manufacturer of tractors, a creator of military vehicles during World War II, and the designer of Lamborghini cars, which he launched in 1963 as the high-end sports car company Automobili Lamborghini."
+      },
+      "media": {
+        "name": "Lamborghini.The.Man.Behind.the.Legend.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Lamborghini - The Man Behind the Legend (2022)/Lamborghini.The.Man.Behind.the.Legend.2022.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 608506985
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Medicine Man (1992)",
+      "rel_path": "Drama/Medicine Man (1992)",
+      "name": "Medicine Man (1992)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Medicine Man (1992)/Medicine.Man.1992.720p.BluRay.x264.900MB-Pahe.in.mkv",
+          "rel_path": "Drama/Medicine Man (1992)/Medicine.Man.1992.720p.BluRay.x264.900MB-Pahe.in.mkv",
+          "name": "Medicine.Man.1992.720p.BluRay.x264.900MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 943937308,
+          "mod_time": "2023-07-26T00:19:16+07:00",
+          "group_label": [
+            "Drama",
+            "Medicine Man (1992)"
+          ],
+          "group_path": "Drama/Medicine Man (1992)"
+        }
+      ],
+      "metadata": {
+        "year": "1992",
+        "title": "Medicine Man"
+      },
+      "displayName": "Medicine Man (1992)",
+      "slug": "medicine-man-1992",
+      "enriched": {
+        "matched_title": "Medicine Man",
+        "original_title": "Medicine Man",
+        "release_date": "1992-02-07",
+        "poster_path": "/lkHqtViTG4Zzh7i9rrtHJGTnEUg.jpg",
+        "overview": "An eccentric scientist in the Amazon jungle rejects his research assistant for being a woman, but as bulldozers threaten their work on a potential cancer cure, they learn to collaborate and begin to fall in love."
+      },
+      "media": {
+        "name": "Medicine.Man.1992.720p.BluRay.x264.900MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Medicine Man (1992)/Medicine.Man.1992.720p.BluRay.x264.900MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 943937308
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Penguin Bloom (2020)",
+      "rel_path": "Drama/Penguin Bloom (2020)",
+      "name": "Penguin Bloom (2020)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Penguin Bloom (2020)/Penguin.Bloom.2020.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Drama/Penguin Bloom (2020)/Penguin.Bloom.2020.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+          "name": "Penguin.Bloom.2020.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 522647948,
+          "mod_time": "2023-07-31T00:38:32+07:00",
+          "group_label": [
+            "Drama",
+            "Penguin Bloom (2020)"
+          ],
+          "group_path": "Drama/Penguin Bloom (2020)"
+        }
+      ],
+      "metadata": {
+        "year": "2020",
+        "title": "Penguin Bloom"
+      },
+      "displayName": "Penguin Bloom (2020)",
+      "slug": "penguin-bloom-2020",
+      "enriched": {
+        "matched_title": "Penguin Bloom",
+        "original_title": "Penguin Bloom",
+        "release_date": "2021-01-21",
+        "poster_path": "/iUn7594Rwfstu5njA8hf9WQIcFi.jpg",
+        "overview": "When an unlikely ally enters the Bloom family's world in the form of an injured baby magpie they name Penguin, the bird’s arrival makes a profound difference in the struggling family’s life."
+      },
+      "media": {
+        "name": "Penguin.Bloom.2020.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Penguin Bloom (2020)/Penguin.Bloom.2020.720p.Bluray.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 522647948
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/The Souvenir (2019)",
+      "rel_path": "Drama/The Souvenir (2019)",
+      "name": "The Souvenir (2019)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/The Souvenir (2019)/The.Souvenir.2019.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+          "rel_path": "Drama/The Souvenir (2019)/The.Souvenir.2019.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+          "name": "The.Souvenir.2019.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 687190238,
+          "mod_time": "2019-08-31T10:28:06+07:00",
+          "group_label": [
+            "Drama",
+            "The Souvenir (2019)"
+          ],
+          "group_path": "Drama/The Souvenir (2019)"
+        }
+      ],
+      "metadata": {
+        "year": "2019",
+        "title": "The Souvenir"
+      },
+      "displayName": "The Souvenir (2019)",
+      "slug": "the-souvenir-2019",
+      "enriched": {
+        "matched_title": "The Souvenir",
+        "original_title": "The Souvenir",
+        "release_date": "2019-05-17",
+        "poster_path": "/2Nj04HsZ0lNkv07JnfBZ0bAIECn.jpg",
+        "overview": "A shy but ambitious film student falls into an intense, emotionally fraught relationship with a charismatic but untrustworthy older man."
+      },
+      "media": {
+        "name": "The.Souvenir.2019.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/The Souvenir (2019)/The.Souvenir.2019.720p.BluRay.X265.HEVC-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 687190238
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/The Souvenir Part II (2021)",
+      "rel_path": "Drama/The Souvenir Part II (2021)",
+      "name": "The Souvenir Part II (2021)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/The Souvenir Part II (2021)/The.Souvenir.Part.II.2021.720p.Bluray.x265-Pahe.in.mkv",
+          "rel_path": "Drama/The Souvenir Part II (2021)/The.Souvenir.Part.II.2021.720p.Bluray.x265-Pahe.in.mkv",
+          "name": "The.Souvenir.Part.II.2021.720p.Bluray.x265-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 633292197,
+          "mod_time": "2023-07-25T08:49:42+07:00",
+          "group_label": [
+            "Drama",
+            "The Souvenir Part II (2021)"
+          ],
+          "group_path": "Drama/The Souvenir Part II (2021)"
+        }
+      ],
+      "metadata": {
+        "year": "2021",
+        "title": "The Souvenir Part II"
+      },
+      "displayName": "The Souvenir Part II (2021)",
+      "slug": "the-souvenir-part-ii-2021",
+      "enriched": {
+        "matched_title": "The Souvenir: Part II",
+        "original_title": "The Souvenir: Part II",
+        "release_date": "2021-10-11",
+        "poster_path": "/fYNvmZ1vW7bNcUhrAzYjUBgKJWP.jpg",
+        "overview": "In the aftermath of her tumultuous relationship with a charismatic and manipulative older man, Julie begins to untangle her fraught love for him in making her graduation film, sorting fact from his elaborately constructed fiction."
+      },
+      "media": {
+        "name": "The.Souvenir.Part.II.2021.720p.Bluray.x265-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/The Souvenir Part II (2021)/The.Souvenir.Part.II.2021.720p.Bluray.x265-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 633292197
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/The Village (2023)",
+      "rel_path": "Drama/The Village (2023)",
+      "name": "The Village (2023)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/The Village (2023)/The.Village.2023.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Drama/The Village (2023)/The.Village.2023.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "name": "The.Village.2023.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 742709710,
+          "mod_time": "2023-07-31T21:48:08+07:00",
+          "group_label": [
+            "Drama",
+            "The Village (2023)"
+          ],
+          "group_path": "Drama/The Village (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "The Village"
+      },
+      "displayName": "The Village (2023)",
+      "slug": "the-village-2023",
+      "enriched": {
+        "matched_title": "The Village",
+        "original_title": "ヴィレッジ",
+        "release_date": "2023-04-21",
+        "poster_path": "/yjKndwGXoJsep0ZYWLm3g9vzZJR.jpg",
+        "overview": "In a once-scenic village now dominated by a vast trash disposal site, a young man yearns to break free from a cruel fate tying him to the very grounds."
+      },
+      "media": {
+        "name": "The.Village.2023.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/The Village (2023)/The.Village.2023.720p.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 742709710
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Threesome (1994)",
+      "rel_path": "Drama/Threesome (1994)",
+      "name": "Threesome (1994)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Threesome (1994)/Threesome.1994.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+          "rel_path": "Drama/Threesome (1994)/Threesome.1994.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+          "name": "Threesome.1994.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 786821839,
+          "mod_time": "2023-08-03T19:04:28+07:00",
+          "group_label": [
+            "Drama",
+            "Threesome (1994)"
+          ],
+          "group_path": "Drama/Threesome (1994)"
+        }
+      ],
+      "metadata": {
+        "year": "1994",
+        "title": "Threesome"
+      },
+      "displayName": "Threesome (1994)",
+      "slug": "threesome-1994",
+      "enriched": {
+        "matched_title": "Threesome",
+        "original_title": "Threesome",
+        "release_date": "1994-04-08",
+        "poster_path": "/vR6qwjChOV4Z9940VA9chucNpne.jpg",
+        "overview": "At a sizable public college, high-minded student Eddy is forced to room with the slovenly Stuart, but the pair strike up a surprising friendship. When attractive co-ed Alex is assigned to live with the two male students because of her gender-neutral name, a roundabout love triangle ensues. Eddy secretly yearns for Stuart, who wants Alex, but she prefers Eddy. The complex situation leads to sexual experimentation and strained relationships."
+      },
+      "media": {
+        "name": "Threesome.1994.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Threesome (1994)/Threesome.1994.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 786821839
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Drama/Tora! Tora! Tora! (1970)",
+      "rel_path": "Drama/Tora! Tora! Tora! (1970)",
+      "name": "Tora! Tora! Tora! (1970)",
+      "type": "directory",
+      "group_label": [
+        "Drama"
+      ],
+      "group_path": "Drama",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Drama/Tora! Tora! Tora! (1970)/Tora.Tora.Tora.1970.720p.BluRay x264-Pahe.in.mkv",
+          "rel_path": "Drama/Tora! Tora! Tora! (1970)/Tora.Tora.Tora.1970.720p.BluRay x264-Pahe.in.mkv",
+          "name": "Tora.Tora.Tora.1970.720p.BluRay x264-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 1361452936,
+          "mod_time": "2023-07-27T09:29:52+07:00",
+          "group_label": [
+            "Drama",
+            "Tora! Tora! Tora! (1970)"
+          ],
+          "group_path": "Drama/Tora! Tora! Tora! (1970)"
+        }
+      ],
+      "metadata": {
+        "year": "1970",
+        "title": "Tora! Tora! Tora!"
+      },
+      "displayName": "Tora! Tora! Tora! (1970)",
+      "slug": "tora-tora-tora-1970",
+      "enriched": {
+        "matched_title": "Tora! Tora! Tora!",
+        "original_title": "Tora! Tora! Tora!",
+        "release_date": "1970-01-26",
+        "poster_path": "/c311sN931DixuZRer0JGYCwpx9N.jpg",
+        "overview": "In the summer of 1941, the United States and Japan seem on the brink of war after constant embargos and failed diplomacy come to no end. \"Tora! Tora! Tora!\", named after the code words used by the lead Japanese pilot to indicate they had surprised the Americans, covers the days leading up to the attack on Pearl Harbor, which plunged America into the Second World War."
+      },
+      "media": {
+        "name": "Tora.Tora.Tora.1970.720p.BluRay x264-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Drama/Tora! Tora! Tora! (1970)/Tora.Tora.Tora.1970.720p.BluRay x264-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 1361452936
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Mystery/Lady in White (1988)",
+      "rel_path": "Mystery/Lady in White (1988)",
+      "name": "Lady in White (1988)",
+      "type": "directory",
+      "group_label": [
+        "Mystery"
+      ],
+      "group_path": "Mystery",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Mystery/Lady in White (1988)/Lady.in.White.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Mystery/Lady in White (1988)/Lady.in.White.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Lady.in.White.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 797640932,
+          "mod_time": "2024-07-17T05:55:48+07:00",
+          "group_label": [
+            "Mystery",
+            "Lady in White (1988)"
+          ],
+          "group_path": "Mystery/Lady in White (1988)"
+        }
+      ],
+      "metadata": {
+        "year": "1988",
+        "title": "Lady in White"
+      },
+      "displayName": "Lady in White (1988)",
+      "slug": "lady-in-white-1988",
+      "enriched": {
+        "matched_title": "Lady in White",
+        "original_title": "Lady in White",
+        "release_date": "1988-04-22",
+        "poster_path": "/AevfLQ5c0ZGtO3clHawg9L2XAQ2.jpg",
+        "overview": "Locked in a school closet during Halloween 1962, young Frank witnesses the ghost of a young girl and the man who murdered her years ago. Shortly afterward he finds himself stalked by the killer and is soon drawn to an old house where a mysterious Lady In White lives. As he discovers the secret of the woman he soon finds that the killer may be someone close to him."
+      },
+      "media": {
+        "name": "Lady.in.White.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Mystery/Lady in White (1988)/Lady.in.White.1988.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 797640932
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Mystery/The Trouble with Harry (1955)",
+      "rel_path": "Mystery/The Trouble with Harry (1955)",
+      "name": "The Trouble with Harry (1955)",
+      "type": "directory",
+      "group_label": [
+        "Mystery"
+      ],
+      "group_path": "Mystery",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Mystery/The Trouble with Harry (1955)/The.Trouble.With.Harry.1955.720p.BluRay.x264.850MB-Pahe.in.mkv",
+          "rel_path": "Mystery/The Trouble with Harry (1955)/The.Trouble.With.Harry.1955.720p.BluRay.x264.850MB-Pahe.in.mkv",
+          "name": "The.Trouble.With.Harry.1955.720p.BluRay.x264.850MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 891674065,
+          "mod_time": "2023-08-06T01:07:20+07:00",
+          "group_label": [
+            "Mystery",
+            "The Trouble with Harry (1955)"
+          ],
+          "group_path": "Mystery/The Trouble with Harry (1955)"
+        }
+      ],
+      "metadata": {
+        "year": "1955",
+        "title": "The Trouble with Harry"
+      },
+      "displayName": "The Trouble with Harry (1955)",
+      "slug": "the-trouble-with-harry-1955",
+      "enriched": {
+        "matched_title": "The Trouble with Harry",
+        "original_title": "The Trouble with Harry",
+        "release_date": "1955-10-03",
+        "poster_path": "/uUXLq7fEG3hI46ZFMZzgHj11S6S.jpg",
+        "overview": "When a local man's corpse appears on a nearby hillside, no one is quite sure what happened to him. Many of the town's residents secretly wonder if they are responsible, including the man's ex-wife, Jennifer, and Capt. Albert Wiles, a retired seaman who was hunting in the woods where the body was found. As the no-nonsense sheriff gets involved and local artist Sam Marlowe offers his help, the community slowly unravels the mystery."
+      },
+      "media": {
+        "name": "The.Trouble.With.Harry.1955.720p.BluRay.x264.850MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Mystery/The Trouble with Harry (1955)/The.Trouble.With.Harry.1955.720p.BluRay.x264.850MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 891674065
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Mystery/They Cloned Tyrone (2023)",
+      "rel_path": "Mystery/They Cloned Tyrone (2023)",
+      "name": "They Cloned Tyrone (2023)",
+      "type": "directory",
+      "group_label": [
+        "Mystery"
+      ],
+      "group_path": "Mystery",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Mystery/They Cloned Tyrone (2023)/They.Cloned.Tyrone.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Mystery/They Cloned Tyrone (2023)/They.Cloned.Tyrone.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "name": "They.Cloned.Tyrone.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 733429353,
+          "mod_time": "2023-07-25T10:26:38+07:00",
+          "group_label": [
+            "Mystery",
+            "They Cloned Tyrone (2023)"
+          ],
+          "group_path": "Mystery/They Cloned Tyrone (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "They Cloned Tyrone"
+      },
+      "displayName": "They Cloned Tyrone (2023)",
+      "slug": "they-cloned-tyrone-2023",
+      "enriched": {
+        "matched_title": "They Cloned Tyrone",
+        "original_title": "They Cloned Tyrone",
+        "release_date": "2023-06-14",
+        "poster_path": "/hnzXoDaK346U4ByfvQenu2DZnTg.jpg",
+        "overview": "A series of eerie events thrusts an unlikely trio onto the trail of a nefarious government conspiracy lurking directly beneath their neighborhood."
+      },
+      "media": {
+        "name": "They.Cloned.Tyrone.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Mystery/They Cloned Tyrone (2023)/They.Cloned.Tyrone.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 733429353
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/After (2019)",
+      "rel_path": "Romance/After (2019)",
+      "name": "After (2019)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/After (2019)/After.2019.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+          "rel_path": "Romance/After (2019)/After.2019.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+          "name": "After.2019.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 644020821,
+          "mod_time": "2020-12-17T16:07:08+07:00",
+          "group_label": [
+            "Romance",
+            "After (2019)"
+          ],
+          "group_path": "Romance/After (2019)"
+        }
+      ],
+      "metadata": {
+        "year": "2019",
+        "title": "After"
+      },
+      "displayName": "After (2019)",
+      "slug": "after-2019",
+      "enriched": {
+        "matched_title": "After",
+        "original_title": "After",
+        "release_date": "2019-04-11",
+        "poster_path": "/u3B2YKUjWABcxXZ6Nm9h10hLUbh.jpg",
+        "overview": "Tessa Young is a dedicated student, dutiful daughter and loyal girlfriend to her high school sweetheart. Entering her first semester of college, Tessa's guarded world opens up when she meets Hardin Scott, a mysterious and brooding rebel who makes her question all she thought she knew about herself -- and what she wants out of life."
+      },
+      "media": {
+        "name": "After.2019.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/After (2019)/After.2019.720p.BluRay.x265.HEVC-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 644020821
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/After Ever Happy (2022)",
+      "rel_path": "Romance/After Ever Happy (2022)",
+      "name": "After Ever Happy (2022)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/After Ever Happy (2022)/After.Ever.Happy.2022.720p.BluRay.x264.750MB-Pahe.in.mkv",
+          "rel_path": "Romance/After Ever Happy (2022)/After.Ever.Happy.2022.720p.BluRay.x264.750MB-Pahe.in.mkv",
+          "name": "After.Ever.Happy.2022.720p.BluRay.x264.750MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 786172450,
+          "mod_time": "2023-07-28T00:22:12+07:00",
+          "group_label": [
+            "Romance",
+            "After Ever Happy (2022)"
+          ],
+          "group_path": "Romance/After Ever Happy (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "After Ever Happy"
+      },
+      "displayName": "After Ever Happy (2022)",
+      "slug": "after-ever-happy-2022",
+      "enriched": {
+        "matched_title": "After Ever Happy",
+        "original_title": "After Ever Happy",
+        "release_date": "2022-08-24",
+        "poster_path": "/moogpu8rNkEjTgFyLXwhPghft5w.jpg",
+        "overview": "As a shocking truth about a couple's families emerges, the two lovers discover they are not so different from each other. Tessa is no longer the sweet, simple, good girl she was when she met Hardin — any more than he is the cruel, moody boy she fell so hard for."
+      },
+      "media": {
+        "name": "After.Ever.Happy.2022.720p.BluRay.x264.750MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/After Ever Happy (2022)/After.Ever.Happy.2022.720p.BluRay.x264.750MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 786172450
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/After We Collided (2020)",
+      "rel_path": "Romance/After We Collided (2020)",
+      "name": "After We Collided (2020)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/After We Collided (2020)/After.We.Collided.2020.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Romance/After We Collided (2020)/After.We.Collided.2020.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "After.We.Collided.2020.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 590902091,
+          "mod_time": "2020-12-17T15:17:22+07:00",
+          "group_label": [
+            "Romance",
+            "After We Collided (2020)"
+          ],
+          "group_path": "Romance/After We Collided (2020)"
+        }
+      ],
+      "metadata": {
+        "year": "2020",
+        "title": "After We Collided"
+      },
+      "displayName": "After We Collided (2020)",
+      "slug": "after-we-collided-2020",
+      "enriched": {
+        "matched_title": "After We Collided",
+        "original_title": "After We Collided",
+        "release_date": "2020-09-02",
+        "poster_path": "/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
+        "overview": "Tessa finds herself struggling with her complicated relationship with Hardin; she faces a dilemma that could change their lives forever."
+      },
+      "media": {
+        "name": "After.We.Collided.2020.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/After We Collided (2020)/After.We.Collided.2020.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 590902091
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/After We Fell (2022)",
+      "rel_path": "Romance/After We Fell (2022)",
+      "name": "After We Fell (2022)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/After We Fell (2022)/After.We.Fell.2021.720p.WEB-HD.x264.700MB-Pahe.in.mkv",
+          "rel_path": "Romance/After We Fell (2022)/After.We.Fell.2021.720p.WEB-HD.x264.700MB-Pahe.in.mkv",
+          "name": "After.We.Fell.2021.720p.WEB-HD.x264.700MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 733656031,
+          "mod_time": "2023-07-28T00:51:36+07:00",
+          "group_label": [
+            "Romance",
+            "After We Fell (2022)"
+          ],
+          "group_path": "Romance/After We Fell (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "After We Fell"
+      },
+      "displayName": "After We Fell (2022)",
+      "slug": "after-we-fell-2022",
+      "enriched": {
+        "matched_title": "After We Fell",
+        "original_title": "After We Fell",
+        "release_date": "2021-09-01",
+        "poster_path": "/dU4HfnTEJDf9KvxGS9hgO7BVeju.jpg",
+        "overview": "Just as Tessa's life begins to become unglued, nothing is what she thought it would be. Not her friends nor her family. The only person that she should be able to rely on is Hardin, who is furious when he discovers the massive secret that she's been keeping. Before Tessa makes the biggest decision of her life, everything changes because of revelations about her family."
+      },
+      "media": {
+        "name": "After.We.Fell.2021.720p.WEB-HD.x264.700MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/After We Fell (2022)/After.We.Fell.2021.720p.WEB-HD.x264.700MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 733656031
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/Can You Keep a Secret (2019)",
+      "rel_path": "Romance/Can You Keep a Secret (2019)",
+      "name": "Can You Keep a Secret (2019)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/Can You Keep a Secret (2019)/Can.You.Keep.a.Secret.2019.720p.BluRay.x264.700MB-Pahe.in.mkv",
+          "rel_path": "Romance/Can You Keep a Secret (2019)/Can.You.Keep.a.Secret.2019.720p.BluRay.x264.700MB-Pahe.in.mkv",
+          "name": "Can.You.Keep.a.Secret.2019.720p.BluRay.x264.700MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 733523247,
+          "mod_time": "2023-11-10T18:52:04+07:00",
+          "group_label": [
+            "Romance",
+            "Can You Keep a Secret (2019)"
+          ],
+          "group_path": "Romance/Can You Keep a Secret (2019)"
+        },
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/Can You Keep a Secret (2019)/Can.You.Keep.a.Secret.2019.720p.BluRay.x264.700MB-Pahe.in.srt",
+          "rel_path": "Romance/Can You Keep a Secret (2019)/Can.You.Keep.a.Secret.2019.720p.BluRay.x264.700MB-Pahe.in.srt",
+          "name": "Can.You.Keep.a.Secret.2019.720p.BluRay.x264.700MB-Pahe.in.srt",
+          "type": "file",
+          "ext": ".srt",
+          "size": 149879,
+          "mod_time": "2020-08-28T12:42:36+07:00",
+          "group_label": [
+            "Romance",
+            "Can You Keep a Secret (2019)"
+          ],
+          "group_path": "Romance/Can You Keep a Secret (2019)"
+        }
+      ],
+      "metadata": {
+        "year": "2019",
+        "title": "Can You Keep a Secret"
+      },
+      "displayName": "Can You Keep a Secret (2019)",
+      "slug": "can-you-keep-a-secret-2019",
+      "enriched": {
+        "matched_title": "Can You Keep a Secret?",
+        "original_title": "Can You Keep a Secret?",
+        "release_date": "2019-09-13",
+        "poster_path": "/7QtCOlHESPEYtFANmd4yLqsYKZ4.jpg",
+        "overview": "Emma Corrigan, a girl with a few secrets, thinks she’s about to die on a turbulent plane ride. She spills them all to the handsome stranger sitting next to her. At least, she thought he was a stranger. But then, her company’s young and elusive CEO, arrives at the office. It’s him. And he knows every single humiliating detail about her."
+      },
+      "media": {
+        "name": "Can.You.Keep.a.Secret.2019.720p.BluRay.x264.700MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/Can You Keep a Secret (2019)/Can.You.Keep.a.Secret.2019.720p.BluRay.x264.700MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 733523247
+      },
+      "subtitles": {
+        "id": {
+          "name": "Can.You.Keep.a.Secret.2019.720p.BluRay.x264.700MB-Pahe.in.srt",
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/Can You Keep a Secret (2019)/Can.You.Keep.a.Secret.2019.720p.BluRay.x264.700MB-Pahe.in.srt",
+          "ext": ".srt"
+        }
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/Happiness for Beginners (2023)",
+      "rel_path": "Romance/Happiness for Beginners (2023)",
+      "name": "Happiness for Beginners (2023)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/Happiness for Beginners (2023)/Happiness.for.Beginners.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Romance/Happiness for Beginners (2023)/Happiness.for.Beginners.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "name": "Happiness.for.Beginners.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 613562006,
+          "mod_time": "2023-07-30T14:17:22+07:00",
+          "group_label": [
+            "Romance",
+            "Happiness for Beginners (2023)"
+          ],
+          "group_path": "Romance/Happiness for Beginners (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Happiness for Beginners"
+      },
+      "displayName": "Happiness for Beginners (2023)",
+      "slug": "happiness-for-beginners-2023",
+      "enriched": {
+        "matched_title": "Happiness for Beginners",
+        "original_title": "Happiness for Beginners",
+        "release_date": "2023-07-23",
+        "poster_path": "/rK4jb2t3J98IXjY9O3nc8bX9yqt.jpg",
+        "overview": "At a crossroads after her divorce, a schoolteacher ventures toward a fresh start in life — and love — when she signs up for a grueling group hiking trip."
+      },
+      "media": {
+        "name": "Happiness.for.Beginners.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/Happiness for Beginners (2023)/Happiness.for.Beginners.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 613562006
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/Jane Eyre (2011)",
+      "rel_path": "Romance/Jane Eyre (2011)",
+      "name": "Jane Eyre (2011)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/Jane Eyre (2011)/Jane Eyre 2011 720p BluRay x264 999MB-Pahe.in.mkv",
+          "rel_path": "Romance/Jane Eyre (2011)/Jane Eyre 2011 720p BluRay x264 999MB-Pahe.in.mkv",
+          "name": "Jane Eyre 2011 720p BluRay x264 999MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 1048298487,
+          "mod_time": "2023-07-30T23:39:20+07:00",
+          "group_label": [
+            "Romance",
+            "Jane Eyre (2011)"
+          ],
+          "group_path": "Romance/Jane Eyre (2011)"
+        }
+      ],
+      "metadata": {
+        "year": "2011",
+        "title": "Jane Eyre"
+      },
+      "displayName": "Jane Eyre (2011)",
+      "slug": "jane-eyre-2011",
+      "enriched": {
+        "matched_title": "Jane Eyre",
+        "original_title": "Jane Eyre",
+        "release_date": "2011-03-11",
+        "poster_path": "/3Cn7D0wEaxnvm8kTta1osNu3QJv.jpg",
+        "overview": "After a bleak childhood, Jane Eyre goes out into the world to become a governess. As she lives happily in her new position at Thornfield Hall, she meet the dark, cold, and abrupt master of the house, Mr. Rochester. Jane and her employer grow close in friendship and she soon finds herself falling in love with him. Happiness seems to have found Jane at last, but could Mr. Rochester's terrible secret be about to destroy it forever?"
+      },
+      "media": {
+        "name": "Jane Eyre 2011 720p BluRay x264 999MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/Jane Eyre (2011)/Jane Eyre 2011 720p BluRay x264 999MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 1048298487
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/Locked Down (2021)",
+      "rel_path": "Romance/Locked Down (2021)",
+      "name": "Locked Down (2021)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/Locked Down (2021)/Locked Down 2021 720p BluRay x265-Pahe.in.mkv",
+          "rel_path": "Romance/Locked Down (2021)/Locked Down 2021 720p BluRay x265-Pahe.in.mkv",
+          "name": "Locked Down 2021 720p BluRay x265-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 766778904,
+          "mod_time": "2023-07-23T08:49:52+07:00",
+          "group_label": [
+            "Romance",
+            "Locked Down (2021)"
+          ],
+          "group_path": "Romance/Locked Down (2021)"
+        }
+      ],
+      "metadata": {
+        "year": "2021",
+        "title": "Locked Down"
+      },
+      "displayName": "Locked Down (2021)",
+      "slug": "locked-down-2021",
+      "enriched": {
+        "matched_title": "Locked Down",
+        "original_title": "Locked Down",
+        "release_date": "2021-06-05",
+        "poster_path": "/9R53jupuxx3t5DymodS0ahHYzoi.jpg",
+        "overview": "Upon the announcement of another UK national lockdown, Flo and Rob find themselves stuck in their house in London. Meanwhile, Flo tries to maintain a brand-new relationship with Evelyn, who had to abruptly leave to her hometown in Mexico."
+      },
+      "media": {
+        "name": "Locked Down 2021 720p BluRay x265-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/Locked Down (2021)/Locked Down 2021 720p BluRay x265-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 766778904
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/Love Again (2023)",
+      "rel_path": "Romance/Love Again (2023)",
+      "name": "Love Again (2023)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/Love Again (2023)/Love.Again.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Romance/Love Again (2023)/Love.Again.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "name": "Love.Again.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 616875627,
+          "mod_time": "2023-08-10T06:03:50+07:00",
+          "group_label": [
+            "Romance",
+            "Love Again (2023)"
+          ],
+          "group_path": "Romance/Love Again (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Love Again"
+      },
+      "displayName": "Love Again (2023)",
+      "slug": "love-again-2023",
+      "enriched": {
+        "matched_title": "Love Again",
+        "original_title": "Love Again",
+        "release_date": "2023-05-04",
+        "poster_path": "/koswMk0y7jGcyofV1sBccnNtY0B.jpg",
+        "overview": "Mira Ray, dealing with the loss of her fiancé, John, sends a series of romantic texts to his old cell phone number… not realizing the number was reassigned to Rob Burns' new work phone. Rob, a journalist, is captivated by the honesty in the beautifully confessional texts. When he’s assigned to write a profile of megastar Céline Dion, he enlists her help in figuring out how to meet Mira in person and win her heart."
+      },
+      "media": {
+        "name": "Love.Again.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/Love Again (2023)/Love.Again.2023.720p.BluRay.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 616875627
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/My Policeman (2022)",
+      "rel_path": "Romance/My Policeman (2022)",
+      "name": "My Policeman (2022)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/My Policeman (2022)/My.Policeman.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Romance/My Policeman (2022)/My.Policeman.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "name": "My.Policeman.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 598378708,
+          "mod_time": "2023-07-28T00:39:04+07:00",
+          "group_label": [
+            "Romance",
+            "My Policeman (2022)"
+          ],
+          "group_path": "Romance/My Policeman (2022)"
+        }
+      ],
+      "metadata": {
+        "year": "2022",
+        "title": "My Policeman"
+      },
+      "displayName": "My Policeman (2022)",
+      "slug": "my-policeman-2022",
+      "enriched": {
+        "matched_title": "My Policeman",
+        "original_title": "My Policeman",
+        "release_date": "2022-10-20",
+        "poster_path": "/wdbiMjXd4CxPfCx4r4Jfy8cGec0.jpg",
+        "overview": "In the late 1990s, the arrival of elderly invalid Patrick into Marion and Tom’s home triggers the exploration of seismic events from 40 years previous: the passionate relationship between Tom and Patrick at a time when homosexuality was illegal."
+      },
+      "media": {
+        "name": "My.Policeman.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/My Policeman (2022)/My.Policeman.2022.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 598378708
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/New York Stories (1989)",
+      "rel_path": "Romance/New York Stories (1989)",
+      "name": "New York Stories (1989)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/New York Stories (1989)/New.York.Stories.aka.Life.Lesson.1989.720p.BluRay.x264.950MB-Pahe.in.mkv",
+          "rel_path": "Romance/New York Stories (1989)/New.York.Stories.aka.Life.Lesson.1989.720p.BluRay.x264.950MB-Pahe.in.mkv",
+          "name": "New.York.Stories.aka.Life.Lesson.1989.720p.BluRay.x264.950MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 996006960,
+          "mod_time": "2023-07-31T00:56:28+07:00",
+          "group_label": [
+            "Romance",
+            "New York Stories (1989)"
+          ],
+          "group_path": "Romance/New York Stories (1989)"
+        }
+      ],
+      "metadata": {
+        "year": "1989",
+        "title": "New York Stories"
+      },
+      "displayName": "New York Stories (1989)",
+      "slug": "new-york-stories-1989",
+      "enriched": {
+        "matched_title": "New York Stories",
+        "original_title": "New York Stories",
+        "release_date": "1989-03-10",
+        "poster_path": "/mViGEH5dfsAnUgJmce1RJkFycAi.jpg",
+        "overview": "Get ready for a wildly diverse, star-studded trilogy about life in the big city. One of the most-talked about films in years, New York Stories features the creative collaboration of three of America's most popular directors, Martin Scorsese, Francis Coppola, and Woody Allen."
+      },
+      "media": {
+        "name": "New.York.Stories.aka.Life.Lesson.1989.720p.BluRay.x264.950MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/New York Stories (1989)/New.York.Stories.aka.Life.Lesson.1989.720p.BluRay.x264.950MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 996006960
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/Rebecca (1940)",
+      "rel_path": "Romance/Rebecca (1940)",
+      "name": "Rebecca (1940)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/Rebecca (1940)/Rebecca.1940.720p.BluRay.x264.999MB-Pahe.in.mkv",
+          "rel_path": "Romance/Rebecca (1940)/Rebecca.1940.720p.BluRay.x264.999MB-Pahe.in.mkv",
+          "name": "Rebecca.1940.720p.BluRay.x264.999MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 1048347111,
+          "mod_time": "2023-08-06T00:38:18+07:00",
+          "group_label": [
+            "Romance",
+            "Rebecca (1940)"
+          ],
+          "group_path": "Romance/Rebecca (1940)"
+        }
+      ],
+      "metadata": {
+        "year": "1940",
+        "title": "Rebecca"
+      },
+      "displayName": "Rebecca (1940)",
+      "slug": "rebecca-1940",
+      "enriched": {
+        "matched_title": "Rebecca",
+        "original_title": "Rebecca",
+        "release_date": "1940-03-23",
+        "poster_path": "/1qz3qUOHnVy7dL7M7G8jSErxE4b.jpg",
+        "overview": "Story of a young woman who marries a fascinating widower only to find out that she must live in the shadow of his former wife, Rebecca, who died mysteriously several years earlier. The young wife must come to grips with the terrible secret of her handsome, cold husband, Max De Winter. She must also deal with the jealous, obsessed Mrs. Danvers, the housekeeper, who will not accept her as the mistress of the house."
+      },
+      "media": {
+        "name": "Rebecca.1940.720p.BluRay.x264.999MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/Rebecca (1940)/Rebecca.1940.720p.BluRay.x264.999MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 1048347111
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/Roxanne (1987)",
+      "rel_path": "Romance/Roxanne (1987)",
+      "name": "Roxanne (1987)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/Roxanne (1987)/Roxanne.1987.720p.Bluray.x264.850MB-Pahe.in.mkv",
+          "rel_path": "Romance/Roxanne (1987)/Roxanne.1987.720p.Bluray.x264.850MB-Pahe.in.mkv",
+          "name": "Roxanne.1987.720p.Bluray.x264.850MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 891460862,
+          "mod_time": "2023-07-21T08:23:12+07:00",
+          "group_label": [
+            "Romance",
+            "Roxanne (1987)"
+          ],
+          "group_path": "Romance/Roxanne (1987)"
+        }
+      ],
+      "metadata": {
+        "year": "1987",
+        "title": "Roxanne"
+      },
+      "displayName": "Roxanne (1987)",
+      "slug": "roxanne-1987",
+      "enriched": {
+        "matched_title": "Roxanne",
+        "original_title": "Roxanne",
+        "release_date": "1987-06-19",
+        "poster_path": "/c2XSGkpAIIof6Oi8Sr6wBvwt1Lk.jpg",
+        "overview": "In this modern take on Edmond Rostand's classic play \"Cyrano de Bergerac,\" C. D. Bales is the witty, intelligent, and brave fire chief of a small Pacific Northwest town who, due to the size of his enormous nose, declines to pursue the girl of his dreams, lovely Roxanne Kowalski. Instead, when his shy underling Chris McConnell becomes smitten with Roxanne, C.D. feeds the handsome young man the words of love to win her heart."
+      },
+      "media": {
+        "name": "Roxanne.1987.720p.Bluray.x264.850MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/Roxanne (1987)/Roxanne.1987.720p.Bluray.x264.850MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 891460862
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Romance/You People (2023)",
+      "rel_path": "Romance/You People (2023)",
+      "name": "You People (2023)",
+      "type": "directory",
+      "group_label": [
+        "Romance"
+      ],
+      "group_path": "Romance",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Romance/You People (2023)/You.People.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Romance/You People (2023)/You.People.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "name": "You.People.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 789244822,
+          "mod_time": "2023-07-27T06:57:18+07:00",
+          "group_label": [
+            "Romance",
+            "You People (2023)"
+          ],
+          "group_path": "Romance/You People (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "You People"
+      },
+      "displayName": "You People (2023)",
+      "slug": "you-people-2023",
+      "enriched": {
+        "matched_title": "You People",
+        "original_title": "You People",
+        "release_date": "2023-01-20",
+        "poster_path": "/x5E4TndwASNkaK2hwgeYfsIVo2x.jpg",
+        "overview": "A new couple and their families reckon with modern love amid culture clashes, societal expectations and generational differences."
+      },
+      "media": {
+        "name": "You.People.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Romance/You People (2023)/You.People.2023.720p.NF.WEB-DL.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 789244822
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Family Plot (1976)",
+      "rel_path": "Thriller/Family Plot (1976)",
+      "name": "Family Plot (1976)",
+      "type": "directory",
+      "group_label": [
+        "Thriller"
+      ],
+      "group_path": "Thriller",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Family Plot (1976)/Family.Plot.1976.720p.BluRay.X264.999MB-Pahe.in.mkv",
+          "rel_path": "Thriller/Family Plot (1976)/Family.Plot.1976.720p.BluRay.X264.999MB-Pahe.in.mkv",
+          "name": "Family.Plot.1976.720p.BluRay.X264.999MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 1047950532,
+          "mod_time": "2023-08-06T02:08:24+07:00",
+          "group_label": [
+            "Thriller",
+            "Family Plot (1976)"
+          ],
+          "group_path": "Thriller/Family Plot (1976)"
+        }
+      ],
+      "metadata": {
+        "year": "1976",
+        "title": "Family Plot"
+      },
+      "displayName": "Family Plot (1976)",
+      "slug": "family-plot-1976",
+      "enriched": {
+        "matched_title": "Family Plot",
+        "original_title": "Family Plot",
+        "release_date": "1976-04-09",
+        "poster_path": "/mOg42HWC5ew8D0uCjHUna2ISpeD.jpg",
+        "overview": "Spiritualist Blanche Tyler and her cab-driving boyfriend encounter a pair of serial kidnappers while trailing a missing heir in California."
+      },
+      "media": {
+        "name": "Family.Plot.1976.720p.BluRay.X264.999MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Family Plot (1976)/Family.Plot.1976.720p.BluRay.X264.999MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 1047950532
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Frenzy (1972)",
+      "rel_path": "Thriller/Frenzy (1972)",
+      "name": "Frenzy (1972)",
+      "type": "directory",
+      "group_label": [
+        "Thriller"
+      ],
+      "group_path": "Thriller",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Frenzy (1972)/Frenzy.1972.720p.BluRay.X264.950MB-Pahe.in.mkv",
+          "rel_path": "Thriller/Frenzy (1972)/Frenzy.1972.720p.BluRay.X264.950MB-Pahe.in.mkv",
+          "name": "Frenzy.1972.720p.BluRay.X264.950MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 996329958,
+          "mod_time": "2023-08-06T01:14:44+07:00",
+          "group_label": [
+            "Thriller",
+            "Frenzy (1972)"
+          ],
+          "group_path": "Thriller/Frenzy (1972)"
+        }
+      ],
+      "metadata": {
+        "year": "1972",
+        "title": "Frenzy"
+      },
+      "displayName": "Frenzy (1972)",
+      "slug": "frenzy-1972",
+      "enriched": {
+        "matched_title": "Frenzy",
+        "original_title": "Frenzy",
+        "release_date": "1972-05-25",
+        "poster_path": "/zDUR4PY5kyp2hpvbTvWSGiXVmgg.jpg",
+        "overview": "London is terrorized by a vicious sex killer known as The Necktie Murderer. Following the brutal slaying of his ex-wife, down-on-his-luck Richard Blaney is suspected by the police of being the killer. He goes on the run, determined to prove his innocence."
+      },
+      "media": {
+        "name": "Frenzy.1972.720p.BluRay.X264.950MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Frenzy (1972)/Frenzy.1972.720p.BluRay.X264.950MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 996329958
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Marnie (1964)",
+      "rel_path": "Thriller/Marnie (1964)",
+      "name": "Marnie (1964)",
+      "type": "directory",
+      "group_label": [
+        "Thriller"
+      ],
+      "group_path": "Thriller",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Marnie (1964)/Marnie.1964.720p.BluRay.X264.950MB-Pahe.in.mkv",
+          "rel_path": "Thriller/Marnie (1964)/Marnie.1964.720p.BluRay.X264.950MB-Pahe.in.mkv",
+          "name": "Marnie.1964.720p.BluRay.X264.950MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 996699539,
+          "mod_time": "2023-08-06T01:43:58+07:00",
+          "group_label": [
+            "Thriller",
+            "Marnie (1964)"
+          ],
+          "group_path": "Thriller/Marnie (1964)"
+        }
+      ],
+      "metadata": {
+        "year": "1964",
+        "title": "Marnie"
+      },
+      "displayName": "Marnie (1964)",
+      "slug": "marnie-1964",
+      "enriched": {
+        "matched_title": "Marnie",
+        "original_title": "Marnie",
+        "release_date": "1964-07-17",
+        "poster_path": "/nRRy4VO2A3Py7wiZBPz11PAlogp.jpg",
+        "overview": "Marnie is a thief, a liar, and a cheat. When her new boss, Mark Rutland, catches on to her routine kleptomania, she finds herself being blackmailed."
+      },
+      "media": {
+        "name": "Marnie.1964.720p.BluRay.X264.950MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Marnie (1964)/Marnie.1964.720p.BluRay.X264.950MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 996699539
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Murder (1930)",
+      "rel_path": "Thriller/Murder (1930)",
+      "name": "Murder (1930)",
+      "type": "directory",
+      "group_label": [
+        "Thriller"
+      ],
+      "group_path": "Thriller",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Murder (1930)/Murder.1930.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+          "rel_path": "Thriller/Murder (1930)/Murder.1930.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+          "name": "Murder.1930.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 786891160,
+          "mod_time": "2023-08-06T00:26:00+07:00",
+          "group_label": [
+            "Thriller",
+            "Murder (1930)"
+          ],
+          "group_path": "Thriller/Murder (1930)"
+        }
+      ],
+      "metadata": {
+        "year": "1930",
+        "title": "Murder"
+      },
+      "displayName": "Murder (1930)",
+      "slug": "murder-1930",
+      "enriched": {
+        "matched_title": "Murder!",
+        "original_title": "Murder!",
+        "release_date": "1930-07-31",
+        "poster_path": "/iu8mee9GciHFgfqG5ifdDOTLw4F.jpg",
+        "overview": "When a woman is convicted of murder, one of the jurors selected to serve on the murder-trial jury believes the accused, an aspiring actress, is innocent of the crime and takes it upon himself to apprehend the real killer."
+      },
+      "media": {
+        "name": "Murder.1930.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Murder (1930)/Murder.1930.720p.WEB-HD.x264.750MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 786891160
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Thriller/North by Northwest (1959)",
+      "rel_path": "Thriller/North by Northwest (1959)",
+      "name": "North by Northwest (1959)",
+      "type": "directory",
+      "group_label": [
+        "Thriller"
+      ],
+      "group_path": "Thriller",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Thriller/North by Northwest (1959)/North.By.Northwest.1959.720p.BluRay.x264-Pahe.in.mkv",
+          "rel_path": "Thriller/North by Northwest (1959)/North.By.Northwest.1959.720p.BluRay.x264-Pahe.in.mkv",
+          "name": "North.By.Northwest.1959.720p.BluRay.x264-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 1220812601,
+          "mod_time": "2023-08-06T01:01:34+07:00",
+          "group_label": [
+            "Thriller",
+            "North by Northwest (1959)"
+          ],
+          "group_path": "Thriller/North by Northwest (1959)"
+        }
+      ],
+      "metadata": {
+        "year": "1959",
+        "title": "North by Northwest"
+      },
+      "displayName": "North by Northwest (1959)",
+      "slug": "north-by-northwest-1959",
+      "enriched": {
+        "matched_title": "North by Northwest",
+        "original_title": "North by Northwest",
+        "release_date": "1959-08-06",
+        "poster_path": "/kNOFPQrel9YFCVzI0DF8FnCEpCw.jpg",
+        "overview": "Advertising man Roger Thornhill is mistaken for a spy, triggering a deadly cross-country chase."
+      },
+      "media": {
+        "name": "North.By.Northwest.1959.720p.BluRay.x264-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Thriller/North by Northwest (1959)/North.By.Northwest.1959.720p.BluRay.x264-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 1220812601
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Shadow of a Doubt (1943)",
+      "rel_path": "Thriller/Shadow of a Doubt (1943)",
+      "name": "Shadow of a Doubt (1943)",
+      "type": "directory",
+      "group_label": [
+        "Thriller"
+      ],
+      "group_path": "Thriller",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Shadow of a Doubt (1943)/Shadow.of.a.Doubt.1943.720p.BluRay.x264.800MB-Pahe.in.mkv",
+          "rel_path": "Thriller/Shadow of a Doubt (1943)/Shadow.of.a.Doubt.1943.720p.BluRay.x264.800MB-Pahe.in.mkv",
+          "name": "Shadow.of.a.Doubt.1943.720p.BluRay.x264.800MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 839729153,
+          "mod_time": "2023-08-06T00:44:18+07:00",
+          "group_label": [
+            "Thriller",
+            "Shadow of a Doubt (1943)"
+          ],
+          "group_path": "Thriller/Shadow of a Doubt (1943)"
+        }
+      ],
+      "metadata": {
+        "year": "1943",
+        "title": "Shadow of a Doubt"
+      },
+      "displayName": "Shadow of a Doubt (1943)",
+      "slug": "shadow-of-a-doubt-1943",
+      "enriched": {
+        "matched_title": "Shadow of a Doubt",
+        "original_title": "Shadow of a Doubt",
+        "release_date": "1943-01-15",
+        "poster_path": "/ptyWagbWE8jSGyV2tGEzAdVbRCj.jpg",
+        "overview": "Just when Charlie is feeling especially frustrated by the lack of excitement in her small town in California, she receives wonderful news: Her uncle and namesake, Charlie, is coming to visit. However, as secrets about him come to the fore, her admiration turns into suspicion."
+      },
+      "media": {
+        "name": "Shadow.of.a.Doubt.1943.720p.BluRay.x264.800MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Shadow of a Doubt (1943)/Shadow.of.a.Doubt.1943.720p.BluRay.x264.800MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 839729153
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Sympathy for the Devil (2023)",
+      "rel_path": "Thriller/Sympathy for the Devil (2023)",
+      "name": "Sympathy for the Devil (2023)",
+      "type": "directory",
+      "group_label": [
+        "Thriller"
+      ],
+      "group_path": "Thriller",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Sympathy for the Devil (2023)/Sympathy.for.the.Devil.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "rel_path": "Thriller/Sympathy for the Devil (2023)/Sympathy.for.the.Devil.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "name": "Sympathy.for.the.Devil.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 491063275,
+          "mod_time": "2023-07-30T23:36:28+07:00",
+          "group_label": [
+            "Thriller",
+            "Sympathy for the Devil (2023)"
+          ],
+          "group_path": "Thriller/Sympathy for the Devil (2023)"
+        }
+      ],
+      "metadata": {
+        "year": "2023",
+        "title": "Sympathy for the Devil"
+      },
+      "displayName": "Sympathy for the Devil (2023)",
+      "slug": "sympathy-for-the-devil-2023",
+      "enriched": {
+        "matched_title": "Sympathy for the Devil",
+        "original_title": "Sympathy for the Devil",
+        "release_date": "2023-07-20",
+        "poster_path": "/afGdVMa80LMs6ibLP22CwM5uI4e.jpg",
+        "overview": "After being forced to drive a mysterious passenger at gunpoint, a man finds himself in a high-stakes game of cat and mouse where it becomes clear that not everything is as it seems."
+      },
+      "media": {
+        "name": "Sympathy.for.the.Devil.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Sympathy for the Devil (2023)/Sympathy.for.the.Devil.2023.720p.WEB-HD.x265.10Bit-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 491063275
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Topaz (1969)",
+      "rel_path": "Thriller/Topaz (1969)",
+      "name": "Topaz (1969)",
+      "type": "directory",
+      "group_label": [
+        "Thriller"
+      ],
+      "group_path": "Thriller",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Topaz (1969)/Topaz.1969.EXTENDED.CUT.720p.BluRay.x264-Pahe.in.mkv",
+          "rel_path": "Thriller/Topaz (1969)/Topaz.1969.EXTENDED.CUT.720p.BluRay.x264-Pahe.in.mkv",
+          "name": "Topaz.1969.EXTENDED.CUT.720p.BluRay.x264-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 1258057129,
+          "mod_time": "2023-08-06T07:00:16+07:00",
+          "group_label": [
+            "Thriller",
+            "Topaz (1969)"
+          ],
+          "group_path": "Thriller/Topaz (1969)"
+        }
+      ],
+      "metadata": {
+        "year": "1969",
+        "title": "Topaz"
+      },
+      "displayName": "Topaz (1969)",
+      "slug": "topaz-1969",
+      "enriched": {
+        "matched_title": "Topaz",
+        "original_title": "Topaz",
+        "release_date": "1969-12-17",
+        "poster_path": "/8u7vxykCVZoaxNocLbpstv3IFNK.jpg",
+        "overview": "Copenhagen, Denmark, 1962. When a high-ranking Soviet official decides to change sides, a French intelligence agent is caught up in a cold, silent and bloody spy war in which his own family will play a decisive role."
+      },
+      "media": {
+        "name": "Topaz.1969.EXTENDED.CUT.720p.BluRay.x264-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Topaz (1969)/Topaz.1969.EXTENDED.CUT.720p.BluRay.x264-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 1258057129
+      }
+    },
+    {
+      "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Torn Curtain (1966)",
+      "rel_path": "Thriller/Torn Curtain (1966)",
+      "name": "Torn Curtain (1966)",
+      "type": "directory",
+      "group_label": [
+        "Thriller"
+      ],
+      "group_path": "Thriller",
+      "children": [
+        {
+          "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Torn Curtain (1966)/Torn.Curtain.1966.720p.BluRay.X264.900MB-Pahe.in.mkv",
+          "rel_path": "Thriller/Torn Curtain (1966)/Torn.Curtain.1966.720p.BluRay.X264.900MB-Pahe.in.mkv",
+          "name": "Torn.Curtain.1966.720p.BluRay.X264.900MB-Pahe.in.mkv",
+          "type": "file",
+          "ext": ".mkv",
+          "size": 943882114,
+          "mod_time": "2023-08-06T01:30:38+07:00",
+          "group_label": [
+            "Thriller",
+            "Torn Curtain (1966)"
+          ],
+          "group_path": "Thriller/Torn Curtain (1966)"
+        }
+      ],
+      "metadata": {
+        "year": "1966",
+        "title": "Torn Curtain"
+      },
+      "displayName": "Torn Curtain (1966)",
+      "slug": "torn-curtain-1966",
+      "enriched": {
+        "matched_title": "Torn Curtain",
+        "original_title": "Torn Curtain",
+        "release_date": "1966-07-15",
+        "poster_path": "/7XC1l9eP2TBYMEdA4KRUqKAFmbm.jpg",
+        "overview": "During the Cold War, an American scientist appears to defect to East Germany as part of a cloak and dagger mission to find the formula for a resin solution, but the plan goes awry when his fiancee, unaware of his motivation, follows him across the border."
+      },
+      "media": {
+        "name": "Torn.Curtain.1966.720p.BluRay.X264.900MB-Pahe.in.mkv",
+        "path": "/mnt/e/TODO/Movies/Foldered/Thriller/Torn Curtain (1966)/Torn.Curtain.1966.720p.BluRay.X264.900MB-Pahe.in.mkv",
+        "ext": ".mkv",
+        "size": 943882114
+      }
+    }
+  ],
+  "errors": {}
+}
